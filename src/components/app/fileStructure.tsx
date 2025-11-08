@@ -39,13 +39,19 @@ import {
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
-  Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from '@/components/ui/context-menu';
 import CommandsPallet from './commandsPallet';
 import { toast } from 'sonner';
 import {
@@ -339,7 +345,7 @@ export function FileStructure() {
             onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
           >
             Name
-            <ArrowUpDown />
+            <ArrowUpDown className="opacity-50" />
           </Button>
         );
       },
@@ -374,7 +380,7 @@ export function FileStructure() {
             onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
           >
             Date Modified
-            <ArrowUpDown />
+            <ArrowUpDown className="opacity-50" />
           </Button>
         );
       },
@@ -389,11 +395,31 @@ export function FileStructure() {
     },
     {
       accessorKey: 'file_type',
-      header: 'Type',
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          >
+            Type
+            <ArrowUpDown className="opacity-50" />
+          </Button>
+        );
+      },
       cell: ({ row }) => {
         const fileItem = row.original;
         if (fileItem.file_type === 'folder') return <div>Folder</div>;
         return <div className="capitalize">{fileItem.extension || 'File'}</div>;
+      },
+      sortingFn: (rowA, rowB) => {
+        const a = rowA.original;
+        const b = rowB.original;
+        // Sort folders first, then by extension
+        if (a.file_type === 'folder' && b.file_type !== 'folder') return -1;
+        if (a.file_type !== 'folder' && b.file_type === 'folder') return 1;
+        const extA = a.extension || '';
+        const extB = b.extension || '';
+        return extA.localeCompare(extB);
       },
       size: 80,
       minSize: 60,
@@ -401,10 +427,29 @@ export function FileStructure() {
     },
     {
       accessorKey: 'size',
-      header: () => <div className="text-right">Size</div>,
+      header: ({ column }) => {
+        return (
+          <div className="text-right">
+            <Button
+              variant="ghost"
+              onClick={() =>
+                column.toggleSorting(column.getIsSorted() === 'asc')
+              }
+            >
+              Size
+              <ArrowUpDown className="opacity-50" />
+            </Button>
+          </div>
+        );
+      },
       cell: ({ row }) => {
         const size = row.getValue('size') as number | null;
         return <div className="text-right">{formatFileSize(size)}</div>;
+      },
+      sortingFn: (rowA, rowB) => {
+        const a = rowA.original.size ?? -1;
+        const b = rowB.original.size ?? -1;
+        return a - b;
       },
       size: 100,
       minSize: 80,
@@ -649,19 +694,21 @@ export function FileStructure() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className="flex-1 rounded-sm border border-border/50 overflow-hidden bg-card">
-          <ScrollArea className="h-full w-full">
+        <div className="flex-1 rounded-sm border border-border/50 overflow-hidden bg-card flex flex-col">
+          <div className="w-full border-b border-border/50">
             <div className="w-full">
-              <Table>
-                <TableHeader className="sticky top-0 z-10 bg-card">
+              <table className="w-full table-fixed caption-bottom text-sm">
+                <colgroup>
+                  {table.getVisibleFlatColumns().map((column) => (
+                    <col key={column.id} style={{ width: column.getSize() }} />
+                  ))}
+                </colgroup>
+                <TableHeader>
                   {table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={headerGroup.id}>
                       {headerGroup.headers.map((header) => {
                         return (
-                          <TableHead
-                            key={header.id}
-                            className="sticky top-0 z-10 bg-card"
-                          >
+                          <TableHead key={header.id}>
                             {header.isPlaceholder
                               ? null
                               : flexRender(
@@ -674,27 +721,142 @@ export function FileStructure() {
                     </TableRow>
                   ))}
                 </TableHeader>
+              </table>
+            </div>
+          </div>
+          <ScrollArea className="flex-1 w-full h-0">
+            <div className="w-full">
+              <table className="w-full table-fixed caption-bottom text-sm">
+                <colgroup>
+                  {table.getVisibleFlatColumns().map((column) => (
+                    <col key={column.id} style={{ width: column.getSize() }} />
+                  ))}
+                </colgroup>
                 <TableBody>
                   {table.getRowModel().rows?.length ? (
-                    table.getRowModel().rows.map((row) => (
-                      <TableRow
-                        key={row.id}
-                        data-state={row.getIsSelected() && 'selected'}
-                        onDoubleClick={() =>
-                          handleItemDoubleClick(row.original)
-                        }
-                        className="cursor-pointer"
-                      >
-                        {row.getVisibleCells().map((cell) => (
-                          <TableCell key={cell.id}>
-                            {flexRender(
-                              cell.column.columnDef.cell,
-                              cell.getContext(),
-                            )}
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    ))
+                    table.getRowModel().rows.map((row) => {
+                      const fileItem = row.original;
+
+                      return (
+                        <ContextMenu key={row.id}>
+                          <ContextMenuTrigger asChild>
+                            <TableRow
+                              data-state={row.getIsSelected() && 'selected'}
+                              onDoubleClick={() =>
+                                handleItemDoubleClick(row.original)
+                              }
+                              className="cursor-pointer duration-0"
+                            >
+                              {row.getVisibleCells().map((cell) => (
+                                <TableCell key={cell.id}>
+                                  {flexRender(
+                                    cell.column.columnDef.cell,
+                                    cell.getContext(),
+                                  )}
+                                </TableCell>
+                              ))}
+                            </TableRow>
+                          </ContextMenuTrigger>
+                          <ContextMenuContent className="w-48">
+                            <ContextMenuItem
+                              onClick={() => {
+                                if (fileItem.file_type === 'folder') {
+                                  navigateToPath(fileItem.path);
+                                } else {
+                                  invoke<string>('open_file_with_default_app', {
+                                    filePath: fileItem.path,
+                                  })
+                                    .then((result) => toast.success(result))
+                                    .catch((error) =>
+                                      toast.error(
+                                        `Failed to open file: ${error}`,
+                                      ),
+                                    );
+                                }
+                              }}
+                            >
+                              {fileItem.file_type === 'folder'
+                                ? 'Open Folder'
+                                : 'Open File'}
+                            </ContextMenuItem>
+                            <ContextMenuSeparator />
+                            <ContextMenuItem
+                              onClick={() => {
+                                navigator.clipboard
+                                  .writeText(fileItem.path)
+                                  .then(() =>
+                                    toast.success('Path copied to clipboard'),
+                                  )
+                                  .catch(() =>
+                                    toast.error('Failed to copy path'),
+                                  );
+                              }}
+                            >
+                              Copy Path
+                            </ContextMenuItem>
+                            <ContextMenuItem
+                              onClick={() => {
+                                navigator.clipboard
+                                  .writeText(fileItem.name)
+                                  .then(() =>
+                                    toast.success('Name copied to clipboard'),
+                                  )
+                                  .catch(() =>
+                                    toast.error('Failed to copy name'),
+                                  );
+                              }}
+                            >
+                              Copy Name
+                            </ContextMenuItem>
+                            <ContextMenuSeparator />
+                            <ContextMenuItem
+                              onClick={() => {
+                                const newName = prompt(
+                                  'Enter new name:',
+                                  fileItem.name,
+                                );
+                                if (
+                                  !newName ||
+                                  newName.trim() === '' ||
+                                  newName === fileItem.name
+                                )
+                                  return;
+
+                                invoke('rename_item', {
+                                  oldPath: fileItem.path,
+                                  newName: newName.trim(),
+                                })
+                                  .then(() => handleRefresh())
+                                  .catch((error) =>
+                                    toast.error(`Failed to rename: ${error}`),
+                                  );
+                              }}
+                            >
+                              Rename
+                            </ContextMenuItem>
+                            <ContextMenuItem>Properties</ContextMenuItem>
+                            <ContextMenuSeparator />
+                            <ContextMenuItem
+                              className="text-red-600 focus:text-red-600"
+                              onClick={() => {
+                                const confirmDelete = confirm(
+                                  `Are you sure you want to delete "${fileItem.name}"?`,
+                                );
+                                if (!confirmDelete) return;
+
+                                invoke('delete_item', { path: fileItem.path })
+                                  .then(() => handleRefresh())
+                                  .catch((error) =>
+                                    toast.error(`Failed to delete: ${error}`),
+                                  );
+                              }}
+                            >
+                              Delete
+                            </ContextMenuItem>
+                          </ContextMenuContent>
+                        </ContextMenu>
+                      );
+                    })
                   ) : (
                     <TableRow>
                       <TableCell
@@ -706,7 +868,7 @@ export function FileStructure() {
                     </TableRow>
                   )}
                 </TableBody>
-              </Table>
+              </table>
             </div>
           </ScrollArea>
         </div>
