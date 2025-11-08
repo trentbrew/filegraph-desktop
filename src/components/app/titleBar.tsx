@@ -10,9 +10,9 @@ export default function TitleBar() {
     };
 
     return (
-        <div className="flex flex-row items-center justify-between h-12 px-3 bg-background/95 backdrop-blur-xl border-b border-border/50 rounded-t-[12px]">
+        <div data-tauri-drag-region className="flex flex-row items-center justify-between h-12 px-3 bg-background/95 backdrop-blur-xl border-b border-border/50 rounded-t-[12px]">
             {/* macOS Traffic Lights */}
-            <div className="flex items-center gap-2 no-drag shrink-0">
+            <div data-tauri-drag-region="false" className="flex items-center gap-2 shrink-0">
                 <div className="flex items-center gap-2">
                     <button
                         onClick={() => appWindow.close()}
@@ -41,11 +41,11 @@ export default function TitleBar() {
                 </div>
             </div>
             
-            {/* Draggable center area */}
-            <div className="flex-1 drag h-full"></div>
+            {/* Spacer for centered layout */}
+            <div className="flex-1"></div>
 
             {/* Right side controls */}
-            <div className="no-drag shrink-0">
+            <div data-tauri-drag-region="false" className="shrink-0">
                 <ThemeToggle />
             </div>
         </div>
