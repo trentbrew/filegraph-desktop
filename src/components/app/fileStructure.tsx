@@ -21,6 +21,8 @@ import {
   ArrowRight,
   ArrowLeft,
   Home,
+  Eye,
+  EyeOff,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -183,6 +185,7 @@ export function FileStructure() {
     [],
   );
   const [historyIndex, setHistoryIndex] = React.useState(-1);
+  const [showDotfiles, setShowDotfiles] = React.useState(false);
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({
     name: 300,
     date_modified: 120,
@@ -342,12 +345,17 @@ export function FileStructure() {
       },
       cell: ({ row }) => {
         const fileItem = row.original;
+        const isDotfile = fileItem.name.startsWith('.');
         return (
           <div className="flex items-center gap-2 min-w-0 max-w-[300px]">
             <div className="shrink-0">
               {getFileIcon(fileItem.file_type, fileItem.extension)}
             </div>
-            <span className="truncate" title={fileItem.name}>
+            <span
+              className={`truncate font-medium text-sm ${
+                isDotfile ? 'opacity-50' : ''
+              }`}
+            >
               {fileItem.name}
             </span>
           </div>
@@ -501,8 +509,14 @@ export function FileStructure() {
     },
   ];
 
+  // Filter data based on dotfiles toggle
+  const filteredData = React.useMemo(() => {
+    if (showDotfiles) return data;
+    return data.filter((item) => !item.name.startsWith('.'));
+  }, [data, showDotfiles]);
+
   const table = useReactTable({
-    data,
+    data: filteredData,
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
@@ -592,6 +606,22 @@ export function FileStructure() {
             }
             className="w-48"
           />
+
+          {/* Dotfiles Toggle */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowDotfiles(!showDotfiles)}
+            className="gap-2"
+          >
+            {showDotfiles ? (
+              <Eye className="h-4 w-4" />
+            ) : (
+              <EyeOff className="h-4 w-4" />
+            )}
+            Dotfiles
+          </Button>
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
@@ -623,12 +653,15 @@ export function FileStructure() {
           <ScrollArea className="h-full w-full">
             <div className="w-full">
               <Table>
-                <TableHeader>
+                <TableHeader className="sticky top-0 z-10 bg-card">
                   {table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={headerGroup.id}>
                       {headerGroup.headers.map((header) => {
                         return (
-                          <TableHead key={header.id}>
+                          <TableHead
+                            key={header.id}
+                            className="sticky top-0 z-10 bg-card"
+                          >
                             {header.isPlaceholder
                               ? null
                               : flexRender(
