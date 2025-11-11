@@ -16,24 +16,31 @@ import {
 } from '@tanstack/react-table';
 import {
   ArrowUpDown,
-  ChevronDown,
   MoreHorizontal,
-  ArrowRight,
-  ArrowLeft,
-  Home,
   Eye,
   EyeOff,
+  PanelRight,
+  Maximize2,
+  Square,
+  TableIcon,
+  Grid3x3,
+  Columns3,
+  ListTree,
+  File,
+  Folder,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
+  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
@@ -52,8 +59,11 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger,
 } from '@/components/ui/context-menu';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import CommandsPallet from './commandsPallet';
+import { PreviewPane } from './previewPane';
 import { toast } from 'sonner';
+import TitleBar from './titleBar';
 import {
   FaFolder,
   FaFile,
@@ -191,7 +201,7 @@ export function FileStructure() {
     [],
   );
   const [historyIndex, setHistoryIndex] = React.useState(-1);
-  const [showDotfiles, setShowDotfiles] = React.useState(false);
+  const [showDotfiles, setShowDotfiles] = React.useState(true);
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({
     name: 300,
     date_modified: 120,
@@ -199,6 +209,74 @@ export function FileStructure() {
     size: 100,
     actions: 50,
   });
+  const [activeItem, setActiveItem] = React.useState<FileItem | null>(null);
+  const [previewEnabled, setPreviewEnabled] = React.useState(() => {
+    const stored = localStorage.getItem('fileex_preview_enabled');
+    return stored !== null ? JSON.parse(stored) : true;
+  });
+  const [previewWidth, setPreviewWidth] = React.useState(() => {
+    const stored = localStorage.getItem('fileex_preview_width');
+    return stored ? parseInt(stored, 10) : 400;
+  });
+  const [searchValue, setSearchValue] = React.useState('');
+  const [isResizing, setIsResizing] = React.useState(false);
+  const [viewMode, setViewMode] = React.useState<
+    'pane' | 'modal' | 'fullscreen'
+  >('pane');
+  const [lastSelectedIndex, setLastSelectedIndex] = React.useState<
+    number | null
+  >(null);
+  const [layoutMode, setLayoutMode] = React.useState<
+    'table' | 'grid' | 'columns' | 'tree'
+  >('table');
+
+  // Persist preview preferences
+  React.useEffect(() => {
+    localStorage.setItem(
+      'fileex_preview_enabled',
+      JSON.stringify(previewEnabled),
+    );
+  }, [previewEnabled]);
+
+  React.useEffect(() => {
+    localStorage.setItem('fileex_preview_width', previewWidth.toString());
+  }, [previewWidth]);
+
+  // Clear search filter when navigating to new directory
+  React.useEffect(() => {
+    setSearchValue('');
+  }, [currentPath]);
+
+  // Handle resize
+  React.useEffect(() => {
+    if (!isResizing) return;
+
+    // Disable text selection during resize
+    document.body.style.userSelect = 'none';
+    document.body.style.cursor = 'col-resize';
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const newWidth = window.innerWidth - e.clientX;
+      const clampedWidth = Math.max(300, Math.min(800, newWidth));
+      setPreviewWidth(clampedWidth);
+    };
+
+    const handleMouseUp = () => {
+      setIsResizing(false);
+      document.body.style.userSelect = '';
+      document.body.style.cursor = '';
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.body.style.userSelect = '';
+      document.body.style.cursor = '';
+    };
+  }, [isResizing]);
 
   // Load initial directory
   React.useEffect(() => {
@@ -329,7 +407,27 @@ export function FileStructure() {
       cell: ({ row }) => (
         <Checkbox
           checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          onCheckedChange={(value) => {
+            row.toggleSelected(!!value);
+            setLastSelectedIndex(row.index);
+          }}
+          onClick={(e) => {
+            // Handle shift+click for range selection with checkboxes
+            if (e.shiftKey && lastSelectedIndex !== null) {
+              e.preventDefault();
+              const currentIndex = row.index;
+              const start = Math.min(lastSelectedIndex, currentIndex);
+              const end = Math.max(lastSelectedIndex, currentIndex);
+
+              // Get current selection and merge with range
+              const newSelection: Record<string, boolean> = { ...rowSelection };
+              for (let i = start; i <= end; i++) {
+                newSelection[i.toString()] = true;
+              }
+              setRowSelection(newSelection);
+              setLastSelectedIndex(currentIndex);
+            }
+          }}
           aria-label="Select row"
         />
       ),
@@ -583,6 +681,17 @@ export function FileStructure() {
 
   return (
     <div className="w-full h-full flex flex-col">
+      {/* Title Bar with Path Input */}
+      <TitleBar
+        currentPath={currentPath}
+        onPathChange={setCurrentPath}
+        onNavigate={navigateToPath}
+        onNavigateBack={navigateBack}
+        onNavigateHome={navigateHome}
+        canNavigateBack={historyIndex > 0}
+        loading={loading}
+      />
+
       {/* Commands Palette */}
       <CommandsPallet
         currentPath={currentPath}
@@ -591,287 +700,482 @@ export function FileStructure() {
         onItemsDeleted={handleItemsDeleted}
       />
 
-      {/* Main File Explorer */}
-      <div className="flex-1 flex flex-col px-3 pb-3 overflow-hidden">
-        {/* Path Navigation and Search Bar */}
-        <div className="flex items-center gap-3 py-3 shrink-0">
-          {/* Navigation Buttons */}
-          <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={navigateBack}
-              disabled={loading || historyIndex <= 0}
-              className="h-8 w-8 p-0"
-            >
-              <ArrowLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={navigateHome}
-              disabled={loading}
-              className="h-8 w-8 p-0"
-            >
-              <Home className="h-4 w-4" />
-            </Button>
-          </div>
+      {/* Main Content: Split Layout */}
+      <div className="flex-1 flex overflow-hidden">
+        {/* File Explorer */}
+        <div
+          className="flex flex-col pl-3 pr-0 pb-3 overflow-hidden"
+          style={{
+            width:
+              previewEnabled && activeItem
+                ? `calc(100% - ${previewWidth}px)`
+                : '100%',
+            transition: 'width 0.2s ease',
+          }}
+        >
+          {/* Toolbar */}
+          <div className="flex items-center gap-3 p-3 pl-0 shrink-0">
+            {/* Layout Mode Selector */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2">
+                  {layoutMode === 'table' && <TableIcon className="h-4 w-4" />}
+                  {layoutMode === 'grid' && <Grid3x3 className="h-4 w-4" />}
+                  {layoutMode === 'columns' && <Columns3 className="h-4 w-4" />}
+                  {layoutMode === 'tree' && <ListTree className="h-4 w-4" />}
+                  <span className="capitalize">{layoutMode}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem onClick={() => setLayoutMode('table')}>
+                  <TableIcon className="h-4 w-4 mr-2" />
+                  Table
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLayoutMode('grid')}>
+                  <Grid3x3 className="h-4 w-4 mr-2" />
+                  Grid
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLayoutMode('columns')}>
+                  <Columns3 className="h-4 w-4 mr-2" />
+                  Columns
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLayoutMode('tree')}>
+                  <ListTree className="h-4 w-4 mr-2" />
+                  Tree
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-          {/* Path Input */}
-          <div className="flex items-center gap-2 flex-2">
+            {/* Search Input - Full Width */}
             <Input
-              placeholder="Enter path..."
-              value={currentPath}
-              onChange={(event) => setCurrentPath(event.target.value)}
-              className="flex-1 font-mono text-sm"
-              onKeyDown={(event) => {
-                if (event.key === 'Enter') {
-                  navigateToPath(currentPath);
-                }
+              placeholder="Search..."
+              value={searchValue}
+              onChange={(event) => {
+                setSearchValue(event.target.value);
+                table.getColumn('name')?.setFilterValue(event.target.value);
               }}
-              disabled={loading}
+              className="flex-1"
             />
-            {/* <Button
+
+            {/* View Mode Selector */}
+            {previewEnabled && activeItem && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm" className="gap-2">
+                    {viewMode === 'pane' && <PanelRight className="h-4 w-4" />}
+                    {viewMode === 'modal' && <Square className="h-4 w-4" />}
+                    {viewMode === 'fullscreen' && (
+                      <Maximize2 className="h-4 w-4" />
+                    )}
+                    <span className="capitalize">{viewMode}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => setViewMode('pane')}>
+                    <PanelRight className="h-4 w-4 mr-2" />
+                    Side Pane
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setViewMode('modal')}>
+                    <Square className="h-4 w-4 mr-2" />
+                    Modal
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setViewMode('fullscreen')}>
+                    <Maximize2 className="h-4 w-4 mr-2" />
+                    Fullscreen
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+
+            {/* Dotfiles Toggle */}
+            <Button
               variant="outline"
               size="sm"
-              onClick={() => navigateToPath(currentPath)}
-              disabled={loading}
-              className="h-8 w-8 p-0"
+              onClick={() => setShowDotfiles(!showDotfiles)}
+              className="gap-2"
             >
-              <ArrowRight className="h-4 w-4" />
-            </Button> */}
+              {showDotfiles ? (
+                <Eye className="h-4 w-4" />
+              ) : (
+                <EyeOff className="h-4 w-4" />
+              )}
+              Dotfiles
+            </Button>
+
+            {/* Preview Toggle */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPreviewEnabled(!previewEnabled)}
+              className="gap-2"
+              title={previewEnabled ? 'Hide preview' : 'Show preview'}
+            >
+              {previewEnabled ? (
+                <Eye className="h-4 w-4" />
+              ) : (
+                <EyeOff className="h-4 w-4" />
+              )}
+              Preview
+            </Button>
           </div>
 
-          {/* Search Input */}
-          <Input
-            placeholder="Search..."
-            value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
-            onChange={(event) =>
-              table.getColumn('name')?.setFilterValue(event.target.value)
-            }
-            className="w-48"
-          />
+          {/* Table View */}
+          {layoutMode === 'table' && (
+            <div className="flex-1 rounded-sm border border-border/50 overflow-hidden bg-card flex flex-col select-none">
+              <div className="w-full border-b border-border/50">
+                <div className="w-full">
+                  <table className="w-full table-fixed caption-bottom text-sm">
+                    <colgroup>
+                      {table.getVisibleFlatColumns().map((column) => (
+                        <col
+                          key={column.id}
+                          style={{ width: column.getSize() }}
+                        />
+                      ))}
+                    </colgroup>
+                    <TableHeader>
+                      {table.getHeaderGroups().map((headerGroup) => (
+                        <TableRow key={headerGroup.id}>
+                          {headerGroup.headers.map((header) => {
+                            return (
+                              <TableHead key={header.id}>
+                                {header.isPlaceholder
+                                  ? null
+                                  : flexRender(
+                                      header.column.columnDef.header,
+                                      header.getContext(),
+                                    )}
+                              </TableHead>
+                            );
+                          })}
+                        </TableRow>
+                      ))}
+                    </TableHeader>
+                  </table>
+                </div>
+              </div>
+              <ScrollArea className="flex-1 w-full h-0">
+                <div className="w-full">
+                  <table className="w-full table-fixed caption-bottom text-sm">
+                    <colgroup>
+                      {table.getVisibleFlatColumns().map((column) => (
+                        <col
+                          key={column.id}
+                          style={{ width: column.getSize() }}
+                        />
+                      ))}
+                    </colgroup>
+                    <TableBody>
+                      {table.getRowModel().rows?.length ? (
+                        table.getRowModel().rows.map((row) => {
+                          const fileItem = row.original;
 
-          {/* Dotfiles Toggle */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setShowDotfiles(!showDotfiles)}
-            className="gap-2"
-          >
-            {showDotfiles ? (
-              <Eye className="h-4 w-4" />
-            ) : (
-              <EyeOff className="h-4 w-4" />
-            )}
-            Dotfiles
-          </Button>
+                          return (
+                            <ContextMenu key={row.id}>
+                              <ContextMenuTrigger asChild>
+                                <TableRow
+                                  data-state={row.getIsSelected() && 'selected'}
+                                  onClick={(e) => {
+                                    // Don't interfere with checkbox clicks
+                                    if (
+                                      (e.target as HTMLElement).closest(
+                                        '[type="checkbox"]',
+                                      )
+                                    ) {
+                                      return;
+                                    }
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-auto">
-                Columns <ChevronDown />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {table
-                .getAllColumns()
-                .filter((column) => column.getCanHide())
-                .map((column) => {
+                                    const currentIndex = row.index;
+
+                                    // Handle shift+click for range selection
+                                    if (
+                                      e.shiftKey &&
+                                      lastSelectedIndex !== null
+                                    ) {
+                                      const start = Math.min(
+                                        lastSelectedIndex,
+                                        currentIndex,
+                                      );
+                                      const end = Math.max(
+                                        lastSelectedIndex,
+                                        currentIndex,
+                                      );
+
+                                      // Merge with existing selection
+                                      const rowsToSelect: Record<
+                                        string,
+                                        boolean
+                                      > = { ...rowSelection };
+                                      for (let i = start; i <= end; i++) {
+                                        rowsToSelect[i.toString()] = true;
+                                      }
+                                      setRowSelection(rowsToSelect);
+                                      setLastSelectedIndex(currentIndex);
+                                    } else {
+                                      // Normal click - just track index
+                                      setLastSelectedIndex(currentIndex);
+                                    }
+
+                                    // Set active item for preview (only for files, not folders)
+                                    if (
+                                      previewEnabled &&
+                                      fileItem.file_type !== 'folder'
+                                    ) {
+                                      setActiveItem(fileItem);
+                                    }
+                                  }}
+                                  onDoubleClick={() =>
+                                    handleItemDoubleClick(row.original)
+                                  }
+                                  className={`cursor-pointer duration-0 select-none ${
+                                    activeItem?.path === fileItem.path
+                                      ? 'bg-accent'
+                                      : ''
+                                  }`}
+                                >
+                                  {row.getVisibleCells().map((cell) => (
+                                    <TableCell key={cell.id}>
+                                      {flexRender(
+                                        cell.column.columnDef.cell,
+                                        cell.getContext(),
+                                      )}
+                                    </TableCell>
+                                  ))}
+                                </TableRow>
+                              </ContextMenuTrigger>
+                              <ContextMenuContent className="w-48">
+                                <ContextMenuItem
+                                  onClick={() => {
+                                    if (fileItem.file_type === 'folder') {
+                                      navigateToPath(fileItem.path);
+                                    } else {
+                                      invoke<string>(
+                                        'open_file_with_default_app',
+                                        {
+                                          filePath: fileItem.path,
+                                        },
+                                      )
+                                        .then((result) => toast.success(result))
+                                        .catch((error) =>
+                                          toast.error(
+                                            `Failed to open file: ${error}`,
+                                          ),
+                                        );
+                                    }
+                                  }}
+                                >
+                                  {fileItem.file_type === 'folder'
+                                    ? 'Open Folder'
+                                    : 'Open File'}
+                                </ContextMenuItem>
+                                <ContextMenuSeparator />
+                                <ContextMenuItem
+                                  onClick={() => {
+                                    navigator.clipboard
+                                      .writeText(fileItem.path)
+                                      .then(() =>
+                                        toast.success(
+                                          'Path copied to clipboard',
+                                        ),
+                                      )
+                                      .catch(() =>
+                                        toast.error('Failed to copy path'),
+                                      );
+                                  }}
+                                >
+                                  Copy Path
+                                </ContextMenuItem>
+                                <ContextMenuItem
+                                  onClick={() => {
+                                    navigator.clipboard
+                                      .writeText(fileItem.name)
+                                      .then(() =>
+                                        toast.success(
+                                          'Name copied to clipboard',
+                                        ),
+                                      )
+                                      .catch(() =>
+                                        toast.error('Failed to copy name'),
+                                      );
+                                  }}
+                                >
+                                  Copy Name
+                                </ContextMenuItem>
+                                <ContextMenuSeparator />
+                                <ContextMenuItem
+                                  onClick={() => {
+                                    const newName = prompt(
+                                      'Enter new name:',
+                                      fileItem.name,
+                                    );
+                                    if (
+                                      !newName ||
+                                      newName.trim() === '' ||
+                                      newName === fileItem.name
+                                    )
+                                      return;
+
+                                    invoke('rename_item', {
+                                      oldPath: fileItem.path,
+                                      newName: newName.trim(),
+                                    })
+                                      .then(() => handleRefresh())
+                                      .catch((error) =>
+                                        toast.error(
+                                          `Failed to rename: ${error}`,
+                                        ),
+                                      );
+                                  }}
+                                >
+                                  Rename
+                                </ContextMenuItem>
+                                <ContextMenuItem>Properties</ContextMenuItem>
+                                <ContextMenuSeparator />
+                                <ContextMenuItem
+                                  className="text-red-600 focus:text-red-600"
+                                  onClick={() => {
+                                    const confirmDelete = confirm(
+                                      `Are you sure you want to delete "${fileItem.name}"?`,
+                                    );
+                                    if (!confirmDelete) return;
+
+                                    invoke('delete_item', {
+                                      path: fileItem.path,
+                                    })
+                                      .then(() => handleRefresh())
+                                      .catch((error) =>
+                                        toast.error(
+                                          `Failed to delete: ${error}`,
+                                        ),
+                                      );
+                                  }}
+                                >
+                                  Delete
+                                </ContextMenuItem>
+                              </ContextMenuContent>
+                            </ContextMenu>
+                          );
+                        })
+                      ) : (
+                        <TableRow>
+                          <TableCell
+                            colSpan={columns.length}
+                            className="h-24 text-center"
+                          >
+                            {loading ? 'Loading...' : 'No files found.'}
+                          </TableCell>
+                        </TableRow>
+                      )}
+                    </TableBody>
+                  </table>
+                </div>
+              </ScrollArea>
+            </div>
+          )}
+
+          {/* Grid View */}
+          {layoutMode === 'grid' && (
+            <ScrollArea className="flex-1">
+              <div className="grid grid-cols-4 gap-4 p-4">
+                {table.getRowModel().rows.map((row) => {
+                  const fileItem = row.original;
                   return (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      className="capitalize"
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) =>
-                        column.toggleVisibility(!!value)
-                      }
+                    <div
+                      key={row.id}
+                      onClick={() => {
+                        if (previewEnabled && fileItem.file_type !== 'folder') {
+                          setActiveItem(fileItem);
+                        }
+                      }}
+                      onDoubleClick={() => handleItemDoubleClick(fileItem)}
+                      className={`flex flex-col items-center gap-2 p-4 rounded-lg border border-border/50 hover:bg-accent/50 cursor-pointer transition-colors ${
+                        activeItem?.path === fileItem.path ? 'bg-accent' : ''
+                      }`}
                     >
-                      {column.id}
-                    </DropdownMenuCheckboxItem>
+                      {fileItem.file_type === 'folder' ? (
+                        <Folder className="h-12 w-12 text-muted-foreground" />
+                      ) : (
+                        <File className="h-12 w-12 text-muted-foreground" />
+                      )}
+                      <span className="text-sm text-center truncate w-full">
+                        {fileItem.name}
+                      </span>
+                    </div>
                   );
                 })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-        <div className="flex-1 rounded-sm border border-border/50 overflow-hidden bg-card flex flex-col">
-          <div className="w-full border-b border-border/50">
-            <div className="w-full">
-              <table className="w-full table-fixed caption-bottom text-sm">
-                <colgroup>
-                  {table.getVisibleFlatColumns().map((column) => (
-                    <col key={column.id} style={{ width: column.getSize() }} />
-                  ))}
-                </colgroup>
-                <TableHeader>
-                  {table.getHeaderGroups().map((headerGroup) => (
-                    <TableRow key={headerGroup.id}>
-                      {headerGroup.headers.map((header) => {
-                        return (
-                          <TableHead key={header.id}>
-                            {header.isPlaceholder
-                              ? null
-                              : flexRender(
-                                  header.column.columnDef.header,
-                                  header.getContext(),
-                                )}
-                          </TableHead>
-                        );
-                      })}
-                    </TableRow>
-                  ))}
-                </TableHeader>
-              </table>
+              </div>
+            </ScrollArea>
+          )}
+
+          {/* Columns View */}
+          {layoutMode === 'columns' && (
+            <div className="flex-1 rounded-sm border border-border/50 bg-card flex flex-col items-center justify-center">
+              <div className="text-center text-muted-foreground p-8">
+                <Columns3 className="h-12 w-12 mx-auto mb-3 opacity-50" />
+                <p className="text-sm font-medium">Columns View</p>
+                <p className="text-xs mt-2 opacity-70">Coming soon</p>
+              </div>
             </div>
+          )}
+
+          {/* Tree View */}
+          {layoutMode === 'tree' && (
+            <div className="flex-1 rounded-sm border border-border/50 bg-card flex flex-col items-center justify-center">
+              <div className="text-center text-muted-foreground p-8">
+                <ListTree className="h-12 w-12 mx-auto mb-3 opacity-50" />
+                <p className="text-sm font-medium">Tree View</p>
+                <p className="text-xs mt-2 opacity-70">Coming soon</p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Preview Pane */}
+        {previewEnabled && viewMode === 'pane' && activeItem && (
+          <>
+            {/* Resize Handle */}
+
+            <div
+              onMouseDown={() => setIsResizing(true)}
+              className={`w-1 mx-1 shrink-0 cursor-col-resize hover:bg-primary/50 active:bg-primary transition-colors ${
+                isResizing ? 'bg-primary' : 'bg-border/0'
+              }`}
+              style={{ userSelect: 'none' }}
+            />
+
+            <div
+              style={{ width: `${previewWidth}px` }}
+              className="shrink-0 p-3 pl-0"
+            >
+              <PreviewPane
+                activeItem={activeItem}
+                onClose={() => setActiveItem(null)}
+              />
+            </div>
+          </>
+        )}
+
+        {/* Modal View */}
+        {previewEnabled && viewMode === 'modal' && activeItem && (
+          <Dialog open={true} onOpenChange={() => setActiveItem(null)}>
+            <DialogContent className="max-w-4xl h-[80vh] p-0">
+              <PreviewPane
+                activeItem={activeItem}
+                onClose={() => setActiveItem(null)}
+              />
+            </DialogContent>
+          </Dialog>
+        )}
+
+        {/* Fullscreen View */}
+        {previewEnabled && viewMode === 'fullscreen' && activeItem && (
+          <div className="fixed inset-0 z-50 bg-background">
+            <PreviewPane
+              activeItem={activeItem}
+              onClose={() => setActiveItem(null)}
+            />
           </div>
-          <ScrollArea className="flex-1 w-full h-0">
-            <div className="w-full">
-              <table className="w-full table-fixed caption-bottom text-sm">
-                <colgroup>
-                  {table.getVisibleFlatColumns().map((column) => (
-                    <col key={column.id} style={{ width: column.getSize() }} />
-                  ))}
-                </colgroup>
-                <TableBody>
-                  {table.getRowModel().rows?.length ? (
-                    table.getRowModel().rows.map((row) => {
-                      const fileItem = row.original;
-
-                      return (
-                        <ContextMenu key={row.id}>
-                          <ContextMenuTrigger asChild>
-                            <TableRow
-                              data-state={row.getIsSelected() && 'selected'}
-                              onDoubleClick={() =>
-                                handleItemDoubleClick(row.original)
-                              }
-                              className="cursor-pointer duration-0"
-                            >
-                              {row.getVisibleCells().map((cell) => (
-                                <TableCell key={cell.id}>
-                                  {flexRender(
-                                    cell.column.columnDef.cell,
-                                    cell.getContext(),
-                                  )}
-                                </TableCell>
-                              ))}
-                            </TableRow>
-                          </ContextMenuTrigger>
-                          <ContextMenuContent className="w-48">
-                            <ContextMenuItem
-                              onClick={() => {
-                                if (fileItem.file_type === 'folder') {
-                                  navigateToPath(fileItem.path);
-                                } else {
-                                  invoke<string>('open_file_with_default_app', {
-                                    filePath: fileItem.path,
-                                  })
-                                    .then((result) => toast.success(result))
-                                    .catch((error) =>
-                                      toast.error(
-                                        `Failed to open file: ${error}`,
-                                      ),
-                                    );
-                                }
-                              }}
-                            >
-                              {fileItem.file_type === 'folder'
-                                ? 'Open Folder'
-                                : 'Open File'}
-                            </ContextMenuItem>
-                            <ContextMenuSeparator />
-                            <ContextMenuItem
-                              onClick={() => {
-                                navigator.clipboard
-                                  .writeText(fileItem.path)
-                                  .then(() =>
-                                    toast.success('Path copied to clipboard'),
-                                  )
-                                  .catch(() =>
-                                    toast.error('Failed to copy path'),
-                                  );
-                              }}
-                            >
-                              Copy Path
-                            </ContextMenuItem>
-                            <ContextMenuItem
-                              onClick={() => {
-                                navigator.clipboard
-                                  .writeText(fileItem.name)
-                                  .then(() =>
-                                    toast.success('Name copied to clipboard'),
-                                  )
-                                  .catch(() =>
-                                    toast.error('Failed to copy name'),
-                                  );
-                              }}
-                            >
-                              Copy Name
-                            </ContextMenuItem>
-                            <ContextMenuSeparator />
-                            <ContextMenuItem
-                              onClick={() => {
-                                const newName = prompt(
-                                  'Enter new name:',
-                                  fileItem.name,
-                                );
-                                if (
-                                  !newName ||
-                                  newName.trim() === '' ||
-                                  newName === fileItem.name
-                                )
-                                  return;
-
-                                invoke('rename_item', {
-                                  oldPath: fileItem.path,
-                                  newName: newName.trim(),
-                                })
-                                  .then(() => handleRefresh())
-                                  .catch((error) =>
-                                    toast.error(`Failed to rename: ${error}`),
-                                  );
-                              }}
-                            >
-                              Rename
-                            </ContextMenuItem>
-                            <ContextMenuItem>Properties</ContextMenuItem>
-                            <ContextMenuSeparator />
-                            <ContextMenuItem
-                              className="text-red-600 focus:text-red-600"
-                              onClick={() => {
-                                const confirmDelete = confirm(
-                                  `Are you sure you want to delete "${fileItem.name}"?`,
-                                );
-                                if (!confirmDelete) return;
-
-                                invoke('delete_item', { path: fileItem.path })
-                                  .then(() => handleRefresh())
-                                  .catch((error) =>
-                                    toast.error(`Failed to delete: ${error}`),
-                                  );
-                              }}
-                            >
-                              Delete
-                            </ContextMenuItem>
-                          </ContextMenuContent>
-                        </ContextMenu>
-                      );
-                    })
-                  ) : (
-                    <TableRow>
-                      <TableCell
-                        colSpan={columns.length}
-                        className="h-24 text-center"
-                      >
-                        {loading ? 'Loading...' : 'No files found.'}
-                      </TableCell>
-                    </TableRow>
-                  )}
-                </TableBody>
-              </table>
-            </div>
-          </ScrollArea>
-        </div>
+        )}
       </div>
     </div>
   );

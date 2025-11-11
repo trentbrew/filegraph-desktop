@@ -5,7 +5,7 @@
   "identifier": "com.explorer.fileex",
   "build": {
     "beforeDevCommand": "npm run dev",
-    "devUrl": "http://localhost:1420",
+    "devUrl": "http://localhost:1997",
     "beforeBuildCommand": "npm run build",
     "frontendDist": "../dist"
   },
@@ -24,7 +24,11 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": null,
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**"]
+      }
     },
     "macOSPrivateApi": true
   },

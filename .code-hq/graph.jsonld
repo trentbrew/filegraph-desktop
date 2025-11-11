@@ -1,0 +1,195 @@
+{
+  "@context": "https://code-hq.org/context",
+  "@graph": [
+    {
+      "@id": "task:1762891212310",
+      "@type": "Task",
+      "title": "Single-click preview (epic)",
+      "status": "todo",
+      "priority": "high",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:12.310Z",
+      "updatedAt": "2025-11-11T20:00:12.310Z"
+    },
+    {
+      "@id": "task:1762891215090",
+      "@type": "Task",
+      "title": "Split layout + resizable preview pane",
+      "status": "done",
+      "priority": "medium",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:15.090Z",
+      "updatedAt": "2025-11-11T20:06:26.315Z"
+    },
+    {
+      "@id": "task:1762891216254",
+      "@type": "Task",
+      "title": "Wire single-click selection to preview",
+      "status": "done",
+      "priority": "high",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:16.254Z",
+      "updatedAt": "2025-11-11T20:06:17.214Z"
+    },
+    {
+      "@id": "task:1762891217559",
+      "@type": "Task",
+      "title": "PreviewPane scaffold + states",
+      "status": "done",
+      "priority": "high",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:17.559Z",
+      "updatedAt": "2025-11-11T20:06:22.561Z"
+    },
+    {
+      "@id": "task:1762891218880",
+      "@type": "Task",
+      "title": "Viewers: Text, MD, Image, Media, PDF",
+      "status": "in-progress",
+      "priority": "high",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:18.880Z",
+      "updatedAt": "2025-11-11T20:45:57.008Z"
+    },
+    {
+      "@id": "task:1762891220206",
+      "@type": "Task",
+      "title": "Backend: read_text_file",
+      "status": "done",
+      "priority": "high",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:20.206Z",
+      "updatedAt": "2025-11-11T20:06:13.191Z"
+    },
+    {
+      "@id": "task:1762891221747",
+      "@type": "Task",
+      "title": "Hook: usePreview with cache/cancel",
+      "status": "todo",
+      "priority": "medium",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:21.747Z",
+      "updatedAt": "2025-11-11T20:00:21.747Z"
+    },
+    {
+      "@id": "task:1762891223000",
+      "@type": "Task",
+      "title": "Preferences toggles",
+      "status": "todo",
+      "priority": "medium",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:23.000Z",
+      "updatedAt": "2025-11-11T20:00:23.000Z"
+    },
+    {
+      "@id": "task:1762891224407",
+      "@type": "Task",
+      "title": "A11y + performance",
+      "status": "todo",
+      "priority": "high",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:24.407Z",
+      "updatedAt": "2025-11-11T20:00:24.407Z"
+    },
+    {
+      "@id": "task:1762891225749",
+      "@type": "Task",
+      "title": "QA plan + acceptance",
+      "status": "todo",
+      "priority": "high",
+      "timeSessions": [],
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:25.749Z",
+      "updatedAt": "2025-11-11T20:00:25.749Z"
+    },
+    {
+      "@id": "note:1762891228010",
+      "@type": "Note",
+      "title": "UX spec: single-click preview",
+      "content": "Single-click preview UX spec:\n- Layout: Two-pane split inside FileStructure (left list, right preview). Resizable with persistent width.\n- Selection: Single-click sets active item and shows preview. Double-click keeps current open/navigate behavior.\n- States: Loading, Empty (no selection), Unsupported, Oversize warning with 'Open externally'.\n- Keyboard: Up/Down moves active item; Enter opens; Esc clears active.\n- A11y: Proper roles/labels; visible focus; preview region as live-region; full keyboard access.\n- Preferences: Toggle 'Preview on single click' (default on), per-type enable/disable, size thresholds; persisted.\n- Performance: Debounced, abort in-flight, LRU cache by path+mtime; lazy-load images/media; cap text bytes with truncation notice.\n- Safety: Hard caps on file size (2–4 MB text read), sanitize Markdown, explicit unsupported list.",
+      "type": "decision",
+      "tags": [],
+      "createdAt": "2025-11-11T20:00:28.010Z",
+      "updatedAt": "2025-11-11T20:00:28.010Z"
+    },
+    {
+      "@id": "note:1762893969181",
+      "@type": "Note",
+      "title": "Preview implementation fixes",
+      "content": "Implemented fixes and features for preview pane:\n1. Fixed asset protocol permissions in tauri.conf.json and capabilities for image/video/audio loading\n2. Added resizable preview pane with drag handle (300-800px range)\n3. Implemented three view modes: pane (default), modal dialog, fullscreen\n4. Fixed search field clearing on directory navigation\n5. Fixed preview persistence - only updates on file click, not folder navigation\n6. Added preview toggle button in toolbar\n7. All viewers (text, image, video, audio, PDF) now functional with proper permissions",
+      "type": "decision",
+      "tags": [],
+      "createdAt": "2025-11-11T20:46:09.181Z",
+      "updatedAt": "2025-11-11T20:46:09.181Z"
+    },
+    {
+      "@id": "note:1762894224034",
+      "@type": "Note",
+      "title": "UX improvements: selection and highlighting",
+      "content": "Implemented selection and highlighting improvements:\n1. Disabled text selection during resize drag (sets document.body.userSelect='none' during drag)\n2. Added select-none class to table container to prevent text selection on table rows\n3. Added visual highlighting for active row using bg-accent class\n4. Implemented shift+click range selection for checkboxes - selects all rows between last clicked and current\n5. Implemented shift+click range selection on row clicks - merges with existing selection\n6. Track lastSelectedIndex state to enable range selection\n7. Cursor changes to col-resize during pane resize for better UX",
+      "type": "decision",
+      "tags": [],
+      "createdAt": "2025-11-11T20:50:24.034Z",
+      "updatedAt": "2025-11-11T20:50:24.034Z"
+    },
+    {
+      "@id": "note:1762895100237",
+      "@type": "Note",
+      "title": "Pinch-to-zoom implementation",
+      "content": "Implemented pinch-to-zoom for image and PDF viewers:\n\nImage Viewer:\n- Detects pinch gestures via wheel events with ctrlKey (trackpad pinch)\n- Zoom range: 0.5x to 5x\n- Shows current zoom percentage in controls\n- Reset button returns to fit-to-screen mode\n- Smooth transitions with CSS transforms\n- Auto-switches to actual size mode when zooming\n\nPDF Viewer:\n- Same pinch gesture detection\n- Zoom range: 0.5x to 3x (more conservative for PDFs)\n- Shows current zoom percentage\n- Reset button returns to 100%\n- Wraps embed in scalable div for zoom transform\n- Maintains PDF interaction at all zoom levels\n\nTechnical Implementation:\n- Uses wheel event listener with passive: false to prevent default\n- Checks e.ctrlKey to detect trackpad pinch gestures\n- Applies CSS transform: scale() for smooth zooming\n- Transform origin set to center for intuitive zoom behavior\n- Clamped zoom levels to prevent extreme values\n- 100ms transition duration for smooth visual feedback",
+      "type": "feature",
+      "tags": [],
+      "createdAt": "2025-11-11T21:05:00.237Z",
+      "updatedAt": "2025-11-11T21:05:00.237Z"
+    },
+    {
+      "@id": "note:1762895722910",
+      "@type": "Note",
+      "title": "Port configuration change",
+      "content": "Changed default development port from 1420 to 1997:\n- Updated vite.config.ts server.port: 1997\n- Updated vite.config.ts HMR port: 1998\n- Updated src-tauri/tauri.conf.json devUrl: http://localhost:1997\n\nThis avoids conflicts with other services commonly running on port 1420.",
+      "type": "config",
+      "tags": [],
+      "createdAt": "2025-11-11T21:15:22.910Z",
+      "updatedAt": "2025-11-11T21:15:22.910Z"
+    },
+    {
+      "@id": "note:1762895986007",
+      "@type": "Note",
+      "title": "Preview and layout improvements",
+      "content": "Implemented two major UX improvements:\n\n1. Conditional Preview Display:\n- Preview pane now only renders when activeItem exists\n- File explorer width animates smoothly when preview appears/disappears\n- Transition from 0s linear to 0.2s ease for smooth animation\n- Saves screen space when no file is selected\n\n2. Multiple Layout Modes:\n- Added layout mode selector with 4 options: Table, Grid, Columns, Tree\n- Table (default): Current table view with all features intact\n- Grid: 4-column responsive grid with File/Folder icons\n  - Shows large icons (12x12) with file names below\n  - Hover effects and active item highlighting\n  - Single-click preview, double-click navigate\n- Columns: Placeholder for Miller columns view (coming soon)\n- Tree: Placeholder for hierarchical tree view (coming soon)\n\nIcons used:\n- TableIcon for table view\n- Grid3x3 for grid view\n- Columns3 for columns view\n- ListTree for tree view\n- File and Folder icons in grid cards\n\nLayout selector placed in toolbar between preview controls and dotfiles toggle for easy access.",
+      "type": "feature",
+      "tags": [],
+      "createdAt": "2025-11-11T21:19:46.007Z",
+      "updatedAt": "2025-11-11T21:19:46.007Z"
+    },
+    {
+      "@id": "note:1762896700135",
+      "@type": "Note",
+      "title": "Preview scrolling and titlebar path input",
+      "content": "Fixed two UX issues: 1. Preview Pane Scrolling - Wrapped all viewer components in divs with h-full class for proper height constraint. 2. Path Input Moved to Titlebar - Updated TitleBar to accept path props, replaced title with centered path input, removed duplicate from FileStructure toolbar. FileStructure now renders TitleBar directly. More screen real estate and better UX.",
+      "type": "feature",
+      "tags": [],
+      "createdAt": "2025-11-11T21:31:40.135Z",
+      "updatedAt": "2025-11-11T21:31:40.135Z"
+    },
+    {
+      "@id": "note:1762896967567",
+      "@type": "Note",
+      "title": "Toolbar reorganization and BerkleyMono font",
+      "content": "Made several UI improvements: 1. Moved back and home navigation buttons to titlebar after traffic lights. 2. Reorganized toolbar - moved layout mode selector to left of search, made search full-width. 3. Removed duplicate layout selector and columns dropdown. 4. Set up BerkleyMono.ttf as global font with font-face declaration and fallbacks. 5. Cleaned up unused imports.",
+      "type": "feature",
+      "tags": [],
+      "createdAt": "2025-11-11T21:36:07.567Z",
+      "updatedAt": "2025-11-11T21:36:07.567Z"
+    }
+  ]
+}

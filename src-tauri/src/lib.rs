@@ -1,7 +1,9 @@
 use std::fs;
 use std::path::Path;
+use std::io::Read;
 use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
+use encoding_rs::UTF_8;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct FileItem {
@@ -12,6 +14,14 @@ pub struct FileItem {
     date_modified: DateTime<Utc>,
     extension: Option<String>,
     path: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct TextFileContent {
+    content: String,
+    truncated: bool,
+    encoding: String,
+    size: u64,
 }
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
@@ -324,6 +334,65 @@ async fn open_file_with_default_app(file_path: String) -> Result<String, String>
     }
 }
 
+#[tauri::command]
+async fn read_text_file(
+    file_path: String,
+    max_bytes: Option<u64>,
+) -> Result<TextFileContent, String> {
+    let path = Path::new(&file_path);
+    
+    if !path.exists() {
+        return Err("File does not exist".to_string());
+    }
+    
+    if path.is_dir() {
+        return Err("Cannot read directory as text file".to_string());
+    }
+    
+    // Get file metadata
+    let metadata = match fs::metadata(&path) {
+        Ok(meta) => meta,
+        Err(e) => return Err(format!("Failed to read file metadata: {}", e)),
+    };
+    
+    let file_size = metadata.len();
+    let max_bytes = max_bytes.unwrap_or(4 * 1024 * 1024); // Default 4MB
+    
+    // Open file and read bytes
+    let mut file = match fs::File::open(&path) {
+        Ok(f) => f,
+        Err(e) => return Err(format!("Failed to open file: {}", e)),
+    };
+    
+    let bytes_to_read = std::cmp::min(file_size, max_bytes);
+    let mut buffer = vec![0u8; bytes_to_read as usize];
+    
+    match file.read_exact(&mut buffer) {
+        Ok(_) => {},
+        Err(_) => {
+            // If we can't read exact bytes, try reading what's available
+            buffer.clear();
+            let mut limited_file = file.take(max_bytes);
+            match limited_file.read_to_end(&mut buffer) {
+                Ok(_) => {},
+                Err(e) => return Err(format!("Failed to read file: {}", e)),
+            }
+        }
+    };
+    
+    // Detect encoding and decode
+    let (decoded_content, encoding_used, _had_errors) = UTF_8.decode(&buffer);
+    
+    let truncated = file_size > max_bytes;
+    
+    Ok(TextFileContent {
+        content: decoded_content.to_string(),
+        truncated,
+        encoding: encoding_used.name().to_string(),
+        size: file_size,
+    })
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -340,7 +409,8 @@ pub fn run() {
             rename_item,
             copy_items,
             move_items,
-            open_file_with_default_app
+            open_file_with_default_app,
+            read_text_file
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

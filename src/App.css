@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: 'Berkley Mono';
+  src: url('/src/assets/fonts/BerkleyMono.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .drag {
   -webkit-app-region: drag;
 }
@@ -126,6 +134,7 @@
   }
   body {
     @apply bg-transparent text-foreground antialiased;
+    font-family: 'Berkley Mono', 'SF Mono', 'Monaco', 'Courier New', monospace;
   }
   html {
     scroll-behavior: smooth;

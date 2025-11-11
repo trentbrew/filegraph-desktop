@@ -1,9 +1,30 @@
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import ThemeToggle from './themeToggle';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, Home, Settings, User } from 'lucide-react';
 
 const appWindow = getCurrentWindow();
 
-export default function TitleBar() {
+interface TitleBarProps {
+  currentPath: string;
+  onPathChange: (path: string) => void;
+  onNavigate: (path: string) => void;
+  onNavigateBack: () => void;
+  onNavigateHome: () => void;
+  canNavigateBack: boolean;
+  loading?: boolean;
+}
+
+export default function TitleBar({
+  currentPath,
+  onPathChange,
+  onNavigate,
+  onNavigateBack,
+  onNavigateHome,
+  canNavigateBack,
+  loading = false,
+}: TitleBarProps) {
   const handleFullscreen = async () => {
     const isFullscreen = await appWindow.isFullscreen();
     await appWindow.setFullscreen(!isFullscreen);
@@ -14,10 +35,10 @@ export default function TitleBar() {
       data-tauri-drag-region
       className="flex flex-row items-center justify-between h-12 px-3 bg-background/95 backdrop-blur-xl border-b border-border/50 rounded-t-[12px]"
     >
-      {/* macOS Traffic Lights */}
+      {/* macOS Traffic Lights + Navigation */}
       <div
         data-tauri-drag-region="false"
-        className="flex items-center gap-2 shrink-0"
+        className="flex items-center gap-3 shrink-0"
       >
         <div className="flex items-center gap-2">
           <button
@@ -48,17 +69,56 @@ export default function TitleBar() {
             </span>
           </button>
         </div>
-        <div className="ml-2">
-          <p className="text-sm font-medium">Filegraph</p>
+
+        {/* Navigation Buttons */}
+        <div className="flex items-center gap-2 ml-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={onNavigateBack}
+            disabled={loading || !canNavigateBack}
+            className="h-7 w-7 p-0"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={onNavigateHome}
+            disabled={loading}
+            className="h-7 w-7 p-0"
+          >
+            <Home className="h-3.5 w-3.5" />
+          </Button>
         </div>
       </div>
 
-      {/* Spacer for centered layout */}
-      <div className="flex-1"></div>
+      {/* Path Input - Center */}
+      <div data-tauri-drag-region="false" className="flex-1 px-4 max-w-3xl">
+        <Input
+          placeholder="Enter path..."
+          value={currentPath}
+          onChange={(event) => onPathChange(event.target.value)}
+          className="w-full font-mono text-sm h-8 text-center !bg-transparent opacity-50 border-none"
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              onNavigate(currentPath);
+            }
+          }}
+          disabled={loading}
+        />
+      </div>
 
       {/* Right side controls */}
-      <div data-tauri-drag-region="false" className="shrink-0">
+
+      <div
+        data-tauri-drag-region="false"
+        className="shrink-0 flex items-center gap-2 mr-2 text-foreground/50"
+      >
         <ThemeToggle />
+        <div className="flex items-center gap-4">
+          <Settings size={18} />
+        </div>
       </div>
     </div>
   );
