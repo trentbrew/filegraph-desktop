@@ -190,6 +190,16 @@
       "tags": [],
       "createdAt": "2025-11-11T21:36:07.567Z",
       "updatedAt": "2025-11-11T21:36:07.567Z"
+    },
+    {
+      "@id": "note:1762903666849",
+      "@type": "Note",
+      "title": "Real-time filesystem watching",
+      "content": "Implemented automatic file list updates when filesystem changes occur. Backend: Added notify and notify-debouncer-full crates for filesystem watching with 500ms debounce. Created WatcherState to manage watcher lifecycle. Added start_watch and stop_watch commands that emit fs-change events. Frontend: Added event listener that refreshes file list on fs-change events. Watcher automatically starts when navigating to new directory and stops on cleanup. Now shows real-time updates when files are created, modified, deleted, or renamed from outside the app.",
+      "type": "feature",
+      "tags": [],
+      "createdAt": "2025-11-11T23:27:46.849Z",
+      "updatedAt": "2025-11-11T23:27:46.849Z"
     }
   ]
 }

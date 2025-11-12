@@ -3,7 +3,7 @@ import { invoke } from '@tauri-apps/api/core';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { AlertCircle, WrapText, Copy, Check } from 'lucide-react';
+import { AlertCircle, WrapText, Copy, Check, Edit, Save } from 'lucide-react';
 
 interface TextFileContent {
   content: string;
@@ -23,6 +23,9 @@ export function TextViewer({ filePath, maxBytes = 4 * 1024 * 1024 }: TextViewerP
   const [error, setError] = React.useState<string | null>(null);
   const [wordWrap, setWordWrap] = React.useState(true);
   const [copied, setCopied] = React.useState(false);
+  const [isEditing, setIsEditing] = React.useState(false);
+  const [editedContent, setEditedContent] = React.useState('');
+  const [isSaving, setIsSaving] = React.useState(false);
 
   React.useEffect(() => {
     let cancelled = false;
@@ -39,6 +42,8 @@ export function TextViewer({ filePath, maxBytes = 4 * 1024 * 1024 }: TextViewerP
 
         if (!cancelled) {
           setData(result);
+          setEditedContent(result.content);
+          setIsEditing(false);
         }
       } catch (err) {
         if (!cancelled) {
@@ -59,8 +64,9 @@ export function TextViewer({ filePath, maxBytes = 4 * 1024 * 1024 }: TextViewerP
   }, [filePath, maxBytes]);
 
   const handleCopy = React.useCallback(() => {
-    if (data?.content) {
-      navigator.clipboard.writeText(data.content)
+    const contentToCopy = isEditing ? editedContent : data?.content;
+    if (contentToCopy) {
+      navigator.clipboard.writeText(contentToCopy)
         .then(() => {
           setCopied(true);
           setTimeout(() => setCopied(false), 2000);
@@ -69,7 +75,30 @@ export function TextViewer({ filePath, maxBytes = 4 * 1024 * 1024 }: TextViewerP
           // Silently fail
         });
     }
-  }, [data]);
+  }, [data, isEditing, editedContent]);
+
+  const handleSave = React.useCallback(async () => {
+    if (!data || data.truncated) return;
+    
+    setIsSaving(true);
+    setError(null);
+    
+    try {
+      await invoke('write_text_file', {
+        filePath,
+        content: editedContent,
+      });
+      
+      setData({ ...data, content: editedContent });
+      setIsEditing(false);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setIsSaving(false);
+    }
+  }, [data, editedContent, filePath]);
+
+  const hasChanges = isEditing && editedContent !== data?.content;
 
   if (loading) {
     return (
@@ -114,6 +143,40 @@ export function TextViewer({ filePath, maxBytes = 4 * 1024 * 1024 }: TextViewerP
           )}
         </div>
         <div className="flex items-center gap-1">
+          {!data.truncated && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-7 px-2 gap-1.5"
+              onClick={() => {
+                if (isEditing && hasChanges) {
+                  if (confirm('You have unsaved changes. Discard them?')) {
+                    setEditedContent(data.content);
+                    setIsEditing(!isEditing);
+                  }
+                } else {
+                  setIsEditing(!isEditing);
+                }
+              }}
+              title={isEditing ? 'Cancel editing' : 'Edit file'}
+            >
+              <Edit className="h-3.5 w-3.5" />
+              <span className="text-xs">{isEditing ? 'Cancel' : 'Edit'}</span>
+            </Button>
+          )}
+          {isEditing && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-7 px-2 gap-1.5"
+              onClick={handleSave}
+              disabled={!hasChanges || isSaving}
+              title="Save changes"
+            >
+              <Save className="h-3.5 w-3.5" />
+              <span className="text-xs">{isSaving ? 'Saving...' : 'Save'}</span>
+            </Button>
+          )}
           <Button
             variant="ghost"
             size="sm"
@@ -138,19 +201,35 @@ export function TextViewer({ filePath, maxBytes = 4 * 1024 * 1024 }: TextViewerP
             )}
             <span className="text-xs">Copy</span>
           </Button>
+          {hasChanges && (
+            <span className="text-xs text-amber-500 font-medium ml-2">Unsaved</span>
+          )}
         </div>
       </div>
 
       {/* Content */}
-      <ScrollArea className="flex-1">
-        <pre
-          className={`p-4 text-xs font-mono ${
-            wordWrap ? 'whitespace-pre-wrap break-words' : 'whitespace-pre'
-          }`}
-        >
-          {data.content}
-        </pre>
-      </ScrollArea>
+      {isEditing ? (
+        <div className="flex-1 overflow-hidden">
+          <textarea
+            value={editedContent}
+            onChange={(e) => setEditedContent(e.target.value)}
+            className={`w-full h-full p-4 text-xs font-mono bg-transparent resize-none focus:outline-none ${
+              wordWrap ? 'whitespace-pre-wrap break-words' : 'whitespace-pre'
+            }`}
+            spellCheck={false}
+          />
+        </div>
+      ) : (
+        <ScrollArea className="flex-1">
+          <pre
+            className={`p-4 text-xs font-mono ${
+              wordWrap ? 'whitespace-pre-wrap break-words' : 'whitespace-pre'
+            }`}
+          >
+            {data.content}
+          </pre>
+        </ScrollArea>
+      )}
 
       {/* Truncation notice */}
       {data.truncated && (

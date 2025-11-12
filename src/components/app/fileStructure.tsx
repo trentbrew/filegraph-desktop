@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { invoke } from '@tauri-apps/api/core';
+import { listen } from '@tauri-apps/api/event';
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -19,15 +20,11 @@ import {
   MoreHorizontal,
   Eye,
   EyeOff,
-  PanelRight,
-  Maximize2,
-  Square,
   TableIcon,
   Grid3x3,
   Columns3,
   ListTree,
-  File,
-  Folder,
+  Network,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -37,10 +34,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
@@ -59,9 +53,9 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger,
 } from '@/components/ui/context-menu';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
 import CommandsPallet from './commandsPallet';
 import { PreviewPane } from './previewPane';
+import { GridItem } from './gridItem';
 import { toast } from 'sonner';
 import TitleBar from './titleBar';
 import {
@@ -220,14 +214,11 @@ export function FileStructure() {
   });
   const [searchValue, setSearchValue] = React.useState('');
   const [isResizing, setIsResizing] = React.useState(false);
-  const [viewMode, setViewMode] = React.useState<
-    'pane' | 'modal' | 'fullscreen'
-  >('pane');
   const [lastSelectedIndex, setLastSelectedIndex] = React.useState<
     number | null
   >(null);
   const [layoutMode, setLayoutMode] = React.useState<
-    'table' | 'grid' | 'columns' | 'tree'
+    'table' | 'grid' | 'columns' | 'tree' | 'canvas'
   >('table');
 
   // Persist preview preferences
@@ -245,6 +236,44 @@ export function FileStructure() {
   // Clear search filter when navigating to new directory
   React.useEffect(() => {
     setSearchValue('');
+  }, [currentPath]);
+
+  // Filesystem watching - start/stop watcher and listen for changes
+  React.useEffect(() => {
+    let unlisten: (() => void) | undefined;
+
+    const setupWatcher = async () => {
+      if (!currentPath) return;
+
+      try {
+        // Start watching the current directory
+        await invoke('start_watch', { path: currentPath });
+
+        // Listen for filesystem change events
+        unlisten = await listen('fs-change', () => {
+          // Refresh the file list when changes are detected
+          if (currentPath) {
+            invoke<FileItem[]>('list_directory', { path: currentPath })
+              .then((files) => setData(files))
+              .catch((error) =>
+                console.error('Failed to refresh after fs change:', error),
+              );
+          }
+        });
+      } catch (error) {
+        console.error('Failed to setup filesystem watcher:', error);
+      }
+    };
+
+    setupWatcher();
+
+    // Cleanup: stop watching and unlisten
+    return () => {
+      if (unlisten) {
+        unlisten();
+      }
+      invoke('stop_watch').catch(console.error);
+    };
   }, [currentPath]);
 
   // Handle resize
@@ -723,6 +752,7 @@ export function FileStructure() {
                   {layoutMode === 'grid' && <Grid3x3 className="h-4 w-4" />}
                   {layoutMode === 'columns' && <Columns3 className="h-4 w-4" />}
                   {layoutMode === 'tree' && <ListTree className="h-4 w-4" />}
+                  {layoutMode === 'canvas' && <Network className="h-4 w-4" />}
                   <span className="capitalize">{layoutMode}</span>
                 </Button>
               </DropdownMenuTrigger>
@@ -743,6 +773,10 @@ export function FileStructure() {
                   <ListTree className="h-4 w-4 mr-2" />
                   Tree
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLayoutMode('canvas')}>
+                  <Network className="h-4 w-4 mr-2" />
+                  Canvas
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -756,36 +790,6 @@ export function FileStructure() {
               }}
               className="flex-1"
             />
-
-            {/* View Mode Selector */}
-            {previewEnabled && activeItem && (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="sm" className="gap-2">
-                    {viewMode === 'pane' && <PanelRight className="h-4 w-4" />}
-                    {viewMode === 'modal' && <Square className="h-4 w-4" />}
-                    {viewMode === 'fullscreen' && (
-                      <Maximize2 className="h-4 w-4" />
-                    )}
-                    <span className="capitalize">{viewMode}</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => setViewMode('pane')}>
-                    <PanelRight className="h-4 w-4 mr-2" />
-                    Side Pane
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setViewMode('modal')}>
-                    <Square className="h-4 w-4 mr-2" />
-                    Modal
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setViewMode('fullscreen')}>
-                    <Maximize2 className="h-4 w-4 mr-2" />
-                    Fullscreen
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
 
             {/* Dotfiles Toggle */}
             <Button
@@ -1075,36 +1079,31 @@ export function FileStructure() {
 
           {/* Grid View */}
           {layoutMode === 'grid' && (
-            <ScrollArea className="flex-1">
-              <div className="grid grid-cols-4 gap-4 p-4">
-                {table.getRowModel().rows.map((row) => {
-                  const fileItem = row.original;
-                  return (
-                    <div
-                      key={row.id}
-                      onClick={() => {
-                        if (previewEnabled && fileItem.file_type !== 'folder') {
-                          setActiveItem(fileItem);
-                        }
-                      }}
-                      onDoubleClick={() => handleItemDoubleClick(fileItem)}
-                      className={`flex flex-col items-center gap-2 p-4 rounded-lg border border-border/50 hover:bg-accent/50 cursor-pointer transition-colors ${
-                        activeItem?.path === fileItem.path ? 'bg-accent' : ''
-                      }`}
-                    >
-                      {fileItem.file_type === 'folder' ? (
-                        <Folder className="h-12 w-12 text-muted-foreground" />
-                      ) : (
-                        <File className="h-12 w-12 text-muted-foreground" />
-                      )}
-                      <span className="text-sm text-center truncate w-full">
-                        {fileItem.name}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </ScrollArea>
+            <div className="flex-1 overflow-hidden">
+              <ScrollArea className="h-full">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-4">
+                  {table.getRowModel().rows.map((row) => {
+                    const fileItem = row.original;
+                    return (
+                      <GridItem
+                        key={row.id}
+                        fileItem={fileItem}
+                        isActive={activeItem?.path === fileItem.path}
+                        onClick={() => {
+                          if (
+                            previewEnabled &&
+                            fileItem.file_type !== 'folder'
+                          ) {
+                            setActiveItem(fileItem);
+                          }
+                        }}
+                        onDoubleClick={() => handleItemDoubleClick(fileItem)}
+                      />
+                    );
+                  })}
+                </div>
+              </ScrollArea>
+            </div>
           )}
 
           {/* Columns View */}
@@ -1128,10 +1127,21 @@ export function FileStructure() {
               </div>
             </div>
           )}
+
+          {/* Canvas View */}
+          {layoutMode === 'canvas' && (
+            <div className="flex-1 rounded-sm border border-border/50 bg-card flex flex-col items-center justify-center">
+              <div className="text-center text-muted-foreground p-8">
+                <ListTree className="h-12 w-12 mx-auto mb-3 opacity-50" />
+                <p className="text-sm font-medium">Canvas View</p>
+                <p className="text-xs mt-2 opacity-70">Coming soon</p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Preview Pane */}
-        {previewEnabled && viewMode === 'pane' && activeItem && (
+        {previewEnabled && activeItem && (
           <>
             {/* Resize Handle */}
 
@@ -1153,28 +1163,6 @@ export function FileStructure() {
               />
             </div>
           </>
-        )}
-
-        {/* Modal View */}
-        {previewEnabled && viewMode === 'modal' && activeItem && (
-          <Dialog open={true} onOpenChange={() => setActiveItem(null)}>
-            <DialogContent className="max-w-4xl h-[80vh] p-0">
-              <PreviewPane
-                activeItem={activeItem}
-                onClose={() => setActiveItem(null)}
-              />
-            </DialogContent>
-          </Dialog>
-        )}
-
-        {/* Fullscreen View */}
-        {previewEnabled && viewMode === 'fullscreen' && activeItem && (
-          <div className="fixed inset-0 z-50 bg-background">
-            <PreviewPane
-              activeItem={activeItem}
-              onClose={() => setActiveItem(null)}
-            />
-          </div>
         )}
       </div>
     </div>

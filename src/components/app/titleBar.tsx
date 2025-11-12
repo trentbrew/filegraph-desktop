@@ -99,7 +99,7 @@ export default function TitleBar({
           placeholder="Enter path..."
           value={currentPath}
           onChange={(event) => onPathChange(event.target.value)}
-          className="w-full font-mono text-sm h-8 text-center !bg-transparent opacity-50 border-none"
+          className="w-full font-mono text-sm h-8 text-center !bg-transparent opacity-50 border-none focus:outline-none focus:ring-0"
           onKeyDown={(event) => {
             if (event.key === 'Enter') {
               onNavigate(currentPath);

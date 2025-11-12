@@ -1,9 +1,14 @@
 use std::fs;
 use std::path::Path;
 use std::io::Read;
+use std::sync::Mutex;
+use std::time::Duration;
 use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
 use encoding_rs::UTF_8;
+use notify::{Watcher, RecursiveMode};
+use notify_debouncer_full::{new_debouncer, Debouncer, FileIdMap};
+use tauri::{AppHandle, Emitter};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct FileItem {
@@ -22,6 +27,70 @@ pub struct TextFileContent {
     truncated: bool,
     encoding: String,
     size: u64,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct FilesystemChange {
+    kind: String,
+    paths: Vec<String>,
+}
+
+// Filesystem watcher state
+type DebouncerType = Debouncer<notify::RecommendedWatcher, FileIdMap>;
+pub struct WatcherState(Mutex<Option<DebouncerType>>);
+
+#[tauri::command]
+async fn start_watch(
+    path: String,
+    app_handle: AppHandle,
+    state: tauri::State<'_, WatcherState>,
+) -> Result<(), String> {
+    let mut watcher_lock = state.0.lock().map_err(|e| format!("Failed to lock watcher: {}", e))?;
+    
+    // Stop existing watcher if any
+    *watcher_lock = None;
+    
+    // Create new debounced watcher
+    let app_handle_clone = app_handle.clone();
+    let mut debouncer = new_debouncer(
+        Duration::from_millis(500),
+        None,
+        move |result: Result<Vec<notify_debouncer_full::DebouncedEvent>, Vec<notify::Error>>| {
+            match result {
+                Ok(events) => {
+                    for event in events {
+                        // Convert event to serializable format
+                        let fs_change = FilesystemChange {
+                            kind: format!("{:?}", event.event.kind),
+                            paths: event.paths.iter().map(|p| p.display().to_string()).collect(),
+                        };
+                        let _ = app_handle_clone.emit("fs-change", fs_change);
+                    }
+                }
+                Err(errors) => {
+                    for error in errors {
+                        eprintln!("Filesystem watch error: {:?}", error);
+                    }
+                }
+            }
+        },
+    ).map_err(|e| format!("Failed to create watcher: {}", e))?;
+    
+    // Watch the directory
+    let watch_path = Path::new(&path);
+    debouncer.watcher().watch(watch_path, RecursiveMode::NonRecursive)
+        .map_err(|e| format!("Failed to watch directory: {}", e))?;
+    
+    *watcher_lock = Some(debouncer);
+    
+    Ok(())
+}
+
+#[tauri::command]
+async fn stop_watch(state: tauri::State<'_, WatcherState>) -> Result<(), String> {
+    let mut watcher_lock = state.0.lock().map_err(|e| format!("Failed to lock watcher: {}", e))?;
+    *watcher_lock = None;
+    Ok(())
 }
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
@@ -393,10 +462,32 @@ async fn read_text_file(
     })
 }
 
+#[tauri::command]
+async fn write_text_file(
+    file_path: String,
+    content: String,
+) -> Result<String, String> {
+    let path = Path::new(&file_path);
+    
+    if !path.exists() {
+        return Err("File does not exist".to_string());
+    }
+    
+    if path.is_dir() {
+        return Err("Cannot write to directory".to_string());
+    }
+    
+    match fs::write(&path, content.as_bytes()) {
+        Ok(_) => Ok("File saved successfully".to_string()),
+        Err(e) => Err(format!("Failed to write file: {}", e)),
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
+        .manage(WatcherState(Mutex::new(None)))
         .invoke_handler(tauri::generate_handler![
             greet,
             get_current_directory,
@@ -410,7 +501,10 @@ pub fn run() {
             copy_items,
             move_items,
             open_file_with_default_app,
-            read_text_file
+            read_text_file,
+            write_text_file,
+            start_watch,
+            stop_watch
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
