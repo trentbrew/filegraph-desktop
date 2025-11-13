@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Skeleton } from '@/components/ui/skeleton';
 import { TextViewer } from './viewers/textViewer';
+import { CodeViewer } from './viewers/codeViewer';
+import { TableViewer } from './viewers/tableViewer';
 import { ImageViewer } from './viewers/imageViewer';
 import { MediaViewer } from './viewers/mediaViewer';
 import { PdfViewer } from './viewers/pdfViewer';
@@ -191,14 +193,25 @@ function PreviewContent({ activeItem }: { activeItem: FileItem }) {
     );
   }
 
-  // Text-based files
-  const textExtensions = [
-    'txt',
-    'md',
-    'json',
-    'xml',
-    'csv',
-    'log',
+  // Table files (CSV and Excel)
+  if (extension === 'csv') {
+    return (
+      <div className="h-full">
+        <TableViewer filePath={activeItem.path} fileType="csv" fileName={activeItem.name} />
+      </div>
+    );
+  }
+
+  if (extension && ['xlsx', 'xls'].includes(extension)) {
+    return (
+      <div className="h-full">
+        <TableViewer filePath={activeItem.path} fileType="xlsx" fileName={activeItem.name} />
+      </div>
+    );
+  }
+
+  // Code files with syntax highlighting
+  const codeExtensions = [
     'js',
     'ts',
     'tsx',
@@ -218,15 +231,32 @@ function PreviewContent({ activeItem }: { activeItem: FileItem }) {
     'php',
     'rb',
     'swift',
+    'json',
+    'xml',
     'yml',
     'yaml',
     'toml',
-    'ini',
-    'conf',
     'sh',
     'bash',
     'zsh',
     'sql',
+  ];
+
+  if (extension && codeExtensions.includes(extension)) {
+    return (
+      <div className="h-full">
+        <CodeViewer filePath={activeItem.path} extension={extension} />
+      </div>
+    );
+  }
+
+  // Plain text files (no syntax highlighting needed)
+  const textExtensions = [
+    'txt',
+    'md',
+    'log',
+    'ini',
+    'conf',
     'gitignore',
     'env',
     'dockerignore',

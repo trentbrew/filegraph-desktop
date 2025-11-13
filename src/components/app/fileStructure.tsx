@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { invoke } from '@tauri-apps/api/core';
 import { listen } from '@tauri-apps/api/event';
+import { useTQL } from '@/hooks/useTQL';
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -26,6 +27,7 @@ import {
   ListTree,
   Network,
 } from 'lucide-react';
+import { getFileIcon } from '@/lib/fileIcons';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -56,23 +58,10 @@ import {
 import CommandsPallet from './commandsPallet';
 import { PreviewPane } from './previewPane';
 import { GridItem } from './gridItem';
+import { ColumnView } from './columnView';
+import { TreeView } from './treeView';
 import { toast } from 'sonner';
 import TitleBar from './titleBar';
-import {
-  FaFolder,
-  FaFile,
-  FaFileImage,
-  FaFileAudio,
-  FaFileVideo,
-  FaFileArchive,
-  FaFileCode,
-  FaFileExcel,
-  FaFileWord,
-  FaFilePowerpoint,
-  FaFilePdf,
-  FaFileAlt,
-  FaDatabase,
-} from 'react-icons/fa';
 
 export type FileItem = {
   id: string;
@@ -84,93 +73,8 @@ export type FileItem = {
   path: string; // Added path field
 };
 
-const getFileIcon = (file_type: string, extension: string | null) => {
-  if (file_type === 'folder')
-    return <FaFolder className="h-4 w-4 text-blue-500" />;
-
-  if (!extension) return <FaFile className="h-4 w-4" />;
-
-  const ext = extension.toLowerCase();
-
-  // Images
-  if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'].includes(ext)) {
-    return <FaFileImage className="h-4 w-4 text-green-500" />;
-  }
-
-  // Audio
-  if (['mp3', 'wav', 'flac', 'aac'].includes(ext)) {
-    return <FaFileAudio className="h-4 w-4 text-purple-500" />;
-  }
-
-  // Video
-  if (['mp4', 'avi', 'mkv', 'mov'].includes(ext)) {
-    return <FaFileVideo className="h-4 w-4 text-red-500" />;
-  }
-
-  // Archives
-  if (['zip', 'rar', '7z', 'tar', 'gz'].includes(ext)) {
-    return <FaFileArchive className="h-4 w-4 text-orange-500" />;
-  }
-
-  // Code files
-  if (
-    [
-      'js',
-      'ts',
-      'tsx',
-      'jsx',
-      'html',
-      'css',
-      'py',
-      'java',
-      'cpp',
-      'c',
-      'cs',
-      'go',
-      'rs',
-      'php',
-      'rb',
-      'swift',
-    ].includes(ext)
-  ) {
-    return <FaFileCode className="h-4 w-4 text-blue-600" />;
-  }
-
-  // Excel / Spreadsheet
-  if (['xlsx', 'xls', 'csv'].includes(ext)) {
-    return <FaFileExcel className="h-4 w-4 text-green-600" />;
-  }
-
-  // Word Docs
-  if (['doc', 'docx'].includes(ext)) {
-    return <FaFileWord className="h-4 w-4 text-blue-700" />;
-  }
-
-  // PowerPoint
-  if (['ppt', 'pptx'].includes(ext)) {
-    return <FaFilePowerpoint className="h-4 w-4 text-orange-600" />;
-  }
-
-  // PDF
-  if (['pdf'].includes(ext)) {
-    return <FaFilePdf className="h-4 w-4 text-red-600" />;
-  }
-
-  // Text & Markdown
-  if (['txt', 'md', 'rtf'].includes(ext)) {
-    return <FaFileAlt className="h-4 w-4 text-gray-600" />;
-  }
-
-  // Database files
-  if (['sql', 'db', 'sqlite', 'mongodb'].includes(ext)) {
-    return <FaDatabase className="h-4 w-4 text-yellow-600" />;
-  }
-
-  return <FaFile className="h-4 w-4" />;
-};
-
 // Helper function to format file size
-const formatFileSize = (bytes: number | null) => {
+export const formatFileSize = (bytes: number | null) => {
   if (bytes === null) return '';
 
   const sizes = ['B', 'KB', 'MB', 'GB'];
@@ -181,6 +85,9 @@ const formatFileSize = (bytes: number | null) => {
 };
 
 export function FileStructure() {
+  // TQL Runtime
+  const [tqlState, tqlActions] = useTQL();
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     [],
@@ -189,13 +96,14 @@ export function FileStructure() {
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
   const [currentPath, setCurrentPath] = React.useState('');
+  const [pathInput, setPathInput] = React.useState('');
   const [data, setData] = React.useState<FileItem[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [navigationHistory, setNavigationHistory] = React.useState<string[]>(
     [],
   );
   const [historyIndex, setHistoryIndex] = React.useState(-1);
-  const [showDotfiles, setShowDotfiles] = React.useState(true);
+  const [showDotfiles, setShowDotfiles] = React.useState(false);
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({
     name: 300,
     date_modified: 120,
@@ -236,6 +144,8 @@ export function FileStructure() {
   // Clear search filter when navigating to new directory
   React.useEffect(() => {
     setSearchValue('');
+    // Sync path input with actual current path
+    setPathInput(currentPath);
   }, [currentPath]);
 
   // Filesystem watching - start/stop watcher and listen for changes
@@ -250,16 +160,61 @@ export function FileStructure() {
         await invoke('start_watch', { path: currentPath });
 
         // Listen for filesystem change events
-        unlisten = await listen('fs-change', () => {
-          // Refresh the file list when changes are detected
-          if (currentPath) {
-            invoke<FileItem[]>('list_directory', { path: currentPath })
-              .then((files) => setData(files))
-              .catch((error) =>
-                console.error('Failed to refresh after fs change:', error),
-              );
-          }
-        });
+        unlisten = await listen<{ kind: string; paths: string[] }>(
+          'fs-change',
+          (event) => {
+            const payload = event.payload;
+
+            // Log raw event in dev mode for debugging
+            if (import.meta.env.DEV) {
+              console.log('[FS Event Raw]', JSON.stringify(payload, null, 2));
+            }
+
+            // Convert Rust event to TQL FSEvent format
+            // Rust emits: { kind: "Create(...)", paths: ["/path/to/file"] }
+            const kind = payload.kind.toLowerCase();
+            const paths = payload.paths;
+
+            // Parse event kind (Rust uses Debug format like "Create(File)")
+            let eventKind:
+              | 'create'
+              | 'modify'
+              | 'remove'
+              | 'rename'
+              | 'unknown' = 'unknown';
+            if (kind.includes('create')) {
+              eventKind = 'create';
+            } else if (kind.includes('modify') || kind.includes('write')) {
+              eventKind = 'modify';
+            } else if (kind.includes('remove') || kind.includes('delete')) {
+              eventKind = 'remove';
+            } else if (kind.includes('rename')) {
+              eventKind = 'rename';
+            }
+
+            if (import.meta.env.DEV) {
+              console.log('[FS Event Parsed]', { eventKind, paths });
+            }
+
+            // Push events to TQL runtime
+            for (const path of paths) {
+              tqlActions.pushFSEvent({
+                kind: eventKind,
+                path,
+                timestamp: Date.now(),
+              });
+            }
+
+            // Refresh the file list when changes are detected
+            if (currentPath) {
+              invoke<FileItem[]>('list_directory', { path: currentPath })
+                .then((files) => setData(files))
+                .catch((error) =>
+                  console.error('Failed to refresh after fs change:', error),
+                );
+            }
+          },
+        );
       } catch (error) {
         console.error('Failed to setup filesystem watcher:', error);
       }
@@ -274,7 +229,7 @@ export function FileStructure() {
       }
       invoke('stop_watch').catch(console.error);
     };
-  }, [currentPath]);
+  }, [currentPath, tqlActions]);
 
   // Handle resize
   React.useEffect(() => {
@@ -286,7 +241,8 @@ export function FileStructure() {
 
     const handleMouseMove = (e: MouseEvent) => {
       const newWidth = window.innerWidth - e.clientX;
-      const clampedWidth = Math.max(300, Math.min(800, newWidth));
+      const maxWidth = window.innerWidth * 0.9; // 90vw
+      const clampedWidth = Math.max(300, Math.min(maxWidth, newWidth));
       setPreviewWidth(clampedWidth);
     };
 
@@ -712,12 +668,9 @@ export function FileStructure() {
     <div className="w-full h-full flex flex-col">
       {/* Title Bar with Path Input */}
       <TitleBar
-        currentPath={currentPath}
-        onPathChange={setCurrentPath}
+        currentPath={pathInput}
+        onPathChange={setPathInput}
         onNavigate={navigateToPath}
-        onNavigateBack={navigateBack}
-        onNavigateHome={navigateHome}
-        canNavigateBack={historyIndex > 0}
         loading={loading}
       />
 
@@ -739,11 +692,60 @@ export function FileStructure() {
               previewEnabled && activeItem
                 ? `calc(100% - ${previewWidth}px)`
                 : '100%',
-            transition: 'width 0.2s ease',
+            transition: 'width 0s linear !important',
           }}
         >
           {/* Toolbar */}
           <div className="flex items-center gap-3 p-3 pl-0 shrink-0">
+            {/* Navigation Buttons */}
+            <div className="flex items-center gap-3">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={navigateBack}
+                disabled={loading || historyIndex <= 0}
+                className="h-8 w-8 p-0"
+                title="Back"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={navigateHome}
+                disabled={loading}
+                className="h-8 w-8 p-0"
+                title="Home"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </Button>
+            </div>
+
             {/* Layout Mode Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -807,7 +809,7 @@ export function FileStructure() {
             </Button>
 
             {/* Preview Toggle */}
-            <Button
+            {/* <Button
               variant="outline"
               size="sm"
               onClick={() => setPreviewEnabled(!previewEnabled)}
@@ -820,7 +822,7 @@ export function FileStructure() {
                 <EyeOff className="h-4 w-4" />
               )}
               Preview
-            </Button>
+            </Button> */}
           </div>
 
           {/* Table View */}
@@ -931,7 +933,7 @@ export function FileStructure() {
                                   onDoubleClick={() =>
                                     handleItemDoubleClick(row.original)
                                   }
-                                  className={`cursor-pointer duration-0 select-none ${
+                                  className={`cursor-pointer !duration-0 select-none ${
                                     activeItem?.path === fileItem.path
                                       ? 'bg-accent'
                                       : ''
@@ -1064,7 +1066,7 @@ export function FileStructure() {
                         <TableRow>
                           <TableCell
                             colSpan={columns.length}
-                            className="h-24 text-center"
+                            className="h-24 text-center hover:bg-transparent"
                           >
                             {loading ? 'Loading...' : 'No files found.'}
                           </TableCell>
@@ -1108,24 +1110,24 @@ export function FileStructure() {
 
           {/* Columns View */}
           {layoutMode === 'columns' && (
-            <div className="flex-1 rounded-sm border border-border/50 bg-card flex flex-col items-center justify-center">
-              <div className="text-center text-muted-foreground p-8">
-                <Columns3 className="h-12 w-12 mx-auto mb-3 opacity-50" />
-                <p className="text-sm font-medium">Columns View</p>
-                <p className="text-xs mt-2 opacity-70">Coming soon</p>
-              </div>
-            </div>
+            <ColumnView
+              currentPath={currentPath}
+              onNavigate={navigateToPath}
+              onFileSelect={setActiveItem}
+              activeItem={activeItem}
+              showDotfiles={showDotfiles}
+            />
           )}
 
           {/* Tree View */}
           {layoutMode === 'tree' && (
-            <div className="flex-1 rounded-sm border border-border/50 bg-card flex flex-col items-center justify-center">
-              <div className="text-center text-muted-foreground p-8">
-                <ListTree className="h-12 w-12 mx-auto mb-3 opacity-50" />
-                <p className="text-sm font-medium">Tree View</p>
-                <p className="text-xs mt-2 opacity-70">Coming soon</p>
-              </div>
-            </div>
+            <TreeView
+              currentPath={currentPath}
+              onNavigate={navigateToPath}
+              onFileSelect={setActiveItem}
+              activeItem={activeItem}
+              showDotfiles={showDotfiles}
+            />
           )}
 
           {/* Canvas View */}

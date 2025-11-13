@@ -1,8 +1,8 @@
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import ThemeToggle from './themeToggle';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, Home, Settings, User } from 'lucide-react';
+import { Settings } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 const appWindow = getCurrentWindow();
 
@@ -10,9 +10,6 @@ interface TitleBarProps {
   currentPath: string;
   onPathChange: (path: string) => void;
   onNavigate: (path: string) => void;
-  onNavigateBack: () => void;
-  onNavigateHome: () => void;
-  canNavigateBack: boolean;
   loading?: boolean;
 }
 
@@ -20,9 +17,6 @@ export default function TitleBar({
   currentPath,
   onPathChange,
   onNavigate,
-  onNavigateBack,
-  onNavigateHome,
-  canNavigateBack,
   loading = false,
 }: TitleBarProps) {
   const handleFullscreen = async () => {
@@ -30,16 +24,35 @@ export default function TitleBar({
     await appWindow.setFullscreen(!isFullscreen);
   };
 
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputWidth, setInputWidth] = useState('200px');
+
+  useEffect(() => {
+    // Create a hidden span to measure text width
+    const span = document.createElement('span');
+    span.style.visibility = 'hidden';
+    span.style.position = 'absolute';
+    span.style.whiteSpace = 'pre';
+    span.style.font = window.getComputedStyle(
+      inputRef.current || document.body,
+    ).font;
+    span.textContent = currentPath || 'Enter path...';
+
+    document.body.appendChild(span);
+    const width = Math.max(200, span.getBoundingClientRect().width + 32); // Add padding
+    const maxWidth = window.innerWidth * 0.7;
+    setInputWidth(`${Math.min(width, maxWidth)}px`);
+
+    document.body.removeChild(span);
+  }, [currentPath]);
+
   return (
     <div
       data-tauri-drag-region
       className="flex flex-row items-center justify-between h-12 px-3 bg-background/95 backdrop-blur-xl border-b border-border/50 rounded-t-[12px]"
     >
       {/* macOS Traffic Lights + Navigation */}
-      <div
-        data-tauri-drag-region="false"
-        className="flex items-center gap-3 shrink-0"
-      >
+      <div data-tauri-drag-region className="flex items-center gap-3 shrink-0">
         <div className="flex items-center gap-2">
           <button
             onClick={() => appWindow.close()}
@@ -69,50 +82,32 @@ export default function TitleBar({
             </span>
           </button>
         </div>
-
-        {/* Navigation Buttons */}
-        <div className="flex items-center gap-2 ml-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={onNavigateBack}
-            disabled={loading || !canNavigateBack}
-            className="h-7 w-7 p-0"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={onNavigateHome}
-            disabled={loading}
-            className="h-7 w-7 p-0"
-          >
-            <Home className="h-3.5 w-3.5" />
-          </Button>
-        </div>
       </div>
 
       {/* Path Input - Center */}
-      <div data-tauri-drag-region="false" className="flex-1 px-4 max-w-3xl">
-        <Input
-          placeholder="Enter path..."
-          value={currentPath}
-          onChange={(event) => onPathChange(event.target.value)}
-          className="w-full font-mono text-sm h-8 text-center !bg-transparent opacity-50 border-none focus:outline-none focus:ring-0"
-          onKeyDown={(event) => {
-            if (event.key === 'Enter') {
-              onNavigate(currentPath);
-            }
-          }}
-          disabled={loading}
-        />
+      <div data-tauri-drag-region className="flex-1 flex justify-center px-4">
+        <div className="inline-flex max-w-full">
+          <Input
+            data-tauri-drag-region="false"
+            ref={inputRef}
+            placeholder="Enter path..."
+            value={currentPath}
+            onChange={(event) => onPathChange(event.target.value)}
+            className="w-auto min-w-[200px] max-w-full font-mono text-sm h-8 text-center !bg-transparent opacity-50 border-none focus:outline-none focus:ring-0"
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                onNavigate(currentPath);
+              }
+            }}
+            disabled={loading}
+            style={{ width: inputWidth }}
+          />
+        </div>
       </div>
 
       {/* Right side controls */}
-
       <div
-        data-tauri-drag-region="false"
+        data-tauri-drag-region
         className="shrink-0 flex items-center gap-2 mr-2 text-foreground/50"
       >
         <ThemeToggle />

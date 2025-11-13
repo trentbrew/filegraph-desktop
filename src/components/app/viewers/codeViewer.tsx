@@ -3,6 +3,7 @@ import { invoke } from '@tauri-apps/api/core';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { AlertCircle, WrapText, Copy, Check, Edit, Save } from 'lucide-react';
+import { createHighlighter } from 'shiki';
 
 interface TextFileContent {
   content: string;
@@ -11,24 +12,135 @@ interface TextFileContent {
   size: number;
 }
 
-interface TextViewerProps {
+interface CodeViewerProps {
   filePath: string;
+  extension: string;
   maxBytes?: number;
 }
 
-export function TextViewer({
+// Map file extensions to Shiki language identifiers
+const getLanguageFromExtension = (ext: string): string => {
+  const languageMap: Record<string, string> = {
+    js: 'javascript',
+    jsx: 'jsx',
+    ts: 'typescript',
+    tsx: 'tsx',
+    py: 'python',
+    rb: 'ruby',
+    go: 'go',
+    rs: 'rust',
+    java: 'java',
+    cpp: 'cpp',
+    c: 'c',
+    cs: 'csharp',
+    php: 'php',
+    swift: 'swift',
+    kt: 'kotlin',
+    scala: 'scala',
+    html: 'html',
+    css: 'css',
+    scss: 'scss',
+    sass: 'sass',
+    json: 'json',
+    xml: 'xml',
+    yaml: 'yaml',
+    yml: 'yaml',
+    toml: 'toml',
+    sql: 'sql',
+    md: 'markdown',
+    sh: 'bash',
+    bash: 'bash',
+    zsh: 'bash',
+    dockerfile: 'dockerfile',
+    gitignore: 'gitignore',
+  };
+
+  return languageMap[ext.toLowerCase()] || 'text';
+};
+
+export function CodeViewer({
   filePath,
+  extension,
   maxBytes = 4 * 1024 * 1024,
-}: TextViewerProps) {
+}: CodeViewerProps) {
   const [data, setData] = React.useState<TextFileContent | null>(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
-  const [wordWrap, setWordWrap] = React.useState(true);
+  const [wordWrap, setWordWrap] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
   const [isEditing, setIsEditing] = React.useState(false);
   const [editedContent, setEditedContent] = React.useState('');
   const [isSaving, setIsSaving] = React.useState(false);
+  const [highlightedCode, setHighlightedCode] = React.useState('');
+  const [highlighterReady, setHighlighterReady] = React.useState(false);
 
+  // Escape HTML for safe fallback rendering when highlighter isn't available
+  const escapeHtml = React.useCallback((str: string) =>
+    str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\"/g, '&quot;')
+      .replace(/'/g, '&#39;'),
+  []);
+
+  // Initialize highlighter
+  React.useEffect(() => {
+    let cancelled = false;
+
+    const initHighlighter = async () => {
+      try {
+        const highlighter = await createHighlighter({
+          themes: ['github-dark'],
+          langs: [
+            'javascript',
+            'typescript',
+            'jsx',
+            'tsx',
+            'python',
+            'rust',
+            'go',
+            'java',
+            'cpp',
+            'c',
+            'csharp',
+            'php',
+            'ruby',
+            'swift',
+            'html',
+            'css',
+            'scss',
+            'json',
+            'yaml',
+            'toml',
+            'sql',
+            'markdown',
+            'bash',
+          ],
+        });
+
+        if (!cancelled) {
+          // Store highlighter in a ref or state
+          (window as any).__shikiHighlighter = highlighter;
+          setHighlighterReady(true);
+        }
+      } catch (err) {
+        console.error('Failed to initialize syntax highlighter:', err);
+        if (!cancelled) {
+          // Continue without highlighting (we will use a safe fallback)
+          setHighlighterReady(true);
+        }
+      }
+    };
+
+    initHighlighter();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Load file
   React.useEffect(() => {
     let cancelled = false;
 
@@ -64,6 +176,35 @@ export function TextViewer({
       cancelled = true;
     };
   }, [filePath, maxBytes]);
+
+  // Highlight code when data or editing state changes
+  React.useEffect(() => {
+    if (!data || isEditing || !highlighterReady) return;
+
+    const highlightCode = async () => {
+      try {
+        const highlighter = (window as any).__shikiHighlighter;
+        if (!highlighter) {
+          // Safe fallback when shiki isn't ready: render escaped HTML inside <pre>
+          setHighlightedCode(`<pre class="!m-0 !p-3 !text-xs font-mono whitespace-pre-wrap break-words">${escapeHtml(data.content)}</pre>`);
+          return;
+        }
+
+        const language = getLanguageFromExtension(extension);
+        const html = highlighter.codeToHtml(data.content, {
+          lang: language,
+        });
+
+        setHighlightedCode(html);
+      } catch (err) {
+        console.error('Highlighting error:', err);
+        // Safe fallback if highlighting fails
+        setHighlightedCode(`<pre class="!m-0 !p-3 !text-xs font-mono whitespace-pre-wrap break-words">${escapeHtml(data.content)}</pre>`);
+      }
+    };
+
+    highlightCode();
+  }, [data, isEditing, highlighterReady, extension, escapeHtml]);
 
   const handleCopy = React.useCallback(() => {
     const contentToCopy = isEditing ? editedContent : data?.content;
@@ -156,6 +297,8 @@ export function TextViewer({
           <span>{data.encoding}</span>
           <span>•</span>
           <span>{formatFileSize(data.size)}</span>
+          <span>•</span>
+          <span className="capitalize">{extension}</span>
           {data.truncated && (
             <>
               <span>•</span>
@@ -192,7 +335,7 @@ export function TextViewer({
               className="h-7 px-2 gap-1.5"
               onClick={handleSave}
               disabled={!hasChanges || isSaving}
-              title="Save changes"
+              title="Save changes (Cmd+S)"
             >
               <Save className="h-3.5 w-3.5" />
               <span className="text-xs">{isSaving ? 'Saving...' : 'Save'}</span>
@@ -236,7 +379,7 @@ export function TextViewer({
           <textarea
             value={editedContent}
             onChange={(e) => setEditedContent(e.target.value)}
-            className={`w-full h-full p-4 !text-xs font-mono bg-transparent resize-none focus:outline-none ${
+            className={`w-full h-full !p-0 !m-0 !text-xs font-mono !bg-transparent resize-none focus:outline-none ${
               wordWrap ? 'whitespace-pre-wrap break-words' : 'whitespace-pre'
             }`}
             spellCheck={false}
@@ -244,13 +387,11 @@ export function TextViewer({
         </div>
       ) : (
         <div className="flex-1 overflow-auto">
-          <pre
-            className={`p-4 !text-xs font-mono ${
-              wordWrap ? 'whitespace-pre-wrap break-words' : 'whitespace-pre'
-            }`}
-          >
-            {data.content}
-          </pre>
+          <div
+            className={`shiki-wrapper !bg-transparent ${wordWrap ? 'whitespace-pre-wrap break-words' : ''}`}
+            // Highlighted code is either shiki output or a safe escaped <pre>
+            dangerouslySetInnerHTML={{ __html: highlightedCode }}
+          />
         </div>
       )}
 
