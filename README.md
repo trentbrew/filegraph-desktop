@@ -1,70 +1,70 @@
-# FileEx - Modern File Explorer
+# FileGraph - Query Your Files Like a Database
 
-A modern, feature-rich file explorer built with Tauri, React, TypeScript, and shadcn/ui. FileEx provides a clean, intuitive interface for managing files and folders with advanced features and beautiful UI components.
+FileGraph transforms your file system into a queryable knowledge graph. Index local folders, then ask structured questions about your files using TQL (Text Query Language). Think of it as a personal search engine that understands file relationships, content, and metadata.
 
-## 📸 Screenshots
+## 🎯 What Makes FileGraph Different?
 
-<div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <img src="images/light.png" alt="FileEx Light Theme" width="450"/>
-        <br/>
-        <sub><b>Light Theme</b></sub>
-      </td>
-      <td align="center">
-        <img src="images/dark.png" alt="FileEx Dark Theme" width="450"/>
-        <br/>
-        <sub><b>Dark Theme</b></sub>
-      </td>
-    </tr>
-  </table>
-</div>
+Unlike traditional file explorers, FileGraph:
+- **Indexes your files** into a local graph database
+- **Understands relationships** between files, folders, and content
+- **Answers natural questions** like "Show me all PDFs modified in the last week"
+- **Tracks changes in real-time** with filesystem watching
+- **Stays completely local** - your data never leaves your machine
+- **Provides instant insights** with graph-based queries
 
 ---
 
 ![Tauri](https://img.shields.io/badge/Tauri-2.0-blue?logo=tauri)
 ![React](https://img.shields.io/badge/React-18-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Rust](https://img.shields.io/badge/Rust-WASM-orange?logo=rust)
 ![Tailwind](https://img.shields.io/badge/Tailwind-CSS-blue?logo=tailwindcss)
 
 ## ✨ Features
 
-### 🗂️ **File Management**
-- **Browse Directories**: Navigate through your file system with ease
-- **Create Files & Folders**: Create new files and folders with validation
-- **Rename Items**: Rename files and folders inline
-- **Delete Items**: Safe deletion with confirmation dialogs
-- **File Icons**: Beautiful icons for different file types and folders
+### 🔍 **TQL - Graph Query Language**
+- **Structured queries**: Ask questions about your files naturally
+- **Relationship traversal**: Navigate connections between files
+- **Metadata filtering**: Search by type, size, date, content
+- **Full-text search**: Find files by content, not just names
+- **Graph statistics**: Get insights about your file structure
 
-### 📋 **Clipboard Operations**
-- **Cut & Copy**: Full clipboard support for files and folders
-- **Paste**: Paste files/folders with recursive copying
-- **System Clipboard**: Copy file paths to system clipboard for external use
+### 📊 **Vault-Based Indexing**
+- **Index any folder**: Turn any directory into a queryable vault
+- **Real-time updates**: Filesystem watching keeps the index fresh
+- **Background processing**: Non-blocking indexing with progress tracking
+- **Smart indexing**: Respects .gitignore and dotfile preferences
+- **Persistent storage**: Indexes survive app restarts
+
+### 📈 **VSCode-Style Status Bar**
+- **Live indexing progress**: Phase, files processed, ETA
+- **Queue monitoring**: See pending operations in real-time
+- **Health indicators**: Connection status, errors, warnings
+- **Interactive controls**: Pause, resume, throttle indexing
+- **Metrics display**: Files, facts, edges at a glance
+
+### 🗂️ **Vault-Scoped Navigation**
+- **Context-aware browsing**: Navigate within indexed vaults
+- **Home button**: Jump to vault root, not system home
+- **Path boundaries**: Stay focused on your working vault
+- **Multiple vaults**: Switch between indexed folders
+- **Persistent state**: Remembers your last vault
 
 ### 🎨 **Modern UI/UX**
-- **Custom Window Controls**: Minimize, maximize, and close buttons
-- **Responsive Layout**: Adapts to different window sizes
-- **Table View**: Sortable table with file details (name, size, type, date modified)
-- **Search & Filter**: Real-time file search and filtering
-- **Column Management**: Show/hide columns and resize them
-- **Toast Notifications**: Beautiful, non-intrusive notifications using Sonner
-- **Dialog System**: Professional dialogs for confirmations and input
+- **Modal vault selector**: Clean, focused indexing experience
+- **File type icons**: Visual file type identification
+- **Theme support**: Light and dark modes
+- **Responsive layout**: Adapts to window size
+- **Toast notifications**: Non-intrusive feedback
+- **Error panels**: Actionable error drill-through with retry
 
 ### 🔧 **Advanced Features**
-- **Path Navigation**: Direct path input and navigation
-- **File Selection**: Multi-select files with checkboxes
-- **Context Menus**: Right-click actions for individual files
-- **Keyboard Shortcuts**: Quick actions with Enter/Escape keys
-- **Loading States**: Visual feedback during operations
-- **Error Handling**: Comprehensive error handling with user-friendly messages
-
-### 🎯 **File Operations**
-- **Double-click Navigation**: Open folders by double-clicking
-- **Bulk Operations**: Perform actions on multiple selected files
-- **File Type Detection**: Automatic file type detection and icons
-- **Size Formatting**: Human-readable file sizes
-- **Date Formatting**: Localized date display
+- **Zod schema validation**: Runtime type safety for all events
+- **Heartbeat detection**: Automatic reconnection on failures
+- **ETA smoothing**: Accurate time estimates with outlier filtering
+- **Accessibility**: ARIA labels, keyboard navigation, screen reader support
+- **Privacy**: Redacted paths in localStorage
+- **Telemetry**: Local analytics for UX optimization
 
 ## 🚀 Quick Start
 
@@ -77,8 +77,8 @@ A modern, feature-rich file explorer built with Tauri, React, TypeScript, and sh
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Amanbig/fileEx.git
-   cd fileEx
+   git clone https://github.com/trentbrew/filegraph-desktop.git
+   cd filegraph-desktop
    ```
 
 2. **Install dependencies**
@@ -96,6 +96,17 @@ A modern, feature-rich file explorer built with Tauri, React, TypeScript, and sh
    npm run tauri build
    ```
 
+### First-Time Setup
+
+1. **Launch FileGraph**
+2. **Index your first vault**:
+   - Click the **Database icon** (📊) in the bottom-right status bar
+   - Enter a folder path (e.g., `~/.filegraph` or any project folder)
+   - Click **Index** and watch the progress in the status bar
+3. **Start querying**: Once indexed, your files are ready to query with TQL
+
+**Default vault path**: `~/.filegraph` (created automatically if it doesn't exist)
+
 ## 🛠️ Technology Stack
 
 ### Frontend
@@ -107,108 +118,183 @@ A modern, feature-rich file explorer built with Tauri, React, TypeScript, and sh
 - **TanStack Table**: Powerful table component with sorting, filtering
 - **Lucide React**: Beautiful SVG icons
 - **Sonner**: Toast notifications
+- **Zod**: Runtime type validation
+
+### TQL Runtime (Graph Engine)
+- **Rust (WASM)**: High-performance graph indexing compiled to WebAssembly
+- **In-memory graph**: Fast traversal and relationship queries
+- **Full-text search**: Content indexing and search
+- **Incremental updates**: Real-time filesystem watching
+- **Persistent storage**: IndexedDB for durable indexes
 
 ### Backend
 - **Tauri 2.0**: Rust-based desktop app framework
 - **Rust**: Systems programming language for performance
 - **Serde**: Serialization/deserialization
+- **Notify**: Filesystem watching for real-time updates
 - **Chrono**: Date and time handling
 - **Tokio**: Async runtime
 
+### State Management
+- **React Context**: Vault state management
+- **Custom hooks**: `useTQL` for graph runtime integration
+- **LocalStorage**: Persisting vault paths and preferences
+
 ### UI Components
-- Button, Input, Label, Tooltip
-- Dialog, ScrollArea, Separator
-- Table, Checkbox, DropdownMenu
-- Toast notifications (Sonner)
+- **Dialogs**: Modal vault selector, confirmation dialogs
+- **Status Bar**: VSCode-style progress monitoring
+- **Error Panel**: Actionable error drill-through
+- **File Browser**: Table/grid/tree/column views
+- **Toast**: Non-intrusive notifications (Sonner)
 
 ## 📁 Project Structure
 
 ```
-fileEx/
-├── src/                          # React frontend
+filegraph/
+├── src/                              # React frontend
 │   ├── components/
 │   │   ├── app/
-│   │   │   ├── fileStructure.tsx # Main file explorer component
-│   │   │   ├── commandsPallet.tsx # Toolbar with file operations
-│   │   │   └── titleBar.tsx      # Custom window title bar
-│   │   └── ui/                   # shadcn/ui components
+│   │   │   ├── fileStructure.tsx    # File browser with vault-scoped navigation
+│   │   │   ├── vaultSelector.tsx    # Modal dialog for indexing vaults
+│   │   │   ├── statusBar.tsx        # VSCode-style status bar with progress
+│   │   │   ├── errorPanel.tsx       # Actionable error drill-through
+│   │   │   ├── titleBar.tsx         # Custom window title bar
+│   │   │   ├── commandsPallet.tsx   # File operations toolbar
+│   │   │   ├── previewPane.tsx      # File preview sidebar
+│   │   │   └── viewers/             # File type-specific viewers
+│   │   └── ui/                      # shadcn/ui components
+│   ├── contexts/
+│   │   └── VaultContext.tsx         # Global vault state management
+│   ├── hooks/
+│   │   └── useTQL.ts                # TQL runtime integration hook
 │   ├── lib/
-│   │   └── utils.ts             # Utility functions
-│   ├── App.tsx                  # Main app component
-│   └── main.tsx                 # React entry point
-├── src-tauri/                   # Rust backend
+│   │   ├── tql/                     # TQL runtime (Rust WASM)
+│   │   │   ├── index.ts            # Runtime wrapper
+│   │   │   ├── status-types.ts     # Status bar types & Zod schemas
+│   │   │   └── debug.ts            # Dev console debugger
+│   │   ├── fileIcons.ts            # File type icon mapping
+│   │   └── utils.ts                # Utility functions
+│   ├── App.tsx                      # Main app component
+│   └── main.tsx                     # React entry point
+├── src-tauri/                       # Rust backend
 │   ├── src/
-│   │   ├── lib.rs              # Tauri commands and file operations
-│   │   └── main.rs             # Main Rust entry point
-│   ├── Cargo.toml              # Rust dependencies
-│   └── tauri.conf.json         # Tauri configuration
-├── public/                     # Static assets
-└── package.json               # Node.js dependencies
+│   │   ├── lib.rs                  # Tauri commands & file operations
+│   │   └── main.rs                 # Main Rust entry point
+│   ├── Cargo.toml                  # Rust dependencies
+│   └── tauri.conf.json             # Tauri configuration
+├── public/                         # Static assets
+├── SHIP_CHECKLIST.md              # Production readiness checklist
+├── STATUSBAR_IMPLEMENTATION.md    # Status bar architecture docs
+└── package.json                   # Node.js dependencies
 ```
 
 ## 🎮 Usage Guide
 
-### Basic Navigation
-1. **Browse Files**: The main table shows files and folders in the current directory
-2. **Open Folders**: Double-click on folders to navigate into them
-3. **Go Home**: Click the home button to navigate to your home directory
-4. **Path Input**: Type or paste a path in the address bar and press Enter
+### Indexing Your First Vault
+
+1. **Launch FileGraph** and click the **Database icon** (📊) in the bottom-right
+2. **Enter a folder path** (e.g., `~/Documents`, `~/.filegraph`, or any project folder)
+3. **Click "Index"** - Watch the status bar for:
+   - **Phase**: Discovery → Full-text search → Embedding
+   - **Progress**: Files processed and ETA
+   - **Queue**: Pending operations
+4. **Wait for completion** - Status shows `"Graph ready — X files • Y facts"`
+5. **Start exploring** - Your vault is now queryable!
+
+### Vault-Scoped Navigation
+
+- **Browse vault files**: File browser shows indexed vault contents
+- **Home button** (🏠): Jump to vault root, not system home
+- **Vault switcher**: Click the green folder indicator (bottom-left) to switch vaults
+- **Path boundaries**: Navigation stays within your indexed vault
+
+### Status Bar Features
+
+#### Left Side: Vault Info
+- **Folder icon + name**: Current vault (click to switch)
+- **Health indicator**: Connection status (green = healthy)
+
+#### Center: Indexing Progress
+- **Phase**: Current operation (discovering/fts/embedding)
+- **Progress bar**: Visual completion indicator
+- **Stats**: `"processed/total (XX%)"` with ETA
+- **Queue**: Pending operations count
+
+#### Right: Metrics & Controls
+- **Files**: Total indexed files
+- **Facts**: Extracted facts/metadata
+- **Edges**: Relationships between entities
+- **Errors**: Click badge to open error panel
+- **Controls**: Pause/resume, settings
+- **Index button**: Add new vaults
 
 ### File Operations
-1. **Create New**:
-   - Click the folder+ icon to create a new folder
-   - Click the file+ icon to create a new file
-   - Enter the name in the dialog and click "Create"
 
-2. **Select Files**:
-   - Click checkboxes to select individual files
-   - Use the header checkbox to select all files
+1. **Browse**: Table, grid, columns, or tree view
+2. **Search**: Real-time filter by file name
+3. **Preview**: Click file to see preview pane (code, images, PDFs)
+4. **Sort**: Click column headers
+5. **Multi-select**: Checkboxes for bulk operations
 
-3. **Cut/Copy/Paste**:
-   - Select files and click the cut (scissors) or copy icon
-   - Navigate to destination and click paste (clipboard) icon
+### TQL Queries (Coming Soon)
 
-4. **Delete Files**:
-   - Select files and click the trash icon
-   - Confirm deletion in the dialog
+```tql
+# Find recent PDFs
+files.type == "pdf" AND files.modified > "2024-01-01"
 
-### Advanced Features
-- **Search**: Use the search box to filter files by name
-- **Sort**: Click column headers to sort by name, date, type, or size
-- **Resize Columns**: Drag column borders to resize
-- **Show/Hide Columns**: Use the "Columns" dropdown to toggle visibility
+# Search by content
+files.content CONTAINS "typescript"
+
+# Traverse relationships
+files -> imports -> files
+```
 
 ## 🔧 Configuration
 
-### Window Settings
-The app uses a custom window frame with these features:
-- Transparent title bar
-- Custom window controls
-- Resizable and maximizable
-- Minimum size: 800x600
+### Vault Settings
+- **Default path**: `~/.filegraph` (auto-created)
+- **Storage**: LocalStorage for vault paths, IndexedDB for graph indexes
+- **Dotfiles**: Hidden by default, toggle in settings
+- **Gitignore**: Respects `.gitignore` files during indexing
 
-### Tauri Commands
-Available Rust commands that can be called from the frontend:
-- `get_current_directory()` - Get current working directory
-- `get_home_directory()` - Get user's home directory
-- `list_directory(path)` - List files and folders in a directory
-- `navigate_to_path(path)` - Navigate to a specific path
-- `create_folder(path, name)` - Create a new folder
-- `create_file(path, name)` - Create a new file
-- `delete_item(path)` - Delete a file or folder
-- `rename_item(old_path, new_name)` - Rename a file or folder
-- `copy_items(source_paths, destination_path)` - Copy files/folders
-- `move_items(source_paths, destination_path)` - Move files/folders
+### Status Bar Settings
+- **Schema version**: Zod validation ensures compatibility
+- **Heartbeat timeout**: 5s (with exponential backoff)
+- **Progress updates**: 4Hz (250ms) with RAF batching
+- **ETA smoothing**: 30s sliding window with outlier filtering
+- **Error log**: Max 100 events
+
+### Window Settings
+- **Custom title bar**: macOS-style traffic lights
+- **Resizable**: Yes, with minimum size 800x600
+- **Theme**: Light/dark mode support
+- **Transparency**: Background blur on macOS
+
+### Keyboard Shortcuts
+- `⌘I` - Toggle indexing panel (future)
+- `⌘⇧I` - Cycle throttle modes (future)
+- `Escape` - Close modals
+- `Enter` - Confirm dialogs
 
 ## 🎨 Customization
 
 ### Themes
-The app uses Tailwind CSS with CSS variables for theming. You can customize colors in:
-- `src/App.css` - Global styles and theme variables
+Customize colors and styling:
+- `src/App.css` - Global styles and CSS variables
 - `tailwind.config.js` - Tailwind configuration
+- Theme toggle in title bar for light/dark modes
+
+### Status Bar
+Customize status bar behavior in:
+- `src/lib/tql/status-types.ts` - Zod schemas and types
+- `src/components/app/statusBar.tsx` - UI and event handling
+- Adjust refresh rate, timeout values, ETA smoothing
 
 ### File Icons
-File type icons are defined in `fileStructure.tsx`. Add new file types by extending the `getFileIcon` function.
+File type detection and icons:
+- `src/lib/fileIcons.ts` - Icon mapping by extension
+- Based on Lucide icons
+- Extend with new file types as needed
 
 ## 🐛 Troubleshooting
 
@@ -218,16 +304,35 @@ File type icons are defined in `fileStructure.tsx`. Add new file types by extend
    - Ensure Rust and Node.js are installed
    - Run `npm install` to install dependencies
    - Check that ports 1420 and 1421 are available
+   - Clear browser cache: `rm -rf node_modules/.vite`
 
-2. **Build fails**
+2. **Indexing stuck or slow**
+   - Check console for errors (⌘⌥I)
+   - Large folders may take time (watch ETA in status bar)
+   - Pause and resume from status bar controls
+   - Check error panel (click error badge) for detailed issues
+
+3. **Zero metrics after indexing**
+   - Open console and check for `[VaultSelector] Stats: {...}`
+   - If stats show 0, TQL runtime didn't process files
+   - Try indexing a smaller test folder first
+   - Check that folder contains actual files (not empty)
+
+4. **File browser shows system home instead of vault**
+   - Reload app after indexing completes
+   - Check localStorage for `filegraph_vault_path`
+   - Verify vault was indexed successfully (green "Graph ready" toast)
+
+5. **Build fails**
    - Update Rust: `rustup update`
    - Clear node modules: `rm -rf node_modules && npm install`
    - Check Tauri prerequisites: `npm run tauri info`
+   - Ensure WASM target: `rustup target add wasm32-unknown-unknown`
 
-3. **File operations fail**
-   - Check file permissions
-   - Ensure paths exist and are accessible
-   - Look at console logs for detailed error messages
+6. **Status bar not updating**
+   - Check browser console for Zod validation errors
+   - Verify TQL runtime is initialized: `window.__tqlRuntime`
+   - Check heartbeat timeout (5s default)
 
 ## 📝 Development
 
@@ -240,19 +345,41 @@ File type icons are defined in `fileStructure.tsx`. Add new file types by extend
 ### Scripts
 ```bash
 npm run dev          # Start frontend dev server only
-npm run tauri dev    # Start full Tauri development
+npm run tauri dev    # Start full Tauri development with hot reload
 npm run build        # Build frontend for production
 npm run tauri build  # Build complete app for production
 npm run lint         # Run ESLint
+npm run type-check   # TypeScript type checking
 ```
+
+### Dev Console Debugging
+Open browser console (⌘⌥I) and access:
+```javascript
+window.__tqlRuntime      // TQL runtime instance
+window.runTQLTests()     // Run test suite
+window.inspectGraph()    // Inspect graph structure
+window.queryTQL(...)     // Execute TQL queries
+```
+
+### Architecture Docs
+- `STATUSBAR_IMPLEMENTATION.md` - Status bar design & specs
+- `SHIP_CHECKLIST.md` - Production readiness checklist
+- `UX_DEBUG_FIXES.md` - Recent UX improvements
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feature/tql-aggregations`)
+3. Commit your changes (`git commit -m 'Add TQL aggregation functions'`)
+4. Push to the branch (`git push origin feature/tql-aggregations`)
 5. Open a Pull Request
+
+**Development Guidelines:**
+- Follow existing code patterns and architecture
+- Add tests for new TQL features
+- Update docs for user-facing changes
+- Run `npm run lint` before committing
+- Check Zod schemas for type safety
 
 ## 📄 License
 
@@ -260,18 +387,50 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [Tauri](https://tauri.app/) - For the amazing desktop app framework
-- [shadcn/ui](https://ui.shadcn.com/) - For the beautiful UI components
-- [Lucide](https://lucide.dev/) - For the gorgeous icons
-- [TanStack Table](https://tanstack.com/table) - For the powerful table component
+- [Tauri](https://tauri.app/) - Desktop app framework that makes this possible
+- [shadcn/ui](https://ui.shadcn.com/) - Beautiful, accessible UI components
+- [Lucide](https://lucide.dev/) - Gorgeous icon library
+- [TanStack Table](https://tanstack.com/table) - Powerful data table
+- [Zod](https://zod.dev/) - Runtime type validation
+- [Rust](https://www.rust-lang.org/) - Systems language for WASM runtime
+
+## 🎯 Roadmap
+
+### Near-term (v0.2)
+- [ ] TQL query interface in UI
+- [ ] Query history and saved queries
+- [ ] Vault boundary enforcement
+- [ ] Keyboard shortcuts for indexing controls
+- [ ] Screen reader accessibility testing
+
+### Mid-term (v0.3)
+- [ ] Multiple vault management
+- [ ] Graph visualization canvas
+- [ ] Advanced TQL: aggregations, joins, subqueries
+- [ ] Export query results (JSON, CSV)
+- [ ] Cloud sync (optional, encrypted)
+
+### Long-term (v1.0)
+- [ ] Natural language to TQL translation (LLM)
+- [ ] Collaborative vaults (shared indexes)
+- [ ] Plugin system for custom file processors
+- [ ] Mobile companion app
+- [ ] Enterprise features (SSO, audit logs)
 
 ## 📞 Support
 
-If you have any questions or issues, please:
-1. Check the [Issues](https://github.com/Amanbig/fileEx/issues) page
-2. Create a new issue with detailed information
-3. Join our community discussions
+Need help? Here's how to get it:
+1. **Check docs**: Read this README and `STATUSBAR_IMPLEMENTATION.md`
+2. **Search issues**: Browse [existing issues](https://github.com/trentbrew/filegraph-desktop/issues)
+3. **Open an issue**: Include logs, screenshots, and steps to reproduce
+4. **Discussions**: Ask questions in [GitHub Discussions](https://github.com/trentbrew/filegraph-desktop/discussions)
+
+**Include in bug reports:**
+- OS and version (macOS Sonoma, Windows 11, etc.)
+- FileGraph version (`npm run tauri info`)
+- Console logs (⌘⌥I → Console tab)
+- Steps to reproduce
 
 ---
 
-**Built with ❤️ using Tauri, React, and TypeScript**
+**Built with ❤️ by [@trentbrew](https://github.com/trentbrew) using Tauri, React, Rust, and TypeScript**

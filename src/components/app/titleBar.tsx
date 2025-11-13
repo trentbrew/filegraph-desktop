@@ -1,7 +1,7 @@
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import ThemeToggle from './themeToggle';
 import { Input } from '@/components/ui/input';
-import { Settings } from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
 import { useEffect, useRef, useState } from 'react';
 
 const appWindow = getCurrentWindow();
@@ -51,7 +51,7 @@ export default function TitleBar({
       data-tauri-drag-region
       className="flex flex-row items-center justify-between h-12 px-3 bg-background/95 backdrop-blur-xl border-b border-border/50 rounded-t-[12px]"
     >
-      {/* macOS Traffic Lights + Navigation */}
+      {/* Left: macOS Traffic Lights + App Name */}
       <div data-tauri-drag-region className="flex items-center gap-3 shrink-0">
         <div className="flex items-center gap-2">
           <button
@@ -82,9 +82,13 @@ export default function TitleBar({
             </span>
           </button>
         </div>
+
+        <Separator orientation="vertical" className="h-4" />
+
+        <span className="text-sm font-medium">FileGraph</span>
       </div>
 
-      {/* Path Input - Center */}
+      {/* Center: Path Input */}
       <div data-tauri-drag-region className="flex-1 flex justify-center px-4">
         <div className="inline-flex max-w-full">
           <Input
@@ -93,7 +97,7 @@ export default function TitleBar({
             placeholder="Enter path..."
             value={currentPath}
             onChange={(event) => onPathChange(event.target.value)}
-            className="w-auto min-w-[200px] max-w-full font-mono text-sm !cursor-text h-8 text-center !bg-transparent opacity-50 hover:opacity-100 active:opacity-100 border-none focus:outline-none focus:ring-0"
+            className="w-auto min-w-[200px] max-w-full font-mono text-sm cursor-text! h-8 text-center bg-transparent! opacity-50 hover:opacity-100 active:opacity-100 border-none focus:outline-none focus:ring-0"
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
                 onNavigate(currentPath);
@@ -105,15 +109,12 @@ export default function TitleBar({
         </div>
       </div>
 
-      {/* Right side controls */}
+      {/* Right: Theme Toggle */}
       <div
         data-tauri-drag-region
-        className="shrink-0 flex items-center gap-2 mr-2 text-foreground/50"
+        className="shrink-0 flex items-center gap-2"
       >
         <ThemeToggle />
-        <div className="flex items-center gap-4">
-          <Settings size={18} />
-        </div>
       </div>
     </div>
   );

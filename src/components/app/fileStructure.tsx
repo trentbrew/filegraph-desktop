@@ -4,6 +4,7 @@ import * as React from 'react';
 import { invoke } from '@tauri-apps/api/core';
 import { listen } from '@tauri-apps/api/event';
 import { useTQL } from '@/hooks/useTQL';
+import { useVault } from '@/contexts/VaultContext';
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -87,6 +88,7 @@ export const formatFileSize = (bytes: number | null) => {
 export function FileStructure() {
   // TQL Runtime
   const [tqlState, tqlActions] = useTQL();
+  const { vaultPath } = useVault();
 
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -267,13 +269,15 @@ export function FileStructure() {
   React.useEffect(() => {
     const loadInitialDirectory = async () => {
       try {
-        const homeDir = await invoke<string>('get_home_directory');
-        setCurrentPath(homeDir);
+        // Use vault path if available, otherwise user's home directory
+        const initialPath = vaultPath || await invoke<string>('get_home_directory');
+        console.log('[FileStructure] Loading initial directory:', initialPath, '(vault:', vaultPath, ')');
+        setCurrentPath(initialPath);
         const files = await invoke<FileItem[]>('list_directory', {
-          path: homeDir,
+          path: initialPath,
         });
         setData(files);
-        setNavigationHistory([homeDir]);
+        setNavigationHistory([initialPath]);
         setHistoryIndex(0);
       } catch (error) {
         console.error('Failed to load initial directory:', error);
@@ -296,7 +300,7 @@ export function FileStructure() {
     };
 
     loadInitialDirectory();
-  }, []);
+  }, [vaultPath]); // Reload when vault path changes
 
   // Navigate to a new path
   const navigateToPath = async (path: string, addToHistory = true) => {
@@ -330,11 +334,13 @@ export function FileStructure() {
     }
   };
 
-  // Navigate to home directory
+  // Navigate to vault root (or home if no vault)
   const navigateHome = async () => {
     try {
-      const homeDir = await invoke<string>('get_home_directory');
-      await navigateToPath(homeDir);
+      // Use vault path if available, otherwise user's home directory
+      const homePath = vaultPath || await invoke<string>('get_home_directory');
+      console.log('[FileStructure] Navigating to home:', homePath, '(vault:', vaultPath, ')');
+      await navigateToPath(homePath);
     } catch (error) {
       console.error('Failed to navigate to home:', error);
     }

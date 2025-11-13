@@ -25,6 +25,9 @@ const getLanguageFromExtension = (ext: string): string => {
     jsx: 'jsx',
     ts: 'typescript',
     tsx: 'tsx',
+    vue: 'vue',
+    svelte: 'svelte',
+    astro: 'astro',
     py: 'python',
     rb: 'ruby',
     go: 'go',
@@ -75,14 +78,16 @@ export function CodeViewer({
   const [highlighterReady, setHighlighterReady] = React.useState(false);
 
   // Escape HTML for safe fallback rendering when highlighter isn't available
-  const escapeHtml = React.useCallback((str: string) =>
-    str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/\"/g, '&quot;')
-      .replace(/'/g, '&#39;'),
-  []);
+  const escapeHtml = React.useCallback(
+    (str: string) =>
+      str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#39;'),
+    [],
+  );
 
   // Initialize highlighter
   React.useEffect(() => {
@@ -186,7 +191,9 @@ export function CodeViewer({
         const highlighter = (window as any).__shikiHighlighter;
         if (!highlighter) {
           // Safe fallback when shiki isn't ready: render escaped HTML inside <pre>
-          setHighlightedCode(`<pre class="!m-0 !p-3 !text-xs font-mono whitespace-pre-wrap break-words">${escapeHtml(data.content)}</pre>`);
+          setHighlightedCode(
+            `<pre class="!m-0 !p-3 !text-xs font-mono whitespace-pre-wrap break-words">${escapeHtml(data.content)}</pre>`,
+          );
           return;
         }
 
@@ -199,7 +206,9 @@ export function CodeViewer({
       } catch (err) {
         console.error('Highlighting error:', err);
         // Safe fallback if highlighting fails
-        setHighlightedCode(`<pre class="!m-0 !p-3 !text-xs font-mono whitespace-pre-wrap break-words">${escapeHtml(data.content)}</pre>`);
+        setHighlightedCode(
+          `<pre class="!m-0 !p-3 !text-xs font-mono whitespace-pre-wrap break-words">${escapeHtml(data.content)}</pre>`,
+        );
       }
     };
 
