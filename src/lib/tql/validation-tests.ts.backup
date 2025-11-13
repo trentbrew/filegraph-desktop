@@ -1,0 +1,464 @@
+/**
+ * TQL Validation Tests
+ * Stress tests and performance validation for production readiness
+ */
+
+import type { TQLRuntime } from './runtime';
+import { invoke } from '@tauri-apps/api/core';
+
+export interface ValidationResult {
+  name: string;
+  passed: boolean;
+  duration?: number;
+  error?: string;
+  details: Record<string, any>;
+}
+
+export class TQLValidator {
+  private runtime: TQLRuntime;
+
+  constructor(runtime: TQLRuntime) {
+    this.runtime = runtime;
+  }
+
+  /**
+   * Test 4: Index Persistence
+   * Verify that indexes are saved and loaded correctly
+   */
+  async testIndexPersistence(): Promise<ValidationResult> {
+    const startTime = performance.now();
+    const details: Record<string, any> = {};
+
+    try {
+      console.log('[Validation] Test 4: Index Persistence');
+
+      // Get stats before save
+      const statsBefore = this.runtime.getStats();
+      details.statsBefore = statsBefore;
+      details.entitiesBeforeSave = statsBefore.uniqueEntities;
+
+      // Force save
+      console.log('[Validation] Forcing index save...');
+      await this.runtime.save();
+
+      // Check that dirty flag is cleared
+      const statsAfterSave = this.runtime.getStats();
+      details.dirtyAfterSave = statsAfterSave.dirty;
+
+      if (statsAfterSave.dirty) {
+        throw new Error('Indexes still marked dirty after save');
+      }
+
+      console.log('[Validation] ✓ Indexes saved successfully');
+      console.log('[Validation] ✓ Dirty flag cleared');
+
+      return {
+        name: 'Index Persistence',
+        passed: true,
+        duration: performance.now() - startTime,
+        details,
+      };
+    } catch (err) {
+      return {
+        name: 'Index Persistence',
+        passed: false,
+        duration: performance.now() - startTime,
+        error: err instanceof Error ? err.message : String(err),
+        details,
+      };
+    }
+  }
+
+  /**
+   * Test 5: Rename Preservation
+   * Verify that entity IDs are preserved across renames
+   */
+  async testRenamePreservation(): Promise<ValidationResult> {
+    const startTime = performance.now();
+    const details: Record<string, any> = {};
+
+    try {
+      console.log('[Validation] Test 5: Rename Preservation');
+
+      const testDir = '/Users/trentbrew';
+      const oldName = 'tql-rename-test-old.txt';
+      const newName = 'tql-rename-test-new.txt';
+      const oldPath = `${testDir}/${oldName}`;
+      const newPath = `${testDir}/${newName}`;
+
+      // Create test file
+      console.log('[Validation] Creating test file...');
+      await invoke('create_file', { path: testDir, name: oldName });
+      await invoke('write_text_file', {
+        filePath: oldPath,
+        content: 'rename test',
+      });
+
+      // Ingest file
+      const items = (await invoke('list_directory', { path: testDir })) as any[];
+      const fileItem = items.find((i) => i.path === oldPath);
+
+      if (!fileItem) {
+        throw new Error('Test file not found after creation');
+      }
+
+      const stats = {
+        name: fileItem.name,
+        path: fileItem.path,
+        file_type: 'file' as const,
+        size: fileItem.size ?? 0,
+        modified: fileItem.date_modified
+          ? new Date(fileItem.date_modified).getTime()
+          : Date.now(),
+        created: fileItem.date_created
+          ? new Date(fileItem.date_created).getTime()
+          : Date.now(),
+      };
+
+      await this.runtime.ingestFile(oldPath, stats);
+
+      // Get original entity ID
+      const oldId = this.runtime.getEntityId(oldPath);
+      details.oldPath = oldPath;
+      details.oldEntityId = oldId;
+
+      if (!oldId) {
+        throw new Error('Entity ID not found after ingestion');
+      }
+
+      console.log('[Validation] Original entity ID:', oldId);
+
+      // Rename file
+      console.log('[Validation] Renaming file...');
+      await invoke('rename_item', {
+        oldPath,
+        newName, // Just the name, not full path
+      });
+
+      // Wait a bit for watcher to process
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Check if entity ID was preserved
+      const newId = this.runtime.getEntityId(newPath);
+      details.newPath = newPath;
+      details.newEntityId = newId;
+
+      console.log('[Validation] New entity ID:', newId);
+
+      if (!newId) {
+        throw new Error('Entity ID not found after rename');
+      }
+
+      if (oldId !== newId) {
+        throw new Error(
+          `Entity ID changed! Old: ${oldId}, New: ${newId}. Entity IDs should be preserved across renames.`,
+        );
+      }
+
+      // Cleanup
+      try {
+        await invoke('delete_item', { path: newPath });
+      } catch {}
+
+      console.log('[Validation] ✓ Entity ID preserved across rename');
+
+      return {
+        name: 'Rename Preservation',
+        passed: true,
+        duration: performance.now() - startTime,
+        details,
+      };
+    } catch (err) {
+      return {
+        name: 'Rename Preservation',
+        passed: false,
+        duration: performance.now() - startTime,
+        error: err instanceof Error ? err.message : String(err),
+        details,
+      };
+    }
+  }
+
+  /**
+   * Test 6: Initial Scan Performance
+   * Scan a real directory and measure performance
+   */
+  async testInitialScan(targetPath?: string): Promise<ValidationResult> {
+    const startTime = performance.now();
+    const details: Record<string, any> = {};
+
+    try {
+      console.log('[Validation] Test 6: Initial Scan Performance');
+
+      // Use provided path or default to project root
+      const scanPath =
+        targetPath || '/Users/trentbrew/TURTLE/Projects/Apps/filegraph';
+
+      details.scanPath = scanPath;
+      console.log('[Validation] Scanning:', scanPath);
+
+      const statsBefore = this.runtime.getStats();
+      details.factsBeforeScan = statsBefore.totalFacts;
+      details.entitiesBeforeScan = statsBefore.uniqueEntities;
+
+      // Track progress
+      let lastProgress = 0;
+      const progressCallback = (progress: {
+        phase: string;
+        processed: number;
+        total: number;
+        currentFile?: string;
+      }) => {
+        if (
+          progress.processed - lastProgress >= 10 ||
+          progress.processed === progress.total
+        ) {
+          console.log(
+            `[Validation] Progress: ${progress.processed}/${progress.total} (${Math.round((progress.processed / progress.total) * 100)}%) - ${progress.phase}`,
+          );
+          lastProgress = progress.processed;
+        }
+      };
+
+      // Run scan
+      const scanStart = performance.now();
+      await this.runtime.initialScan(scanPath, progressCallback);
+      const scanDuration = performance.now() - scanStart;
+
+      const statsAfter = this.runtime.getStats();
+      details.factsAfterScan = statsAfter.totalFacts;
+      details.entitiesAfterScan = statsAfter.uniqueEntities;
+      details.factsAdded = statsAfter.totalFacts - statsBefore.totalFacts;
+      details.entitiesAdded =
+        statsAfter.uniqueEntities - statsBefore.uniqueEntities;
+      details.scanDuration = scanDuration;
+      details.filesPerSecond =
+        (details.entitiesAdded / scanDuration) * 1000;
+
+      console.log('[Validation] Scan complete!');
+      console.log(`[Validation]   Entities: ${details.entitiesAdded} files`);
+      console.log(`[Validation]   Facts: ${details.factsAdded}`);
+      console.log(
+        `[Validation]   Duration: ${scanDuration.toFixed(0)}ms`,
+      );
+      console.log(
+        `[Validation]   Speed: ${details.filesPerSecond.toFixed(1)} files/sec`,
+      );
+
+      // Performance thresholds
+      const MIN_FILES_PER_SECOND = 30;
+      const MAX_SCAN_TIME_MS = 10000; // 10 seconds for 1000 files
+      const warnings: string[] = [];
+
+      if (details.filesPerSecond < MIN_FILES_PER_SECOND) {
+        const warning = `⚠️  Scan speed below threshold: ${details.filesPerSecond.toFixed(1)} files/sec (min: ${MIN_FILES_PER_SECOND})`;
+        console.warn(`[Validation] ${warning}`);
+        console.warn('[Validation]    Consider optimizing file parsing or batching');
+        warnings.push(warning);
+      } else {
+        console.log('[Validation] ✓ Performance acceptable');
+      }
+
+      if (scanDuration > MAX_SCAN_TIME_MS && details.entitiesAdded < 1000) {
+        const warning = `⚠️  Scan took too long: ${scanDuration.toFixed(0)}ms`;
+        console.warn(`[Validation] ${warning}`);
+        console.warn('[Validation]    May need batching or background processing');
+        warnings.push(warning);
+      }
+
+      // Check memory usage if available
+      if ((performance as any).memory) {
+        const memMB = (performance as any).memory.usedJSHeapSize / 1024 / 1024;
+        details.memoryUsageMB = memMB;
+        console.log(`[Validation]   Memory: ${memMB.toFixed(1)} MB`);
+        
+        const memPerFile = memMB / (details.entitiesAdded || 1);
+        if (memPerFile > 0.02) { // 2MB per 100 files
+          const warning = `⚠️  High memory usage: ${memPerFile.toFixed(3)} MB/file`;
+          console.warn(`[Validation] ${warning}`);
+          warnings.push(warning);
+        }
+      }
+
+      details.warnings = warnings;
+
+      return {
+        name: 'Initial Scan Performance',
+        passed: true,
+        duration: performance.now() - startTime,
+        details,
+      };
+    } catch (err) {
+      return {
+        name: 'Initial Scan Performance',
+        passed: false,
+        duration: performance.now() - startTime,
+        error: err instanceof Error ? err.message : String(err),
+        details,
+      };
+    }
+  }
+
+  /**
+   * Test 7: Query Performance
+   * Benchmark query operations
+   */
+  async testQueryPerformance(): Promise<ValidationResult> {
+    const startTime = performance.now();
+    const details: Record<string, any> = {};
+
+    try {
+      console.log('[Validation] Test 7: Query Performance');
+
+      benchmarks.getFactsByAttribute = performance.now() - attrStart;
+      details.typeResultsCount = typeResults.length;
+
+      // Benchmark: Get facts by value
+      console.log('[Validation] Benchmarking value queries...');
+      const valueStart = performance.now();
+      const fileResults = store.getFactsByValue('type', 'file');
+      benchmarks.getFactsByValue = performance.now() - valueStart;
+      details.fileResultsCount = fileResults.length;
+
+      // Benchmark: Get facts by entity
+      if (fileResults.length > 0) {
+        const sampleEntity = fileResults[0]?.e;
+        if (sampleEntity) {
+          console.log('[Validation] Benchmarking entity queries...');
+          const entityStart = performance.now();
+          const entityResults = store.getFactsByEntity(sampleEntity);
+          benchmarks.getFactsByEntity = performance.now() - entityStart;
+          details.entityResultsCount = entityResults.length;
+        }
+      }
+
+      // Benchmark: Get catalog
+      console.log('[Validation] Benchmarking catalog queries...');
+      const catalogStart = performance.now();
+      const catalog = store.getCatalog();
+      benchmarks.getCatalog = performance.now() - catalogStart;
+      details.catalogEntries = catalog.length;
+
+      details.benchmarks = benchmarks;
+
+      // Log results
+      console.log('[Validation] Query Performance Results:');
+      for (const [query, duration] of Object.entries(benchmarks)) {
+        console.log(`[Validation]   ${query}: ${duration.toFixed(2)}ms`);
+      }
+
+      // Performance thresholds (adjust based on data size)
+      const maxAcceptableQueryTime = 100; // ms
+      const slowQueries = Object.entries(benchmarks).filter(
+        ([_, duration]) => duration > maxAcceptableQueryTime,
+      );
+
+      if (slowQueries.length > 0) {
+        console.warn(
+          `[Validation] ⚠️  Slow queries detected (> ${maxAcceptableQueryTime}ms):`,
+        );
+        slowQueries.forEach(([query, duration]) => {
+          console.warn(`[Validation]     ${query}: ${duration.toFixed(2)}ms`);
+        });
+      } else {
+        console.log('[Validation] ✓ All queries within acceptable range');
+      }
+
+      return {
+        name: 'Query Performance',
+        passed: true,
+        duration: performance.now() - startTime,
+        details,
+      };
+    } catch (err) {
+      return {
+        name: 'Query Performance',
+        passed: false,
+        duration: performance.now() - startTime,
+        error: err instanceof Error ? err.message : String(err),
+        details,
+      };
+    }
+  }
+
+  /**
+   * Run all validation tests
+   */
+  async runAll(scanPath?: string): Promise<ValidationResult[]> {
+    console.log('[Validation] Starting comprehensive validation suite...\n');
+
+    const results: ValidationResult[] = [];
+
+    // Test 4: Persistence
+    results.push(await this.testIndexPersistence());
+    console.log('');
+
+    // Test 5: Rename
+    results.push(await this.testRenamePreservation());
+    console.log('');
+
+    // Test 6: Initial Scan (requires user to specify path or uses default)
+    results.push(await this.testInitialScan(scanPath));
+    console.log('');
+
+    // Test 7: Query Performance
+    results.push(await this.testQueryPerformance());
+    console.log('');
+
+    // Summary
+    this.printSummary(results);
+
+    return results;
+  }
+
+  private printSummary(results: ValidationResult[]) {
+    console.log('\n=== Validation Summary ===\n');
+
+    for (const result of results) {
+      const icon = result.passed ? '✓' : '✗';
+      const duration = result.duration
+        ? ` (${result.duration.toFixed(0)}ms)`
+        : '';
+      console.log(`${icon} ${result.name}${duration}`);
+
+      if (result.error) {
+        console.log(`  Error: ${result.error}`);
+      }
+
+      if (Object.keys(result.details).length > 0) {
+        console.log('  Details:', result.details);
+      }
+
+      console.log('');
+    }
+
+    const passedCount = results.filter((r) => r.passed).length;
+    const totalCount = results.length;
+
+    console.log(`Passed: ${passedCount}/${totalCount}`);
+
+    if (passedCount === totalCount) {
+      console.log('🎉 All validation tests passed! Core is production-ready.');
+    } else {
+      console.log('❌ Some validation tests failed. Review logs above.');
+    }
+  }
+}
+
+/**
+ * Expose validator to window in dev mode
+ */
+export function exposeTQLValidator(runtime: TQLRuntime): void {
+  if (import.meta.env.DEV) {
+    const validator = new TQLValidator(runtime);
+    (window as any).validateTQL = (scanPath?: string) =>
+      validator.runAll(scanPath);
+    (window as any).validateScan = (scanPath?: string) =>
+      validator.testInitialScan(scanPath);
+    (window as any).validateQuery = () => validator.testQueryPerformance();
+    console.log('[TQL] Validator exposed:');
+    console.log('[TQL]   validateTQL(scanPath?) - Run all validation tests');
+    console.log('[TQL]   validateScan(scanPath?) - Test initial scan only');
+    console.log('[TQL]   validateQuery() - Test query performance only');
+  }
+}

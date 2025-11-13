@@ -5,6 +5,8 @@
  */
 
 import type { TQLRuntime } from './runtime';
+import { exposeTQLTestRunner } from './test-runner';
+import { exposeTQLValidator } from './validation-tests';
 
 /**
  * Console debugging helpers exposed to window
@@ -140,5 +142,9 @@ export function exposeTQLDebugger(runtime: TQLRuntime): void {
     (window as any).tql = dbg;
     console.log('[TQL] Debugger exposed to window.tql');
     console.log('[TQL] Type tql.help() for available commands');
+    
+    // Expose test runner and validator synchronously
+    exposeTQLTestRunner(runtime);
+    exposeTQLValidator(runtime);
   }
 }

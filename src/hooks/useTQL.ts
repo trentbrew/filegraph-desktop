@@ -62,6 +62,19 @@ export function useTQL(): [TQLState, TQLActions] {
           (window as any).__tqlRuntime = runtime;
           exposeTQLDebugger(runtime);
           console.log('[TQL Hook] Runtime exposed to window.__tqlRuntime');
+          
+          // Auto-run tests if URL parameter is present
+          const params = new URLSearchParams(window.location.search);
+          if (params.get('runTests') === 'true') {
+            console.log('[TQL Hook] Auto-running tests...');
+            setTimeout(() => {
+              if ((window as any).runTQLTests) {
+                (window as any).runTQLTests().catch(console.error);
+              } else {
+                console.error('[TQL Hook] runTQLTests not available yet');
+              }
+            }, 1000); // Wait for test runner to load
+          }
         }
 
         // Update stats

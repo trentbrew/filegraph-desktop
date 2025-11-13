@@ -105,6 +105,34 @@ export class TQLRuntime {
   }
 
   /**
+   * Get entity ID for a path (for validation/testing)
+   */
+  getEntityId(path: string): string | undefined {
+    return this.idManager.getId(path);
+  }
+
+  /**
+   * Get entity ID manager (for validation/testing)
+   */
+  getEntityIdManager(): EntityIdManager {
+    return this.idManager;
+  }
+
+  /**
+   * Manually flush the watcher queue (for validation/testing)
+   */
+  async flushQueue(): Promise<void> {
+    await this.watcherQueue.flushNow();
+  }
+
+  /**
+   * Get current queue size (for validation/testing)
+   */
+  getQueueSize(): number {
+    return this.watcherQueue.getPendingCount();
+  }
+
+  /**
    * Subscribe to runtime events
    */
   on(callback: EventCallback): () => void {
@@ -380,20 +408,26 @@ export class TQLRuntime {
 
     this.beginBatch();
 
+    let processedCount = 0;
+
     for (const event of batch.events) {
+
       try {
         switch (event.kind) {
           case 'create':
             // Fetch file stats and ingest
             try {
               const parentPath = getParentPath(event.path);
+
               if (parentPath) {
                 const items = await invoke<FileItem[]>('list_directory', {
                   path: parentPath,
                 });
+
                 const createStats = items.find((item) => item.path === event.path);
                 if (createStats) {
                   await this.ingestFile(event.path, createStats);
+                  processedCount++;
                 }
               }
             } catch (err) {
@@ -415,6 +449,7 @@ export class TQLRuntime {
                     size: modifyStats.size,
                     modified: modifyStats.modified,
                   });
+                  processedCount++;
                 }
               }
             } catch (err) {
@@ -424,11 +459,13 @@ export class TQLRuntime {
 
           case 'remove':
             await this.removeByPath(event.path);
+            processedCount++;
             break;
 
           case 'rename':
             if (event.fromPath) {
               await this.handleRename(event.fromPath, event.path);
+              processedCount++;
             }
             break;
         }
@@ -490,7 +527,9 @@ export class TQLRuntime {
    * Commit batch (apply all pending adds)
    */
   commitBatch(): void {
-    if (!this.batching) return;
+    if (!this.batching) {
+      return;
+    }
 
     if (this.batchedFacts.length > 0) {
       this.store.addFacts(this.batchedFacts);

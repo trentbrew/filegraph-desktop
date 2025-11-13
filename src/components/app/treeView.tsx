@@ -161,7 +161,7 @@ export function TreeView({
           className={`
             flex items-center gap-1 px-2 py-1 cursor-pointer
             transition-colors hover:bg-accent/50
-            ${isActive ? 'bg-primary text-primary-foreground' : ''}
+            ${isActive ? 'bg-accent' : ''}
             ${isDotfile ? 'opacity-50' : ''}
           `}
           style={{ paddingLeft: `${8 + indent}px` }}

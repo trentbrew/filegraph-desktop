@@ -9,6 +9,7 @@ import { TableViewer } from './viewers/tableViewer';
 import { ImageViewer } from './viewers/imageViewer';
 import { MediaViewer } from './viewers/mediaViewer';
 import { PdfViewer } from './viewers/pdfViewer';
+import { MarkdownViewer } from './viewers/markdownViewer';
 import { X, ExternalLink, FileText, File, AlertCircle } from 'lucide-react';
 
 interface PreviewPaneProps {
@@ -253,7 +254,6 @@ function PreviewContent({ activeItem }: { activeItem: FileItem }) {
   // Plain text files (no syntax highlighting needed)
   const textExtensions = [
     'txt',
-    'md',
     'log',
     'ini',
     'conf',
@@ -261,6 +261,15 @@ function PreviewContent({ activeItem }: { activeItem: FileItem }) {
     'env',
     'dockerignore',
   ];
+
+  // Markdown files - use special markdown viewer
+  if (extension === 'md') {
+    return (
+      <div className="h-full">
+        <MarkdownViewer filePath={activeItem.path} />
+      </div>
+    );
+  }
 
   if (extension && textExtensions.includes(extension)) {
     return (

@@ -94,6 +94,13 @@ export class FSWatcherQueue {
   }
 
   /**
+   * Get count of pending events (alias for getSize)
+   */
+  getPendingCount(): number {
+    return this.pending.size;
+  }
+
+  /**
    * Check if currently processing
    */
   isProcessing(): boolean {
@@ -149,6 +156,7 @@ export class FSWatcherQueue {
 
     // Process batch
     this.processing = true;
+
     try {
       await this.onFlush(batch);
     } catch (err) {

@@ -26,12 +26,18 @@ interface TableData {
   totalRows: number;
 }
 
-export function TableViewer({ filePath, fileType, fileName }: TableViewerProps) {
+export function TableViewer({
+  filePath,
+  fileType,
+  fileName,
+}: TableViewerProps) {
   const [data, setData] = React.useState<TableData | null>(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [filteredData, setFilteredData] = React.useState<TableData | null>(null);
+  const [filteredData, setFilteredData] = React.useState<TableData | null>(
+    null,
+  );
 
   // Load and parse the file
   React.useEffect(() => {
@@ -60,10 +66,12 @@ export function TableViewer({ filePath, fileType, fileName }: TableViewerProps) 
 
               const headers = results.data[0] as string[];
               const rows = results.data.slice(1) as string[][];
-              
+
               // Filter out empty rows
-              const validRows = rows.filter(row => 
-                row.some(cell => cell !== null && cell !== undefined && cell !== '')
+              const validRows = rows.filter((row) =>
+                row.some(
+                  (cell) => cell !== null && cell !== undefined && cell !== '',
+                ),
               );
 
               setData({
@@ -86,22 +94,24 @@ export function TableViewer({ filePath, fileType, fileName }: TableViewerProps) 
             // In a production app, you'd want to add a separate binary read command
             const workbook = XLSX.read(content, { type: 'string' });
             const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-            const jsonData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 }) as any[][];
+            const jsonData = XLSX.utils.sheet_to_json(firstSheet, {
+              header: 1,
+            }) as any[][];
 
             if (!isMounted) return;
 
             const headers = jsonData[0] as string[];
-            const rows = jsonData.slice(1).map(row => 
-              row.map(cell => cell?.toString() || '')
-            );
+            const rows = jsonData
+              .slice(1)
+              .map((row) => row.map((cell) => cell?.toString() || ''));
 
             // Filter out empty rows
-            const validRows = rows.filter(row => 
-              row.some(cell => cell !== '')
+            const validRows = rows.filter((row) =>
+              row.some((cell) => cell !== ''),
             );
 
             setData({
-              headers: headers.map(h => h?.toString() || ''),
+              headers: headers.map((h) => h?.toString() || ''),
               rows: validRows,
               totalRows: validRows.length,
             });
@@ -139,8 +149,8 @@ export function TableViewer({ filePath, fileType, fileName }: TableViewerProps) 
     }
 
     const query = searchQuery.toLowerCase();
-    const filtered = data.rows.filter(row =>
-      row.some(cell => cell.toLowerCase().includes(query))
+    const filtered = data.rows.filter((row) =>
+      row.some((cell) => cell.toLowerCase().includes(query)),
     );
 
     setFilteredData({
@@ -156,7 +166,7 @@ export function TableViewer({ filePath, fileType, fileName }: TableViewerProps) 
     // Export as CSV
     const csv = [
       data.headers.join(','),
-      ...data.rows.map(row => row.map(cell => `"${cell}"`).join(',')),
+      ...data.rows.map((row) => row.map((cell) => `"${cell}"`).join(',')),
     ].join('\n');
 
     const blob = new Blob([csv], { type: 'text/csv' });
@@ -208,11 +218,13 @@ export function TableViewer({ filePath, fileType, fileName }: TableViewerProps) 
           <span className="capitalize">{fileType.toUpperCase()}</span>
           <span>•</span>
           <span>
-            {filteredData.totalRows} {filteredData.totalRows === 1 ? 'row' : 'rows'}
+            {filteredData.totalRows}{' '}
+            {filteredData.totalRows === 1 ? 'row' : 'rows'}
           </span>
           <span>•</span>
           <span>
-            {data.headers.length} {data.headers.length === 1 ? 'column' : 'columns'}
+            {data.headers.length}{' '}
+            {data.headers.length === 1 ? 'column' : 'columns'}
           </span>
         </div>
         <div className="flex items-center gap-1">
@@ -249,15 +261,15 @@ export function TableViewer({ filePath, fileType, fileName }: TableViewerProps) 
       {/* Table */}
       <div className="flex-1 overflow-auto">
         <table className="w-full text-xs border-collapse">
-          <thead className="sticky top-0 bg-muted/80 backdrop-blur-sm border-b border-border/50 z-10">
+          <thead className="sticky top-0 bg-secondary backdrop-blur-xl border-b  z-50">
             <tr>
-              <th className="px-3 py-2 text-left font-semibold text-muted-foreground w-12 border-r border-border/30">
-                #
+              <th className="sticky left-0 px-3 py-2 font-semibold text-muted-foreground w-12 border-r border-border/30 z-40 text-center bg-muted">
+                ⌗
               </th>
               {data.headers.map((header, index) => (
                 <th
                   key={index}
-                  className="px-3 py-2 text-left font-semibold text-foreground border-r border-border/30 min-w-32"
+                  className="px-3 py-2 text-left font-semibold text-foreground border-r border-border/30 sticky left-12 bg-secondary min-w-64"
                 >
                   {header || `Column ${index + 1}`}
                 </th>
@@ -271,7 +283,7 @@ export function TableViewer({ filePath, fileType, fileName }: TableViewerProps) 
                   key={rowIndex}
                   className="border-b border-border/30 hover:bg-muted/30 transition-colors"
                 >
-                  <td className="px-3 py-2 text-muted-foreground font-mono text-xs border-r border-border/30">
+                  <td className="sticky left-0 px-4 py-2 text-muted-foreground font-mono text-xs border-r border-border bg-card backdrop-blur-xl z-10 text-center">
                     {rowIndex + 1}
                   </td>
                   {row.map((cell, cellIndex) => (

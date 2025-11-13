@@ -665,7 +665,7 @@ export function FileStructure() {
   });
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col pr-3">
       {/* Title Bar with Path Input */}
       <TitleBar
         currentPath={pathInput}
@@ -935,7 +935,7 @@ export function FileStructure() {
                                   }
                                   className={`cursor-pointer !duration-0 select-none ${
                                     activeItem?.path === fileItem.path
-                                      ? 'bg-accent'
+                                      ? 'bg-accent/25'
                                       : ''
                                   }`}
                                 >
@@ -1149,7 +1149,7 @@ export function FileStructure() {
 
             <div
               onMouseDown={() => setIsResizing(true)}
-              className={`w-1 mx-1 shrink-0 cursor-col-resize hover:bg-primary/50 active:bg-primary transition-colors ${
+              className={`w-1 mx-1 shrink-0 cursor-col-resize hover:bg-primary/25 active:bg-muted transition-colors ${
                 isResizing ? 'bg-primary' : 'bg-border/0'
               }`}
               style={{ userSelect: 'none' }}
@@ -1157,7 +1157,7 @@ export function FileStructure() {
 
             <div
               style={{ width: `${previewWidth}px` }}
-              className="shrink-0 p-3 pl-0"
+              className="shrink-0 p-3 px-0"
             >
               <PreviewPane
                 activeItem={activeItem}

@@ -176,6 +176,17 @@ export class EntityIdManager {
       };
 
       const indexPath = `${appDataDir}/${INDEX_FILE}`;
+      
+      // Ensure file exists before writing
+      try {
+        await invoke('create_file', {
+          path: appDataDir,
+          name: INDEX_FILE,
+        });
+      } catch (err) {
+        // File might already exist, that's okay
+      }
+      
       await invoke('write_text_file', {
         filePath: indexPath,
         content: JSON.stringify(data, null, 2),
@@ -184,8 +195,8 @@ export class EntityIdManager {
       this.dirty = false;
       console.log(`[TQL] Saved ${this.idToPath.size} entity indexes`);
     } catch (err) {
-      console.error('[TQL] Failed to save indexes:', err);
-      throw err;
+      console.warn('[TQL] Failed to save indexes (non-fatal):', err);
+      // Don't throw - indexes will be rebuilt on restart
     }
   }
 

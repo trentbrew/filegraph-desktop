@@ -192,6 +192,117 @@
     content: counter(line);
     @apply inline-block w-10 text-right mr-4 text-muted-foreground/50 select-none;
   }
+
+  /* Markdown prose styles */
+  .markdown-content {
+    @apply text-foreground;
+  }
+
+  .markdown-content h1 {
+    @apply text-2xl font-bold mt-6 mb-4 pb-2 border-b border-border/50;
+  }
+
+  .markdown-content h2 {
+    @apply text-xl font-semibold mt-5 mb-3 pb-1.5 border-b border-border/30;
+  }
+
+  .markdown-content h3 {
+    @apply text-lg font-semibold mt-4 mb-2;
+  }
+
+  .markdown-content h4 {
+    @apply text-base font-semibold mt-3 mb-2;
+  }
+
+  .markdown-content h5,
+  .markdown-content h6 {
+    @apply text-sm font-semibold mt-3 mb-1.5;
+  }
+
+  .markdown-content p {
+    @apply my-3 text-sm leading-relaxed;
+  }
+
+  .markdown-content a {
+    @apply text-primary underline underline-offset-2 hover:text-primary/80 transition-colors;
+  }
+
+  .markdown-content strong {
+    @apply font-semibold;
+  }
+
+  .markdown-content em {
+    @apply italic;
+  }
+
+  .markdown-content code {
+    @apply px-1.5 py-0.5 rounded bg-muted text-xs font-mono text-foreground;
+  }
+
+  .markdown-content pre {
+    @apply p-4 rounded-lg bg-muted overflow-x-auto my-4 border border-border/50;
+  }
+
+  .markdown-content pre code {
+    @apply p-0 bg-transparent text-xs;
+  }
+
+  .markdown-content blockquote {
+    @apply border-l-4 border-primary/30 pl-4 my-4 italic text-muted-foreground;
+  }
+
+  .markdown-content ul,
+  .markdown-content ol {
+    @apply my-3 ml-6 text-sm;
+  }
+
+  .markdown-content ul {
+    @apply list-disc;
+  }
+
+  .markdown-content ol {
+    @apply list-decimal;
+  }
+
+  .markdown-content li {
+    @apply my-1.5;
+  }
+
+  .markdown-content li > p {
+    @apply my-1;
+  }
+
+  .markdown-content hr {
+    @apply my-6 border-border/50;
+  }
+
+  .markdown-content table {
+    @apply w-full my-4 text-sm border-collapse;
+  }
+
+  .markdown-content thead {
+    @apply bg-muted;
+  }
+
+  .markdown-content th {
+    @apply border border-border/50 px-3 py-2 text-left font-semibold;
+  }
+
+  .markdown-content td {
+    @apply border border-border/50 px-3 py-2;
+  }
+
+  .markdown-content tr:nth-child(even) {
+    @apply bg-muted/30;
+  }
+
+  .markdown-content img {
+    @apply max-w-full h-auto my-4 rounded-lg;
+  }
+
+  .markdown-content input[type='checkbox'] {
+    @apply mr-2;
+  }
 }
 
 @layer base {

@@ -15,7 +15,10 @@ export function ImageViewer({ filePath, fileName }: ImageViewerProps) {
   const [error, setError] = React.useState<string | null>(null);
   const [zoom, setZoom] = React.useState<'contain' | 'actual'>('contain');
   const [zoomLevel, setZoomLevel] = React.useState(1);
-  const [imageDimensions, setImageDimensions] = React.useState<{width: number; height: number} | null>(null);
+  const [imageDimensions, setImageDimensions] = React.useState<{
+    width: number;
+    height: number;
+  } | null>(null);
   const imageContainerRef = React.useRef<HTMLDivElement>(null);
 
   const assetUrl = React.useMemo(() => {
@@ -49,16 +52,16 @@ export function ImageViewer({ filePath, fileName }: ImageViewerProps) {
       // Check if it's a pinch gesture (Ctrl key is set for trackpad pinch)
       if (e.ctrlKey) {
         e.preventDefault();
-        
+
         const delta = -e.deltaY;
         const zoomFactor = delta > 0 ? 1.1 : 0.9;
-        
+
         setZoomLevel((prev) => {
           const newZoom = prev * zoomFactor;
           // Clamp between 0.5x and 5x
           return Math.max(0.5, Math.min(5, newZoom));
         });
-        
+
         // Switch to actual size mode when zooming
         if (zoom === 'contain') {
           setZoom('actual');
@@ -67,7 +70,7 @@ export function ImageViewer({ filePath, fileName }: ImageViewerProps) {
     };
 
     container.addEventListener('wheel', handleWheel, { passive: false });
-    
+
     return () => {
       container.removeEventListener('wheel', handleWheel);
     };
@@ -96,7 +99,9 @@ export function ImageViewer({ filePath, fileName }: ImageViewerProps) {
       <div className="shrink-0 border-b border-border/50 px-3 py-2 flex items-center justify-between gap-2">
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
           {imageDimensions && (
-            <span>{imageDimensions.width} × {imageDimensions.height}px</span>
+            <span>
+              {imageDimensions.width} × {imageDimensions.height}px
+            </span>
           )}
           {zoom === 'actual' && zoomLevel !== 1 && (
             <span className="font-medium text-foreground">
@@ -135,9 +140,10 @@ export function ImageViewer({ filePath, fileName }: ImageViewerProps) {
 
       {/* Image Content */}
       <ScrollArea className="flex-1">
-        <div 
+        <div
           ref={imageContainerRef}
-          className={`p-4 flex items-center justify-center ${zoom === 'contain' ? 'min-h-full' : ''}`}
+          className="flex items-center justify-center h-full p-4"
+          style={{ minHeight: '100%' }}
         >
           {loading && (
             <div className="w-full max-w-2xl">
@@ -153,14 +159,14 @@ export function ImageViewer({ filePath, fileName }: ImageViewerProps) {
               zoom === 'contain'
                 ? 'max-w-full max-h-full object-contain'
                 : 'object-none'
-            } ${loading ? 'hidden' : ''} transition-transform duration-100`}
+            } ${loading ? 'hidden' : ''} transition-transform duration-100 rounded-md`}
             style={
-              zoom === 'actual' 
-                ? { 
+              zoom === 'actual'
+                ? {
                     imageRendering: 'crisp-edges',
                     transform: `scale(${zoomLevel})`,
                     transformOrigin: 'center',
-                  } 
+                  }
                 : {}
             }
           />

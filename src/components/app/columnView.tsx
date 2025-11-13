@@ -80,7 +80,9 @@ export function ColumnView({
         setColumns(newColumns);
         // Initialize widths for new columns, preserve existing where possible
         setColumnWidths((prev) =>
-          newColumns.map((_, i) => (typeof prev[i] === 'number' ? prev[i] : 256)),
+          newColumns.map((_, i) =>
+            typeof prev[i] === 'number' ? prev[i] : 256,
+          ),
         );
       } catch (error) {
         console.error('Failed to build columns:', error);
@@ -172,62 +174,67 @@ export function ColumnView({
             className="shrink-0 border-r border-border/50 flex flex-col min-w-[180px]"
             style={{ width: `${columnWidths[columnIndex] ?? 256}px` }}
           >
-          {/* Column Header */}
-          <div className="shrink-0 border-b border-border/50 px-3 py-2 bg-muted/30">
-            <p className="text-xs font-medium truncate" title={column.path}>
-              {column.path === '/' ? 'Root' : column.path.split('/').pop()}
-            </p>
-          </div>
+            {/* Column Header */}
+            <div className="shrink-0 border-b border-border/50 px-3 py-2 bg-muted/30">
+              <p className="text-xs font-medium truncate" title={column.path}>
+                {column.path === '/' ? 'Root' : column.path.split('/').pop()}
+              </p>
+            </div>
 
-          {/* Column Items */}
-          <ScrollArea className="flex-1 h-0">
-            <div className="p-1">
-              {column.items.map((item, itemIndex) => {
-                const isSelected = column.selectedItem?.path === item.path;
-                const isActive = activeItem?.path === item.path;
-                const isDotfile = item.name.startsWith('.');
+            {/* Column Items */}
+            <ScrollArea className="flex-1 h-0 max-w-full ">
+              <div className="p-1">
+                {column.items.map((item, itemIndex) => {
+                  const isSelected = column.selectedItem?.path === item.path;
+                  const isActive = activeItem?.path === item.path;
+                  const isDotfile = item.name.startsWith('.');
 
-                return (
-                  <div
-                    key={itemIndex}
-                    onClick={() => handleItemClick(item)}
-                    onDoubleClick={() => handleItemDoubleClick(item)}
-                    className={`
+                  return (
+                    <div
+                      key={itemIndex}
+                      onClick={() => handleItemClick(item)}
+                      onDoubleClick={() => handleItemDoubleClick(item)}
+                      className={`
                       flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer min-w-0
                       transition-colors group
                       ${
                         isActive
-                          ? 'bg-primary text-primary-foreground'
+                          ? 'bg-primary/10'
                           : isSelected
                             ? 'bg-accent'
                             : 'hover:bg-accent/50'
                       }
                       ${isDotfile ? 'opacity-50' : ''}
                     `}
-                  >
-                    <div className="shrink-0">
-                      {getFileIcon(item.file_type, item.extension)}
+                    >
+                      <div className="shrink-0">
+                        {getFileIcon(item.file_type, item.extension)}
+                      </div>
+                      <span
+                        className="text-xs truncate flex-1 break-all whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px]"
+                        title={item.name}
+                      >
+                        {item.name}
+                      </span>
+                      {item.file_type === 'folder' && (
+                        <ChevronRight
+                          className={`h-3 w-3 shrink-0 ${
+                            isSelected
+                              ? 'opacity-100'
+                              : 'opacity-0 group-hover:opacity-50'
+                          }`}
+                        />
+                      )}
                     </div>
-                    <span className="text-xs truncate flex-1" title={item.name}>{item.name}</span>
-                    {item.file_type === 'folder' && (
-                      <ChevronRight
-                        className={`h-3 w-3 shrink-0 ${
-                          isSelected
-                            ? 'opacity-100'
-                            : 'opacity-0 group-hover:opacity-50'
-                        }`}
-                      />
-                    )}
+                  );
+                })}
+                {column.items.length === 0 && (
+                  <div className="text-center text-muted-foreground p-4">
+                    <p className="text-xs">Empty folder</p>
                   </div>
-                );
-              })}
-              {column.items.length === 0 && (
-                <div className="text-center text-muted-foreground p-4">
-                  <p className="text-xs">Empty folder</p>
-                </div>
-              )}
-            </div>
-          </ScrollArea>
+                )}
+              </div>
+            </ScrollArea>
           </div>
 
           {/* Resize handle - not shown after last column */}
@@ -235,7 +242,9 @@ export function ColumnView({
             <div
               onMouseDown={(e) => startResize(columnIndex, e)}
               className={`w-[3px] cursor-col-resize hover:bg-primary/40 active:bg-primary/60 ${
-                resizingIndex === columnIndex ? 'bg-primary/60' : 'bg-transparent'
+                resizingIndex === columnIndex
+                  ? 'bg-primary/60'
+                  : 'bg-transparent'
               }`}
               style={{ userSelect: 'none' }}
             />
