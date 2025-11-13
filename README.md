@@ -2,6 +2,8 @@
 
 FileGraph transforms your file system into a queryable knowledge graph. Index local folders, then ask structured questions about your files using TQL (Text Query Language). Think of it as a personal search engine that understands file relationships, content, and metadata.
 
+<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/b258a94a-3326-41ea-b7d5-3364e85fbdaa" />
+
 ## 🎯 What Makes FileGraph Different?
 
 Unlike traditional file explorers, FileGraph:
