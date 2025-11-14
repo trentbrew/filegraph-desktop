@@ -64,7 +64,7 @@ export function GridItem({
     <div
       onClick={onClick}
       onDoubleClick={onDoubleClick}
-      className={`flex flex-col gap-2 p-3 rounded-lg border-border/50 bg-accent/25 hover:bg-accent/50 cursor-pointer transition-colors ${
+      className={`flex flex-col gap-2 p-3 rounded-lg border-border bg-accent/25 hover:bg-accent/50 cursor-pointer transition-colors ${
         isActive ? 'bg-accent border-primary' : ''
       } ${isDotfile ? 'opacity-50' : ''}`}
     >

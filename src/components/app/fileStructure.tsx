@@ -56,7 +56,6 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger,
 } from '@/components/ui/context-menu';
-import CommandsPallet from './commandsPallet';
 import { PreviewPane } from './previewPane';
 import { GridItem } from './gridItem';
 import { ColumnView } from './columnView';
@@ -105,7 +104,7 @@ export function FileStructure() {
     [],
   );
   const [historyIndex, setHistoryIndex] = React.useState(-1);
-  const [showDotfiles, setShowDotfiles] = React.useState(false);
+  const [showDotfiles, setShowDotfiles] = React.useState(true);
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({
     name: 300,
     date_modified: 120,
@@ -672,17 +671,12 @@ export function FileStructure() {
 
   return (
     <div className="w-full h-full flex flex-col pr-3">
-      {/* Title Bar with Path Input */}
+      {/* Title Bar with Path Input and Commands Palette */}
       <TitleBar
         currentPath={pathInput}
         onPathChange={setPathInput}
         onNavigate={navigateToPath}
         loading={loading}
-      />
-
-      {/* Commands Palette */}
-      <CommandsPallet
-        currentPath={currentPath}
         selectedItems={getSelectedItemPaths()}
         onRefresh={handleRefresh}
         onItemsDeleted={handleItemsDeleted}

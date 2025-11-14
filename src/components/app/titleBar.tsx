@@ -1,5 +1,5 @@
 import { getCurrentWindow } from '@tauri-apps/api/window';
-import ThemeToggle from './themeToggle';
+import CommandsPallet from './commandsPallet';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { useEffect, useRef, useState } from 'react';
@@ -11,6 +11,9 @@ interface TitleBarProps {
   onPathChange: (path: string) => void;
   onNavigate: (path: string) => void;
   loading?: boolean;
+  selectedItems: string[];
+  onRefresh: () => void;
+  onItemsDeleted: () => void;
 }
 
 export default function TitleBar({
@@ -18,6 +21,9 @@ export default function TitleBar({
   onPathChange,
   onNavigate,
   loading = false,
+  selectedItems,
+  onRefresh,
+  onItemsDeleted,
 }: TitleBarProps) {
   const handleFullscreen = async () => {
     const isFullscreen = await appWindow.isFullscreen();
@@ -109,12 +115,17 @@ export default function TitleBar({
         </div>
       </div>
 
-      {/* Right: Theme Toggle */}
+      {/* Right: Commands Palette */}
       <div
         data-tauri-drag-region
         className="shrink-0 flex items-center gap-2"
       >
-        <ThemeToggle />
+        <CommandsPallet
+          currentPath={currentPath}
+          selectedItems={selectedItems}
+          onRefresh={onRefresh}
+          onItemsDeleted={onItemsDeleted}
+        />
       </div>
     </div>
   );
