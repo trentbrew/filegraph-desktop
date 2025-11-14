@@ -4,7 +4,7 @@
  * React hook for TQL runtime initialization and management
  */
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { path } from '@tauri-apps/api';
 import { TQLRuntime, type RuntimeEvent, type ScanProgress } from '@/lib/tql';
 import type { FSEvent } from '@/lib/tql';
@@ -216,11 +216,15 @@ export function useTQL(): [TQLState, TQLActions] {
     return runtimeRef.current;
   }, []);
 
-  const actions: TQLActions = {
+  const actions: TQLActions = useMemo(() => ({
     scanDirectory,
     pushFSEvent,
     getRuntime,
-  };
+  }), [
+    scanDirectory,
+    pushFSEvent,
+    getRuntime,
+  ]);
 
   return [state, actions];
 }

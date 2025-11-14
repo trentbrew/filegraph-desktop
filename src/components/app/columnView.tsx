@@ -11,6 +11,7 @@ interface ColumnViewProps {
   onFileSelect: (file: FileItem) => void;
   activeItem: FileItem | null;
   showDotfiles: boolean;
+  searchValue?: string;
 }
 
 interface Column {
@@ -25,6 +26,7 @@ export function ColumnView({
   onFileSelect,
   activeItem,
   showDotfiles,
+  searchValue = '',
 }: ColumnViewProps) {
   const [columns, setColumns] = React.useState<Column[]>([]);
   const [loading, setLoading] = React.useState(false);
@@ -47,9 +49,16 @@ export function ColumnView({
             path: currentLevelPath,
           });
 
-          const filteredItems = showDotfiles
+          let filteredItems = showDotfiles
             ? items
             : items.filter((item) => !item.name.startsWith('.'));
+
+          // Apply search filter
+          if (searchValue) {
+            filteredItems = filteredItems.filter((item) =>
+              item.name.toLowerCase().includes(searchValue.toLowerCase()),
+            );
+          }
 
           // Sort: folders first, then files
           filteredItems.sort((a, b) => {
@@ -94,7 +103,7 @@ export function ColumnView({
     if (currentPath) {
       buildColumns();
     }
-  }, [currentPath, showDotfiles]);
+  }, [currentPath, showDotfiles, searchValue]);
 
   // Auto-scroll to the right when columns change
   React.useEffect(() => {

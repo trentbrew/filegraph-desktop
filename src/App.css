@@ -2,8 +2,8 @@
 @import 'tw-animate-css';
 
 @font-face {
-  font-family: 'Berkley Mono';
-  src: url('/src/assets/fonts/BerkleyMono.ttf') format('truetype');
+  font-family: 'Geist';
+  src: url('/src/assets/fonts/Geist/Geist-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -168,29 +168,39 @@
     background: oklch(0.65 0.01 250 / 0.5);
   }
 
-  /* Shiki syntax highlighting styles */
-  .shiki-wrapper {
-    @apply p-4;
+  /* Code viewer with sticky line numbers */
+  .code-viewer-container {
+    @apply relative;
   }
 
-  .shiki-wrapper pre {
-    @apply bg-transparent p-0 m-0 font-mono;
-    overflow: visible;
+  .code-viewer-wrapper {
+    @apply p-4 font-mono text-xs;
   }
 
-  .shiki-wrapper code {
-    @apply font-mono;
-    counter-reset: line;
+  .code-viewer-content {
+    @apply space-y-0;
   }
 
-  .shiki-wrapper .line {
-    @apply inline-block w-full;
+  .code-line {
+    @apply flex items-start;
+    min-height: 1.2em;
   }
 
-  .shiki-wrapper .line::before {
-    counter-increment: line;
-    content: counter(line);
-    @apply inline-block w-10 text-right mr-4 text-muted-foreground/50 select-none;
+  .line-number {
+    @apply inline-block text-right mr-4 text-muted-foreground/50 select-none shrink-0;
+    width: 3ch;
+    position: sticky;
+    left: 1rem;
+    background: transparent;
+    z-index: 1;
+  }
+
+  .line-content {
+    @apply flex-1 whitespace-pre;
+  }
+
+  .code-viewer-container.word-wrap .line-content {
+    @apply whitespace-pre-wrap break-words;
   }
 
   /* Markdown prose styles */

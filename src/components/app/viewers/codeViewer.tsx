@@ -190,25 +190,40 @@ export function CodeViewer({
       try {
         const highlighter = (window as any).__shikiHighlighter;
         if (!highlighter) {
-          // Safe fallback when shiki isn't ready: render escaped HTML inside <pre>
-          setHighlightedCode(
-            `<pre class="!m-0 !p-3 !text-xs font-mono whitespace-pre-wrap break-words">${escapeHtml(data.content)}</pre>`,
-          );
+          // Safe fallback when shiki isn't ready
+          const lines = data.content.split('\n');
+          const htmlLines = lines.map((line, i) => 
+            `<div class="code-line"><span class="line-number">${i + 1}</span><span class="line-content">${escapeHtml(line)}</span></div>`
+          ).join('');
+          setHighlightedCode(`<div class="code-viewer-content">${htmlLines}</div>`);
           return;
         }
 
         const language = getLanguageFromExtension(extension);
-        const html = highlighter.codeToHtml(data.content, {
+        const tokens = highlighter.codeToTokens(data.content, {
           lang: language,
+          theme: 'github-dark',
         });
 
-        setHighlightedCode(html);
+        // Build custom HTML with sticky line numbers
+        const lines = tokens.tokens.map((line: any, lineIndex: number) => {
+          const lineContent = line.map((token: any) => {
+            const style = token.color ? `color: ${token.color}` : '';
+            return `<span style="${style}">${escapeHtml(token.content)}</span>`;
+          }).join('');
+          
+          return `<div class="code-line"><span class="line-number">${lineIndex + 1}</span><span class="line-content">${lineContent || '\n'}</span></div>`;
+        }).join('');
+
+        setHighlightedCode(`<div class="code-viewer-content">${lines}</div>`);
       } catch (err) {
         console.error('Highlighting error:', err);
         // Safe fallback if highlighting fails
-        setHighlightedCode(
-          `<pre class="!m-0 !p-3 !text-xs font-mono whitespace-pre-wrap break-words">${escapeHtml(data.content)}</pre>`,
-        );
+        const lines = data.content.split('\n');
+        const htmlLines = lines.map((line, i) => 
+          `<div class="code-line"><span class="line-number">${i + 1}</span><span class="line-content">${escapeHtml(line)}</span></div>`
+        ).join('');
+        setHighlightedCode(`<div class="code-viewer-content">${htmlLines}</div>`);
       }
     };
 
@@ -388,17 +403,16 @@ export function CodeViewer({
           <textarea
             value={editedContent}
             onChange={(e) => setEditedContent(e.target.value)}
-            className={`w-full h-full !p-0 !m-0 !text-xs font-mono !bg-transparent resize-none focus:outline-none ${
+            className={`w-full h-full p-4 !text-xs font-mono bg-transparent resize-none focus:outline-none ${
               wordWrap ? 'whitespace-pre-wrap break-words' : 'whitespace-pre'
             }`}
             spellCheck={false}
           />
         </div>
       ) : (
-        <div className="flex-1 overflow-auto">
+        <div className={`flex-1 overflow-auto code-viewer-container ${wordWrap ? 'word-wrap' : ''}`}>
           <div
-            className={`shiki-wrapper !bg-transparent ${wordWrap ? 'whitespace-pre-wrap break-words' : ''}`}
-            // Highlighted code is either shiki output or a safe escaped <pre>
+            className="code-viewer-wrapper"
             dangerouslySetInnerHTML={{ __html: highlightedCode }}
           />
         </div>

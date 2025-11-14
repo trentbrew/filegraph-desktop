@@ -1,56 +1,29 @@
 import { getCurrentWindow } from '@tauri-apps/api/window';
-import CommandsPallet from './commandsPallet';
-import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { useEffect, useRef, useState } from 'react';
+import { TabBar, type TabData } from './navigation';
+import { SettingsDialog } from './SettingsDialog';
 
 const appWindow = getCurrentWindow();
 
 interface TitleBarProps {
-  currentPath: string;
-  onPathChange: (path: string) => void;
-  onNavigate: (path: string) => void;
-  loading?: boolean;
-  selectedItems: string[];
-  onRefresh: () => void;
-  onItemsDeleted: () => void;
+  tabs: TabData[];
+  activeTabId: string;
+  onTabSelect: (tabId: string) => void;
+  onTabClose: (tabId: string) => void;
+  onNewTab: () => void;
 }
 
 export default function TitleBar({
-  currentPath,
-  onPathChange,
-  onNavigate,
-  loading = false,
-  selectedItems,
-  onRefresh,
-  onItemsDeleted,
+  tabs,
+  activeTabId,
+  onTabSelect,
+  onTabClose,
+  onNewTab,
 }: TitleBarProps) {
   const handleFullscreen = async () => {
     const isFullscreen = await appWindow.isFullscreen();
     await appWindow.setFullscreen(!isFullscreen);
   };
-
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [inputWidth, setInputWidth] = useState('200px');
-
-  useEffect(() => {
-    // Create a hidden span to measure text width
-    const span = document.createElement('span');
-    span.style.visibility = 'hidden';
-    span.style.position = 'absolute';
-    span.style.whiteSpace = 'pre';
-    span.style.font = window.getComputedStyle(
-      inputRef.current || document.body,
-    ).font;
-    span.textContent = currentPath || 'Enter path...';
-
-    document.body.appendChild(span);
-    const width = Math.max(200, span.getBoundingClientRect().width + 32); // Add padding
-    const maxWidth = window.innerWidth * 0.7;
-    setInputWidth(`${Math.min(width, maxWidth)}px`);
-
-    document.body.removeChild(span);
-  }, [currentPath]);
 
   return (
     <div
@@ -91,41 +64,24 @@ export default function TitleBar({
 
         <Separator orientation="vertical" className="h-4" />
 
-        <span className="text-sm font-medium">FileGraph</span>
+        {/* <span className="text-sm font-medium">FileGraph</span> */}
       </div>
 
-      {/* Center: Path Input */}
-      <div data-tauri-drag-region className="flex-1 flex justify-center px-4">
-        <div className="inline-flex max-w-full">
-          <Input
-            data-tauri-drag-region="false"
-            ref={inputRef}
-            placeholder="Enter path..."
-            value={currentPath}
-            onChange={(event) => onPathChange(event.target.value)}
-            className="w-auto min-w-[200px] max-w-full font-mono text-sm cursor-text! h-8 text-center bg-transparent! opacity-50 hover:opacity-100 active:opacity-100 border-none focus:outline-none focus:ring-0"
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                onNavigate(currentPath);
-              }
-            }}
-            disabled={loading}
-            style={{ width: inputWidth }}
-          />
-        </div>
-      </div>
-
-      {/* Right: Commands Palette */}
-      <div
-        data-tauri-drag-region
-        className="shrink-0 flex items-center gap-2"
-      >
-        <CommandsPallet
-          currentPath={currentPath}
-          selectedItems={selectedItems}
-          onRefresh={onRefresh}
-          onItemsDeleted={onItemsDeleted}
+      {/* Center: Tabs */}
+      <div className="flex-1 flex items-center overflow-hidden">
+        <TabBar
+          tabs={tabs}
+          activeTabId={activeTabId}
+          onTabSelect={onTabSelect}
+          onTabClose={onTabClose}
+          onNewTab={onNewTab}
+          className="border-none"
         />
+      </div>
+
+      {/* Right: Settings */}
+      <div className="shrink-0 flex items-center">
+        <SettingsDialog />
       </div>
     </div>
   );

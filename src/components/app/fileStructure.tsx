@@ -17,17 +17,7 @@ import {
   VisibilityState,
   ColumnSizingState,
 } from '@tanstack/react-table';
-import {
-  ArrowUpDown,
-  MoreHorizontal,
-  Eye,
-  EyeOff,
-  TableIcon,
-  Grid3x3,
-  Columns3,
-  ListTree,
-  Network,
-} from 'lucide-react';
+import { ArrowUpDown, MoreHorizontal } from 'lucide-react';
 import { getFileIcon } from '@/lib/fileIcons';
 
 import { Button } from '@/components/ui/button';
@@ -40,7 +30,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
   TableBody,
@@ -57,11 +46,17 @@ import {
   ContextMenuTrigger,
 } from '@/components/ui/context-menu';
 import { PreviewPane } from './previewPane';
-import { GridItem } from './gridItem';
-import { ColumnView } from './columnView';
-import { TreeView } from './treeView';
 import { toast } from 'sonner';
 import TitleBar from './titleBar';
+import { NavigationBar } from './navigation';
+import { Toolbar } from './Toolbar';
+import { FileViewContainer } from './FileViewContainer';
+import {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from '@/components/ui/resizable';
+import { useTabStore, useUIStore, useFileStore } from '@/stores';
 
 export type FileItem = {
   id: string;
@@ -85,26 +80,80 @@ export const formatFileSize = (bytes: number | null) => {
 };
 
 export function FileStructure() {
+  // Component lifecycle tracking
+  const renderCount = React.useRef(0);
+  renderCount.current += 1;
+  console.log(`[FileStructure] RENDER #${renderCount.current}`);
+  
+  React.useEffect(() => {
+    console.log('[FileStructure] MOUNTED');
+    return () => console.log('[FileStructure] UNMOUNTED');
+  }, []);
+  
+  // Track if tab initialization is in progress (prevents race condition with Strict Mode)
+  const tabInitInProgress = React.useRef(false);
+  
   // TQL Runtime
-  const [tqlState, tqlActions] = useTQL();
+  const [, tqlActions] = useTQL();
   const { vaultPath } = useVault();
 
+  // Zustand Stores
+  const {
+    tabs,
+    activeTabId,
+    addTab,
+    removeTab,
+    setActiveTab,
+    navigateInTab,
+    navigateBack: navigateBackInTab,
+    canNavigateBack,
+  } = useTabStore();
+  const activeTab = React.useMemo(() => tabs.find(t => t.id === activeTabId), [tabs, activeTabId]);
+  
+  // Log store state changes
+  React.useEffect(() => {
+    console.log('[FileStructure] Store state changed:', {
+      tabsLength: tabs.length,
+      activeTabId,
+      hasActiveTab: !!activeTab,
+    });
+  }, [tabs.length, activeTabId, !!activeTab]);
+  
+  // Check if addTab is stable
+  React.useEffect(() => {
+    console.log('[FileStructure] addTab stability:', typeof addTab);
+  }, [addTab]);
+
+  const {
+    layoutMode,
+    previewEnabled,
+    showDotfiles,
+    searchValue,
+    setLayoutMode,
+    setSearchValue,
+    clearSearch,
+  } = useUIStore();
+
+  const {
+    currentPath,
+    pathInput,
+    data,
+    loading,
+    activeItem,
+    lastSelectedIndex,
+    setCurrentPath,
+    setPathInput,
+    setData,
+    setLoading,
+    setActiveItem,
+    setLastSelectedIndex,
+  } = useFileStore();
+
+  // Table state (not in store - component-specific)
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    [],
-  );
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
-  const [currentPath, setCurrentPath] = React.useState('');
-  const [pathInput, setPathInput] = React.useState('');
-  const [data, setData] = React.useState<FileItem[]>([]);
-  const [loading, setLoading] = React.useState(true);
-  const [navigationHistory, setNavigationHistory] = React.useState<string[]>(
-    [],
-  );
-  const [historyIndex, setHistoryIndex] = React.useState(-1);
-  const [showDotfiles, setShowDotfiles] = React.useState(true);
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({
     name: 300,
     date_modified: 120,
@@ -112,42 +161,13 @@ export function FileStructure() {
     size: 100,
     actions: 50,
   });
-  const [activeItem, setActiveItem] = React.useState<FileItem | null>(null);
-  const [previewEnabled, setPreviewEnabled] = React.useState(() => {
-    const stored = localStorage.getItem('fileex_preview_enabled');
-    return stored !== null ? JSON.parse(stored) : true;
-  });
-  const [previewWidth, setPreviewWidth] = React.useState(() => {
-    const stored = localStorage.getItem('fileex_preview_width');
-    return stored ? parseInt(stored, 10) : 400;
-  });
-  const [searchValue, setSearchValue] = React.useState('');
-  const [isResizing, setIsResizing] = React.useState(false);
-  const [lastSelectedIndex, setLastSelectedIndex] = React.useState<
-    number | null
-  >(null);
-  const [layoutMode, setLayoutMode] = React.useState<
-    'table' | 'grid' | 'columns' | 'tree' | 'canvas'
-  >('table');
-
-  // Persist preview preferences
-  React.useEffect(() => {
-    localStorage.setItem(
-      'fileex_preview_enabled',
-      JSON.stringify(previewEnabled),
-    );
-  }, [previewEnabled]);
-
-  React.useEffect(() => {
-    localStorage.setItem('fileex_preview_width', previewWidth.toString());
-  }, [previewWidth]);
 
   // Clear search filter when navigating to new directory
   React.useEffect(() => {
-    setSearchValue('');
+    clearSearch();
     // Sync path input with actual current path
     setPathInput(currentPath);
-  }, [currentPath]);
+  }, [currentPath, clearSearch, setPathInput]);
 
   // Filesystem watching - start/stop watcher and listen for changes
   React.useEffect(() => {
@@ -230,92 +250,70 @@ export function FileStructure() {
       }
       invoke('stop_watch').catch(console.error);
     };
-  }, [currentPath, tqlActions]);
+  }, [currentPath]);
 
-  // Handle resize
+  // Initialize with first tab
   React.useEffect(() => {
-    if (!isResizing) return;
+    console.log('[FileStructure] Tab initialization effect:', {
+      tabsLength: tabs.length,
+      shouldAddTab: tabs.length === 0,
+      inProgress: tabInitInProgress.current,
+      vaultPath,
+      tabsArray: tabs,
+    });
+    
+    if (tabs.length === 0 && !tabInitInProgress.current) {
+      console.log('[FileStructure] Calling addTab...');
+      tabInitInProgress.current = true;
+      
+      addTab(vaultPath || undefined).finally(() => {
+        console.log('[FileStructure] addTab completed, resetting flag');
+        tabInitInProgress.current = false;
+      });
+      
+      console.log('[FileStructure] addTab called');
+    } else if (tabInitInProgress.current) {
+      console.log('[FileStructure] Skipping addTab - already in progress');
+    } else {
+      console.log('[FileStructure] Skipping addTab - tabs already exist');
+    }
+  }, [tabs.length]); // Only depend on tabs.length, not on addTab or vaultPath
 
-    // Disable text selection during resize
-    document.body.style.userSelect = 'none';
-    document.body.style.cursor = 'col-resize';
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const newWidth = window.innerWidth - e.clientX;
-      const maxWidth = window.innerWidth * 0.9; // 90vw
-      const clampedWidth = Math.max(300, Math.min(maxWidth, newWidth));
-      setPreviewWidth(clampedWidth);
-    };
-
-    const handleMouseUp = () => {
-      setIsResizing(false);
-      document.body.style.userSelect = '';
-      document.body.style.cursor = '';
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.body.style.userSelect = '';
-      document.body.style.cursor = '';
-    };
-  }, [isResizing]);
-
-  // Load initial directory
+  // Load files when active tab changes
   React.useEffect(() => {
-    const loadInitialDirectory = async () => {
+    if (!activeTab) return;
+
+    const loadTabFiles = async () => {
+      setLoading(true);
       try {
-        // Use vault path if available, otherwise user's home directory
-        const initialPath = vaultPath || await invoke<string>('get_home_directory');
-        console.log('[FileStructure] Loading initial directory:', initialPath, '(vault:', vaultPath, ')');
-        setCurrentPath(initialPath);
         const files = await invoke<FileItem[]>('list_directory', {
-          path: initialPath,
+          path: activeTab.path,
         });
         setData(files);
-        setNavigationHistory([initialPath]);
-        setHistoryIndex(0);
+        setCurrentPath(activeTab.path);
+        setPathInput(activeTab.path);
       } catch (error) {
-        console.error('Failed to load initial directory:', error);
-        // Fallback to current directory
-        try {
-          const currentDir = await invoke<string>('get_current_directory');
-          setCurrentPath(currentDir);
-          const files = await invoke<FileItem[]>('list_directory', {
-            path: currentDir,
-          });
-          setData(files);
-          setNavigationHistory([currentDir]);
-          setHistoryIndex(0);
-        } catch (fallbackError) {
-          console.error('Failed to load current directory:', fallbackError);
-        }
+        console.error('Failed to load directory:', error);
+        toast.error(`Failed to load directory: ${error}`);
       } finally {
         setLoading(false);
       }
     };
 
-    loadInitialDirectory();
-  }, [vaultPath]); // Reload when vault path changes
+    loadTabFiles();
+  }, [activeTab?.path]);
 
   // Navigate to a new path
-  const navigateToPath = async (path: string, addToHistory = true) => {
+  const navigateToPath = async (path: string) => {
+    if (!activeTabId) return;
+    
     setLoading(true);
     try {
       const files = await invoke<FileItem[]>('navigate_to_path', { path });
       setData(files);
       setCurrentPath(path);
-
-      if (addToHistory) {
-        // Add to navigation history
-        const newHistory = navigationHistory.slice(0, historyIndex + 1);
-        newHistory.push(path);
-        setNavigationHistory(newHistory);
-        setHistoryIndex(newHistory.length - 1);
-      }
+      setPathInput(path);
+      navigateInTab(activeTabId, path);
     } catch (error) {
       console.error('Failed to navigate to path:', error);
       toast.error(`Failed to navigate to: ${path}`);
@@ -326,10 +324,22 @@ export function FileStructure() {
 
   // Navigate back in history
   const navigateBack = async () => {
-    if (historyIndex > 0) {
-      const previousPath = navigationHistory[historyIndex - 1];
-      setHistoryIndex(historyIndex - 1);
-      await navigateToPath(previousPath, false);
+    if (!activeTabId || !activeTab) return;
+    
+    navigateBackInTab(activeTabId);
+    const previousPath = activeTab.navigationHistory[activeTab.historyIndex - 1];
+    
+    setLoading(true);
+    try {
+      const files = await invoke<FileItem[]>('navigate_to_path', { path: previousPath });
+      setData(files);
+      setCurrentPath(previousPath);
+      setPathInput(previousPath);
+    } catch (error) {
+      console.error('Failed to navigate back:', error);
+      toast.error(`Failed to navigate back`);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -337,8 +347,8 @@ export function FileStructure() {
   const navigateHome = async () => {
     try {
       // Use vault path if available, otherwise user's home directory
-      const homePath = vaultPath || await invoke<string>('get_home_directory');
-      console.log('[FileStructure] Navigating to home:', homePath, '(vault:', vaultPath, ')');
+      const homePath =
+        vaultPath || '/Users/trentbrew/.filegraph' || (await invoke<string>('get_home_directory'));
       await navigateToPath(homePath);
     } catch (error) {
       console.error('Failed to navigate to home:', error);
@@ -362,8 +372,8 @@ export function FileStructure() {
     }
   };
 
-  // Get selected item paths
-  const getSelectedItemPaths = (): string[] => {
+  // Get selected item paths from table
+  const getTableSelectedPaths = (): string[] => {
     const selectedRows = table.getFilteredSelectedRowModel().rows;
     return selectedRows.map((row) => row.original.path);
   };
@@ -669,504 +679,232 @@ export function FileStructure() {
     },
   });
 
+  // Render table view with context menus
+  const renderTableView = () => (
+    <div className="flex-1 rounded-sm border border-border/50 overflow-hidden bg-card flex flex-col select-none">
+      <div className="w-full border-b border-border/50">
+        <div className="w-full">
+          <table className="w-full table-fixed caption-bottom text-sm">
+            <colgroup>
+              {table.getVisibleFlatColumns().map((column) => (
+                <col
+                  key={column.id}
+                  style={{ width: column.getSize() }}
+                />
+              ))}
+            </colgroup>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext(),
+                            )}
+                      </TableHead>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+          </table>
+        </div>
+      </div>
+      <ScrollArea className="flex-1 w-full h-0">
+        <div className="w-full">
+          <table className="w-full table-fixed caption-bottom text-sm">
+            <colgroup>
+              {table.getVisibleFlatColumns().map((column) => (
+                <col
+                  key={column.id}
+                  style={{ width: column.getSize() }}
+                />
+              ))}
+            </colgroup>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => {
+                  const fileItem = row.original;
+
+                  return (
+                    <ContextMenu key={row.id}>
+                      <ContextMenuTrigger asChild>
+                        <TableRow
+                          data-state={row.getIsSelected() && 'selected'}
+                          onClick={(e) => {
+                            // Don't interfere with checkbox clicks
+                            if ((e.target as HTMLElement).closest('[type="checkbox"]')) {
+                              return;
+                            }
+                            
+                            if (previewEnabled && fileItem.file_type !== 'folder') {
+                              setActiveItem(fileItem);
+                            }
+                            
+                            row.toggleSelected();
+                            setLastSelectedIndex(row.index);
+                          }}
+                          onDoubleClick={() => handleItemDoubleClick(fileItem)}
+                          className="cursor-pointer"
+                        >
+                          {row.getVisibleCells().map((cell) => (
+                            <TableCell
+                              key={cell.id}
+                              className="hover:bg-transparent"
+                            >
+                              {flexRender(
+                                cell.column.columnDef.cell,
+                                cell.getContext(),
+                              )}
+                            </TableCell>
+                          ))}
+                        </TableRow>
+                      </ContextMenuTrigger>
+                      <ContextMenuContent>
+                        <ContextMenuItem
+                          onClick={() => handleItemDoubleClick(fileItem)}
+                        >
+                          {fileItem.file_type === 'folder' ? 'Open' : 'Open'}
+                        </ContextMenuItem>
+                        <ContextMenuSeparator />
+                        <ContextMenuItem
+                          onClick={() =>
+                            invoke('reveal_in_finder', { path: fileItem.path })
+                              .then(() =>
+                                toast.success('Revealed in Finder'),
+                              )
+                              .catch((error) =>
+                                toast.error(`Failed to reveal: ${error}`),
+                              )
+                          }
+                        >
+                          Reveal in Finder
+                        </ContextMenuItem>
+                        <ContextMenuItem
+                          onClick={() => {
+                            navigator.clipboard
+                              .writeText(fileItem.path)
+                              .then(() => toast.success('Path copied'))
+                              .catch(() => toast.error('Failed to copy path'));
+                          }}
+                        >
+                          Copy Path
+                        </ContextMenuItem>
+                        <ContextMenuSeparator />
+                        <ContextMenuItem
+                          onClick={() => {
+                            invoke('delete_items', {
+                              paths: [fileItem.path],
+                            })
+                              .then(() => {
+                                toast.success('Deleted successfully');
+                                handleRefresh();
+                              })
+                              .catch((error) =>
+                                toast.error(`Failed to delete: ${error}`),
+                              );
+                          }}
+                        >
+                          Delete
+                        </ContextMenuItem>
+                      </ContextMenuContent>
+                    </ContextMenu>
+                  );
+                })
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center hover:bg-transparent"
+                  >
+                    {loading ? 'Loading...' : 'No files found.'}
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </table>
+        </div>
+      </ScrollArea>
+    </div>
+  );
+
   return (
-    <div className="w-full h-full flex flex-col pr-3">
-      {/* Title Bar with Path Input and Commands Palette */}
+    <div className="w-full h-full flex flex-col">
+      {/* Title Bar with Tabs */}
       <TitleBar
+        tabs={tabs}
+        activeTabId={activeTabId}
+        onTabSelect={setActiveTab}
+        onTabClose={removeTab}
+        onNewTab={() => addTab()}
+      />
+
+      {/* Navigation Bar */}
+      <NavigationBar
         currentPath={pathInput}
         onPathChange={setPathInput}
         onNavigate={navigateToPath}
+        onNavigateBack={navigateBack}
+        onNavigateHome={navigateHome}
+        canNavigateBack={canNavigateBack(activeTabId)}
         loading={loading}
-        selectedItems={getSelectedItemPaths()}
+        selectedItems={getTableSelectedPaths()}
         onRefresh={handleRefresh}
         onItemsDeleted={handleItemsDeleted}
       />
 
-      {/* Main Content: Split Layout */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* File Explorer */}
-        <div
+      {/* Main Content: Resizable Split Layout */}
+      <ResizablePanelGroup
+        direction="horizontal"
+        className="flex-1 pr-3"
+      >
+        {/* File Explorer Panel */}
+        <ResizablePanel
+          defaultSize={previewEnabled && activeItem ? 60 : 100}
+          minSize={30}
           className="flex flex-col pl-3 pr-0 pb-3 overflow-hidden"
-          style={{
-            width:
-              previewEnabled && activeItem
-                ? `calc(100% - ${previewWidth}px)`
-                : '100%',
-            transition: 'width 0s linear !important',
-          }}
         >
           {/* Toolbar */}
-          <div className="flex items-center gap-3 p-3 pl-0 shrink-0">
-            {/* Navigation Buttons */}
-            <div className="flex items-center gap-3">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={navigateBack}
-                disabled={loading || historyIndex <= 0}
-                className="h-8 w-8 p-0"
-                title="Back"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m15 18-6-6 6-6" />
-                </svg>
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={navigateHome}
-                disabled={loading}
-                className="h-8 w-8 p-0"
-                title="Home"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-              </Button>
-            </div>
+          <Toolbar
+            layoutMode={layoutMode}
+            onLayoutModeChange={setLayoutMode}
+            searchValue={searchValue}
+            onSearchChange={(value) => {
+              setSearchValue(value);
+              table.getColumn('name')?.setFilterValue(value);
+            }}
+          />
 
-            {/* Layout Mode Selector */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="gap-2">
-                  {layoutMode === 'table' && <TableIcon className="h-4 w-4" />}
-                  {layoutMode === 'grid' && <Grid3x3 className="h-4 w-4" />}
-                  {layoutMode === 'columns' && <Columns3 className="h-4 w-4" />}
-                  {layoutMode === 'tree' && <ListTree className="h-4 w-4" />}
-                  {layoutMode === 'canvas' && <Network className="h-4 w-4" />}
-                  <span className="capitalize">{layoutMode}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                <DropdownMenuItem onClick={() => setLayoutMode('table')}>
-                  <TableIcon className="h-4 w-4 mr-2" />
-                  Table
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLayoutMode('grid')}>
-                  <Grid3x3 className="h-4 w-4 mr-2" />
-                  Grid
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLayoutMode('columns')}>
-                  <Columns3 className="h-4 w-4 mr-2" />
-                  Columns
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLayoutMode('tree')}>
-                  <ListTree className="h-4 w-4 mr-2" />
-                  Tree
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLayoutMode('canvas')}>
-                  <Network className="h-4 w-4 mr-2" />
-                  Canvas
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+          {/* File Views */}
+          <FileViewContainer
+            layoutMode={layoutMode}
+            table={table}
+            currentPath={currentPath}
+            activeItem={activeItem}
+            previewEnabled={previewEnabled}
+            showDotfiles={showDotfiles}
+            searchValue={searchValue}
+            onNavigate={navigateToPath}
+            onFileSelect={setActiveItem}
+            onItemDoubleClick={handleItemDoubleClick}
+            renderTableView={renderTableView}
+          />
+        </ResizablePanel>
 
-            {/* Search Input - Full Width */}
-            <Input
-              placeholder="Search..."
-              value={searchValue}
-              onChange={(event) => {
-                setSearchValue(event.target.value);
-                table.getColumn('name')?.setFilterValue(event.target.value);
-              }}
-              className="flex-1"
-            />
-
-            {/* Dotfiles Toggle */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setShowDotfiles(!showDotfiles)}
-              className="gap-2"
-            >
-              {showDotfiles ? (
-                <Eye className="h-4 w-4" />
-              ) : (
-                <EyeOff className="h-4 w-4" />
-              )}
-              Dotfiles
-            </Button>
-
-            {/* Preview Toggle */}
-            {/* <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setPreviewEnabled(!previewEnabled)}
-              className="gap-2"
-              title={previewEnabled ? 'Hide preview' : 'Show preview'}
-            >
-              {previewEnabled ? (
-                <Eye className="h-4 w-4" />
-              ) : (
-                <EyeOff className="h-4 w-4" />
-              )}
-              Preview
-            </Button> */}
-          </div>
-
-          {/* Table View */}
-          {layoutMode === 'table' && (
-            <div className="flex-1 rounded-sm border border-border/50 overflow-hidden bg-card flex flex-col select-none">
-              <div className="w-full border-b border-border/50">
-                <div className="w-full">
-                  <table className="w-full table-fixed caption-bottom text-sm">
-                    <colgroup>
-                      {table.getVisibleFlatColumns().map((column) => (
-                        <col
-                          key={column.id}
-                          style={{ width: column.getSize() }}
-                        />
-                      ))}
-                    </colgroup>
-                    <TableHeader>
-                      {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow key={headerGroup.id}>
-                          {headerGroup.headers.map((header) => {
-                            return (
-                              <TableHead key={header.id}>
-                                {header.isPlaceholder
-                                  ? null
-                                  : flexRender(
-                                      header.column.columnDef.header,
-                                      header.getContext(),
-                                    )}
-                              </TableHead>
-                            );
-                          })}
-                        </TableRow>
-                      ))}
-                    </TableHeader>
-                  </table>
-                </div>
-              </div>
-              <ScrollArea className="flex-1 w-full h-0">
-                <div className="w-full">
-                  <table className="w-full table-fixed caption-bottom text-sm">
-                    <colgroup>
-                      {table.getVisibleFlatColumns().map((column) => (
-                        <col
-                          key={column.id}
-                          style={{ width: column.getSize() }}
-                        />
-                      ))}
-                    </colgroup>
-                    <TableBody>
-                      {table.getRowModel().rows?.length ? (
-                        table.getRowModel().rows.map((row) => {
-                          const fileItem = row.original;
-
-                          return (
-                            <ContextMenu key={row.id}>
-                              <ContextMenuTrigger asChild>
-                                <TableRow
-                                  data-state={row.getIsSelected() && 'selected'}
-                                  onClick={(e) => {
-                                    // Don't interfere with checkbox clicks
-                                    if (
-                                      (e.target as HTMLElement).closest(
-                                        '[type="checkbox"]',
-                                      )
-                                    ) {
-                                      return;
-                                    }
-
-                                    const currentIndex = row.index;
-
-                                    // Handle shift+click for range selection
-                                    if (
-                                      e.shiftKey &&
-                                      lastSelectedIndex !== null
-                                    ) {
-                                      const start = Math.min(
-                                        lastSelectedIndex,
-                                        currentIndex,
-                                      );
-                                      const end = Math.max(
-                                        lastSelectedIndex,
-                                        currentIndex,
-                                      );
-
-                                      // Merge with existing selection
-                                      const rowsToSelect: Record<
-                                        string,
-                                        boolean
-                                      > = { ...rowSelection };
-                                      for (let i = start; i <= end; i++) {
-                                        rowsToSelect[i.toString()] = true;
-                                      }
-                                      setRowSelection(rowsToSelect);
-                                      setLastSelectedIndex(currentIndex);
-                                    } else {
-                                      // Normal click - just track index
-                                      setLastSelectedIndex(currentIndex);
-                                    }
-
-                                    // Set active item for preview (only for files, not folders)
-                                    if (
-                                      previewEnabled &&
-                                      fileItem.file_type !== 'folder'
-                                    ) {
-                                      setActiveItem(fileItem);
-                                    }
-                                  }}
-                                  onDoubleClick={() =>
-                                    handleItemDoubleClick(row.original)
-                                  }
-                                  className={`cursor-pointer !duration-0 select-none ${
-                                    activeItem?.path === fileItem.path
-                                      ? 'bg-accent/25'
-                                      : ''
-                                  }`}
-                                >
-                                  {row.getVisibleCells().map((cell) => (
-                                    <TableCell key={cell.id}>
-                                      {flexRender(
-                                        cell.column.columnDef.cell,
-                                        cell.getContext(),
-                                      )}
-                                    </TableCell>
-                                  ))}
-                                </TableRow>
-                              </ContextMenuTrigger>
-                              <ContextMenuContent className="w-48">
-                                <ContextMenuItem
-                                  onClick={() => {
-                                    if (fileItem.file_type === 'folder') {
-                                      navigateToPath(fileItem.path);
-                                    } else {
-                                      invoke<string>(
-                                        'open_file_with_default_app',
-                                        {
-                                          filePath: fileItem.path,
-                                        },
-                                      )
-                                        .then((result) => toast.success(result))
-                                        .catch((error) =>
-                                          toast.error(
-                                            `Failed to open file: ${error}`,
-                                          ),
-                                        );
-                                    }
-                                  }}
-                                >
-                                  {fileItem.file_type === 'folder'
-                                    ? 'Open Folder'
-                                    : 'Open File'}
-                                </ContextMenuItem>
-                                <ContextMenuSeparator />
-                                <ContextMenuItem
-                                  onClick={() => {
-                                    navigator.clipboard
-                                      .writeText(fileItem.path)
-                                      .then(() =>
-                                        toast.success(
-                                          'Path copied to clipboard',
-                                        ),
-                                      )
-                                      .catch(() =>
-                                        toast.error('Failed to copy path'),
-                                      );
-                                  }}
-                                >
-                                  Copy Path
-                                </ContextMenuItem>
-                                <ContextMenuItem
-                                  onClick={() => {
-                                    navigator.clipboard
-                                      .writeText(fileItem.name)
-                                      .then(() =>
-                                        toast.success(
-                                          'Name copied to clipboard',
-                                        ),
-                                      )
-                                      .catch(() =>
-                                        toast.error('Failed to copy name'),
-                                      );
-                                  }}
-                                >
-                                  Copy Name
-                                </ContextMenuItem>
-                                <ContextMenuSeparator />
-                                <ContextMenuItem
-                                  onClick={() => {
-                                    const newName = prompt(
-                                      'Enter new name:',
-                                      fileItem.name,
-                                    );
-                                    if (
-                                      !newName ||
-                                      newName.trim() === '' ||
-                                      newName === fileItem.name
-                                    )
-                                      return;
-
-                                    invoke('rename_item', {
-                                      oldPath: fileItem.path,
-                                      newName: newName.trim(),
-                                    })
-                                      .then(() => handleRefresh())
-                                      .catch((error) =>
-                                        toast.error(
-                                          `Failed to rename: ${error}`,
-                                        ),
-                                      );
-                                  }}
-                                >
-                                  Rename
-                                </ContextMenuItem>
-                                <ContextMenuItem>Properties</ContextMenuItem>
-                                <ContextMenuSeparator />
-                                <ContextMenuItem
-                                  className="text-red-600 focus:text-red-600"
-                                  onClick={() => {
-                                    const confirmDelete = confirm(
-                                      `Are you sure you want to delete "${fileItem.name}"?`,
-                                    );
-                                    if (!confirmDelete) return;
-
-                                    invoke('delete_item', {
-                                      path: fileItem.path,
-                                    })
-                                      .then(() => handleRefresh())
-                                      .catch((error) =>
-                                        toast.error(
-                                          `Failed to delete: ${error}`,
-                                        ),
-                                      );
-                                  }}
-                                >
-                                  Delete
-                                </ContextMenuItem>
-                              </ContextMenuContent>
-                            </ContextMenu>
-                          );
-                        })
-                      ) : (
-                        <TableRow>
-                          <TableCell
-                            colSpan={columns.length}
-                            className="h-24 text-center hover:bg-transparent"
-                          >
-                            {loading ? 'Loading...' : 'No files found.'}
-                          </TableCell>
-                        </TableRow>
-                      )}
-                    </TableBody>
-                  </table>
-                </div>
-              </ScrollArea>
-            </div>
-          )}
-
-          {/* Grid View */}
-          {layoutMode === 'grid' && (
-            <div className="flex-1 overflow-hidden">
-              <ScrollArea className="h-full">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-4">
-                  {table.getRowModel().rows.map((row) => {
-                    const fileItem = row.original;
-                    return (
-                      <GridItem
-                        key={row.id}
-                        fileItem={fileItem}
-                        isActive={activeItem?.path === fileItem.path}
-                        onClick={() => {
-                          if (
-                            previewEnabled &&
-                            fileItem.file_type !== 'folder'
-                          ) {
-                            setActiveItem(fileItem);
-                          }
-                        }}
-                        onDoubleClick={() => handleItemDoubleClick(fileItem)}
-                      />
-                    );
-                  })}
-                </div>
-              </ScrollArea>
-            </div>
-          )}
-
-          {/* Columns View */}
-          {layoutMode === 'columns' && (
-            <ColumnView
-              currentPath={currentPath}
-              onNavigate={navigateToPath}
-              onFileSelect={setActiveItem}
-              activeItem={activeItem}
-              showDotfiles={showDotfiles}
-            />
-          )}
-
-          {/* Tree View */}
-          {layoutMode === 'tree' && (
-            <TreeView
-              currentPath={currentPath}
-              onNavigate={navigateToPath}
-              onFileSelect={setActiveItem}
-              activeItem={activeItem}
-              showDotfiles={showDotfiles}
-            />
-          )}
-
-          {/* Canvas View */}
-          {layoutMode === 'canvas' && (
-            <div className="flex-1 rounded-sm border border-border/50 bg-card flex flex-col items-center justify-center">
-              <div className="text-center text-muted-foreground p-8">
-                <ListTree className="h-12 w-12 mx-auto mb-3 opacity-50" />
-                <p className="text-sm font-medium">Canvas View</p>
-                <p className="text-xs mt-2 opacity-70">Coming soon</p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Preview Pane */}
+        {/* Preview Panel */}
         {previewEnabled && activeItem && (
           <>
-            {/* Resize Handle */}
-
-            <div
-              onMouseDown={() => setIsResizing(true)}
-              className={`w-1 mx-1 shrink-0 cursor-col-resize hover:bg-primary/25 active:bg-muted transition-colors ${
-                isResizing ? 'bg-primary' : 'bg-border/0'
-              }`}
-              style={{ userSelect: 'none' }}
-            />
-
-            <div
-              style={{ width: `${previewWidth}px` }}
-              className="shrink-0 p-3 px-0"
-            >
-              <PreviewPane
-                activeItem={activeItem}
-                onClose={() => setActiveItem(null)}
-              />
-            </div>
+            <ResizableHandle className="mx-1" />
+            <ResizablePanel defaultSize={40} minSize={20} maxSize={70}>
+              <PreviewPane activeItem={activeItem} />
+            </ResizablePanel>
           </>
         )}
-      </div>
+      </ResizablePanelGroup>
     </div>
   );
 }

@@ -17,6 +17,7 @@ interface TreeViewProps {
   onFileSelect: (file: FileItem) => void;
   activeItem: FileItem | null;
   showDotfiles: boolean;
+  searchValue?: string;
 }
 
 interface TreeNode extends FileItem {
@@ -32,6 +33,7 @@ export function TreeView({
   onFileSelect,
   activeItem,
   showDotfiles,
+  searchValue = '',
 }: TreeViewProps) {
   const [treeData, setTreeData] = React.useState<TreeNode[]>([]);
   const [loading, setLoading] = React.useState(true);
@@ -45,9 +47,16 @@ export function TreeView({
           path: currentPath,
         });
 
-        const filteredItems = showDotfiles
+        let filteredItems = showDotfiles
           ? items
           : items.filter((item) => !item.name.startsWith('.'));
+
+        // Apply search filter
+        if (searchValue) {
+          filteredItems = filteredItems.filter((item) =>
+            item.name.toLowerCase().includes(searchValue.toLowerCase()),
+          );
+        }
 
         // Sort: folders first, then files
         filteredItems.sort((a, b) => {
@@ -75,7 +84,7 @@ export function TreeView({
     if (currentPath) {
       loadInitialTree();
     }
-  }, [currentPath, showDotfiles]);
+  }, [currentPath, showDotfiles, searchValue]);
 
   const toggleFolder = async (path: number[]) => {
     const newTreeData = [...treeData];
@@ -102,9 +111,16 @@ export function TreeView({
           path: target.path,
         });
 
-        const filteredItems = showDotfiles
+        let filteredItems = showDotfiles
           ? items
           : items.filter((item) => !item.name.startsWith('.'));
+
+        // Apply search filter
+        if (searchValue) {
+          filteredItems = filteredItems.filter((item) =>
+            item.name.toLowerCase().includes(searchValue.toLowerCase()),
+          );
+        }
 
         // Sort: folders first, then files
         filteredItems.sort((a, b) => {
