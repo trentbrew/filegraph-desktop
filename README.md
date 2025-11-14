@@ -4,9 +4,10 @@ FileGraph transforms your file system into a queryable knowledge graph. Index lo
 
 <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/b258a94a-3326-41ea-b7d5-3364e85fbdaa" />
 
-## 🎯 What Makes FileGraph Different?
+## What Makes FileGraph Different?
 
 Unlike traditional file explorers, FileGraph:
+
 - **Indexes your files** into a local graph database
 - **Understands relationships** between files, folders, and content
 - **Answers natural questions** like "Show me all PDFs modified in the last week"
@@ -25,6 +26,7 @@ Unlike traditional file explorers, FileGraph:
 ## ✨ Features
 
 ### 🔍 **TQL - Graph Query Language**
+
 - **Structured queries**: Ask questions about your files naturally
 - **Relationship traversal**: Navigate connections between files
 - **Metadata filtering**: Search by type, size, date, content
@@ -32,6 +34,7 @@ Unlike traditional file explorers, FileGraph:
 - **Graph statistics**: Get insights about your file structure
 
 ### 📊 **Vault-Based Indexing**
+
 - **Index any folder**: Turn any directory into a queryable vault
 - **Real-time updates**: Filesystem watching keeps the index fresh
 - **Background processing**: Non-blocking indexing with progress tracking
@@ -39,6 +42,7 @@ Unlike traditional file explorers, FileGraph:
 - **Persistent storage**: Indexes survive app restarts
 
 ### 📈 **VSCode-Style Status Bar**
+
 - **Live indexing progress**: Phase, files processed, ETA
 - **Queue monitoring**: See pending operations in real-time
 - **Health indicators**: Connection status, errors, warnings
@@ -46,6 +50,7 @@ Unlike traditional file explorers, FileGraph:
 - **Metrics display**: Files, facts, edges at a glance
 
 ### 🗂️ **Vault-Scoped Navigation**
+
 - **Context-aware browsing**: Navigate within indexed vaults
 - **Home button**: Jump to vault root, not system home
 - **Path boundaries**: Stay focused on your working vault
@@ -53,6 +58,7 @@ Unlike traditional file explorers, FileGraph:
 - **Persistent state**: Remembers your last vault
 
 ### 🎨 **Modern UI/UX**
+
 - **Modal vault selector**: Clean, focused indexing experience
 - **File type icons**: Visual file type identification
 - **Theme support**: Light and dark modes
@@ -61,6 +67,7 @@ Unlike traditional file explorers, FileGraph:
 - **Error panels**: Actionable error drill-through with retry
 
 ### 🔧 **Advanced Features**
+
 - **Zod schema validation**: Runtime type safety for all events
 - **Heartbeat detection**: Automatic reconnection on failures
 - **ETA smoothing**: Accurate time estimates with outlier filtering
@@ -71,6 +78,7 @@ Unlike traditional file explorers, FileGraph:
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) (v18 or higher)
 - [Rust](https://rustup.rs/) (latest stable)
 - [Git](https://git-scm.com/)
@@ -78,17 +86,20 @@ Unlike traditional file explorers, FileGraph:
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/trentbrew/filegraph-desktop.git
    cd filegraph-desktop
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run tauri dev
    ```
@@ -112,6 +123,7 @@ Unlike traditional file explorers, FileGraph:
 ## 🛠️ Technology Stack
 
 ### Frontend
+
 - **React 18**: Modern React with hooks and functional components
 - **TypeScript**: Type-safe development
 - **Vite**: Fast build tool and dev server
@@ -123,6 +135,7 @@ Unlike traditional file explorers, FileGraph:
 - **Zod**: Runtime type validation
 
 ### TQL Runtime (Graph Engine)
+
 - **Rust (WASM)**: High-performance graph indexing compiled to WebAssembly
 - **In-memory graph**: Fast traversal and relationship queries
 - **Full-text search**: Content indexing and search
@@ -130,6 +143,7 @@ Unlike traditional file explorers, FileGraph:
 - **Persistent storage**: IndexedDB for durable indexes
 
 ### Backend
+
 - **Tauri 2.0**: Rust-based desktop app framework
 - **Rust**: Systems programming language for performance
 - **Serde**: Serialization/deserialization
@@ -138,11 +152,13 @@ Unlike traditional file explorers, FileGraph:
 - **Tokio**: Async runtime
 
 ### State Management
+
 - **React Context**: Vault state management
 - **Custom hooks**: `useTQL` for graph runtime integration
 - **LocalStorage**: Persisting vault paths and preferences
 
 ### UI Components
+
 - **Dialogs**: Modal vault selector, confirmation dialogs
 - **Status Bar**: VSCode-style progress monitoring
 - **Error Panel**: Actionable error drill-through
@@ -185,8 +201,8 @@ filegraph/
 │   ├── Cargo.toml                  # Rust dependencies
 │   └── tauri.conf.json             # Tauri configuration
 ├── public/                         # Static assets
-├── SHIP_CHECKLIST.md              # Production readiness checklist
-├── STATUSBAR_IMPLEMENTATION.md    # Status bar architecture docs
+├── docs/product/SHIP_CHECKLIST.md              # Production readiness checklist
+├── docs/engineering/STATUSBAR_IMPLEMENTATION.md    # Status bar architecture docs
 └── package.json                   # Node.js dependencies
 ```
 
@@ -213,16 +229,19 @@ filegraph/
 ### Status Bar Features
 
 #### Left Side: Vault Info
+
 - **Folder icon + name**: Current vault (click to switch)
 - **Health indicator**: Connection status (green = healthy)
 
 #### Center: Indexing Progress
+
 - **Phase**: Current operation (discovering/fts/embedding)
 - **Progress bar**: Visual completion indicator
 - **Stats**: `"processed/total (XX%)"` with ETA
 - **Queue**: Pending operations count
 
 #### Right: Metrics & Controls
+
 - **Files**: Total indexed files
 - **Facts**: Extracted facts/metadata
 - **Edges**: Relationships between entities
@@ -254,12 +273,14 @@ files -> imports -> files
 ## 🔧 Configuration
 
 ### Vault Settings
+
 - **Default path**: `~/.filegraph` (auto-created)
 - **Storage**: LocalStorage for vault paths, IndexedDB for graph indexes
 - **Dotfiles**: Hidden by default, toggle in settings
 - **Gitignore**: Respects `.gitignore` files during indexing
 
 ### Status Bar Settings
+
 - **Schema version**: Zod validation ensures compatibility
 - **Heartbeat timeout**: 5s (with exponential backoff)
 - **Progress updates**: 4Hz (250ms) with RAF batching
@@ -267,12 +288,14 @@ files -> imports -> files
 - **Error log**: Max 100 events
 
 ### Window Settings
+
 - **Custom title bar**: macOS-style traffic lights
 - **Resizable**: Yes, with minimum size 800x600
 - **Theme**: Light/dark mode support
 - **Transparency**: Background blur on macOS
 
 ### Keyboard Shortcuts
+
 - `⌘I` - Toggle indexing panel (future)
 - `⌘⇧I` - Cycle throttle modes (future)
 - `Escape` - Close modals
@@ -281,19 +304,25 @@ files -> imports -> files
 ## 🎨 Customization
 
 ### Themes
+
 Customize colors and styling:
+
 - `src/App.css` - Global styles and CSS variables
 - `tailwind.config.js` - Tailwind configuration
 - Theme toggle in title bar for light/dark modes
 
 ### Status Bar
+
 Customize status bar behavior in:
+
 - `src/lib/tql/status-types.ts` - Zod schemas and types
 - `src/components/app/statusBar.tsx` - UI and event handling
 - Adjust refresh rate, timeout values, ETA smoothing
 
 ### File Icons
+
 File type detection and icons:
+
 - `src/lib/fileIcons.ts` - Icon mapping by extension
 - Based on Lucide icons
 - Extend with new file types as needed
@@ -339,12 +368,14 @@ File type detection and icons:
 ## 📝 Development
 
 ### Recommended IDE Setup
+
 - [VS Code](https://code.visualstudio.com/)
 - [Tauri Extension](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode)
 - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 - [TypeScript Hero](https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero)
 
 ### Scripts
+
 ```bash
 npm run dev          # Start frontend dev server only
 npm run tauri dev    # Start full Tauri development with hot reload
@@ -355,7 +386,9 @@ npm run type-check   # TypeScript type checking
 ```
 
 ### Dev Console Debugging
+
 Open browser console (⌘⌥I) and access:
+
 ```javascript
 window.__tqlRuntime      // TQL runtime instance
 window.runTQLTests()     // Run test suite
@@ -364,9 +397,10 @@ window.queryTQL(...)     // Execute TQL queries
 ```
 
 ### Architecture Docs
-- `STATUSBAR_IMPLEMENTATION.md` - Status bar design & specs
-- `SHIP_CHECKLIST.md` - Production readiness checklist
-- `UX_DEBUG_FIXES.md` - Recent UX improvements
+
+- `docs/engineering/STATUSBAR_IMPLEMENTATION.md` - Status bar design & specs
+- `docs/product/SHIP_CHECKLIST.md` - Production readiness checklist
+- `docs/engineering/UX_DEBUG_FIXES.md` - Recent UX improvements
 
 ## 🤝 Contributing
 
@@ -377,6 +411,7 @@ window.queryTQL(...)     // Execute TQL queries
 5. Open a Pull Request
 
 **Development Guidelines:**
+
 - Follow existing code patterns and architecture
 - Add tests for new TQL features
 - Update docs for user-facing changes
@@ -399,6 +434,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🎯 Roadmap
 
 ### Near-term (v0.2)
+
 - [ ] TQL query interface in UI
 - [ ] Query history and saved queries
 - [ ] Vault boundary enforcement
@@ -406,6 +442,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Screen reader accessibility testing
 
 ### Mid-term (v0.3)
+
 - [ ] Multiple vault management
 - [ ] Graph visualization canvas
 - [ ] Advanced TQL: aggregations, joins, subqueries
@@ -413,6 +450,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Cloud sync (optional, encrypted)
 
 ### Long-term (v1.0)
+
 - [ ] Natural language to TQL translation (LLM)
 - [ ] Collaborative vaults (shared indexes)
 - [ ] Plugin system for custom file processors
@@ -422,12 +460,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 Need help? Here's how to get it:
-1. **Check docs**: Read this README and `STATUSBAR_IMPLEMENTATION.md`
+
+1. **Check docs**: Read this README and `docs/engineering/STATUSBAR_IMPLEMENTATION.md`
 2. **Search issues**: Browse [existing issues](https://github.com/trentbrew/filegraph-desktop/issues)
 3. **Open an issue**: Include logs, screenshots, and steps to reproduce
 4. **Discussions**: Ask questions in [GitHub Discussions](https://github.com/trentbrew/filegraph-desktop/discussions)
 
 **Include in bug reports:**
+
 - OS and version (macOS Sonoma, Windows 11, etc.)
 - FileGraph version (`npm run tauri info`)
 - Console logs (⌘⌥I → Console tab)
