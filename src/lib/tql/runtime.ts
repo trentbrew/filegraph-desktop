@@ -6,7 +6,7 @@
  */
 
 import { invoke } from '@tauri-apps/api/core';
-import { EAVStore } from '../../../.sandbox/tql/src/index';
+import { EAVStore, jsonEntityFacts } from '../../../.sandbox/tql/src/index';
 import type { Fact, Link, QueryResult } from '../../../.sandbox/tql/src/index';
 import { EntityIdManager } from './entity-ids';
 import { FSWatcherQueue, type FSEvent, type FSEventBatch } from './watcher-queue';
@@ -624,5 +624,52 @@ export class TQLRuntime {
    */
   getStore(): EAVStore {
     return this.store;
+  }
+
+  /**
+   * Ingest generated image metadata and link it to the file entity
+   */
+  async addImageMetadata(
+    filePath: string,
+    meta: {
+      description: string;
+      model: string;
+      fileHash: string;
+      generatedAt: number;
+      tags?: string[];
+      contentType?: string;
+    },
+  ): Promise<void> {
+    const normalizedPath = normalizePath(filePath);
+    const fileId = this.idManager.getOrCreateId(normalizedPath);
+    const metaId = `meta:${fileId}:${meta.fileHash}`;
+
+    const type = meta.contentType ? `${meta.contentType}.metadata` : 'image.metadata';
+    const facts = jsonEntityFacts(metaId, meta, type);
+    this.addFacts(facts);
+
+    const link: Link = { e1: fileId, a: 'meta:has', e2: metaId };
+    this.addLinks([link]);
+  }
+
+  getImageMetadata(filePath: string): { description?: string; model?: string; fileHash?: string; generatedAt?: number; tags?: string[] } | null {
+    const normalizedPath = normalizePath(filePath);
+    const fileId = this.idManager.getId(normalizedPath);
+    if (!fileId) return null;
+    const links = this.store.getLinksByEntityAndAttribute(fileId, 'meta:has');
+    if (!links.length) return null;
+    let latest: { meta: any; gen: number } | null = null;
+    for (const lk of links) {
+      const facts = this.store.getFactsByEntity(lk.e2);
+      const meta: any = {};
+      for (const f of facts) {
+        meta[f.a] = f.v as any;
+      }
+      const gen = Number(meta['generatedAt'] ?? 0);
+      if (!latest || gen > latest.gen) {
+        latest = { meta, gen };
+      }
+    }
+    return latest?.meta ?? null;
   }
 }

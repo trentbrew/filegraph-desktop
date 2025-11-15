@@ -18,6 +18,9 @@ interface FileViewContainerProps {
   onNavigate: (path: string) => void;
   onFileSelect: (item: FileItem | null) => void;
   onItemDoubleClick: (item: FileItem) => void;
+  onCopyItem: (item: FileItem) => void;
+  onCutItem: (item: FileItem) => void;
+  onDeleteItem: (item: FileItem) => void;
   renderTableView: () => React.ReactNode;
   className?: string;
 }
@@ -33,6 +36,9 @@ export function FileViewContainer({
   onNavigate,
   onFileSelect,
   onItemDoubleClick,
+  onCopyItem,
+  onCutItem,
+  onDeleteItem,
   renderTableView,
   className = '',
 }: FileViewContainerProps) {
@@ -45,7 +51,7 @@ export function FileViewContainer({
       {layoutMode === 'grid' && (
         <div className={`flex-1 overflow-hidden ${className}`}>
           <ScrollArea className="h-full">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 p-4">
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3 p-4">
               {table.getRowModel().rows.map((row) => {
                 const fileItem = row.original;
                 return (
@@ -53,12 +59,19 @@ export function FileViewContainer({
                     key={row.id}
                     fileItem={fileItem}
                     isActive={activeItem?.path === fileItem.path}
-                    onClick={() => {
+                    isSelected={row.getIsSelected()}
+                    onClick={(_e) => {
                       if (previewEnabled && fileItem.file_type !== 'folder') {
                         onFileSelect(fileItem);
                       }
                     }}
                     onDoubleClick={() => onItemDoubleClick(fileItem)}
+                    onSelectionChange={(checked) => {
+                      row.toggleSelected(checked);
+                    }}
+                    onCopy={() => onCopyItem(fileItem)}
+                    onCut={() => onCutItem(fileItem)}
+                    onDelete={() => onDeleteItem(fileItem)}
                   />
                 );
               })}
@@ -76,6 +89,10 @@ export function FileViewContainer({
           activeItem={activeItem}
           showDotfiles={showDotfiles}
           searchValue={searchValue}
+          table={table}
+          onCopyItem={onCopyItem}
+          onCutItem={onCutItem}
+          onDeleteItem={onDeleteItem}
         />
       )}
 
@@ -88,6 +105,10 @@ export function FileViewContainer({
           activeItem={activeItem}
           showDotfiles={showDotfiles}
           searchValue={searchValue}
+          table={table}
+          onCopyItem={onCopyItem}
+          onCutItem={onCutItem}
+          onDeleteItem={onDeleteItem}
         />
       )}
 

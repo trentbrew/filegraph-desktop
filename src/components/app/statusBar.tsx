@@ -25,7 +25,6 @@ import { Separator } from '@/components/ui/separator';
 import {
   Folder,
   Loader2,
-  CheckCircle2,
   AlertCircle,
   Lock,
   Pause,
@@ -100,7 +99,6 @@ export function StatusBar({ onIndexFolder, onVaultSwitch }: StatusBarProps = {})
 
     const processed = scanProgress?.processed || 0;
     const total = scanProgress?.total || 0;
-    const percent = total > 0 ? Math.round((processed / total) * 100) : 0;
 
     // Calculate ETA (rough estimate - TODO: sliding window)
     const etaSec = total > 0 && processed > 0
@@ -108,6 +106,7 @@ export function StatusBar({ onIndexFolder, onVaultSwitch }: StatusBarProps = {})
       : 0;
 
     const tick: StatusBarTick = {
+      schemaVersion: 1,
       vault: {
         name: '~/.filegraph',
         path: '/Users/trentbrew/.filegraph',
@@ -119,13 +118,14 @@ export function StatusBar({ onIndexFolder, onVaultSwitch }: StatusBarProps = {})
         total: total,
         edges: stats?.totalLinks || 0,
         errors: error ? 1 : 0,
+        errorsReviewed: 0,
       },
       perf: {
         etaSec,
         queue: 0, // TODO: get from runtime
         throttle: 'auto',
       },
-      now: Math.floor(Date.now() / 1000),
+      daemonTimestamp: Math.floor(Date.now() / 1000),
     };
 
     // Persist every update

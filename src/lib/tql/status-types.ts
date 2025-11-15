@@ -60,13 +60,13 @@ const StatusBarTickSchema = z.object({
   delta: StatusDeltaSchema.optional(),
   pauseReason: PauseReasonSchema.optional(),
   daemonTimestamp: z.number(),
-  meta: z.record(z.unknown()).optional(),
+  meta: z.record(z.string(), z.unknown()).optional(),
 });
 
 const StatusEventSchema = z.object({
   type: z.enum(['state_changed', 'error_added', 'queue_len', 'progress']),
   timestamp: z.number(),
-  data: z.record(z.unknown()),
+  data: z.record(z.string(), z.unknown()),
 });
 
 // Exported schemas for validation

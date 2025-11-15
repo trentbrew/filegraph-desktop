@@ -57,6 +57,7 @@ import {
   ResizableHandle,
 } from '@/components/ui/resizable';
 import { useTabStore, useUIStore, useFileStore } from '@/stores';
+import { useClipboardStore } from '@/stores/clipboardStore';
 
 export type FileItem = {
   id: string;
@@ -84,15 +85,16 @@ export function FileStructure() {
   const renderCount = React.useRef(0);
   renderCount.current += 1;
   console.log(`[FileStructure] RENDER #${renderCount.current}`);
-  
+
   React.useEffect(() => {
     console.log('[FileStructure] MOUNTED');
     return () => console.log('[FileStructure] UNMOUNTED');
   }, []);
-  
+
   // Track if tab initialization is in progress (prevents race condition with Strict Mode)
   const tabInitInProgress = React.useRef(false);
-  
+  const describedRoots = React.useRef(new Set<string>());
+
   // TQL Runtime
   const [, tqlActions] = useTQL();
   const { vaultPath } = useVault();
@@ -108,8 +110,11 @@ export function FileStructure() {
     navigateBack: navigateBackInTab,
     canNavigateBack,
   } = useTabStore();
-  const activeTab = React.useMemo(() => tabs.find(t => t.id === activeTabId), [tabs, activeTabId]);
-  
+  const activeTab = React.useMemo(
+    () => tabs.find((t) => t.id === activeTabId),
+    [tabs, activeTabId],
+  );
+
   // Log store state changes
   React.useEffect(() => {
     console.log('[FileStructure] Store state changed:', {
@@ -118,7 +123,7 @@ export function FileStructure() {
       hasActiveTab: !!activeTab,
     });
   }, [tabs.length, activeTabId, !!activeTab]);
-  
+
   // Check if addTab is stable
   React.useEffect(() => {
     console.log('[FileStructure] addTab stability:', typeof addTab);
@@ -149,10 +154,16 @@ export function FileStructure() {
     setLastSelectedIndex,
   } = useFileStore();
 
+  // Clipboard store (copy/cut operations across app)
+  const { setClipboard } = useClipboardStore();
+
   // Table state (not in store - component-specific)
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    [],
+  );
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>({
     name: 300,
@@ -261,16 +272,16 @@ export function FileStructure() {
       vaultPath,
       tabsArray: tabs,
     });
-    
+
     if (tabs.length === 0 && !tabInitInProgress.current) {
       console.log('[FileStructure] Calling addTab...');
       tabInitInProgress.current = true;
-      
+
       addTab(vaultPath || undefined).finally(() => {
         console.log('[FileStructure] addTab completed, resetting flag');
         tabInitInProgress.current = false;
       });
-      
+
       console.log('[FileStructure] addTab called');
     } else if (tabInitInProgress.current) {
       console.log('[FileStructure] Skipping addTab - already in progress');
@@ -303,10 +314,21 @@ export function FileStructure() {
     loadTabFiles();
   }, [activeTab?.path]);
 
+  React.useEffect(() => {
+    if (!activeTab?.path) return;
+    const root = activeTab.path;
+    if (describedRoots.current.has(root)) return;
+    describedRoots.current.add(root);
+    tqlActions
+      .describeImagesInDir(root, { concurrency: 2 })
+      .then((r: any) => console.log('[TQL] describeImagesInDir', root, r))
+      .catch((e: any) => console.error('[TQL] describeImagesInDir failed', e));
+  }, [activeTab?.path]);
+
   // Navigate to a new path
   const navigateToPath = async (path: string) => {
     if (!activeTabId) return;
-    
+
     setLoading(true);
     try {
       const files = await invoke<FileItem[]>('navigate_to_path', { path });
@@ -325,13 +347,16 @@ export function FileStructure() {
   // Navigate back in history
   const navigateBack = async () => {
     if (!activeTabId || !activeTab) return;
-    
+
     navigateBackInTab(activeTabId);
-    const previousPath = activeTab.navigationHistory[activeTab.historyIndex - 1];
-    
+    const previousPath =
+      activeTab.navigationHistory[activeTab.historyIndex - 1];
+
     setLoading(true);
     try {
-      const files = await invoke<FileItem[]>('navigate_to_path', { path: previousPath });
+      const files = await invoke<FileItem[]>('navigate_to_path', {
+        path: previousPath,
+      });
       setData(files);
       setCurrentPath(previousPath);
       setPathInput(previousPath);
@@ -348,7 +373,9 @@ export function FileStructure() {
     try {
       // Use vault path if available, otherwise user's home directory
       const homePath =
-        vaultPath || '/Users/trentbrew/.filegraph' || (await invoke<string>('get_home_directory'));
+        vaultPath ||
+        '/Users/trentbrew/.filegraph' ||
+        (await invoke<string>('get_home_directory'));
       await navigateToPath(homePath);
     } catch (error) {
       console.error('Failed to navigate to home:', error);
@@ -388,6 +415,56 @@ export function FileStructure() {
   // Handle items deleted (clear selection)
   const handleItemsDeleted = () => {
     setRowSelection({});
+  };
+
+  // Helpers & handlers for item operations
+  const deletePaths = async (paths: string[]) => {
+    if (paths.length === 0) return;
+    const confirmed = window.confirm(
+      `Delete ${paths.length} item(s)? This action cannot be undone.`,
+    );
+    if (!confirmed) return;
+
+    setLoading(true);
+    try {
+      await Promise.all(paths.map((p) => invoke('delete_item', { path: p })));
+      toast.success(`Deleted ${paths.length} item(s)`);
+      handleItemsDeleted();
+      handleRefresh();
+    } catch (error) {
+      toast.error(`Failed to delete: ${error}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Context menu handlers for individual items
+  const handleCopyItem = (item: FileItem) => {
+    const selectedPaths = getTableSelectedPaths();
+    const paths = selectedPaths.includes(item.path) && selectedPaths.length > 0
+      ? selectedPaths
+      : [item.path];
+    // Update app clipboard and system clipboard
+    setClipboard(paths, 'copy');
+    navigator.clipboard.writeText(paths.join('\n'));
+    toast.success(`Copied ${paths.length} item(s)`);
+  };
+
+  const handleCutItem = (item: FileItem) => {
+    const selectedPaths = getTableSelectedPaths();
+    const paths = selectedPaths.includes(item.path) && selectedPaths.length > 0
+      ? selectedPaths
+      : [item.path];
+    setClipboard(paths, 'cut');
+    toast.success(`Cut ${paths.length} item(s)`);
+  };
+
+  const handleDeleteItem = (item: FileItem) => {
+    const selectedPaths = getTableSelectedPaths();
+    const paths = selectedPaths.includes(item.path) && selectedPaths.length > 0
+      ? selectedPaths
+      : [item.path];
+    void deletePaths(paths);
   };
 
   // Define columns inside the component so they have access to functions
@@ -679,6 +756,158 @@ export function FileStructure() {
     },
   });
 
+  // Keyboard shortcuts (macOS Finder-style)
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't intercept if user is typing in an input
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+        return;
+      }
+
+      const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+      const cmdOrCtrl = isMac ? e.metaKey : e.ctrlKey;
+      
+      const rows = table.getRowModel().rows;
+      const selectedRows = table.getSelectedRowModel().rows;
+      const firstSelectedIndex = selectedRows.length > 0 ? selectedRows[0].index : -1;
+
+      // Arrow Up - Navigate to previous item
+      if (e.key === 'ArrowUp' && !e.shiftKey) {
+        e.preventDefault();
+        if (rows.length === 0) return;
+        
+        const currentIndex = firstSelectedIndex >= 0 ? firstSelectedIndex : 0;
+        const prevIndex = Math.max(0, currentIndex - 1);
+        
+        setRowSelection({ [prevIndex]: true });
+        setLastSelectedIndex(prevIndex);
+        
+        const item = rows[prevIndex].original;
+        if (previewEnabled && item.file_type !== 'folder') {
+          setActiveItem(item);
+        }
+      }
+
+      // Arrow Down - Navigate to next item
+      else if (e.key === 'ArrowDown' && !e.shiftKey) {
+        e.preventDefault();
+        if (rows.length === 0) return;
+        
+        const currentIndex = firstSelectedIndex >= 0 ? firstSelectedIndex : -1;
+        const nextIndex = Math.min(rows.length - 1, currentIndex + 1);
+        
+        setRowSelection({ [nextIndex]: true });
+        setLastSelectedIndex(nextIndex);
+        
+        const item = rows[nextIndex].original;
+        if (previewEnabled && item.file_type !== 'folder') {
+          setActiveItem(item);
+        }
+      }
+
+      // Arrow Right - Enter folder
+      else if (e.key === 'ArrowRight' && !cmdOrCtrl) {
+        e.preventDefault();
+        if (selectedRows.length === 1) {
+          const item = selectedRows[0].original;
+          if (item.file_type === 'folder') {
+            navigateToPath(item.path);
+          }
+        }
+      }
+
+      // Arrow Left - Go to parent folder
+      else if (e.key === 'ArrowLeft' && !cmdOrCtrl) {
+        e.preventDefault();
+        if (currentPath) {
+          const parentPath = currentPath.split('/').slice(0, -1).join('/') || '/';
+          navigateToPath(parentPath);
+        }
+      }
+
+      // Space - Toggle preview
+      else if (e.key === ' ' && !cmdOrCtrl) {
+        e.preventDefault();
+        if (selectedRows.length === 1) {
+          const item = selectedRows[0].original;
+          if (item.file_type !== 'folder') {
+            setActiveItem(activeItem?.path === item.path ? null : item);
+          }
+        }
+      }
+
+      // Enter - Open file/folder
+      else if (e.key === 'Enter' && !cmdOrCtrl) {
+        e.preventDefault();
+        if (selectedRows.length === 1) {
+          handleItemDoubleClick(selectedRows[0].original);
+        }
+      }
+
+      // Cmd+O or Cmd+Down - Open file
+      else if (cmdOrCtrl && (e.key === 'o' || e.key === 'ArrowDown')) {
+        e.preventDefault();
+        if (selectedRows.length === 1) {
+          handleItemDoubleClick(selectedRows[0].original);
+        }
+      }
+
+      // Cmd+Up - Go to parent folder
+      else if (cmdOrCtrl && e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (currentPath) {
+          const parentPath = currentPath.split('/').slice(0, -1).join('/') || '/';
+          navigateToPath(parentPath);
+        }
+      }
+
+      // Cmd+[ - Back
+      else if (cmdOrCtrl && e.key === '[') {
+        e.preventDefault();
+        if (canNavigateBack(activeTabId)) {
+          navigateBack();
+        }
+      }
+
+      // Cmd+A - Select all
+      else if (cmdOrCtrl && e.key === 'a') {
+        e.preventDefault();
+        table.toggleAllRowsSelected(true);
+      }
+
+      // Cmd+Delete - Delete selected items
+      else if (cmdOrCtrl && e.key === 'Backspace') {
+        e.preventDefault();
+        const selectedPaths = getTableSelectedPaths();
+        if (selectedPaths.length > 0) {
+          void deletePaths(selectedPaths);
+        }
+      }
+
+      // Escape - Deselect all
+      else if (e.key === 'Escape') {
+        e.preventDefault();
+        setRowSelection({});
+        setActiveItem(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [
+    table,
+    activeItem,
+    previewEnabled,
+    currentPath,
+    activeTabId,
+    canNavigateBack,
+    navigateBack,
+    navigateToPath,
+    handleItemDoubleClick,
+    getTableSelectedPaths,
+  ]);
+
   // Render table view with context menus
   const renderTableView = () => (
     <div className="flex-1 rounded-sm border border-border/50 overflow-hidden bg-card flex flex-col select-none">
@@ -687,10 +916,7 @@ export function FileStructure() {
           <table className="w-full table-fixed caption-bottom text-sm">
             <colgroup>
               {table.getVisibleFlatColumns().map((column) => (
-                <col
-                  key={column.id}
-                  style={{ width: column.getSize() }}
-                />
+                <col key={column.id} style={{ width: column.getSize() }} />
               ))}
             </colgroup>
             <TableHeader>
@@ -719,10 +945,7 @@ export function FileStructure() {
           <table className="w-full table-fixed caption-bottom text-sm">
             <colgroup>
               {table.getVisibleFlatColumns().map((column) => (
-                <col
-                  key={column.id}
-                  style={{ width: column.getSize() }}
-                />
+                <col key={column.id} style={{ width: column.getSize() }} />
               ))}
             </colgroup>
             <TableBody>
@@ -737,14 +960,21 @@ export function FileStructure() {
                           data-state={row.getIsSelected() && 'selected'}
                           onClick={(e) => {
                             // Don't interfere with checkbox clicks
-                            if ((e.target as HTMLElement).closest('[type="checkbox"]')) {
+                            if (
+                              (e.target as HTMLElement).closest(
+                                '[type="checkbox"]',
+                              )
+                            ) {
                               return;
                             }
-                            
-                            if (previewEnabled && fileItem.file_type !== 'folder') {
+
+                            if (
+                              previewEnabled &&
+                              fileItem.file_type !== 'folder'
+                            ) {
                               setActiveItem(fileItem);
                             }
-                            
+
                             row.toggleSelected();
                             setLastSelectedIndex(row.index);
                           }}
@@ -774,9 +1004,7 @@ export function FileStructure() {
                         <ContextMenuItem
                           onClick={() =>
                             invoke('reveal_in_finder', { path: fileItem.path })
-                              .then(() =>
-                                toast.success('Revealed in Finder'),
-                              )
+                              .then(() => toast.success('Revealed in Finder'))
                               .catch((error) =>
                                 toast.error(`Failed to reveal: ${error}`),
                               )
@@ -859,13 +1087,20 @@ export function FileStructure() {
 
       {/* Main Content: Resizable Split Layout */}
       <ResizablePanelGroup
+        key={`panel-${layoutMode}`}
         direction="horizontal"
         className="flex-1 pr-3"
       >
         {/* File Explorer Panel */}
         <ResizablePanel
-          defaultSize={previewEnabled && activeItem ? 60 : 100}
-          minSize={30}
+          defaultSize={
+            previewEnabled && activeItem
+              ? layoutMode === 'tree'
+                ? 25 // Tree view: narrow file explorer for IDE-style layout
+                : 75 // Other views: wider file explorer for better visibility
+              : 100
+          }
+          minSize={15}
           className="flex flex-col pl-3 pr-0 pb-3 overflow-hidden"
         >
           {/* Toolbar */}
@@ -873,7 +1108,7 @@ export function FileStructure() {
             layoutMode={layoutMode}
             onLayoutModeChange={setLayoutMode}
             searchValue={searchValue}
-            onSearchChange={(value) => {
+            onSearchChange={(value: string) => {
               setSearchValue(value);
               table.getColumn('name')?.setFilterValue(value);
             }}
@@ -891,6 +1126,9 @@ export function FileStructure() {
             onNavigate={navigateToPath}
             onFileSelect={setActiveItem}
             onItemDoubleClick={handleItemDoubleClick}
+            onCopyItem={handleCopyItem}
+            onCutItem={handleCutItem}
+            onDeleteItem={handleDeleteItem}
             renderTableView={renderTableView}
           />
         </ResizablePanel>
@@ -899,7 +1137,11 @@ export function FileStructure() {
         {previewEnabled && activeItem && (
           <>
             <ResizableHandle className="mx-1" />
-            <ResizablePanel defaultSize={40} minSize={20} maxSize={70}>
+            <ResizablePanel
+              defaultSize={layoutMode === 'tree' ? 70 : 35}
+              minSize={20}
+              maxSize={85}
+            >
               <PreviewPane activeItem={activeItem} />
             </ResizablePanel>
           </>

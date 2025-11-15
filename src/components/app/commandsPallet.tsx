@@ -29,6 +29,7 @@ import { Label } from '../ui/label';
 import { invoke } from '@tauri-apps/api/core';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { useClipboardStore } from '@/stores/clipboardStore';
 
 interface CommandsPalletProps {
   currentPath: string;
@@ -36,10 +37,6 @@ interface CommandsPalletProps {
   onRefresh: () => void;
   onItemsDeleted: () => void;
 }
-
-// Global clipboard state for cut/copy operations
-let clipboardItems: string[] = [];
-let clipboardOperation: 'copy' | 'cut' | null = null;
 
 export default function CommandsPallet({
   currentPath,
@@ -53,6 +50,12 @@ export default function CommandsPallet({
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [folderName, setFolderName] = useState('');
   const [fileName, setFileName] = useState('');
+  const {
+    items: clipboardItems,
+    operation: clipboardOperation,
+    setClipboard,
+    clearClipboard,
+  } = useClipboardStore();
 
   const handleCreateFolder = async () => {
     if (!folderName.trim()) {
@@ -130,8 +133,7 @@ export default function CommandsPallet({
     }
 
     // Store items for clipboard operations
-    clipboardItems = [...selectedItems];
-    clipboardOperation = 'copy';
+    setClipboard([...selectedItems], 'copy');
 
     // Also copy file paths to system clipboard for external use
     const pathsText = selectedItems.join('\n');
@@ -150,8 +152,7 @@ export default function CommandsPallet({
     }
 
     // Store items for clipboard operations
-    clipboardItems = [...selectedItems];
-    clipboardOperation = 'cut';
+    setClipboard([...selectedItems], 'cut');
 
     toast.success(`Cut ${selectedItems.length} item(s) to clipboard`);
   };
@@ -178,8 +179,7 @@ export default function CommandsPallet({
         toast.success(`Moved ${clipboardItems.length} item(s)`);
 
         // Clear clipboard after cutting
-        clipboardItems = [];
-        clipboardOperation = null;
+        clearClipboard();
       }
 
       onRefresh();
@@ -192,7 +192,7 @@ export default function CommandsPallet({
 
   return (
     <TooltipProvider>
-      <div className="flex flex-row items-center gap-1 px-4 py-2 border-b border-border/50 bg-background/80 backdrop-blur-sm">
+      <div className="flex flex-row items-center gap-1 px-0 py-0 border-b border-border/50 bg-background/80 backdrop-blur-sm">
         {/* File operations */}
         <div className="flex items-center gap-1">
           <Dialog open={folderDialogOpen} onOpenChange={setFolderDialogOpen}>
@@ -308,70 +308,120 @@ export default function CommandsPallet({
           </Dialog>
         </div>
 
+        {/* Clipboard operations - only show when items are selected */}
+        {selectedItems.length > 0 && (
+          <>
+            <Separator orientation="vertical" className="h-6" />
+            <div className="flex items-center gap-1">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 w-8 p-0"
+                    onClick={handleCutSelected}
+                  >
+                    <ScissorsIcon className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Cut Selected ({selectedItems.length})</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 w-8 p-0"
+                    onClick={handleCopySelected}
+                  >
+                    <Copy className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Copy Selected ({selectedItems.length})</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DialogTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-8 w-8 p-0 hover:bg-destructive/10 hover:text-destructive"
+                        disabled={isLoading}
+                      >
+                        <Trash className="h-4 w-4" />
+                      </Button>
+                    </DialogTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Delete Selected ({selectedItems.length})</p>
+                  </TooltipContent>
+                </Tooltip>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>Confirm Deletion</DialogTitle>
+                    <DialogDescription>
+                      Are you sure you want to delete {selectedItems.length}{' '}
+                      item(s)? This action cannot be undone.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <DialogFooter>
+                    <Button
+                      variant="outline"
+                      onClick={() => setDeleteDialogOpen(false)}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      variant="destructive"
+                      onClick={handleDeleteSelected}
+                      disabled={isLoading}
+                    >
+                      Delete
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </>
+        )}
+
+        {/* Paste button - only show when clipboard has items */}
+        {clipboardItems.length > 0 && (
+          <>
+            <Separator orientation="vertical" className="h-6" />
+            <div className="flex items-center gap-1">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 w-8 p-0"
+                    onClick={handlePaste}
+                    disabled={isLoading}
+                  >
+                    <ClipboardIcon className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>
+                    Paste ({clipboardItems.length} items)
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          </>
+        )}
+
         <Separator orientation="vertical" className="h-6" />
 
-        {/* Clipboard operations */}
-        <div className="flex items-center gap-1">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-8 w-8 p-0"
-                onClick={handleCutSelected}
-                disabled={selectedItems.length === 0}
-              >
-                <ScissorsIcon className="h-4 w-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Cut Selected ({selectedItems.length})</p>
-            </TooltipContent>
-          </Tooltip>
-
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-8 w-8 p-0"
-                onClick={handleCopySelected}
-                disabled={selectedItems.length === 0}
-              >
-                <Copy className="h-4 w-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Copy Selected ({selectedItems.length})</p>
-            </TooltipContent>
-          </Tooltip>
-
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-8 w-8 p-0"
-                onClick={handlePaste}
-                disabled={clipboardItems.length === 0 || isLoading}
-              >
-                <ClipboardIcon className="h-4 w-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>
-                Paste{' '}
-                {clipboardItems.length > 0
-                  ? `(${clipboardItems.length} items)`
-                  : ''}
-              </p>
-            </TooltipContent>
-          </Tooltip>
-        </div>
-
-        <Separator orientation="vertical" className="h-6" />
-
-        {/* Refresh and Delete operations */}
+        {/* Refresh operation */}
         <div className="flex items-center gap-1">
           <Tooltip>
             <TooltipTrigger asChild>
@@ -391,50 +441,6 @@ export default function CommandsPallet({
               <p>Refresh</p>
             </TooltipContent>
           </Tooltip>
-
-          <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <DialogTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="h-8 w-8 p-0 hover:bg-destructive/10 hover:text-destructive"
-                    disabled={selectedItems.length === 0 || isLoading}
-                  >
-                    <Trash className="h-4 w-4" />
-                  </Button>
-                </DialogTrigger>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Delete Selected ({selectedItems.length})</p>
-              </TooltipContent>
-            </Tooltip>
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>Confirm Deletion</DialogTitle>
-                <DialogDescription>
-                  Are you sure you want to delete {selectedItems.length}{' '}
-                  item(s)? This action cannot be undone.
-                </DialogDescription>
-              </DialogHeader>
-              <DialogFooter>
-                <Button
-                  variant="outline"
-                  onClick={() => setDeleteDialogOpen(false)}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  variant="destructive"
-                  onClick={handleDeleteSelected}
-                  disabled={isLoading}
-                >
-                  Delete
-                </Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
         </div>
       </div>
     </TooltipProvider>

@@ -10,7 +10,16 @@ import { ImageViewer } from './viewers/imageViewer';
 import { MediaViewer } from './viewers/mediaViewer';
 import { PdfViewer } from './viewers/pdfViewer';
 import { MarkdownViewer } from './viewers/markdownViewer';
-import { X, ExternalLink, FileText, File, AlertCircle } from 'lucide-react';
+import {
+  X,
+  ExternalLink,
+  FileText,
+  File,
+  AlertCircle,
+  FileWarning,
+} from 'lucide-react';
+import { useTQL } from '@/hooks/useTQL';
+import { captionImageWithLlava } from '@/lib/ollama';
 
 interface PreviewPaneProps {
   activeItem: FileItem | null;
@@ -57,7 +66,7 @@ export function PreviewPane({ activeItem, onClose }: PreviewPaneProps) {
   }
 
   return (
-    <div className="h-full flex flex-col bg-card rounded-sm border border-border/50">
+    <div className="h-full flex flex-col bg-card rounded-sm border border-border/50 preview-content">
       {/* Header */}
       <div className="shrink-0 border-b border-border/50 px-4 py-3">
         <div className="flex items-start justify-between gap-3">
@@ -138,6 +147,110 @@ function ErrorState({ error }: { error: string }) {
 
 function PreviewContent({ activeItem }: { activeItem: FileItem }) {
   const extension = activeItem.extension?.toLowerCase();
+  const [, tql] = useTQL();
+  const [meta, setMeta] = React.useState<any>(null);
+  const [busy, setBusy] = React.useState(false);
+  const [forceLoad, setForceLoad] = React.useState(false);
+
+  // Large file threshold: 1MB
+  const LARGE_FILE_THRESHOLD = 1024 * 1024;
+  const isLargeFile = activeItem.size && activeItem.size > LARGE_FILE_THRESHOLD;
+
+  React.useEffect(() => {
+    const r = tql.getRuntime?.();
+    setMeta(r?.getImageMetadata(activeItem.path) ?? null);
+    // Reset force load when file changes
+    setForceLoad(false);
+  }, [activeItem.path, tql]);
+
+  // Check if we need to show large file warning for text-based files
+  const needsWarning =
+    isLargeFile &&
+    !forceLoad &&
+    // Code files
+    ((extension &&
+      [
+        'js',
+        'ts',
+        'tsx',
+        'jsx',
+        'html',
+        'css',
+        'scss',
+        'sass',
+        'py',
+        'java',
+        'cpp',
+        'c',
+        'h',
+        'cs',
+        'go',
+        'rs',
+        'php',
+        'rb',
+        'swift',
+        'json',
+        'xml',
+        'yml',
+        'yaml',
+        'toml',
+        'sh',
+        'bash',
+        'zsh',
+        'sql',
+      ].includes(extension)) ||
+      // Text files
+      (extension &&
+        [
+          'txt',
+          'log',
+          'ini',
+          'conf',
+          'gitignore',
+          'env',
+          'dockerignore',
+        ].includes(extension)) ||
+      // Markdown
+      extension === 'md' ||
+      // CSV
+      extension === 'csv' ||
+      // No extension
+      !extension);
+
+  if (needsWarning) {
+    return (
+      <div className="h-full flex items-center justify-center p-8">
+        <div className="text-center max-w-md space-y-4">
+          <FileWarning className="h-16 w-16 mx-auto text-amber-500" />
+          <div>
+            <h3 className="font-semibold text-lg mb-2">Large File Detected</h3>
+            <p className="text-sm text-muted-foreground mb-1">
+              This file is{' '}
+              <span className="font-medium text-foreground">
+                {formatFileSize(activeItem.size || 0)}
+              </span>
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Loading large files may cause the UI to freeze temporarily.
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <Button
+              onClick={() => setForceLoad(true)}
+              variant="default"
+              className="gap-2"
+            >
+              <FileText className="h-4 w-4" />
+              Load Preview Anyway
+            </Button>
+            <p className="text-xs text-muted-foreground">
+              Files over 1 MB will be truncated to 4 MB for preview
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Image files
   if (
@@ -146,9 +259,62 @@ function PreviewContent({ activeItem }: { activeItem: FileItem }) {
       extension,
     )
   ) {
+    const quickHash = `${activeItem.size ?? 0}-${activeItem.date_modified ?? ''}`;
+    const handleDescribe = async () => {
+      try {
+        setBusy(true);
+        const { description, model } = await captionImageWithLlava(
+          activeItem.path,
+        );
+        const r = tql.getRuntime?.();
+        await r?.addImageMetadata(activeItem.path, {
+          description,
+          model,
+          fileHash: quickHash,
+          generatedAt: Date.now(),
+          contentType: 'image',
+        });
+        setMeta(
+          r?.getImageMetadata(activeItem.path) ?? {
+            description,
+            model,
+            fileHash: quickHash,
+          },
+        );
+      } finally {
+        setBusy(false);
+      }
+    };
+
     return (
-      <div className="h-full">
-        <ImageViewer filePath={activeItem.path} fileName={activeItem.name} />
+      <div className="h-full flex flex-col">
+        <div className="flex-1">
+          <ImageViewer filePath={activeItem.path} fileName={activeItem.name} />
+        </div>
+        <div className="border-t border-border/50 p-3 text-sm">
+          <div className="flex items-start justify-between gap-3">
+            <div className="text-muted-foreground whitespace-pre-wrap wrap-break-word">
+              {meta?.description || 'No description yet.'}
+            </div>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={handleDescribe}
+              disabled={busy}
+            >
+              {busy
+                ? 'Describing…'
+                : meta?.description
+                  ? 'Regenerate'
+                  : 'Generate'}
+            </Button>
+          </div>
+          {meta?.model && (
+            <div className="mt-2 text-[10px] text-muted-foreground">
+              {meta.model}
+            </div>
+          )}
+        </div>
       </div>
     );
   }
@@ -198,7 +364,11 @@ function PreviewContent({ activeItem }: { activeItem: FileItem }) {
   if (extension === 'csv') {
     return (
       <div className="h-full">
-        <TableViewer filePath={activeItem.path} fileType="csv" fileName={activeItem.name} />
+        <TableViewer
+          filePath={activeItem.path}
+          fileType="csv"
+          fileName={activeItem.name}
+        />
       </div>
     );
   }
@@ -206,7 +376,11 @@ function PreviewContent({ activeItem }: { activeItem: FileItem }) {
   if (extension && ['xlsx', 'xls'].includes(extension)) {
     return (
       <div className="h-full">
-        <TableViewer filePath={activeItem.path} fileType="xlsx" fileName={activeItem.name} />
+        <TableViewer
+          filePath={activeItem.path}
+          fileType="xlsx"
+          fileName={activeItem.name}
+        />
       </div>
     );
   }

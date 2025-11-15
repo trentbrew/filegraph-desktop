@@ -2,17 +2,11 @@ import './App.css';
 import { useState } from 'react';
 import { FileStructure } from './components/app/fileStructure';
 import { VaultSelector } from './components/app/vaultSelector';
-import { StatusBar } from './components/app/statusBar';
 import { Toaster } from '@/components/ui/sonner';
 import { VaultProvider } from './contexts/VaultContext';
 
 function AppContent() {
   const [showVaultSelector, setShowVaultSelector] = useState(false);
-
-  const handleOpenVaultSelector = () => {
-    console.log('[App] Opening vault selector');
-    setShowVaultSelector(true);
-  };
 
   return (
     <div className="h-screen w-screen p-0 m-0 overflow-hidden bg-transparent rounded-lg">
@@ -29,10 +23,10 @@ function AppContent() {
           <div className="flex-1 overflow-hidden">
             <FileStructure />
           </div>
-          <StatusBar
+          {/* <StatusBar
             onIndexFolder={handleOpenVaultSelector}
             onVaultSwitch={handleOpenVaultSelector}
-          />
+          /> */}
           <VaultSelector
             isOpen={showVaultSelector}
             onClose={() => setShowVaultSelector(false)}

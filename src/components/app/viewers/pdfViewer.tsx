@@ -10,7 +10,7 @@ interface PdfViewerProps {
   fileName: string;
 }
 
-export function PdfViewer({ filePath, fileName }: PdfViewerProps) {
+export function PdfViewer({ filePath, fileName: _fileName }: PdfViewerProps) {
   const [error, setError] = React.useState<string | null>(null);
   const [embedSupported, setEmbedSupported] = React.useState(true);
   const [zoomLevel, setZoomLevel] = React.useState(1);

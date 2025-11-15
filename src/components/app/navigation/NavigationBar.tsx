@@ -34,12 +34,12 @@ export function NavigationBar({
           <BackButton
             onClick={onNavigateBack}
             disabled={loading || !canNavigateBack}
-            className="h-7 w-7"
+            className="h-7 w-7 !bg-transparent border-none !text-foreground"
           />
           <HomeButton
             onClick={onNavigateHome}
             disabled={loading}
-            className="h-7 w-7"
+            className="h-7 w-7 !bg-transparent border-none !text-foreground"
           />
         </div>
         <div className="flex-1">

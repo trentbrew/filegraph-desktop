@@ -5,10 +5,12 @@
  */
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { invoke } from '@tauri-apps/api/core';
 import { path } from '@tauri-apps/api';
 import { TQLRuntime, type RuntimeEvent, type ScanProgress } from '@/lib/tql';
 import type { FSEvent } from '@/lib/tql';
 import { exposeTQLDebugger } from '@/lib/tql/debug';
+import { captionImageWithLlava, isImagePath } from '@/lib/ollama';
 
 export interface TQLState {
   initialized: boolean;
@@ -22,6 +24,7 @@ export interface TQLActions {
   scanDirectory: (dirPath: string) => Promise<void>;
   pushFSEvent: (event: FSEvent) => void;
   getRuntime: () => TQLRuntime | null;
+  describeImagesInDir: (dirPath: string, opts?: { concurrency?: number }) => Promise<{ described: number; skipped: number; errors: number }>;
 }
 
 /**
@@ -62,6 +65,12 @@ export function useTQL(): [TQLState, TQLActions] {
           (window as any).__tqlRuntime = runtime;
           exposeTQLDebugger(runtime);
           console.log('[TQL Hook] Runtime exposed to window.__tqlRuntime');
+          // Expose simple dev helper for image captioning via Tauri backend
+          (window as any).describeImage = async (filePath: string) => {
+            const host = (import.meta as any).env?.VITE_OLLAMA_HOST as string | undefined;
+            const model = (import.meta as any).env?.VITE_IMAGE_CAPTION_MODEL as string | undefined;
+            return await invoke('caption_image', { filePath, host, model });
+          };
           
           // Auto-run tests if URL parameter is present
           const params = new URLSearchParams(window.location.search);
@@ -106,6 +115,93 @@ export function useTQL(): [TQLState, TQLActions] {
       }
     };
   }, []);
+
+  // List directory via Tauri
+  type DirItem = { path: string; name: string; file_type: 'file' | 'folder'; size?: number | null; date_modified?: string; extension?: string | null };
+  const listDirectory = useCallback(async (dirPath: string): Promise<DirItem[]> => {
+    try {
+      return await invoke<DirItem[]>('list_directory', { path: dirPath });
+    } catch (err) {
+      console.error('[TQL Hook] list_directory failed:', err);
+      return [];
+    }
+  }, []);
+
+  // Walk a directory tree, yielding file items
+  const walkDir = useCallback(async function*(dir: string): AsyncGenerator<DirItem> {
+    const items = await listDirectory(dir);
+    for (const it of items) {
+      yield it;
+      if (it.file_type === 'folder') {
+        yield* walkDir(it.path);
+      }
+    }
+  }, [listDirectory]);
+
+  // Quick content hash from size + modified timestamp
+  const quickHash = (item: DirItem) => `${item.size ?? 0}-${item.date_modified ?? ''}`;
+
+  // Describe all images under dir and ingest metadata into TQL
+  const describeImagesInDir = useCallback(async (dirPath: string, opts?: { concurrency?: number }) => {
+    const runtime = runtimeRef.current;
+    if (!runtime) throw new Error('TQL Runtime not initialized');
+
+    const concurrency = Math.max(1, Math.min(4, opts?.concurrency ?? 2));
+    let described = 0, skipped = 0, errors = 0;
+
+    const runTask = async (item: DirItem) => {
+      try {
+        const hash = quickHash(item);
+        // Check existing metadata via links
+        const store = runtime.getStore();
+        const fileId = runtime.getEntityId(item.path);
+        // Fallback: attempt to avoid duplicate ingest by searching links from file entity if known
+        let already = false;
+        if (fileId) {
+          const links = store.getLinksByEntityAndAttribute(fileId as any, 'meta:has');
+          for (const lk of links) {
+            const facts = store.getFactsByEntity(lk.e2);
+            const hashFact = facts.find(f => f.a === 'fileHash');
+            if (hashFact && String(hashFact.v) === hash) {
+              already = true; break;
+            }
+          }
+        }
+
+        if (already) { skipped++; return; }
+
+        const { description, model } = await captionImageWithLlava(item.path);
+        await runtime.addImageMetadata(item.path, {
+          description,
+          model,
+          fileHash: hash,
+          generatedAt: Date.now(),
+          contentType: 'image',
+        });
+        described++;
+      } catch (err) {
+        console.error('[TQL Hook] describe failed:', err);
+        errors++;
+      }
+    };
+
+    const runners: Promise<void>[] = [];
+    for await (const it of walkDir(dirPath)) {
+      if (it.file_type === 'file' && isImagePath(it.path)) {
+        const p = (async () => runTask(it))();
+        runners.push(p);
+        if (runners.length >= concurrency) {
+          await Promise.race(runners.map(async (rp, idx) => rp.then(() => { runners.splice(idx, 1); }).catch(() => { runners.splice(idx, 1); })));
+        }
+      }
+    }
+    await Promise.allSettled(runners);
+
+    // Persist indexes
+    await runtime.save();
+
+    return { described, skipped, errors };
+  }, [walkDir]);
 
   // Handle runtime events
   const handleRuntimeEvent = useCallback((event: RuntimeEvent) => {
@@ -220,10 +316,12 @@ export function useTQL(): [TQLState, TQLActions] {
     scanDirectory,
     pushFSEvent,
     getRuntime,
+    describeImagesInDir,
   }), [
     scanDirectory,
     pushFSEvent,
     getRuntime,
+    describeImagesInDir,
   ]);
 
   return [state, actions];

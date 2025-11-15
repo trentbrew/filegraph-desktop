@@ -8,7 +8,7 @@ use chrono::{DateTime, Utc};
 use encoding_rs::UTF_8;
 use notify::{Watcher, RecursiveMode};
 use notify_debouncer_full::{new_debouncer, Debouncer, FileIdMap};
-use tauri::{AppHandle, Emitter};
+use tauri::{AppHandle, Emitter, Manager};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct FileItem {
@@ -488,6 +488,13 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .manage(WatcherState(Mutex::new(None)))
+        .setup(|app| {
+            if let Some(win) = app.get_webview_window("main") {
+                let _ = win.show();
+                let _ = win.set_focus();
+            }
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![
             greet,
             get_current_directory,

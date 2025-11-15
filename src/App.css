@@ -128,7 +128,22 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    user-select: none;
+    -webkit-user-select: none;
   }
+  
+  /* Allow text selection in specific areas */
+  input,
+  textarea,
+  [contenteditable='true'],
+  .code-viewer-content,
+  .markdown-content,
+  .preview-content,
+  [role='textbox'] {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+  
   html,
   body,
   #root {

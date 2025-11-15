@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { invoke } from '@tauri-apps/api/core';
+import { type Table as TanstackTable } from '@tanstack/react-table';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Checkbox } from '@/components/ui/checkbox';
 import { ChevronRight } from 'lucide-react';
 import { FileItem } from './fileStructure';
 import { getFileIcon } from '@/lib/fileIcons';
+import { FileContextMenu } from './FileContextMenu';
 
 interface ColumnViewProps {
   currentPath: string;
@@ -12,6 +15,10 @@ interface ColumnViewProps {
   activeItem: FileItem | null;
   showDotfiles: boolean;
   searchValue?: string;
+  table: TanstackTable<FileItem>;
+  onCopyItem: (item: FileItem) => void;
+  onCutItem: (item: FileItem) => void;
+  onDeleteItem: (item: FileItem) => void;
 }
 
 interface Column {
@@ -27,6 +34,10 @@ export function ColumnView({
   activeItem,
   showDotfiles,
   searchValue = '',
+  table,
+  onCopyItem,
+  onCutItem,
+  onDeleteItem,
 }: ColumnViewProps) {
   const [columns, setColumns] = React.useState<Column[]>([]);
   const [loading, setLoading] = React.useState(false);
@@ -164,6 +175,18 @@ export function ColumnView({
     }
   };
 
+  // Helper to find row for a given file path
+  const getRowByPath = (filePath: string) => {
+    return table.getRowModel().rows.find((row) => row.original.path === filePath);
+  };
+
+  const handleSelectionChange = (item: FileItem, checked: boolean) => {
+    const row = getRowByPath(item.path);
+    if (row) {
+      row.toggleSelected(checked);
+    }
+  };
+
   if (loading && columns.length === 0) {
     return (
       <div className="flex-1 flex items-center justify-center text-muted-foreground">
@@ -197,44 +220,77 @@ export function ColumnView({
                   const isSelected = column.selectedItem?.path === item.path;
                   const isActive = activeItem?.path === item.path;
                   const isDotfile = item.name.startsWith('.');
+                  const row = getRowByPath(item.path);
+                  const isRowSelected = row?.getIsSelected() ?? false;
 
                   return (
-                    <div
+                    <FileContextMenu
                       key={itemIndex}
-                      onClick={() => handleItemClick(item)}
-                      onDoubleClick={() => handleItemDoubleClick(item)}
+                      fileItem={item}
+                      isSelected={isRowSelected}
+                      onOpen={() => handleItemDoubleClick(item)}
+                      onCopy={() => onCopyItem(item)}
+                      onCut={() => onCutItem(item)}
+                      onDelete={() => onDeleteItem(item)}
+                    >
+                    <div
                       className={`
                       flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer min-w-0
                       transition-colors group
                       ${
-                        isActive
+                        isRowSelected
                           ? 'bg-primary/10'
-                          : isSelected
-                            ? 'bg-accent'
-                            : 'hover:bg-accent/50'
+                          : isActive
+                            ? 'bg-primary/10'
+                            : isSelected
+                              ? 'bg-accent'
+                              : 'hover:bg-accent/50'
                       }
                       ${isDotfile ? 'opacity-50' : ''}
                     `}
                     >
-                      <div className="shrink-0">
-                        {getFileIcon(item.file_type, item.extension)}
-                      </div>
-                      <span
-                        className="text-xs truncate flex-1 break-all whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px]"
-                        title={item.name}
+                      {/* Selection Checkbox */}
+                      <div
+                        className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleSelectionChange(item, !isRowSelected);
+                        }}
                       >
-                        {item.name}
-                      </span>
-                      {item.file_type === 'folder' && (
-                        <ChevronRight
-                          className={`h-3 w-3 shrink-0 ${
-                            isSelected
-                              ? 'opacity-100'
-                              : 'opacity-0 group-hover:opacity-50'
-                          }`}
+                        <Checkbox
+                          checked={isRowSelected}
+                          onCheckedChange={(checked) => handleSelectionChange(item, !!checked)}
+                          aria-label="Select item"
+                          className="h-3 w-3"
                         />
-                      )}
+                      </div>
+
+                      <div
+                        onClick={() => handleItemClick(item)}
+                        onDoubleClick={() => handleItemDoubleClick(item)}
+                        className="flex items-center gap-2 flex-1 min-w-0"
+                      >
+                        <div className="shrink-0">
+                          {getFileIcon(item.file_type, item.extension)}
+                        </div>
+                        <span
+                          className="text-xs truncate flex-1 break-all whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px]"
+                          title={item.name}
+                        >
+                          {item.name}
+                        </span>
+                        {item.file_type === 'folder' && (
+                          <ChevronRight
+                            className={`h-3 w-3 shrink-0 ${
+                              isSelected
+                                ? 'opacity-100'
+                                : 'opacity-0 group-hover:opacity-50'
+                            }`}
+                          />
+                        )}
+                      </div>
                     </div>
+                    </FileContextMenu>
                   );
                 })}
                 {column.items.length === 0 && (

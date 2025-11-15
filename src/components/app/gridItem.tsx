@@ -3,19 +3,31 @@ import { FileItem } from './fileStructure';
 import { convertFileSrc } from '@tauri-apps/api/core';
 import { getFileIcon } from '@/lib/fileIcons';
 import { FaFolder } from 'react-icons/fa';
+import { Checkbox } from '@/components/ui/checkbox';
+import { FileContextMenu } from './FileContextMenu';
 
 interface GridItemProps {
   fileItem: FileItem;
   isActive: boolean;
-  onClick: () => void;
+  isSelected: boolean;
+  onClick: (e: React.MouseEvent) => void;
   onDoubleClick: () => void;
+  onSelectionChange: (checked: boolean) => void;
+  onCopy?: () => void;
+  onCut?: () => void;
+  onDelete?: () => void;
 }
 
 export function GridItem({
   fileItem,
   isActive,
+  isSelected,
   onClick,
   onDoubleClick,
+  onSelectionChange,
+  onCopy = () => {},
+  onCut = () => {},
+  onDelete = () => {},
 }: GridItemProps) {
   const [thumbnailError, setThumbnailError] = React.useState(false);
   const isDotfile = fileItem.name.startsWith('.');
@@ -61,25 +73,52 @@ export function GridItem({
   };
 
   return (
-    <div
-      onClick={onClick}
-      onDoubleClick={onDoubleClick}
-      className={`flex flex-col gap-2 p-3 rounded-lg border-border bg-accent/25 hover:bg-accent/50 cursor-pointer transition-colors ${
-        isActive ? 'bg-accent border-primary' : ''
-      } ${isDotfile ? 'opacity-50' : ''}`}
+    <FileContextMenu
+      fileItem={fileItem}
+      isSelected={isSelected}
+      onCopy={onCopy}
+      onCut={onCut}
+      onDelete={onDelete}
+      onOpen={onDoubleClick}
     >
-      {renderThumbnail()}
-      <div className="flex items-center justify-between">
-        <span
-          className="text-xs text-center truncate w-full"
-          title={fileItem.name}
+      <div
+        className={`relative flex flex-col gap-2 p-3 rounded-lg border transition-colors ${
+          isSelected
+            ? 'bg-primary/10 border-primary ring-2 ring-primary/20'
+            : isActive
+              ? 'bg-accent border-primary'
+              : 'border-border bg-accent/25 hover:bg-accent/50'
+        } ${isDotfile ? 'opacity-50' : ''} cursor-pointer group`}
+      >
+        {/* Selection Checkbox */}
+        <div
+          className="absolute top-2 left-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity"
+          onClick={(e) => {
+            e.stopPropagation();
+            onSelectionChange(!isSelected);
+          }}
         >
-          {fileItem.name}
-        </span>
-        <span className="text-xs text-center truncate w-full">
-          {/* TODO: Number of children */}
-        </span>
+          <div className="bg-background/95 rounded p-0.5 shadow-sm border border-border">
+            <Checkbox
+              checked={isSelected}
+              onCheckedChange={onSelectionChange}
+              aria-label="Select item"
+            />
+          </div>
+        </div>
+
+        <div onClick={onClick} onDoubleClick={onDoubleClick}>
+          {renderThumbnail()}
+          <div className="flex items-center justify-between mt-2">
+            <span
+              className="text-xs text-center truncate w-full"
+              title={fileItem.name}
+            >
+              {fileItem.name}
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
+    </FileContextMenu>
   );
 }

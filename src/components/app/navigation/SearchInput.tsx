@@ -1,24 +1,26 @@
-import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@/components/ui/input-group';
 
 interface SearchInputProps {
   value: string;
   onChange: (value: string) => void;
-  placeholder?: string;
-  className?: string;
 }
 
-export function SearchInput({
-  value,
-  onChange,
-  placeholder = 'Search...',
-  className = '',
-}: SearchInputProps) {
+export function SearchInput({ value, onChange }: SearchInputProps) {
   return (
-    <Input
-      placeholder={placeholder}
-      value={value}
-      onChange={(event) => onChange(event.target.value)}
-      className={`flex-1 ${className}`}
-    />
+    <InputGroup className="flex-1">
+      <InputGroupAddon>
+        <Search className="h-4 w-4" />
+      </InputGroupAddon>
+      <InputGroupInput
+        placeholder="Search..."
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </InputGroup>
   );
 }

@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { invoke } from '@tauri-apps/api/core';
+import { type Table as TanstackTable } from '@tanstack/react-table';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Checkbox } from '@/components/ui/checkbox';
+import { FileContextMenu } from './FileContextMenu';
 import {
   ChevronRight,
   ChevronDown,
@@ -18,6 +21,10 @@ interface TreeViewProps {
   activeItem: FileItem | null;
   showDotfiles: boolean;
   searchValue?: string;
+  table: TanstackTable<FileItem>;
+  onCopyItem: (item: FileItem) => void;
+  onCutItem: (item: FileItem) => void;
+  onDeleteItem: (item: FileItem) => void;
 }
 
 interface TreeNode extends FileItem {
@@ -34,6 +41,10 @@ export function TreeView({
   activeItem,
   showDotfiles,
   searchValue = '',
+  table,
+  onCopyItem,
+  onCutItem,
+  onDeleteItem,
 }: TreeViewProps) {
   const [treeData, setTreeData] = React.useState<TreeNode[]>([]);
   const [loading, setLoading] = React.useState(true);
@@ -164,51 +175,94 @@ export function TreeView({
     }
   };
 
+  // Helper to find row for a given file path
+  const getRowByPath = (filePath: string) => {
+    return table.getRowModel().rows.find((row) => row.original.path === filePath);
+  };
+
+  const handleSelectionChange = (node: TreeNode, checked: boolean) => {
+    const row = getRowByPath(node.path);
+    if (row) {
+      row.toggleSelected(checked);
+    }
+  };
+
   const renderNode = (node: TreeNode, path: number[]): React.ReactNode => {
     const isActive = activeItem?.path === node.path;
     const isDotfile = node.name.startsWith('.');
     const indent = node.level * 16;
+    const row = getRowByPath(node.path);
+    const isSelected = row?.getIsSelected() ?? false;
 
     return (
       <div key={node.path}>
+        <FileContextMenu
+          fileItem={node}
+          isSelected={isSelected}
+          onOpen={() => handleItemDoubleClick(node)}
+          onCopy={() => onCopyItem(node)}
+          onCut={() => onCutItem(node)}
+          onDelete={() => onDeleteItem(node)}
+        >
         <div
-          onClick={() => handleItemClick(node, path)}
-          onDoubleClick={() => handleItemDoubleClick(node)}
           className={`
-            flex items-center gap-1 px-2 py-1 cursor-pointer
+            group flex items-center gap-1 px-2 py-1 cursor-pointer
             transition-colors hover:bg-accent/50
-            ${isActive ? 'bg-accent' : ''}
+            ${isSelected ? 'bg-primary/10' : isActive ? 'bg-accent' : ''}
             ${isDotfile ? 'opacity-50' : ''}
           `}
           style={{ paddingLeft: `${8 + indent}px` }}
         >
-          {node.file_type === 'folder' && (
-            <div className="shrink-0 w-4 h-4 flex items-center justify-center">
-              {node.isLoading ? (
-                <Loader2 className="h-3 w-3 animate-spin" />
-              ) : node.isExpanded ? (
-                <ChevronDown className="h-3 w-3" />
+          {/* Selection Checkbox */}
+          <div
+            className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleSelectionChange(node, !isSelected);
+            }}
+          >
+            <Checkbox
+              checked={isSelected}
+              onCheckedChange={(checked) => handleSelectionChange(node, !!checked)}
+              aria-label="Select item"
+              className="h-3 w-3"
+            />
+          </div>
+
+          <div
+            onClick={() => handleItemClick(node, path)}
+            onDoubleClick={() => handleItemDoubleClick(node)}
+            className="flex items-center gap-1 flex-1 min-w-0"
+          >
+            {node.file_type === 'folder' && (
+              <div className="shrink-0 w-4 h-4 flex items-center justify-center">
+                {node.isLoading ? (
+                  <Loader2 className="h-3 w-3 animate-spin" />
+                ) : node.isExpanded ? (
+                  <ChevronDown className="h-3 w-3" />
+                ) : (
+                  <ChevronRight className="h-3 w-3" />
+                )}
+              </div>
+            )}
+            {node.file_type !== 'folder' && <div className="w-4" />}
+            
+            <div className="shrink-0">
+              {node.file_type === 'folder' ? (
+                node.isExpanded ? (
+                  <FolderOpen className="h-4 w-4 text-blue-500" />
+                ) : (
+                  <FaFolder className="h-4 w-4 text-blue-500" />
+                )
               ) : (
-                <ChevronRight className="h-3 w-3" />
+                getFileIcon(node.file_type, node.extension)
               )}
             </div>
-          )}
-          {node.file_type !== 'folder' && <div className="w-4" />}
-          
-          <div className="shrink-0">
-            {node.file_type === 'folder' ? (
-              node.isExpanded ? (
-                <FolderOpen className="h-4 w-4 text-blue-500" />
-              ) : (
-                <FaFolder className="h-4 w-4 text-blue-500" />
-              )
-            ) : (
-              getFileIcon(node.file_type, node.extension)
-            )}
+            
+            <span className="text-xs truncate">{node.name}</span>
           </div>
-          
-          <span className="text-xs truncate">{node.name}</span>
         </div>
+        </FileContextMenu>
         
         {node.isExpanded && node.children && (
           <div>

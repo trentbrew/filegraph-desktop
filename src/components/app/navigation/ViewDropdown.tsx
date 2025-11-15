@@ -5,13 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import {
-  TableIcon,
-  Grid3x3,
-  Columns3,
-  ListTree,
-  Network,
-} from 'lucide-react';
+import { TableIcon, Grid3x3, Columns3, ListTree, Network } from 'lucide-react';
 
 export type LayoutMode = 'table' | 'grid' | 'columns' | 'tree' | 'canvas';
 
@@ -29,13 +23,17 @@ const layoutIcons: Record<LayoutMode, React.ReactNode> = {
   canvas: <Network className="h-4 w-4" />,
 };
 
-export function ViewDropdown({ currentMode, onModeChange, className = '' }: ViewDropdownProps) {
+export function ViewDropdown({
+  currentMode,
+  onModeChange,
+  className = '',
+}: ViewDropdownProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="sm" className={`gap-2 ${className}`}>
           {layoutIcons[currentMode]}
-          <span className="capitalize">{currentMode}</span>
+          {/* <span className="capitalize">{currentMode}</span> */}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start">
