@@ -1,0 +1,523 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-116",
+  "title": "PKM for LLMs",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "PKM for LLMs"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**consistent file structure**: keep filenames descriptive, logical, and metadata-packed. for example: `2025-01-27_gpt-optimizations.md`. models love structure."
+            }
+          ]
+        },
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**uniform formatting**: markdown is fine, but be strict about headings (`#`), bullet points, and tables. the cleaner your syntax, the easier it is for models to parse and make sense of it."
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**metadata blocks**: at the top of each file, add key metadata for context. something like:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "this lets the model extract the file’s essence faster than a grad student cramming for finals."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: gpt optimizations"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tags: #ai #pkms"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "created: 2025-01-27"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updated: 2025-01-28"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**bidirectional links**: double down on `[[links]]`. models thrive on connections between ideas, so give them a web to crawl."
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**tagging for context**: use tags liberally. they create easy-to-spot themes for the model, which is useful for generating insights or finding related content. try sticking to a standardized tag hierarchy like `#project/ai`, `#concept/philosophy`, or `#tool/devops`."
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**semantic summary notes**: create notes that summarize relationships between ideas. something like:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "this amplifies the model's ability to connect the dots between topics."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## related notes"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [[ai-ethics-2024.md]]: intersections of ai and morality"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [[language-models-scalability.md]]: scaling challenges"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [[zettelkasten-ai-synergy.md]]: how zettelkasten boosts model training"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**questions for reflection**: end notes with open-ended questions or prompts. for example, “how does this apply to generative ai in creative fields?” models eat questions for breakfast."
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**contextual breadcrumbs**: when writing notes, leave “breadcrumbs” for the model in plain text. e.g., “this ties into [[scaling-deep-learning.md]] and the idea of diminishing returns in large models.”"
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**expandable details**: use collapsible details or sections (in markdown or pseudo-markdown) to let the model decide how much depth to pull:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## high-level summary"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "...short explanation..."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## deeper dive"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "...all the juicy details..."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**semantic filenames**: again, meaningful filenames = instant AI recall."
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**indexing**: generate a plain-text index (`index.md`) or table of contents for top-level files. models love directories like librarians love the dewey decimal system."
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**batched querying**: group related files with filenames or tags so the AI can process them in clusters (e.g., `ml-ethics`, `ml-algorithms`)."
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**preprocess for token limits**: if you’re feeding a lot of info into a model, trim the fat. create “summary-first” versions of notes or maintain a `summaries.md` file per domain."
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**export pipelines**: script pipelines (with tools like `python` or `bash`) to:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- extract key sections of notes."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- batch-convert markdown to AI-friendly input formats (e.g., JSON for structured data)."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- generate “context bundles” when querying the model. for instance, compile related notes into a single query-ready text file."
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**summarize and refine**: use the model to summarize your own notes. it’s like outsourcing your brain’s filing clerk."
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**context-based expansions**: feed the model a specific note and ask it to add insights, suggest connections, or refine unclear sections."
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**automate organization**: let the model tag, link, or even rewrite parts of your notes for clarity or coherence."
+            }
+          ]
+        },
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**obsidian with ai plugins**: if you’re not morally opposed to a non-plain-text layer, tools like obsidian + ai plugins give you real-time note completion, summaries, and connections."
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**scripted helpers**: build scripts or bots that work on your plain-text files to add metadata, generate links, or clean up unused tags."
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**semantic search**: integrate embeddings-based search tools (like openai’s embeddings or a vector database) to turbocharge note retrieval."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "large language models love patterns, clarity, and interconnected ideas. treat your system like a buffet of structured data—clean, consistent, and overflowing with context. if you do this right, you’ll have an ai co-pilot that can churn out insights faster than you can say “overengineered.”"
+        }
+      ]
+    }
+  ]
+}

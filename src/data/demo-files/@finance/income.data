@@ -1,0 +1,80 @@
+{
+  "@context": {
+    "fin": "https://finance.local/"
+  },
+  "@id": "fin:income",
+  "@type": "IncomeCollection",
+  "sources": [
+    {
+      "id": "inc:salary:001",
+      "slug": "salary",
+      "name": "Software Engineer Salary",
+      "type": "salary",
+      "frequency": "biweekly",
+      "grossAmount": 4615.38,
+      "netAmount": 3200,
+      "employer": "TechCorp Inc",
+      "startDate": "2023-03-01"
+    },
+    {
+      "id": "inc:freelance:001",
+      "slug": "freelance",
+      "name": "Freelance Consulting",
+      "type": "freelance",
+      "frequency": "monthly",
+      "grossAmount": 1500,
+      "netAmount": 1200,
+      "taxRate": 0.2
+    },
+    {
+      "id": "inc:dividends:001",
+      "slug": "dividends",
+      "name": "Investment Dividends",
+      "type": "passive",
+      "frequency": "quarterly",
+      "grossAmount": 425,
+      "netAmount": 361.25,
+      "taxRate": 0.15
+    },
+    {
+      "id": "inc:interest:001",
+      "slug": "interest",
+      "name": "Savings Interest",
+      "type": "passive",
+      "frequency": "monthly",
+      "grossAmount": 56.25,
+      "netAmount": 56.25,
+      "taxRate": 0
+    }
+  ],
+  "monthlyGross": {
+    "@expr": "sources.map(s => s.frequency == 'biweekly' ? s.grossAmount * 26 / 12 : (s.frequency == 'quarterly' ? s.grossAmount / 3 : s.grossAmount)).reduce((a, b) => a + b, 0)"
+  },
+  "monthlyNet": {
+    "@expr": "sources.map(s => s.frequency == 'biweekly' ? s.netAmount * 26 / 12 : (s.frequency == 'quarterly' ? s.netAmount / 3 : s.netAmount)).reduce((a, b) => a + b, 0)"
+  },
+  "monthlyGrossFormatted": {
+    "@expr": "$currency(monthlyGross)"
+  },
+  "monthlyNetFormatted": {
+    "@expr": "$currency(monthlyNet)"
+  },
+  "annualGross": {
+    "@expr": "monthlyGross * 12"
+  },
+  "annualNet": {
+    "@expr": "monthlyNet * 12"
+  },
+  "annualGrossFormatted": {
+    "@expr": "$currency(annualGross)"
+  },
+  "annualNetFormatted": {
+    "@expr": "$currency(annualNet)"
+  },
+  "effectiveTaxRate": {
+    "@expr": "1 - (monthlyNet / monthlyGross)"
+  },
+  "effectiveTaxRateFormatted": {
+    "@expr": "$percent(effectiveTaxRate, 1)"
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-38",
+  "title": "UI Breakdown",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "UI Breakdown"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Home: Dashboard page with essential info from across the whole operation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Components"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "TV Guide: TV Guide page with live stream, live chat, and schedule (configurable)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Compoents"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Channels: Grid with filters & alterante views (list, table, live stream view)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Compoents"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shows: List with filters & alternate views (grid, netflix-esque)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Compoents"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Producers: Inner sidebar with detail view"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Calendar: Full page calendar view (standard)"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tasks: Multiview kanban or timeline/gantt (connected to calendar)"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Inbox: Email-esque messaging between the team (cross-reference other entities using `@`)"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Notebooks: A place to take colaborative notes and write documents (cross-reference other entities using `@`)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "~~Campaigns: Ad campaigns managed between the org and the org’s partners~~"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Sub-pages"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Dashboard: Overview of active campaigns, finances, people involved, etc"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Partners: Table view of primary contacts showing active campaigns etc (alt grid or table view)"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Settings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Components"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Help"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Components"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Feedback"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

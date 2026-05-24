@@ -1,0 +1,1877 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-7",
+  "title": "High-level Overview",
+  "author": "person:jane-brew:001",
+  "status": "reviewing",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "High-level Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Motivation"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Provide a frictionless UX that allows intermediate+ learners to focus on the specific vocabulary they’re learning, including from outside of this app. It should be a “hub” for daily routines and tracking progress."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Most of the existing mobile apps for learning Chinese are focused on the content they provide. Some have good UI/UX, some don’t. Common issues are cost, requiring an internet connection at all times, performance and lack of functionality. Some apps with great content are missing features, some apps with great features are missing content."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Differentiators"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Modern UI/UX"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customizable and open"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Users can bring their own content"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integrate with other apps like Anki, LanguageReactor, DuChinese"
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Community audited. Inaccuracy reporting systems will allow improving the dictionary and other content over time. There may be attribution or other incentives for contributing."
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "OSS codebase???"
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beyond flashcards:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Sentences (free input and multiple choice)"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Passage comprehension targeting your vocab."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Multiple-choice flashcards instead of self-scored."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Regular flashcards could be an option, but I personally don’t like them."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Nice to haves"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Useful out-of-the starter content:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Niches like sports, professions etc to import into your vocab lists"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Chapters from textbooks like HSK"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- User generated content like vocab lists, lessons and stories. Would need moderation."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(Ideal) Pricing: Free."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Server costs should be near zero based on current designs."
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A “paid” version could allow a user to get features that I rely on 3rd party APIs for"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "TTS for custom content after a certain limit. My caching solution helps a lot here."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "AI features. Unlikely to be added, but maybe it can give “suggestions”. Dangerous. Potentially use it for finding images to use in quizzes/reviews."
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Prior Art"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "LingQ (cool features that aggregate external content, dashboards; supports maybe too many languages, online, poor mobile support, new users are seemingly assumed beginners)"
+            }
+          ]
+        },
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Glossika (online, major performance issues, online)"
+            }
+          ]
+        },
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "BoostChinese (niche vocabulary decks; flashcards, performance issues, online)"
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anki"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pros:"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Very flexible, the user can have whatever form of content they want"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Active community publishing decks and mods/plugins"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cons:"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Learning curve"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The user must do a lot of work to set things up"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Antiquated UI"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "HelloChinese"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pros:"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Structured lessons from absolute beginner to intermediate level."
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Daily review system that sources content from the lessons."
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Lesson reviews are interactive: multiple choice, user text input, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Large library of graded readers (up to HSK3)"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Most features work offline (must download stories)"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Learn from English, Spanish, German, French, Korean, Japanese, Russian, Vietnamese, Thai and Portuguese"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cons:"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Saved vocabulary from readers can only be reviewed in flash cards."
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No ability to import external vocab for review."
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Receives almost no content updates besides new graded readers."
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Premium is $156/year, Premium+ is $100 one-time (add on, not a replacement)"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hack Chinese"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pros:"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Detailed dashboard"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Lots of curated vocab lists (HSK, other popular textbooks/lessons like Outlier)"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Configurable study modes (only old, only new, only hard, only easy)"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Assumed known words based on frequency lists."
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Export known words as CSV."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Du Chinese integration."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cons:"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Must be online"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Very word focused. Little grammar/sentence review."
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The Flashcard system is very annoying. 4 clicks:"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- I think I know -> See answer/confim I did know"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Both of these steps for both pronunciation and meaning."
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- It’s configurable to make it 2 click like other systems"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Mobile is very limited compared to desktop/web."
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Recurring cost ($144-$216 per year)"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Du Chinese"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pros:"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Decent UX across both mobile and desktop web"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Large libraries of reading content from beginner to very advanced"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Download content for offline use"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cons:"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Review system is flashcard only"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Review is word focused. Would be nice to check the comprehension of entire sentences or passages."
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Language Reactor"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pros:"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Amazing UI that integrates directly into Netflix and Youtube on Chrome to lookup translations while consuming content without too much interruption."
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- PhrasePump reviews (flashcards with human-speaker audio clips from shows/movies/videos)"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Exportable saved words list"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cons: ."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- It’s all self-scored flashcards."
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No mobile support"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Youtube videos must have properly added chinese subtitles (translations and automatic subtitles seem to usually be mismatched with the actual word choice). Not easily fixable."
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pleco"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pros:"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Probably the best free dictionary, or at least the most well known."
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Many lookup methods: Radicals, pinyin, english definition, OCR/Camera"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Has a clipboard reader"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Allows saving and reviewing words"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cons："
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Dated UI"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Takes a lot of intention to create a good learning environment (see the manual)"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Reviews are primarily flashcard based"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Seems to primarily focus on iPhone over Android support"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Syncing between devices means exporting and importing database files."
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Features"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Review System"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Vocabulary Quizzes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A game-like interface to make vocabulary practice more interactive and enjoyable."
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Multiple-choice questions:"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pick the corresponding word translation"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pick the corresponding sentence translation (with an individual focus word)."
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pick the image that best fits the given work (or word that best fits the image)"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- App validated answers instead of self-scoring."
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Grammar Exercises"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Producing output is massively helpful compared to just reading. The primary method for this would be for the user to translate sentences containing targeted vocab, or individually saved sentences to review. If using a mobile phone with speech-to-text, they can also practice their speaking/pronunciation to some degree."
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- While there are many correct ways to translate a given English sentence (i.e. 我收到了你的微信; 我收到了你发的微信), detecting that is hard. Not validating punctuation can make it feel more “fair”. Machine translation or an LLM could potentially generate alternative phrasings to validate against."
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Adding your own content"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If I’m watching a youtube video like Learn Yi Jian Mei, I might follow along with the app and add words to my words list using the dictionary search."
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-121",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For sentences"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Reader"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- This is a screenshot, we already built the basic reader functionality."
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Similar to HelloChinese and DuChinese, we will expose our own interface that allows easily looking up words while reading a text. Directly from this interface the user can:"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- See definitions/pinyin by tapping on a word (and hear it read by TTS)"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Jump to the word’s full dictionary page"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Tap and hold on a sentence to see the contextual translation (and have it read by TTS or an attached recording)"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Save a story to the “favorites” list"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Listen to the entire story via a recording or TTS."
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Nice to have: Automatically highlight the word/sentence currently being read. Add a scrubber/progress bar and allow scrubbing by tapping/holding on the text."
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Content Types"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-133",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stories and Graded Readers (most common type)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Browse a selection of graded reader stories tailored to different proficiency levels."
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Optional comprehension questions to test understanding."
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Considerations for user-generated content, with mechanisms to manage copyright risks."
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-138",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Podcast Read Along:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Can custom import podcasts via audio files, links from apps, RSS feeds."
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Trigger external app playback via deeplinks"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Integrate with Apple, Spotify, Youtube."
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Read like normal, but tapping words will pause the system media playback."
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-144",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Interactive Karaoke Mode:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Auto-highlighting of words in sync with karaoke timestamps."
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Control system media to play copyrighted audio in another app like Spotify or Youtube."
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Learn a song’s lyrics line by line and understand what it actually means in context rather than the individual words."
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- This is a cool idea, but not sure where to source the data."
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-150",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Media Playback:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- External media app playback triggered via deep links (Spotify, YouTube) to avoid copyright issues."
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Content Authoring"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-154",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pick the content type."
+            }
+          ]
+        },
+        {
+          "id": "b-155",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Importers for different sources and content types"
+            }
+          ]
+        },
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fields for attribution"
+            }
+          ]
+        },
+        {
+          "id": "b-157",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Audio can be attached or recorded."
+            }
+          ]
+        },
+        {
+          "id": "b-158",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It would be nice to automate linking each sentence with its segment of the audio. Especially in songs. Subtitle data would work, but may also need manual annotation."
+            }
+          ]
+        },
+        {
+          "id": "b-159",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[https://mfa-models.readthedocs.io/en/latest/dictionary/Mandarin/Mandarin (China) MFA dictionary v2_0_0a.html#mandarin-china-mfa-dictionary-v2-0-0a](https://mfa-models.readthedocs.io/en/latest/dictionary/Mandarin/Mandarin%20%28China%29%20MFA%20dictionary%20v2_0_0a.html#mandarin-china-mfa-dictionary-v2-0-0a)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- There is a creative commons model available for this already!!!!"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-162",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Every sentence is individually editable."
+            }
+          ]
+        },
+        {
+          "id": "b-163",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set the English meaning for the entire sentence instead of word-by-word."
+            }
+          ]
+        },
+        {
+          "id": "b-164",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customize the gender, age and mood of the TTS voice. Azure is really robust here."
+            }
+          ]
+        },
+        {
+          "id": "b-165",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Linking words to dictionary entries automatically is best-effort."
+            }
+          ]
+        },
+        {
+          "id": "b-166",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The current algorithm uses a small frequency list of HSK terms. A better frequency list and some rules about avoiding proper nouns would fix a large number of errors. Lots of room for improvement."
+            }
+          ]
+        },
+        {
+          "id": "b-167",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Regardless, we need a way to manually fix errors."
+            }
+          ]
+        },
+        {
+          "id": "b-168",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tap an underlined section: select that cluster of characters. Drag, pick a few characters. Double-tap, pick a single character. The words with those exact characters will be options below."
+            }
+          ]
+        },
+        {
+          "id": "b-169",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will also want to be able to handle numbers. 一三六八 or 一千三百六十八. 一 or 幺? Annotating/detecting this has a major effect on the TTS quality."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Dictionary"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-172",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At the core of all this, we need a dictionary to look up the many characters and words."
+            }
+          ]
+        },
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Word Details"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Each dictionary entry will show:"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Definitions"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Appendable: Users can add their own mnemonics & interpretations"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Editable: Users can hide or reword the system supplied definitions."
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Example sentences:"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Appendable: Users can add their own from content or completely custom entries that they encountered outside the app or in daily life."
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Editable: If there are mistakes in picking pinyin/linked dictionary entries the user can touch it up. User fixes may be reported to be fixed upstream so everyone can benefit from community contributions."
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Related words: Compound words that contain the current entry’s characters."
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Example: 城市 is related to 大城市."
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Character breakdown: Link to the entries for individual characters that make up a word."
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-185",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dictionary Search"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- While a large portion of interactions with the dictionary are linked from content, Still, there are cases when you want to make one-off lookups to a work you heard in a lesson with your tutor or in your daily life and add it to your saved words list."
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pleco is the most widely known Chinese dictionary. It supports a few methods for lookup: In the future OCR and radical based lookup would be nice, but for starters a text box that searches across pinyin, hanzi, fanti and english definitions will be fine."
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Potential Integrations"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-190",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Language reactor - import your words list automatically with smart merging"
+            }
+          ]
+        },
+        {
+          "id": "b-191",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anki - export your list as anki cards for words and sentences"
+            }
+          ]
+        },
+        {
+          "id": "b-192",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DuChinese - if you prefer their reader and content, import the stories and words from there to become saved words and sentences to review in our app."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

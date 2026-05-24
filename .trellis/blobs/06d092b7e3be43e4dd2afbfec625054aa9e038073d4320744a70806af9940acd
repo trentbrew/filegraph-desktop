@@ -1,0 +1,353 @@
+/**
+ * Yoopta Editor Dark Theme
+ * Based on: https://yoopta.dev/examples/withDarkTheme
+ * Integrated with app's design system
+ */
+
+/* Yoopta Editor CSS Variables */
+:root {
+  /* Editor background and text */
+  --yoopta-editor-bg: var(--background);
+  --yoopta-editor-text: var(--foreground);
+  
+  /* Selection */
+  --yoopta-selection-bg: var(--primary);
+  --yoopta-selection-opacity: 0.2;
+  
+  /* Toolbar */
+  --yoopta-toolbar-bg: var(--card);
+  --yoopta-toolbar-border: var(--border);
+  --yoopta-toolbar-text: var(--foreground);
+  --yoopta-toolbar-hover: var(--muted);
+  
+  /* Action Menu */
+  --yoopta-action-menu-bg: var(--card);
+  --yoopta-action-menu-border: var(--border);
+  --yoopta-action-menu-text: var(--foreground);
+  --yoopta-action-menu-hover: var(--muted);
+  
+  /* Code blocks */
+  --yoopta-code-bg: var(--muted);
+  --yoopta-code-text: var(--foreground);
+  --yoopta-code-border: var(--border);
+  
+  /* Blockquote */
+  --yoopta-blockquote-border: var(--primary);
+  --yoopta-blockquote-text: var(--muted-foreground);
+  
+  /* Links */
+  --yoopta-link-color: var(--primary);
+  
+  /* Placeholder */
+  --yoopta-placeholder-color: var(--muted-foreground);
+}
+
+/* Dark mode overrides */
+.dark {
+  --yoopta-editor-bg: var(--background);
+  --yoopta-editor-text: var(--foreground);
+  --yoopta-selection-opacity: 0.25;
+}
+
+/* Editor container */
+.yoopta-editor {
+  background-color: transparent !important;
+  color: var(--yoopta-editor-text) !important;
+  font-family: 'Berkley Mono', 'SF Mono', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+}
+
+/* Blocks */
+[data-yoopta-block] {
+  background: transparent !important;
+  margin: 0.25rem 0 !important;
+}
+
+[data-yoopta-block-content] {
+  background: transparent !important;
+}
+
+/* Toolbar */
+.yoopta-toolbar-root,
+[data-yoopta-toolbar-root] {
+  background-color: var(--yoopta-toolbar-bg) !important;
+  border: 1px solid hsl(var(--border) / 0.5) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+
+.yoopta-toolbar-root button,
+.yoopta-button,
+.yoopta-toolbar-item,
+.yoopta-toolbar-item-mark,
+[data-yoopta-toolbar] button {
+  color: var(--yoopta-toolbar-text) !important;
+  background: transparent !important;
+  border: none !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.yoopta-toolbar-root button:hover,
+.yoopta-button:hover,
+.yoopta-toolbar-item:hover,
+.yoopta-toolbar-item-mark:hover,
+[data-yoopta-toolbar] button:hover {
+  background-color: hsl(var(--muted) / 0.5) !important;
+}
+
+.yoopta-toolbar-root svg,
+.yoopta-button svg,
+.yoopta-toolbar-item svg,
+.yoopta-toolbar-item-mark svg,
+[data-yoopta-toolbar] svg {
+  color: var(--yoopta-toolbar-text) !important;
+}
+
+.yoopta-toolbar-separator {
+  background-color: hsl(var(--border)) !important;
+  width: 1px !important;
+  height: 20px !important;
+  margin: 0 4px !important;
+}
+
+.yoopta-toolbar-group {
+  gap: 2px !important;
+}
+
+.yoopta-toolbar-group button span,
+.yoopta-toolbar-color-text {
+  color: var(--yoopta-toolbar-text) !important;
+  font-size: 13px !important;
+}
+
+/* Action Menu */
+.yoopta-action-menu-list,
+[data-yoopta-action-menu],
+[data-yoopta-action-menu-list] {
+  background-color: var(--yoopta-action-menu-bg) !important;
+  border: 1px solid hsl(var(--border) / 0.5) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  padding: 4px !important;
+}
+
+.yoopta-action-menu-list button,
+[data-yoopta-action-menu] button,
+[data-yoopta-action-menu-item] {
+  color: var(--yoopta-action-menu-text) !important;
+  background: transparent !important;
+  font-size: 13px !important;
+  padding: 6px 12px !important;
+  border-radius: 0.25rem !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.yoopta-action-menu-list button:hover,
+[data-yoopta-action-menu] button:hover,
+[data-yoopta-action-menu-item]:hover {
+  background-color: hsl(var(--muted) / 0.5) !important;
+}
+
+/* Typography */
+.yoopta-editor h1,
+.yoopta-editor [data-yoopta-type="HeadingOne"] {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  margin: 0.75rem 0 0.5rem 0 !important;
+  line-height: 1.4 !important;
+  color: var(--yoopta-editor-text) !important;
+  background: transparent !important;
+}
+
+.yoopta-editor h2,
+.yoopta-editor [data-yoopta-type="HeadingTwo"] {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin: 0.5rem 0 0.375rem 0 !important;
+  line-height: 1.4 !important;
+  color: var(--yoopta-editor-text) !important;
+  background: transparent !important;
+}
+
+.yoopta-editor h3,
+.yoopta-editor [data-yoopta-type="HeadingThree"] {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  margin: 0.5rem 0 0.25rem 0 !important;
+  line-height: 1.4 !important;
+  color: var(--yoopta-editor-text) !important;
+  background: transparent !important;
+}
+
+.yoopta-editor p,
+.yoopta-editor [data-yoopta-type="Paragraph"] {
+  font-size: 13px !important;
+  margin: 0.25rem 0 !important;
+  line-height: 1.6 !important;
+  color: var(--yoopta-editor-text) !important;
+  background: transparent !important;
+}
+
+/* Lists */
+.yoopta-editor ul,
+.yoopta-editor ol,
+.yoopta-editor [data-yoopta-type="BulletedList"],
+.yoopta-editor [data-yoopta-type="NumberedList"],
+.yoopta-editor [data-yoopta-type="TodoList"] {
+  font-size: 13px !important;
+  margin: 0.25rem 0 !important;
+  padding-left: 1.5rem !important;
+  background: transparent !important;
+}
+
+.yoopta-editor li {
+  margin: 0.125rem 0 !important;
+  background: transparent !important;
+  color: var(--yoopta-editor-text) !important;
+}
+
+.yoopta-editor li > div {
+  background: transparent !important;
+}
+
+/* Blockquote */
+.yoopta-editor blockquote,
+.yoopta-editor [data-yoopta-type="Blockquote"] {
+  border-left: 4px solid hsl(var(--primary) / 0.3) !important;
+  padding-left: 1rem !important;
+  margin: 0.5rem 0 !important;
+  font-style: italic !important;
+  font-size: 13px !important;
+  color: var(--yoopta-blockquote-text) !important;
+  background: transparent !important;
+}
+
+/* Code */
+.yoopta-editor code {
+  font-family: 'SF Mono', 'Monaco', 'Courier New', monospace !important;
+  font-size: 12px !important;
+  background-color: var(--yoopta-code-bg) !important;
+  color: var(--yoopta-code-text) !important;
+  padding: 0.125rem 0.375rem !important;
+  border-radius: 0.25rem !important;
+}
+
+.yoopta-editor pre,
+.yoopta-editor [data-yoopta-type="Code"] {
+  font-family: 'SF Mono', 'Monaco', 'Courier New', monospace !important;
+  font-size: 12px !important;
+  background-color: var(--yoopta-code-bg) !important;
+  color: var(--yoopta-code-text) !important;
+  border: 1px solid hsl(var(--border) / 0.5) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem !important;
+  margin: 0.5rem 0 !important;
+  overflow-x: auto !important;
+}
+
+.yoopta-editor pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Links */
+.yoopta-editor a {
+  color: var(--yoopta-link-color) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.yoopta-editor a:hover {
+  opacity: 0.8 !important;
+}
+
+/* Selection */
+.yoopta-editor ::selection {
+  background-color: hsl(var(--primary) / var(--yoopta-selection-opacity)) !important;
+}
+
+/* Placeholder */
+.yoopta-editor [data-placeholder]::before {
+  color: var(--yoopta-placeholder-color) !important;
+  opacity: 0.6 !important;
+  font-size: 13px !important;
+}
+
+/* Marks (inline formatting) */
+.yoopta-editor strong,
+.yoopta-editor b {
+  font-weight: 600 !important;
+  color: var(--yoopta-editor-text) !important;
+}
+
+.yoopta-editor em,
+.yoopta-editor i {
+  font-style: italic !important;
+  color: var(--yoopta-editor-text) !important;
+}
+
+.yoopta-editor s {
+  text-decoration: line-through !important;
+  color: var(--yoopta-editor-text) !important;
+}
+
+.yoopta-editor u {
+  text-decoration: underline !important;
+  color: var(--yoopta-editor-text) !important;
+}
+
+/* Focus styles */
+.yoopta-editor [contenteditable]:focus {
+  outline: none !important;
+}
+
+/* Checkbox for todo lists */
+.yoopta-editor input[type="checkbox"] {
+  margin-right: 0.5rem !important;
+  accent-color: var(--primary) !important;
+  cursor: pointer !important;
+}
+
+/* Image & Media */
+.yoopta-editor img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 0.5rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+.yoopta-editor video {
+  max-width: 100% !important;
+  border-radius: 0.5rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+/* Remove all Yoopta default module backgrounds */
+.yoopta-editor [class*="Block-module"],
+.yoopta-editor [class*="block-module"],
+.yoopta-editor [class*="Paragraph-module"],
+.yoopta-editor [class*="Heading-module"],
+.yoopta-editor [class*="List-module"] {
+  background: transparent !important;
+}
+
+/* Scrollbar styling */
+.yoopta-editor::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+.yoopta-editor::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.yoopta-editor::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3) !important;
+  border-radius: 10px !important;
+}
+
+.yoopta-editor::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5) !important;
+}

@@ -1,0 +1,40 @@
+{
+  "@context": {
+    "brand": "https://schema.local/brand/"
+  },
+  "@id": "brand:fonts",
+  "@type": "FontCollection",
+  "description": "Brand typography",
+  "items": [
+    {
+      "id": "brand:font-heading:001",
+      "slug": "font-heading",
+      "name": "Inter",
+      "family": "Inter",
+      "category": "sans-serif",
+      "weights": [400, 500, 600, 700],
+      "usage": "Headings, titles, UI elements",
+      "source": "google"
+    },
+    {
+      "id": "brand:font-body:001",
+      "slug": "font-body",
+      "name": "Inter",
+      "family": "Inter",
+      "category": "sans-serif",
+      "weights": [400, 500],
+      "usage": "Body text, paragraphs",
+      "source": "google"
+    },
+    {
+      "id": "brand:font-mono:001",
+      "slug": "font-mono",
+      "name": "JetBrains Mono",
+      "family": "JetBrains Mono",
+      "category": "monospace",
+      "weights": [400, 500, 700],
+      "usage": "Code, data, technical content",
+      "source": "google"
+    }
+  ]
+}

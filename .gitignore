@@ -1,0 +1,86 @@
+# Build artifacts
+src-tauri/target/
+src-tauri/target_test/
+dist/
+dist-ssr/
+*.a
+*.so
+*.dylib
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Secrets (NEVER commit real keys)
+.env
+.env.local
+.env.*
+!.env.example
+
+# Agent/IDE internal state
+.windsurf/
+.playwright-mcp/
+.agent/
+settings.json
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.bak
+*.tmp
+*.swp
+*~
+
+# Dependencies
+node_modules/
+**/node_modules/
+pnpm-lock.yaml.bak
+
+# App-specific internal directories
+.ref/
+.references/
+.sandbox/
+.local/
+.filegraph/
+.llms/
+opencode/
+notebooklm/
+wan-2-2-5b/
+
+# Non-essential directories (docs, notes, dev artifacts)
+bugs/
+docs/
+images/
+notes/
+prompts/
+references/
+test-components/
+llms/
+artifacts/
+
+# Root-level non-essential files
+ARCHITECTURE.md
+BLOGPOST.md
+CONVENTIONS.md
+EDGE_SYNTHESIS_README.md
+GEMINI-HACKATHON.md
+GEMINI-LIVE.md
+REFACTOR.md
+demo-script.md
+home-canvas-demo.md
+example.data
+app-icon.png
+justfile
+
+# Test data/outputs
+test-results/
+coverage/
+*.lcov

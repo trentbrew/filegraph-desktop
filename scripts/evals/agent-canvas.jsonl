@@ -1,0 +1,26 @@
+# Agent Canvas Interaction Evals
+# These test the agent's ability to interact with the Home canvas
+# Run in browser context or with E2E testing framework
+
+{"id":"canvas_read","prompt":"What's on my home canvas?","expected":{"toolCalls":["get_home_canvas"],"answerRegex":"(canvas|node|empty|widget)"}}
+{"id":"canvas_add_sticky","prompt":"Add a sticky note to my canvas that says 'Remember to exercise'","expected":{"toolCalls":["add_home_node"],"answerIncludes":["sticky","added","created"]}}
+{"id":"canvas_add_richtext","prompt":"Create a rich text note on my home canvas titled 'Meeting Notes'","expected":{"toolCalls":["add_home_node"],"answerIncludes":["rich text","created"]}}
+{"id":"canvas_add_multiple","prompt":"Add three sticky notes to my canvas: one red that says 'Urgent', one yellow that says 'Pending', and one green that says 'Done'","expected":{"toolCalls":["add_home_node"],"answerRegex":"(added|created).*(three|3)"}}
+{"id":"canvas_remove_node","prompt":"Remove the first sticky note from my canvas","expected":{"toolCalls":["get_home_canvas","remove_home_node"],"answerIncludes":["removed"]}}
+{"id":"canvas_update_position","prompt":"Move the sticky note to the center of the canvas","expected":{"toolCalls":["get_home_canvas","update_home_node"],"answerIncludes":["moved"]}}
+{"id":"canvas_update_size","prompt":"Make the sticky note larger - double its size","expected":{"toolCalls":["get_home_canvas","update_home_node"],"answerIncludes":["resized","larger"]}}
+{"id":"canvas_update_content","prompt":"Change the text in my sticky note to say 'Updated reminder'","expected":{"toolCalls":["get_home_canvas","update_home_node_content"],"answerIncludes":["updated","changed"]}}
+{"id":"canvas_add_embed","prompt":"Add a YouTube embed for the video at https://youtube.com/watch?v=dQw4w9WgXcQ to my canvas","expected":{"toolCalls":["add_home_node"],"answerIncludes":["embed","youtube","added"]}}
+{"id":"canvas_add_image","prompt":"Add an image node to my canvas","expected":{"toolCalls":["add_home_node"],"answerIncludes":["image","added"]}}
+{"id":"canvas_add_codeblock","prompt":"Add a code block node to my canvas with TypeScript code: const x = 1","expected":{"toolCalls":["add_home_node"],"answerIncludes":["code","added"]}}
+{"id":"canvas_add_pdf","prompt":"Add a PDF node to my canvas (any PDF is fine)","expected":{"toolCalls":["add_home_node"],"answerIncludes":["pdf","added"]}}
+{"id":"canvas_add_location","prompt":"Add a location node to my canvas for 1600 Amphitheatre Parkway, Mountain View, CA","expected":{"toolCalls":["add_home_node"],"answerIncludes":["location","added"]}}
+{"id":"canvas_add_terminal","prompt":"Add a terminal node to my canvas","expected":{"toolCalls":["add_home_node"],"answerIncludes":["terminal","added"]}}
+{"id":"canvas_add_folder","prompt":"Add a folder node pointing at my @entities folder","expected":{"toolCalls":["add_home_node"],"answerIncludes":["folder","added"]}}
+{"id":"canvas_add_freehand","prompt":"Add a freehand drawing node to my canvas","expected":{"toolCalls":["add_home_node"],"answerIncludes":["freehand","added"]}}
+{"id":"canvas_add_person","prompt":"Add a person card node to my canvas for person:sarah:001","expected":{"toolCalls":["add_home_node"],"answerIncludes":["person","added"]}}
+{"id":"canvas_edit_table","prompt":"Edit the first cell of my first table node to say UPDATED","expected":{"toolCalls":["get_home_canvas","edit_home_table"],"answerIncludes":["table","updated"]}}
+{"id":"canvas_connect_nodes","prompt":"Connect the first sticky note to the second one with an edge labeled 'related'","expected":{"toolCalls":["get_home_canvas","add_home_edge"],"answerIncludes":["connected","edge"]}}
+{"id":"canvas_undo","prompt":"Undo the last action I did on the canvas","expected":{"toolCalls":["undo_canvas_action"],"answerIncludes":["undone","reverted"]}}
+{"id":"canvas_redo","prompt":"Redo what I just undid","expected":{"toolCalls":["redo_canvas_action"],"answerIncludes":["redone","restored"]}}
+{"id":"canvas_history","prompt":"Show me the recent history of changes to my canvas","expected":{"toolCalls":["get_canvas_history"],"answerRegex":"(history|action|change)"}}

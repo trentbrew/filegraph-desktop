@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-323",
+  "title": "Prompt",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Prompt"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I would like your help refactoring this app into a clean, generic, multi-tenant app scaffold I can use for future projects."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'll be selling it as a template for dev teams to get up & running quickly with fullstack convex+nextjs projects. It will include everything they need from the jump, and I will use it often for future projects. We're calling it TurtleKit."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Its current state is based on a twitch-esque public access tv app I'm working on, but I wanna purge the stuff we don't need and make this into a clean, clinical, fully featured, high velocity, opinionated plug & play convex+react starterkit with documentation for how to use the template."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In the future the template will be generated with a CLI, but for now lets just clear everything out and optimize the end user experience later."
+        }
+      ]
+    }
+  ]
+}

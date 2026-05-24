@@ -1,0 +1,972 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-71",
+  "title": "Plain Text Knowledge Management",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Plain Text Knowledge Management"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Designing an optimal plain-text knowledge management system (PKMS) for a polymath, creative software engineer, and solo entrepreneur demands an approach that balances simplicity, flexibility, and intentional design. Here's a conceptual breakdown of the ideal system:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Core Principles**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Simplicity and Minimalism**:"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The system must avoid bloat. Text files are inherently simple and lightweight, ensuring no overhead for managing the tool itself."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Adopt a \"frictionless input\" philosophy where capturing ideas, insights, and notes requires minimal effort."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Modularity and Scalability**:"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Information should be stored in atomic, self-contained files for ease of navigation, reuse, and recombination."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The structure should allow scaling from personal use to collaborative use (if needed) without breaking."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Intentional Design**:"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Each component of the system serves a clear purpose: capturing, organizing, or retrieving knowledge."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Information should be structured to promote clarity of thought, avoid duplication, and minimize cognitive overhead."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Search and Retrieval First**:"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Since polymaths explore diverse fields, finding connections between seemingly unrelated knowledge domains is critical. The system should prioritize efficient search over rigid hierarchy."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Leverage tags, links, and well-thought-out filenames over deeply nested folders."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Interoperability**:"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- It must work seamlessly across devices and integrate with other tools if needed."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Standard plain-text formats ensure long-term durability and compatibility."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Key Components**"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. File Organization**"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Single Vault**: All knowledge resides in one directory to reduce fragmentation and promote serendipitous discovery."
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Flat Hierarchy with Broad Categories**: Use high-level folders to separate knowledge domains (e.g., `/projects`, `/ideas`, `/learning`, `/logs`)."
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Naming Conventions**: Adopt consistent filenames that combine metadata with natural language, such as:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `2025-01-27_AI-tools-for-creatives.md`"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `2024-10-05_memoir-outline.md`"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `projectname_vision_v1.md`"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Input Workflow**"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Daily Notes or Logs**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Maintain a single “daily note” file where ideas, quick notes, and ad-hoc information can be jotted down without friction."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Example: `2025-01-27_daily.md`"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Atomic Notes**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Each distinct idea or topic gets its own note. For instance, a programming insight becomes `rust-asynchronous-patterns.md`."
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Link atomic notes together for larger themes or contexts."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Knowledge Linking**"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Bidirectional Linking**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use a plain-text-compatible syntax like `[[filename]]` to connect ideas across fields."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- For example, a note on Rust programming could link to a larger note about software design philosophy."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Tags for Context**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Inline `#tags` to provide contextual or thematic anchors, e.g., `#machine_learning`, `#philosophy`."
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. Search and Retrieval**"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Fast Full-Text Search**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Tools like `ripgrep`, `fzf`, or even basic editors (e.g., Vim/Emacs, VSCode) enable instant searching across files."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Combine search with meaningful filenames and metadata (dates, tags) for precision."
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Indexing**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Optionally, maintain a manual or automated index note (e.g., `/index.md`) summarizing key files and relationships."
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5. Content Types**"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Zettelkasten-Style Notes**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Treat each file as a \"knowledge card,\" designed to capture one atomic idea, insight, or piece of research."
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use unique IDs or slugs (e.g., `20250127_idea-connectivity.md`) for cross-referencing."
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Project Logs**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Dedicated folders for each project containing notes, logs, and progress updates. Example structure:"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "/projects/awesome-app/"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── README.md"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── 2025-01-01_initial-thoughts.md"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── 2025-01-15_feedback-review.md"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Reference Libraries**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Curate reference materials (articles, books, papers) in a dedicated folder, with a corresponding index."
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**6. Tools and Integration**"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Text Editors**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use a lightweight, efficient editor like Vim, Emacs, or VSCode with markdown support."
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Synchronization**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Sync across devices with Git, Dropbox, or Syncthing for secure and version-controlled access."
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Optional Enhancements**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Employ tools like Obsidian or Logseq if you want visualizations of note relationships without compromising plain-text compatibility."
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Sample Workflow**"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Capture:"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Open your daily note (`2025-01-27_daily.md`) to brain-dump thoughts, meeting notes, or insights as they occur."
+            }
+          ]
+        },
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If a new idea or concept emerges, create an atomic note (e.g., `distributed-systems-fault-tolerance.md`) and link it in the daily note."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Organize:"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At the end of the day/week, review the daily note and extract actionable ideas or insights into their respective atomic notes or project files."
+            }
+          ]
+        },
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Add links between related notes to establish context and connections."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Retrieve:"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-93",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use full-text search to find files related to a keyword, concept, or project."
+            }
+          ]
+        },
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Explore relationships through bidirectional links for brainstorming or ideation sessions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Strengths of This Approach**"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Longevity**: Plain text ensures the system remains future-proof, free of dependency on proprietary software."
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Cognitive Alignment**: Encourages clarity of thought by making you reflect on how knowledge is structured and connected."
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Flexibility**: The modular system can adapt to changing workflows, domains of interest, and project types."
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Lightweight Maintenance**: No need for constant reorganization; the system evolves naturally as links and notes grow."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4140 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-410",
+  "title": "Grid System",
+  "author": "person:design-team:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid System"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid Layout Language (GLL) is a high-level, human-readable notation system for describing grid-based layouts. It provides a compact syntax for defining both the structure and composition of grid layouts across different contexts."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Core Syntax"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1.1 Basic Grid Declaration"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[cols×rows] {"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// regions defined here"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`cols`: Number of columns (integer or 'auto')"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`rows`: Number of rows (integer or 'auto')"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`auto`: Dynamically sized based on content"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Examples:**"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×8]      // 12 columns, 8 rows"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[4×auto]    // 4 columns, auto rows"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[auto×auto] // Fully dynamic grid"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1.2 Region Definition"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Regions are named areas within the grid:"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "region_name: [col_start-col_end, row_start-row_end]"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Indices are 1-based (following design convention)"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ranges are inclusive on both ends"
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Multiple regions can overlap (for layering effects)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Example:**"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×6] {"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: [1-12, 1-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sidebar: [1-3, 3-6]"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "main: [4-12, 3-6]"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Advanced Region Syntax"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2.1 Span Notation"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Alternative syntax using span instead of explicit ranges:"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "region_name: span(cols, rows) at [col, row]"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "region_name: span(cols, rows)  // auto-placed"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Example:**"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×6] {"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: span(12, 2) at [1, 1]"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sidebar: span(3, 4) at [1, 3]"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "main: span(9, 4)  // auto-placed after sidebar"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2.2 Named Grid Lines"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Define named lines for semantic reference:"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×6] {"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "lines: {"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "col: [start, content-start, content-end, end]"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "row: [top, header-end, footer-start, bottom]"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: [start-content-end, top-header-end]"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "main: [content-start-content-end, header-end-footer-start]"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2.3 Region Properties"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Regions can have additional properties:"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "region_name: [col_start-col_end, row_start-row_end] {"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "align: start | center | end | stretch"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "justify: start | center | end | stretch"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "z-index: integer"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "flow: row | column | dense"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Example:**"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×8] {"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hero: [1-12, 1-6] {"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "align: center"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "justify: center"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "overlay: [4-9, 3-5] {"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "z-index: 10"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Grid Properties"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3.1 Spacing & Sizing"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×6] {"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 24px"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gutter: 16px"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "column-width: 80px | auto | minmax(100px, 1fr)"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "row-height: 60px | auto | min-content"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3.2 Gap Notation"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Alternative gap syntax:"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×6] {"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gap: 16px           // uniform gap"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gap: 16px 24px      // row-gap col-gap"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "column-gap: 24px"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "row-gap: 16px"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Responsive Layouts"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4.1 Breakpoint System"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Layout {"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "breakpoints: {"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "mobile: Grid[4×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 16px"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gutter: 16px"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hero: [1-4, 1-6]"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content: [1-4, 7-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tablet: Grid[8×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 32px"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gutter: 24px"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hero: [1-8, 1-4]"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content: [1-8, 5-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "desktop: Grid[12×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 64px"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gutter: 24px"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hero: [1-12, 1-4]"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sidebar: [1-3, 5-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content: [4-12, 5-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4.2 Conditional Regions"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Regions that only appear at certain breakpoints:"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Layout {"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "breakpoints: {"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "mobile: Grid[4×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hero: [1-4, 1-6]"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// no sidebar"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "desktop: Grid[12×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hero: [4-12, 1-6]"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sidebar: [1-3, 1-6]  // only on desktop"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Nested Grids (Subgrids)"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Regions can contain their own grids:"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×8] {"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: [1-12, 1-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "main: [1-12, 3-8] {"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[3×2] {"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "card1: [1-1, 1-1]"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "card2: [2-2, 1-1]"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "card3: [3-3, 1-1]"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "card4: [1-1, 2-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "card5: [2-2, 2-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "card6: [3-3, 2-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Pattern Templates"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "6.1 Common Layout Patterns"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Pre-defined pattern templates for common layouts:"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Horizontal Split"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "HSplit[ratio] {"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "left: ratio"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "right: 1-ratio"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Vertical Split"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "VSplit[ratio] {"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "top: ratio"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "bottom: 1-ratio"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Holy Grail Layout"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "HolyGrail {"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: full-width"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "left-sidebar: fixed-width"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "main: flexible"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "right-sidebar: fixed-width"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "footer: full-width"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Masonry"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Masonry[cols] {"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "flow: column-dense"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "items: auto-placed"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "6.2 Using Templates"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Layout: HSplit[0.3] {"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "left: Grid[1×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "nav: [1-1, 1-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "right: Grid[8×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content: [1-8, 1-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "7. Composition Patterns"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "7.1 Pattern Classification"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Layouts can be tagged with compositional patterns:"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×8] @pattern(center-hero, asymmetric) {"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "logo: [1-3, 1-1]"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hero: [4-12, 3-7] {"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "align: center"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Common Pattern Tags:**"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-225",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`symmetric` / `asymmetric`"
+            }
+          ]
+        },
+        {
+          "id": "b-226",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`center-weighted` / `edge-weighted`"
+            }
+          ]
+        },
+        {
+          "id": "b-227",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`modular` / `hierarchical`"
+            }
+          ]
+        },
+        {
+          "id": "b-228",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`fluid` / `fixed`"
+            }
+          ]
+        },
+        {
+          "id": "b-229",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`single-column` / `multi-column`"
+            }
+          ]
+        },
+        {
+          "id": "b-230",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`split-screen`"
+            }
+          ]
+        },
+        {
+          "id": "b-231",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`magazine-style`"
+            }
+          ]
+        },
+        {
+          "id": "b-232",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`dashboard`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "7.2 Pattern Inheritance"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "BaseLayout: Grid[12×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 24px"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gutter: 16px"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ArticleLayout extends BaseLayout {"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: [1-12, 1-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content: [3-10, 3-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sidebar: [11-12, 3-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "8. Metadata & Annotations"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "8.1 Layout Metadata"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Layout \"Homepage Hero\" {"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "version: 1.0"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "author: \"Design Team\""
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "created: 2025-10-14"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tags: [hero, landing, responsive]"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×8] {"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// layout definition"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "8.2 Comments"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×6] {"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Single-line comment"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "/* Multi-line comment"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for detailed explanations */"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: [1-12, 1-2]  // inline comment"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "9. Constraints & Validation"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "9.1 Constraint Rules"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "constraints: {"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "min-height: 600px"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "max-width: 1440px"
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "aspect-ratio: 16:9"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: [1-12, 1-2] {"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "constraints: {"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "min-height: 80px"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "max-height: 120px"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "9.2 Alignment Constraints"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×8] {"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "align-content: center | start | end | stretch | space-between | space-around"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "justify-content: center | start | end | stretch | space-between | space-around"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "10. Export Formats"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "GLL can be compiled to various output formats:"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "10.1 CSS Grid"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".container {"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "display: grid;"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "grid-template-columns: repeat(12, 1fr);"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "grid-template-rows: repeat(8, auto);"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gap: 16px;"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".header {"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "grid-column: 1 / 13;"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "grid-row: 1 / 3;"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "10.2 JSON Schema"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"grid\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"columns\": 12,"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"rows\": 8,"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"gap\": \"16px\""
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"regions\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"header\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"column\": [1, 12],"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"row\": [1, 2]"
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-326",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "10.3 React Component Props"
+        }
+      ]
+    },
+    {
+      "id": "b-327",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-329",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "grid: { cols: 12, rows: 8 },"
+        }
+      ]
+    },
+    {
+      "id": "b-330",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "regions: ["
+        }
+      ]
+    },
+    {
+      "id": "b-331",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: 'header', col: [1, 12], row: [1, 2] }"
+        }
+      ]
+    },
+    {
+      "id": "b-332",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-333",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-334",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-335",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-336",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "11. Examples"
+        }
+      ]
+    },
+    {
+      "id": "b-337",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.1 Olympic Layout (Image 1)"
+        }
+      ]
+    },
+    {
+      "id": "b-338",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-339",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Layout \"Olympic Center Hero\" {"
+        }
+      ]
+    },
+    {
+      "id": "b-340",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×8] {"
+        }
+      ]
+    },
+    {
+      "id": "b-341",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 0"
+        }
+      ]
+    },
+    {
+      "id": "b-342",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gutter: 0"
+        }
+      ]
+    },
+    {
+      "id": "b-343",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "logo: [1-3, 1-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-344",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "org_name: [4-12, 1-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-345",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hero_text: [4-12, 5-8] {"
+        }
+      ]
+    },
+    {
+      "id": "b-346",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "align: center"
+        }
+      ]
+    },
+    {
+      "id": "b-347",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "justify: start"
+        }
+      ]
+    },
+    {
+      "id": "b-348",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-349",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-350",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-351",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-352",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.2 Responsive Blog Layout"
+        }
+      ]
+    },
+    {
+      "id": "b-353",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-354",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Layout \"Blog Article\" {"
+        }
+      ]
+    },
+    {
+      "id": "b-355",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "breakpoints: {"
+        }
+      ]
+    },
+    {
+      "id": "b-356",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "mobile: Grid[4×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-357",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gutter: 16px"
+        }
+      ]
+    },
+    {
+      "id": "b-358",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 16px"
+        }
+      ]
+    },
+    {
+      "id": "b-359",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: [1-4, 1-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-360",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "article: [1-4, 3-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-361",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sidebar: [1-4, auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-362",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-363",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "desktop: Grid[12×auto] {"
+        }
+      ]
+    },
+    {
+      "id": "b-364",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gutter: 24px"
+        }
+      ]
+    },
+    {
+      "id": "b-365",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 64px"
+        }
+      ]
+    },
+    {
+      "id": "b-366",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "header: [1-12, 1-2]"
+        }
+      ]
+    },
+    {
+      "id": "b-367",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "article: [2-9, 3-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-368",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sidebar: [10-12, 3-auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-369",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "footer: [1-12, auto]"
+        }
+      ]
+    },
+    {
+      "id": "b-370",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-371",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-372",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-373",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-374",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.3 Dashboard Layout"
+        }
+      ]
+    },
+    {
+      "id": "b-375",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-376",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Layout \"Admin Dashboard\" @pattern(dashboard, modular) {"
+        }
+      ]
+    },
+    {
+      "id": "b-377",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[12×12] {"
+        }
+      ]
+    },
+    {
+      "id": "b-378",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "gap: 20px"
+        }
+      ]
+    },
+    {
+      "id": "b-379",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "margin: 20px"
+        }
+      ]
+    },
+    {
+      "id": "b-380",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "navbar: [1-12, 1-1] {"
+        }
+      ]
+    },
+    {
+      "id": "b-381",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "z-index: 100"
+        }
+      ]
+    },
+    {
+      "id": "b-382",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-383",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sidebar: [1-2, 2-12]"
+        }
+      ]
+    },
+    {
+      "id": "b-384",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "stats: [3-12, 2-4] {"
+        }
+      ]
+    },
+    {
+      "id": "b-385",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid[4×1] {"
+        }
+      ]
+    },
+    {
+      "id": "b-386",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "stat1: [1-1, 1-1]"
+        }
+      ]
+    },
+    {
+      "id": "b-387",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "stat2: [2-2, 1-1]"
+        }
+      ]
+    },
+    {
+      "id": "b-388",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "stat3: [3-3, 1-1]"
+        }
+      ]
+    },
+    {
+      "id": "b-389",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "stat4: [4-4, 1-1]"
+        }
+      ]
+    },
+    {
+      "id": "b-390",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-391",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-392",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "chart: [3-8, 5-10]"
+        }
+      ]
+    },
+    {
+      "id": "b-393",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "activity: [9-12, 5-10]"
+        }
+      ]
+    },
+    {
+      "id": "b-394",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "footer: [3-12, 11-12]"
+        }
+      ]
+    },
+    {
+      "id": "b-395",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-396",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-397",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-398",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-399",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "12. Future Considerations"
+        }
+      ]
+    },
+    {
+      "id": "b-400",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Potential additions for future versions:"
+        }
+      ]
+    },
+    {
+      "id": "b-407",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-401",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Animation/Transition syntax**: Describing grid transformations"
+            }
+          ]
+        },
+        {
+          "id": "b-402",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Container queries**: Responsive based on container size, not viewport"
+            }
+          ]
+        },
+        {
+          "id": "b-403",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Flex hybrid**: Mixed grid/flex layouts"
+            }
+          ]
+        },
+        {
+          "id": "b-404",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**3D grids**: Support for z-axis in spatial computing contexts"
+            }
+          ]
+        },
+        {
+          "id": "b-405",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Variable grids**: Dynamic column/row counts based on content"
+            }
+          ]
+        },
+        {
+          "id": "b-406",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Grid algebra**: Operations on grid definitions (merge, subtract, intersect)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-408",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-409",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Version History"
+        }
+      ]
+    },
+    {
+      "id": "b-411",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-410",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**v0.1** (2025-10-14): Initial specification draft"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,813 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-372",
+  "title": "Init",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Init"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is a “storyboard‐level” concept you could hand to a designer-developer pair (or build yourself in Nuxt 3 + GSAP / Lenis) to create a New York Times-style scrollytelling page that sells the spirit of BYI’s new **Affinity Tours** and nudges visitors to register."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Hero “Scroll-In” Moment"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Element | Idea | Interaction |"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Full-bleed video** | A slow-motion close-up of Brother Eric’s hands planting a seedling in South Baltimore soil. | The video is fixed; as the user scrolls the title **“Keep the Flame.”** fades in, followed by a subtitle **“Affinity Tours, BYI • Year 10”** that drops in with slight parallax (moves at ~0.8 × scroll speed). |"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Ambient sound opt-in** | Soft urban garden ambience (birds, distant traffic) triggered by a small speaker icon (off by default for accessibility). | Hover reveals “sound on/off.” |"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Section: “Why Affinity Tours?” (Pinned Narrative)"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Pinned text column (left 40%)** explaining the purpose of tours."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Scrolling media column (right 60%)** cycles through:"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Archival photo of BYI’s first harvest"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Short clip of a community workshop"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Statistic overlay (e.g., “150+ community gardeners trained”)"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each asset fades in/out as the page scrolls (GSAP timeline)."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Subtle background color shift** from deep earth brown → warm maize to mirror growth."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Interactive “Four Initiative Areas” Grid"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Initiative | Visual | Micro-interaction |"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Food Sovereignty** | Illustrated map of local food system nodes that animates when in view. | Hover highlights each node; click opens a 12-word description inline. |"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Community Education** | Chalk-style doodles morph into real-life class photos. | On scroll, doodles erase and photo appears (SVG mask). |"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Land Justice** | Parallax aerial photo of South Baltimore with animated boundary lines. | Scroll reveals before/after overlays. |"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Cooperative Economics** | Animated coin icons that stack to form a small greenhouse. | Scroll upward collapses stack, reinforcing investment concept. |"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*Implementation hint:* Build as a Nuxt **route-level component** with `<client-only>` GSAP animations to avoid SSR mismatch."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. “Choose Your Experience” Timeline (Horizontal Scrub)"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A horizontal scrub section (Lenis or Locomotive Scroll) listing tour dates **every 4th Friday, July – Dec**."
+            }
+          ]
+        },
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each date card expands on scroll to show:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Time slots (Full-day vs. 90-min)"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Max seats left (live via Supabase or Airtable API)"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Quick-register button"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The background image shifts from summer greens to winter ochres as the scrub moves, subtly indicating seasonal change."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Immersive “Day-in-the-Life” Parallax Stack"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Stack five full-width images that peel away on scroll, giving a taste of a full-day tour:"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Sunrise gathering at the farm"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Morning workshop"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Communal lunch"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Afternoon service task"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Evening reflection circle"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each layer moves at different speeds; subtle caption appears on each."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Testimonial Pull-Quotes (Scroll-Triggered)"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Quotes appear in large serif type, pinned center, with blurred background footage."
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As the user scrolls, quote swaps out with 3D “page turn” effect; next quote slides in."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Accessibility note: Provide `aria-live` region and alt text for motion-reduced users (offer “Jump to Transcript”)."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "7. Donation + Membership “Upsell”"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Fixed dark overlay slides up when user reaches 80% of page:"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> “Loved what you saw? Become a BYI donor-member and keep the flame alive.”"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Two contrasted CTAs: **Sign Up for Tour** (primary) vs. **Donate & Join** (secondary but visible)"
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Slight wobble animation if scroll idle for 6 s (draws eye without feeling spammy)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "8. Closing “Flame” Animation"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Animated SVG torch where the flame is drawn by scroll; final flame steadies when user reaches end."
+            }
+          ]
+        },
+        {
+          "id": "b-62",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final call: **“Will you join us?”**"
+            }
+          ]
+        },
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Social sharing buttons fade in sequentially."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Design System & Tech Stack Pointers"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Need | Suggestion |"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Visual Style** | Earth-tone palette (#4B3621 brown, #F2C066 maize, #EDEADE light cream) with bold hand-drawn accents that echo BYI grassroots vibe. |"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Typography** | Headings in a sturdy slab serif (e.g., *Arvo*), body in clean sans (e.g., *Inter*). |"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Framework** | Nuxt 3 + Nuxt Content for MD-driven sections; GSAP ScrollTrigger for parallax/pinning; Lenis for smooth scrolling. |"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Performance** | Use `v-lazy` images with `srcset`; defer auto-playing videos; provide `prefers-reduced-motion` CSS fallback. |"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Accessibility** | Ensure semantic HTML, high contrast, alt text, keyboard-navigable CTAs, and motion-reduced mode. |"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "How This Serves Autumn-Style Outreach"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Story-first design** models the nonprofit-friendly storytelling Autumn promises."
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**MD-driven content + component library** means BYI staff could update copy/images via the CMS without dev help."
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Reusable blocks** (timeline scrub, initiative grid) become standard Autumn components for other nonprofits—strengthening Autumn’s template library and sales demos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*Hope this sparks some visuals!* Let me know if you’d like wireframes, GSAP snippets, or advice on integrating this into your Nuxt/Tailwind stack."
+        }
+      ]
+    }
+  ]
+}

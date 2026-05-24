@@ -1,0 +1,2743 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "\"fulfill-order\",",
+  "title": "Decoupled Architecture",
+  "author": "person:jane-brew:001",
+  "status": "\"fulfilled\",",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Decoupled Architecture"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Stack:**"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hono API"
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "PocketBase"
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SvelteKit"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Trigger.dev"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "0) Monorepo layout"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pocketflow/"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├─ apps/"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ api/               # Hono (Bun/Node) – business logic & webhooks"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ dashboard/         # SvelteKit – operator UI"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └─ workers/           # Trigger.dev jobs (order/returns/inventory)"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├─ packages/"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ contracts/         # zod/ts types shared by api/workers/ui"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ clients/           # typed API client + PocketBase client factory"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └─ utils/             # logging, errors, retry/backoff, id helpers"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├─ infra/"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ pocketbase/        # migrations & seed"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └─ vercel.json        # (if deploying api/ui on Vercel)"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└─ .env.example"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1) PocketBase: collections (minimum viable)"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*Migrations in SQLish JSON or pb_migrate script; below is the shape.*"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// collections.json (excerpt)"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "["
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"organizations\","
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"schema\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"slug\", \"type\": \"text\", \"required\": true, \"unique\": true },"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"name\", \"type\": \"text\", \"required\": true },"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"settings\", \"type\": \"json\" } // webflow/easyship/mailchimp keys"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"orders\","
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"schema\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"orgId\", \"type\": \"relation\", \"options\": { \"collectionId\": \"organizations\" } },"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"external\", \"type\": \"json\" },   // webflow order snapshot"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"status\", \"type\": \"text\" },     // pending|processing|fulfilled|failed|returned"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"tracking\", \"type\": \"json\" },   // {number, carrier, url}"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"totals\", \"type\": \"json\" },     // {weight, qty, price}"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"shipPlan\", \"type\": \"json\" },   // computed packaging plan"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"errors\", \"type\": \"json\" }      // last error + history"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"indexes\": [\"orgId\", \"status\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"inventory\","
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"schema\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"orgId\", \"type\": \"relation\", \"options\": { \"collectionId\": \"organizations\" } },"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"sku\", \"type\": \"text\", \"unique\": true },"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"title\", \"type\": \"text\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"stock\", \"type\": \"number\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"attrs\", \"type\": \"json\" } // {type: 'flour'|'tool', weightPerUnit, dims, etc.}"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"indexes\": [\"orgId\", \"sku\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"events\","
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"schema\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"orgId\", \"type\": \"relation\", \"options\": { \"collectionId\": \"organizations\" } },"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"source\", \"type\": \"text\" }, // webflow|stripe|easyship|manual"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"type\", \"type\": \"text\" },   // webhook/cron/user"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"payload\", \"type\": \"json\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"handled\", \"type\": \"bool\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"indexes\": [\"orgId\", \"handled\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Auth: stick with PocketBase native (email/password + OAuth if needed later). Keep organizations and user→org membership in a follow-up migration when you flip to multi-tenant."
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2) Shared contracts (packages/contracts)"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// packages/contracts/src/types.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { z } from \"zod\";"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const OrderStatus = z.enum([\"pending\",\"processing\",\"fulfilled\",\"failed\",\"returned\"]);"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const ShippingRate = z.object({"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "service: z.string(),"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "carrier: z.string(),"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "cost: z.number(),"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "estDays: z.number().nullable(),"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const ShipPlan = z.object({"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "packages: z.array(z.object({"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "box: z.string(),         // \"12x9x6\" | \"kraft_tube\" | ..."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "weightLbs: z.number(),"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "items: z.array(z.object({ sku: z.string(), qty: z.number() }))"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})),"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "method: z.string(),        // \"cheapest<=3days\" etc."
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const WebflowOrder = z.object({"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: z.string(),"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "number: z.string(),"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "email: z.string().email(),"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "items: z.array(z.object({"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sku: z.string(),"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "qty: z.number(),"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "price: z.number(),"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})),"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "totals: z.object({ weightLbs: z.number().optional() }).partial(),"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "raw: z.unknown()"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const FulfillmentRequest = z.object({"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "orgSlug: z.string(),"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "order: WebflowOrder,"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export type TOrderStatus = z.infer<typeof OrderStatus>;"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export type TShippingRate = z.infer<typeof ShippingRate>;"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export type TShipPlan = z.infer<typeof ShipPlan>;"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export type TWebflowOrder = z.infer<typeof WebflowOrder>;"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export type TFulfillmentRequest = z.infer<typeof FulfillmentRequest>;"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3) Hono API (apps/api)"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Routes** (minimal):"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`POST /webhooks/webflow` — receives order; validates, persists to PB, emits Trigger.dev event"
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`POST /webhooks/easyship` — shipment status callbacks → update order"
+            }
+          ]
+        },
+        {
+          "id": "b-120",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`POST /orders/:id/fulfill` — manual re-try"
+            }
+          ]
+        },
+        {
+          "id": "b-121",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`GET /orders/:id` — enriched order view (joins PB order + live Easyship fetch if needed)"
+            }
+          ]
+        },
+        {
+          "id": "b-122",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`GET /healthz` — for uptime/cron pings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Skeleton**"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// apps/api/src/index.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { Hono } from \"hono\";"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { zValidator } from \"@hono/zod-validator\";"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { FulfillmentRequest } from \"@pocketflow/contracts/types\";"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { pb } from \"@pocketflow/clients/pb\";"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { trigger } from \"@pocketflow/clients/trigger\"; // thin wrapper"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const app = new Hono();"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.get(\"/healthz\", (c) => c.json({ ok: true }));"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.post(\"/webhooks/webflow\", zValidator(\"json\", FulfillmentRequest), async (c) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const body = c.req.valid(\"json\");"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const org = await pb.collection(\"organizations\").getFirstListItem(`slug=\"${body.orgSlug}\"`);"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const orderRec = await pb.collection(\"orders\").create({"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "orgId: org.id,"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "external: body.order,"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status: \"pending\","
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await trigger.send(\"order.created\", { orgId: org.id, orderId: orderRec.id });"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return c.json({ ok: true, id: orderRec.id });"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.post(\"/webhooks/easyship\", async (c) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const payload = await c.req.json();"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// verify signature..."
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// find PB order by easyship shipment id, update status/tracking"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return c.json({ ok: true });"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export default app;"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4) Trigger.dev workers (apps/workers)"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Jobs you’ll want:"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-155",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`order.created` → compute ship plan → fetch rates → create shipment → update PB → email"
+            }
+          ]
+        },
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`inventory.sync` (interval) → Square → PB"
+            }
+          ]
+        },
+        {
+          "id": "b-157",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`order.recovery` (interval) → scan `orders.status=failed` and retry with backoff"
+            }
+          ]
+        },
+        {
+          "id": "b-158",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`returns.requested` → create return label → PB updates → customer notification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Fulfillment job outline**"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// apps/workers/src/fulfillOrder.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { job, eventTrigger } from \"@trigger.dev/sdk\";"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { pb } from \"@pocketflow/clients/pb\";"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { computeShipPlan, getRates, createShipment, writebackWebflow } from \"./steps\";"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const fulfillOrder = job({"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: \"fulfill-order\","
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "trigger: eventTrigger({ name: \"order.created\" }),"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "run: async ({ orderId }, io) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const order = await io.runTask(\"load-order\", () =>"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pb.collection(\"orders\").getOne(orderId)"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await io.runTask(\"mark-processing\", () =>"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pb.collection(\"orders\").update(orderId, { status: \"processing\" })"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const plan = await io.runTask(\"compute-ship-plan\", () => computeShipPlan(order));"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const rates = await io.runTask(\"get-rates\", () => getRates(plan));"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const shipment = await io.runTask(\"create-shipment\", () => createShipment(order, plan, rates));"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await io.runTask(\"persist\", () =>"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pb.collection(\"orders\").update(orderId, {"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status: \"fulfilled\","
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tracking: { number: shipment.tracking_number, carrier: shipment.courier_name, url: shipment.tracking_url },"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "shipPlan: plan"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await io.runTask(\"writeback-webflow\", () => writebackWebflow(order, shipment));"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**CRON alternative** (if you want interval triggers without exceeding free tier): run a lightweight GitHub Action hitting `GET /workers/run?job=inventory.sync` which enqueues a Trigger.dev job or directly runs the sync in your API."
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5) SvelteKit UI (apps/dashboard)"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-192",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Read PB collections via PocketBase JS client for real-time tables."
+            }
+          ]
+        },
+        {
+          "id": "b-193",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Call Hono API for privileged actions (retry fulfillment, manual adjustments)."
+            }
+          ]
+        },
+        {
+          "id": "b-194",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use minimal stores; keep business logic server-side."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// src/lib/pb.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import PocketBase from \"pocketbase\";"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const pb = new PocketBase(import.meta.env.VITE_PB_URL);"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// src/routes/(app)/orders/+page.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const load = async () => {"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const list = await pb.collection(\"orders\").getList(1, 50, { sort: \"-created\" });"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return { initial: list.items };"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Realtime subscription**"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// src/lib/useOrders.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { writable } from \"svelte/store\";"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { pb } from \"$lib/pb\";"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export function useOrders() {"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const orders = writable<any[]>([]);"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pb.collection(\"orders\").subscribe(\"*\", (e) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "orders.update((curr) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// merge e.record into curr by id"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return merge(curr, e.record);"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return orders;"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6) Business rules: shipping plan (opinionated)"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Keep the “flour vs tube” logic close to workers:"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// apps/workers/src/steps/computeShipPlan.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import type { TShipPlan } from \"@pocketflow/contracts/types\";"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export function computeShipPlan(order: any): TShipPlan {"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Example heuristics"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const flour = order.external.items.filter((i: any) => i.sku.startsWith(\"FLOUR\"));"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const tools = order.external.items.filter((i: any) => i.sku.startsWith(\"TOOL\"));"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const pkgs = [];"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (flour.length) {"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const totalLbs = flour.reduce((n: number, i: any) => n + (i.qty * weightForSku(i.sku)), 0);"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const boxes = boxizeByWeight(totalLbs); // split into 12x9x6 <= 5lbs, else 12x12x6"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for (const b of boxes) pkgs.push({ box: b.box, weightLbs: b.weight, items: flour });"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for (const item of tools) {"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (item.sku === \"TOOL_ROLLING_PIN\") {"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pkgs.push({ box: \"kraft_tube\", weightLbs: 2, items: [item] });"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return { packages: pkgs, method: \"cheapest<=3days\" };"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "7) One-liner Mermaid diagrams (renderer-safe)"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**System architecture**"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graph LR; Webflow-->API[Hono API]; Stripe-->API; Easyship-->API; Substack-->API; Mailchimp-->API; API-->PB[PocketBase SSoT]; API-->Trigger[Trigger.dev jobs]; Trigger-->PB; Dashboard[SvelteKit]-->PB; Dashboard-->API"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Primary fulfillment path**"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graph LR; A[Webflow Order Webhook]->B[Hono validates+persists]; B->C[Trigger 'order.created']; C->D[Compute Ship Plan]; D->E[Get Rates]; E->F[Create Shipment]; F->G[Update PocketBase]; G->H[Writeback Webflow tracking]; H->I[Customer Ship Email]"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Returns path**"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graph LR; J[Return Request]->K[Create Return Label]; K->L[Update PB status=returned]; L->M[Process Refund]; M->N[Notify Customer]"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Inventory sync loop**"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graph LR; S[Square POS]->T[Trigger inventory.sync]; T->U[Normalize+Diff]; U->V[PB.inventory upsert]; V->W[Dashboard realtime update]"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "8) Security & reliability"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-263",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verify all webhooks (HMAC signatures, IP allowlists where possible)."
+            }
+          ]
+        },
+        {
+          "id": "b-264",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Idempotency keys: store last processed webhook ids in `events` and short-circuit repeats."
+            }
+          ]
+        },
+        {
+          "id": "b-265",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Observability: structure logs per step id; write last error to `orders.errors`."
+            }
+          ]
+        },
+        {
+          "id": "b-266",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Backoff strategy: exponential with jitter for Easyship/Webflow writebacks."
+            }
+          ]
+        },
+        {
+          "id": "b-267",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Data contracts: zod on ingress (Hono) and before external API calls (workers)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "9) First 5 milestones (you can ship these sequentially)"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **PB setup**: orgs, orders, inventory, events; seed one org."
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **API webhooks**: `/webhooks/webflow` with signature verify + PB persist + Trigger event."
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Fulfillment worker**: compute plan → rates → shipment → PB update → Webflow writeback."
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Dashboard list**: real-time orders table, detail drawer, manual “Retry” button (calls API)."
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Inventory sync**: interval job from Square → PB; low-stock alert in dashboard."
+        }
+      ]
+    }
+  ]
+}

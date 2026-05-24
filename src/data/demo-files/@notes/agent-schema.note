@@ -1,0 +1,1913 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "string;",
+  "title": "Agent Schema",
+  "author": "person:jane-brew:001",
+  "status": "reviewing",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Agent Schema"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface ActionDefinition {"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "params?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[paramName: string]: {"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "required: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "default?: any;"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "enum?: any[];"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "example?: any;"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "returns?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "example?: any;"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "io?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "input_format?: string | string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "output_format?: string | string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "improv_mode_friendly?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "latency?: 'low' | 'medium' | 'high';"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "failure_mode?: 'silent' | 'retry' | 'escalate';"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface Tool {"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "version: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "category?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tags?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "action_definitions: {"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[actionName: string]: ActionDefinition;"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dependencies?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "improv_mode_friendly?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "latency?: 'low' | 'medium' | 'high';"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "failure_mode?: 'silent' | 'retry' | 'escalate';"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status?: 'active' | 'deprecated' | 'beta' | 'internal';"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "source?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "repo?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "entrypoint?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "checksum?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "embeddings?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vector: number[];"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "model: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "last_updated: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "usage_policy?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "authentication?: 'required' | 'optional' | 'none';"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "required_scopes?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "author?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "origin?: 'internal' | 'external';"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "last_updated?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface RoutineStep {"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "action: string; // name of the action"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tool?: string; // optionally specify which tool to use"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "params?: { [key: string]: any }; // parameters passed to the action"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "condition?: string; // optional: when to run this step"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface Routine {"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "steps: RoutineStep[];"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tags?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "required_tools?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "improv_mode_friendly?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "output_type?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status?: 'active' | 'deprecated' | 'experimental';"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "author?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "last_updated?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface WorkflowStep {"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "step: string; // identifier for the step"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "agent: string; // which agent performs it"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "routine: string; // which routine is invoked"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "condition?: string; // optional: when to run this step"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface Workflow {"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "steps: WorkflowStep[];"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "output_type?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tags?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "improv_mode_friendly?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status?: 'active' | 'deprecated' | 'experimental';"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "author?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "last_updated?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface AgentMemory {"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: 'ephemeral' | 'persistent';"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "location: string; // path or URI"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sync_strategy?: 'on_demand' | 'continuous' | 'manual';"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface AgentStyle {"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tone?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "voice?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "audience?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "language_preferences?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface Agent {"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "persona: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "specialties: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tools: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "routines: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "memory: AgentMemory;"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "style?: AgentStyle;"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "improv_mode_default?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "fallback_routines?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status?: 'active' | 'inactive' | 'experimental';"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "author?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "last_updated?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface KnowledgePropertyDefinition {"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: 'text' | 'number' | 'boolean' | 'date' | 'tags' | 'url' | 'file' | 'reference';"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "required?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "example?: any;"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface KnowledgePropertyValue {"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: 'text' | 'number' | 'boolean' | 'date' | 'tags' | 'url' | 'file' | 'reference';"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "value: any;"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface KnowledgeItem {"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "collection: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "created_at: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updated_at?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "properties: {"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[key: string]: KnowledgePropertyValue;"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tags?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "references?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "linked_agents?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "embedding?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vector: number[];"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "model: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "last_updated: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface KnowledgeCollection {"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "created_at: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema: {"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[fieldName: string]: KnowledgePropertyDefinition;"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "para_classification?: 'Project' | 'Area' | 'Resource' | 'Archive';"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "improv_mode_friendly?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "visibility?: 'private' | 'shared' | 'public';"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface OrchestratorMetadata {"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "created_at: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "last_updated?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "integrations: {"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "zapier_mcp_enabled: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "zapier_endpoint?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "supported_apps?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "default_channel?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "fallback_policy?: 'retry' | 'skip' | 'escalate';"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "error_handling_strategy?: 'log_only' | 'notify_user' | 'auto_recover';"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "logging_enabled?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "workflow_log_location?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "event_subscriptions?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "cron_jobs?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "interval: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "task: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}[];"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "improv_mode_default?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "memory_policy?: 'stateless' | 'ephemeral' | 'persistent';"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "audit_trail_enabled?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "agent_registry_path?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "allowed_agents?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "concurrency_limit?: number;"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    }
+  ]
+}

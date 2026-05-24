@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "fg": "https://filegraph.app/vocab#"
+  },
+  "@type": "fg:FederatedGraph",
+  "@id": "@calendar/_graph_",
+  "name": "Calendar Namespace",
+  "description": "Federated graph for calendar events, reminders, and schedule items",
+  "includes": [
+    "@calendar/events.data"
+  ],
+  "stats": {
+    "totalEvents": "=COUNT(@calendar/events.data#@graph)",
+    "upcomingDeadlines": "=COUNT(FILTER(@calendar/events.data#@graph, label='deadline' AND startDate > NOW()))",
+    "thisWeekEvents": "=COUNT(FILTER(@calendar/events.data#@graph, startDate >= START_OF_WEEK() AND startDate <= END_OF_WEEK()))"
+  }
+}

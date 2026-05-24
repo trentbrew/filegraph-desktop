@@ -1,0 +1,814 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-315",
+  "title": "EasyShip vs ShipStation (2025)",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "EasyShip vs ShipStation (2025)"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Easyship vs ShipStation (2025): Key Differences for Webflow Integration"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "For product designers and e-commerce operators looking to support shipping from Webflow storefronts, here's a clear comparison of Easyship and ShipStation as of 2025:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Strengths"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easyship**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Specializes in global shipping—enables real-time carrier cost comparisons from 250+ partners and automates customs/taxes."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Useful international features: automated duty calculation, customs clearance, support for a wide array of carriers."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Three paid plans (Plus, Premier, Scale) ranging $29–$99/mo, plus a free tier. Known for significant shipping discounts for international deliveries."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- User-friendly interface, branded tracking pages, and messaging capabilities."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Most suitable for e-commerce brands with international focus and direct-to-consumer (D2C) strategy."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Some users report package overcharging and occasional platform bugs.youtube[clickpost+1](https://www.clickpost.ai/comparison/easyship-vs-shipstation)"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ShipStation**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Excels in automation and integrations: works seamlessly with 40+ carriers and 34+ e-commerce platforms, including Webflow via third-party connectors."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Designed for U.S.- and Canada-based businesses; best for high-volume shippers and businesses with complex fulfillment workflows."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Advanced rules engine automates carrier selection, order splitting/merging, and facilitates warehouse routing."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Offers branded tracking pages, custom shipping rules by weight/destination and strong reporting tools."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Paid plans start at $9.99/mo and scale to $99.99/mo, but prices rise sharply for enterprise/high-volume needs."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Platform occasionally criticized for higher cost for small businesses and limited international features compared to Easyship.[clickpost+1](https://www.clickpost.ai/comparison/easyship-vs-shipstation)youtube"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Webflow Compatibility"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Neither ShipStation nor Easyship have native Webflow integrations**. Connecting to Webflow generally involves using middleware platforms (such as Zapier, Make, or custom code) that push order data from Webflow forms or CMS collections to the shipping software.[discourse.webflow](https://discourse.webflow.com/t/shipping-products-from-a-webflow-site-what-a-nightmare/224473)"
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Both offer robust **API access**, making it possible to build custom workflows for Webflow-based stores—important for designers/developers with advanced needs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "User Experience & Support"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easyship:** Easy to set up, strong for global logistics, but may lack deep automations and post-purchase communication channels that ShipStation offers.[clickpost+1](https://www.clickpost.ai/blog/easyship-vs-shipstation)"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ShipStation:** Fantastic for scaling or managing multiple sales channels; more granular control and advanced automation, but smaller businesses may find pricing less competitive or unnecessary.[capterra+1](https://www.capterra.com/compare/155621-170399/ShipStation-vs-Easyship)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Summary Table"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Feature | Easyship | ShipStation |"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Focus | Global/D2C Shipping | Automation, U.S./Canada |"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Carrier Support | 250+ (global/international) | 40+ (U.S./Canada-centric) |"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Best For | International brands, D2C | High-volume, multichannel stores |"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Pricing | Free–$99/mo | $9.99–$99.99+/mo |"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Automation | Basic (rules, customs) | Advanced (rules, splitting, etc) |"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Custom Tracking | Branded, multi-lingual | Branded, order-level control |"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Webflow Integration | API/third-party only | API/third-party only |"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Known Weaknesses | Occasional bugs/glitches | Cost scales up quickly |"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Recommendation"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Choose Easyship if:** Your business ships internationally, especially D2C, and values customs/duty automation and cost savings."
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Choose ShipStation if:** You focus primarily on U.S. or Canadian orders, need deep automation, and operate multiple sales channels with complex logistics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If strong Webflow compatibility is critical, expect to use **Zapier, Integromat, or custom API development** with either platform. Your choice should reflect business volume, destination focus, and required automation depth.[discourse.webflow](https://discourse.webflow.com/t/shipping-products-from-a-webflow-site-what-a-nightmare/224473)"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [https://www.youtube.com/watch?v=Xn_uJ0PDCKE](https://www.youtube.com/watch?v=Xn_uJ0PDCKE)"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [https://www.youtube.com/watch?v=vkSolwVz-h0](https://www.youtube.com/watch?v=vkSolwVz-h0)"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [https://www.clickpost.ai/comparison/easyship-vs-shipstation](https://www.clickpost.ai/comparison/easyship-vs-shipstation)"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. [https://discourse.webflow.com/t/shipping-products-from-a-webflow-site-what-a-nightmare/224473](https://discourse.webflow.com/t/shipping-products-from-a-webflow-site-what-a-nightmare/224473)"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. [https://www.clickpost.ai/blog/easyship-vs-shipstation](https://www.clickpost.ai/blog/easyship-vs-shipstation)"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. [https://stackreaction.com/compare/easyship-vs-shippo](https://stackreaction.com/compare/easyship-vs-shippo)"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. [https://www.softwareworld.co/compare/shipstation-vs-easyship/](https://www.softwareworld.co/compare/shipstation-vs-easyship/)"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "8. [https://www.youtube.com/watch?v=nyxTOi3c8LM](https://www.youtube.com/watch?v=nyxTOi3c8LM)"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "9. [https://www.capterra.com/compare/155621-170399/ShipStation-vs-Easyship](https://www.capterra.com/compare/155621-170399/ShipStation-vs-Easyship)"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "10. [https://stackreaction.com/compare/easyship-vs-easypost](https://stackreaction.com/compare/easyship-vs-easypost)"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Scope: integrations, checkout behavior, ops, returns, pricing, gotchas."
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use ShipStation** if you’re on Webflow. It’s the **only official, native app** with a maintained V2 connection and documented features. ([Webflow](https://webflow.com/apps/detail/shipstation), [ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easyship** is strong for cross-border (rates/duties at checkout) on platforms it supports **natively**—but **Webflow isn’t one of them**, so you’d rely on middleware and custom API flows. ([support.easyship.com](https://support.easyship.com/hc/en-us/articles/19240712538258-Shipping-Rates-at-Checkout-Feature?utm_source=chatgpt.com), [Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961431933843-Configure-shipping-methods-for-different-shipping-zones))"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Official Webflow App** (Auctane); update to **Webflow V2** required in 2025. ([Webflow](https://webflow.com/apps/detail/shipstation), [ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Syncs orders, maps statuses, and **pushes tracking + carrier/service** back to Webflow. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Supported fields: customer email/phone, item images/options, order & item weights, requested service, etc. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-62",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**No native Webflow app.** Connect via Zapier/Make/Pipedream (e.g., “New Webflow order → create Easyship shipment”). ([Zapier](https://zapier.com/apps/easyship/integrations/webflow/1268739/create-easyship-shipments-for-new-webflow-orders-effortlessly?utm_source=chatgpt.com), [Stackreaction](https://stackreaction.com/easyship/integrations/webflow?utm_source=chatgpt.com), [Pipedream](https://pipedream.com/apps/webflow/integrations/easyship/create-shipment-with-easyship-api-on-e-commerce-inventory-updated-from-webflow-api-int_qjsrBnrn?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use **Webflow Ecommerce API** to set fulfillment + tracking back on the order. ([developers.webflow.com](https://developers.webflow.com/data/v2.0.0/reference/ecommerce/orders/update-fulfill?explorer=true&utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Viable, but more moving parts (automation platform costs, error handling)."
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Webflow checkout doesn’t do carrier-calculated live rates natively.** You define zones/methods with flat/price/qty/weight rules. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961431933843-Configure-shipping-methods-for-different-shipping-zones))"
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ShipStation’s **rate shopping** still helps **post-purchase** for label selection—not at Webflow checkout. ([ShipStation](https://www.shipstation.com/pricing/))"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Easyship’s “Rates at Checkout” + “Duties & Taxes at Checkout” are product features, but **not applicable to Webflow’s native checkout**. ([support.easyship.com](https://support.easyship.com/hc/en-us/articles/19240712538258-Shipping-Rates-at-Checkout-Feature?utm_source=chatgpt.com), [Easyship](https://www.easyship.com/rates-at-checkout?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ShipStation:** Imports orders from Webflow and **updates Webflow** with status, tracking number, carrier/service on shipment. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easyship:** Webflow → Easyship via automation; **write back** tracking via Webflow API (examples shown by Pipedream templates). ([Pipedream](https://pipedream.com/integrations/update-order-with-webflow-api-on-tracking-status-updated-instant-from-easyship-api-int_xOsGBP8x?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ShipStation:** Branded self-service **Returns & Exchanges portal** with analytics/RMA workflows on paid tiers. ([ShipStation](https://www.shipstation.com/returns-management/?utm_source=chatgpt.com), [ShipStation Help](https://help.shipstation.com/hc/en-us/articles/38629459557531-Customer-Returns-Portal?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easyship:** Can **generate return labels** (incl. prepaid); portal experience usually via partners/stack. ([support.easyship.com](https://support.easyship.com/hc/en-us/articles/19257458514450-How-to-Create-Prepaid-Return-Labels?utm_source=chatgpt.com), [Easyship](https://www.easyship.com/create-return-labels?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ShipStation:** Handles customs docs; BYO carrier accounts for international. ([ShipStation](https://www.shipstation.com/pricing/))"
+            }
+          ]
+        },
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easyship:** Strong cross-border stack (DDP workflows, duties/taxes calcs, courier comparison). Again: **not surfaced at Webflow checkout**. ([support.easyship.com](https://support.easyship.com/hc/en-us/articles/19233986332178-Import-Duties-and-Taxes-Explained?utm_source=chatgpt.com), [Easyship](https://www.easyship.com/?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ShipStation:** Free (10 shipments), **Starter $14.99** (50/mo), Standard/Premium scale up; Returns/Exchanges & Inventory on higher tiers. ([ShipStation](https://www.shipstation.com/pricing/))"
+            }
+          ]
+        },
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easyship:** Free + paid tiers (Plus/Premier/Enterprise). Features like **Rates at Checkout**/**Duties at Checkout** gated to higher tiers. ([Easyship](https://www.easyship.com/plans))"
+            }
+          ]
+        },
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ShipStation (native):** Install app → connect store → set rules/automations → print labels → tracking auto-posts back to Webflow. ([Webflow](https://webflow.com/apps/detail/shipstation), [ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easyship (middleware):** Webflow order trigger → Easyship shipment action → on label/ship, **update Webflow order** via API with tracking + fulfill. ([Zapier](https://zapier.com/apps/easyship/integrations/webflow/1268739/create-easyship-shipments-for-new-webflow-orders-effortlessly?utm_source=chatgpt.com), [developers.webflow.com](https://developers.webflow.com/data/reference/ecommerce/orders/update?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Fastest, least brittle path:** ShipStation. Official connector, good returns, stable support. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**You need Easyship specifically (e.g., existing contracts, global lanes, DDP policy):** Expect **middleware + API work**; budget for maintenance. ([Zapier](https://zapier.com/apps/easyship/integrations/webflow/1268739/create-easyship-shipments-for-new-webflow-orders-effortlessly?utm_source=chatgpt.com), [developers.webflow.com](https://developers.webflow.com/data/reference/ecommerce/orders/update?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t assume “live rates at checkout” on Webflow—it’s **manual rate rules**. If a vendor claims otherwise for Webflow, ask for a demo. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961431933843-Configure-shipping-methods-for-different-shipping-zones))"
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "App store copy can be generic (e.g., references to Shopify checkout on a Webflow app page). Validate against docs. ([Webflow](https://webflow.com/apps/detail/shipstation))"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

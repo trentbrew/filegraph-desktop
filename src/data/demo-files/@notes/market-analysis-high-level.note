@@ -1,0 +1,1033 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-192",
+  "title": "Market Analysis (High level)",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Market Analysis (High level)"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Fundamental Human Drivers"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The form-builder market addresses several core human needs:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Control and efficiency** - People want to collect information in an organized way without building systems from scratch. Forms represent structured communication and data collection that brings order to chaos."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Recognition and connection** - Forms facilitate feedback, registration, and information exchange - all ways humans seek to be heard and to connect with others."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Emotional states people seek:**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Moving away from: Confusion, information overload, and the anxiety of missing important data"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Moving toward: Clarity, efficiency, and the satisfaction of orderly information collection"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Unspoken drivers:**"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fear of appearing unprofessional with poorly designed forms"
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anxiety about technological limitations (can I build what I need?)"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Status concerns about using modern, design-forward tools like Typeform versus \"old-school\" solutions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. User/Customer Understanding"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Non-obvious users:**"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "IT departments who must approve form tools for security compliance"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Data analysts who need to work with form responses"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Form respondents themselves, who often have little voice in the design process"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Current compromises:**"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Accepting limited customization options"
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Managing data across disconnected systems"
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dealing with mobile-unfriendly form experiences"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Belief vs. behavior disconnects:**"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Users say they want comprehensive feature sets but often use only basic functionality"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Organizations claim to prioritize respondent experience but choose tools based on back-end integration capabilities"
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Users state price sensitivity but pay premiums for tools that save time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Trigger moments:**"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Event planning and registration needs"
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "New compliance requirements"
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Organizational growth requiring more structured data collection"
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Frustration with existing processes (email replies, spreadsheets)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Market Gaps and Inefficiencies"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Surprisingly hard:**"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Creating truly conditional logic that handles complex scenarios"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Designing forms that work equally well across all devices"
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Building forms that feel conversational rather than bureaucratic"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integration with existing data systems without technical expertise"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Abundance without clarity:**"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Overwhelming template libraries with no clear guidance on best practices"
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Feature bloat in many tools with unclear use cases"
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pricing models that are difficult to compare across platforms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Neglected touchpoints:**"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Post-submission experience for respondents"
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Data governance and compliance aspects"
+            }
+          ]
+        },
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Form analytics beyond basic completion rates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Language and Narrative"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Natural customer language:**"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"I need to collect some info\" (not \"I need to deploy a data collection interface\")"
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"I want to make a survey\" (even when not conducting research)"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"Quick form\" (emphasizing speed and simplicity)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Problem framing disconnect:**"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Users: \"I just need something simple that works\""
+            }
+          ]
+        },
+        {
+          "id": "b-62",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Industry: \"Enterprise-grade form solution with robust workflow capabilities\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Reinforced assumptions:**"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That form-building requires technical knowledge"
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That better design necessarily means more complexity"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That forms are inherently transactional rather than relationship-building"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Competitive & Strategic Insight"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Innovation disincentives:**"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Established players like JotForm and Google Forms maintain broad feature sets that limit radical redesigns"
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enterprise focus creates resistance to simplification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Edge innovations:**"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conversational UI (Typeform pioneered, others following)"
+            }
+          ]
+        },
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No-code integration capabilities (Tally.so, Notion)"
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design-forward approaches (Typeform, Tally)"
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "AI-assisted form creation and response analysis (emerging)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Radical simplification potential:**"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Forms that create themselves from natural language prompts"
+            }
+          ]
+        },
+        {
+          "id": "b-82",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Truly conversational interfaces that adapt to user responses"
+            }
+          ]
+        },
+        {
+          "id": "b-83",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Forms that learn from past submissions to become more efficient"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Business model alternatives:**"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Usage-based pricing vs. current feature-tier models"
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Respondent-focused models (better experiences = higher completion)"
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Data insights as the primary value proposition rather than collection"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Temporal and Cultural Dimensions"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Long-term shifts:**"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Growing privacy consciousness changing data collection norms"
+            }
+          ]
+        },
+        {
+          "id": "b-93",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rising expectations for mobile-first experiences"
+            }
+          ]
+        },
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Increasing desire for personalization"
+            }
+          ]
+        },
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "AI integration becoming standard for form analysis and creation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Overlooked traditions:**"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Human conversation as the original \"form\" (being reclaimed by conversational interfaces)"
+            }
+          ]
+        },
+        {
+          "id": "b-99",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ritual aspects of information sharing (forms as ceremonies)"
+            }
+          ]
+        },
+        {
+          "id": "b-100",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cultural differences in information disclosure comfort"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**10-year outlook:**"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "AI will likely eliminate traditional form building entirely for many use cases"
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Forms will become dynamic conversations rather than static documents"
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The distinction between forms, surveys, and data collection interfaces will blur"
+            }
+          ]
+        },
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Value will shift from collection to insight generation and action"
+            }
+          ]
+        },
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Privacy and consent mechanisms will become more sophisticated and central to the experience"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The most successful future players will likely win on intelligence (helping users know what to ask) rather than just interface design or feature sets."
+        }
+      ]
+    }
+  ]
+}

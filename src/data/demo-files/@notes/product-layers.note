@@ -1,0 +1,1221 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-403",
+  "title": "Product layers",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Product layers"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Product: Three Layers"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Layer 1: Core Runtime (Open Source)**"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "typescript"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`*// npm install @ldc/runtime*"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { evaluate, validate } from '@ldc/runtime';"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const model = {"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@context\": {...},"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"revenue\": 100000,"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"growth\": 0.15,"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"nextMonth\": {\"@expr\": \"revenue * (1 + growth)\"}"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const result = await evaluate(model, {now: new Date()});"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*// result.nextMonth === 115000, with full provenance*`"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Layer 2: Framework Integrations (Open Source)**"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "typescript"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`*// React*"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { useLDC } from '@ldc/react';"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function Budget() {"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const [model, setModel] = useLDC(initialModel);"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return <LDCTable model={model} onChange={setModel} />;"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*// Svelte*"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { ldcStore } from '@ldc/svelte';"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const model = ldcStore(initialModel);"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*// Vue*"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { useLDCModel } from '@ldc/vue';`"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Layer 3: Developer Tools (Freemium SaaS)**"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "json"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`{"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"free_tools\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"VS Code extension (syntax highlighting, validation)\","
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Online playground (test LD-C snippets)\","
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"CLI validator\","
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Documentation site\""
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"paid_tools\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"LD-C Studio (visual editor) - $20/mo\","
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"API hosting (deploy LD-C as endpoints) - $50/mo\","
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Team collaboration - $100/mo\","
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Enterprise features - custom\""
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}`"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Your Go-to-Market"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 1: Scratch Your Own Itch (Months 1-3)**"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Build the integrations YOU need:"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "typescript"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`const yourActualProjects = {"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"obsidian_plugin\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"problem\": \"Obsidian Dataview is limited, want computation\","
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"solution\": \"LD-C plugin that makes notes computable\","
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"benefit\": \"You get the tool you want, others probably do too\""
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"react_datatable\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"problem\": \"Keep rebuilding datatables with formulas\","
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"solution\": \"<LDCTable /> component with built-in computation\","
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"benefit\": \"Reusable across all your projects\""
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"webflow_plugin\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"problem\": \"Webflow CMS can't do calculations\","
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"solution\": \"LD-C plugin for computed fields\","
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"benefit\": \"Sell it to other Webflow developers\""
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"personal_finance\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"problem\": \"Don't trust others' tools with your money\","
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"solution\": \"Local-first finance app with LD-C backend\","
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"benefit\": \"You get exactly what you want, open source it\""
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};`"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**The strategy:** Build the tools YOU need. If you need them, other developers do too."
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 2: Developer Community (Months 4-6)**"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "json"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`{"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"launch_strategy\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Post on Hacker News: 'I built LD-C because I'm tired of rebuilding datatables'\","
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Write blog: 'How I stopped reinventing computation logic'\","
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Tweet thread: 'CSV is a mistake, here's why'\","
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Reddit r/programming: Show the Obsidian plugin\","
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Dev.to article: 'Building a React datatable that doesn't suck'\""
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"success_metric\": \"1,000 GitHub stars, 100 developers trying it\""
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}`"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 3: Monetization (Months 7-12)**"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "typescript"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`const revenueStreams = {"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"direct\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"ldc_studio\": \"$20/mo for visual editor\","
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"api_hosting\": \"$50/mo for cloud evaluation\","
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"target\": \"500 paying developers = $25K MRR\""
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"indirect\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"consulting\": \"$200/hr for LD-C integration\","
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"training\": \"$2K for corporate workshops\","
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"support\": \"Enterprise support contracts\""
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"ecosystem\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"marketplace\": \"30% of paid plugins/integrations\","
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"certification\": \"LD-C certified developer program\","
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"partnerships\": \"Revenue share with Webflow, Obsidian, etc.\""
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};`"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Why This Works for You"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "json"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`{"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"FounderFit\","
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"advantages\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"You ARE the user - instant product validation\","
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Every integration solves YOUR problem first\","
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"No need to 'find' users - you're building in public\","
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Can bootstrap - no need for VC until traction\","
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Low competition - developers build, don't buy infrastructure\","
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"High technical moats - LD-C spec is complex, takes time to replicate\""
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"realistic_timeline\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"month_3\": \"Core runtime + 2 integrations working\","
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"month_6\": \"1,000 GitHub stars, community forming\","
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"month_9\": \"First $5K MRR from paid tools\","
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"month_12\": \"Quit day job or get acquired by Webflow/Notion/Obsidian\""
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}`"
+        }
+      ]
+    }
+  ]
+}

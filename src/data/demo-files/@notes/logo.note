@@ -1,0 +1,1438 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-329",
+  "title": "Logo",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Logo"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "0 0 0 0 1 1 0 0 0 0"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "0 1 0 0 1 1 0 0 0 0"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "0 0 0 0 0 0 0 0 0 0"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "0 0 0 1 1 1 1 0 0 0"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1 1 0 1 1 1 1 0 1 1"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1 1 0 1 1 1 1 0 1 1"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "0 0 0 1 1 1 1 0 0 0"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "0 0 0 0 0 0 0 0 0 0"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "0 0 0 0 1 1 0 0 1 0"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "0 0 0 0 1 1 0 0 0 0"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Symmetry**"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The figure has **4-fold rotational symmetry** (order 4). Rotate it 90°, 180°, 270°—it maps back to itself."
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It also has **reflectional symmetry** along both axes and diagonals."
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Altogether, its symmetry group is the **dihedral group D₄**, the same as a square."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Structure**"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The shape is basically a **central 4×4 block** with “arms” extending outward, giving it a “cross” or “diamond” profile."
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you look at the coordinates of the 1’s, they cluster around the center in a way that preserves **balance**: the number of filled cells in each quadrant is equal."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Relation to Polyominoes**"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each cluster of adjacent 1’s is part of a larger polyomino tiling."
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The central mass is essentially a **tetromino/square composite**, extended symmetrically."
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you remove the four diagonal protrusions, you get a **solid 6×6 square** minus corners—sometimes called a “rotationally symmetric polyomino.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Minimal Perimeter / Area Balance**"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The figure has a relatively high **isoperimetric ratio** (area relative to perimeter) compared to other irregular polyominoes of the same area."
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In other words, for the number of filled cells, it’s compact but still allows symmetric “reach.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Tiling / Group Theory Connection**"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because of its D₄ symmetry and square-grid compatibility, it can tile the plane periodically (by translation + rotation)."
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It can also be used as a **fundamental domain** for certain wallpaper groups."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```python"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "row_masks = [48, 304, 0, 120, 891, 891, 120, 0, 50, 48]"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "original = [[(r >> (10 - 1 - c)) & 1 for c in range(10)] for r in row_masks]"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"Original matrix:\")"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for row in original:"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(''.join(map(str, row)))"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"\\nAnalyzing the hierarchical structure:\")"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"- 2x2 blocks at positions (0,4), (8,4), (4,8)\")"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"- 4x4 block at position (3,3)\")"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"- Some 1x1 scattered elements\")"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "def place_block(matrix, row, col, size, value=1):"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"\"\"Place a square block of given size at position (row, col)\"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for r in range(row, row + size):"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for c in range(col, col + size):"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if 0 <= r < len(matrix) and 0 <= c < len(matrix[0]):"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "matrix[r][c] = value"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "def generate_hierarchical_matrix():"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"\"\"Generate matrix using hierarchical block placement\"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "matrix = [[0 for _ in range(10)] for _ in range(10)]"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# 2x2 blocks"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "place_block(matrix, 0, 4, 2)  # Top center"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "place_block(matrix, 8, 4, 2)  # Bottom center"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "place_block(matrix, 4, 0, 2)  # Left middle"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "place_block(matrix, 4, 8, 2)  # Right middle"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# 4x4 block"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "place_block(matrix, 3, 3, 4)  # Center"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# Individual 1x1 elements"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "matrix[1][1] = 1  # Top left scattered"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "matrix[8][8] = 1  # Bottom right scattered"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return matrix"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "class QuadNode:"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "def __init__(self, value=None, size=1):"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "self.value = value"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "self.size = size"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "self.children = None"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "def subdivide(self):"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if self.children is None:"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "half = self.size // 2"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "self.children = [QuadNode(size=half) for _ in range(4)]"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "def set_region(self, row, col, size, value):"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if size == self.size and row == 0 and col == 0:"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "self.value = value"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "self.children = None"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "elif size < self.size:"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "self.subdivide()"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "half = self.size // 2"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# Determine which quadrant"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "quad_row = 0 if row < half else 1"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "quad_col = 0 if col < half else 1"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "quad_idx = quad_row * 2 + quad_col"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "local_row = row % half"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "local_col = col % half"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "self.children[quad_idx].set_region(local_row, local_col, size, value)"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "def generate_power_of_2_pattern():"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"\"\"Generate using the exponential size pattern you noticed\"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "matrix = [[0 for _ in range(10)] for _ in range(10)]"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# Define blocks by their top-left corner and size (power of 2)"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "blocks = ["
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# (row, col, size)"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(0, 4, 2),   # 2^1 x 2^1"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(8, 4, 2),   # 2^1 x 2^1"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(4, 0, 2),   # 2^1 x 2^1"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(4, 8, 2),   # 2^1 x 2^1"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(3, 3, 4),   # 2^2 x 2^2"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(1, 1, 1),   # 2^0 x 2^0 (individual pixels)"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(8, 8, 1),   # 2^0 x 2^0"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for row, col, size in blocks:"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "place_block(matrix, row, col, size)"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return matrix"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "def compress_to_blocks():"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"\"\"Represent the matrix as a list of (row, col, size) tuples\"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return ["
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(0, 4, 2), (8, 4, 2), (4, 0, 2), (4, 8, 2),  # 2x2 blocks"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(3, 3, 4),  # 4x4 block"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(1, 1, 1), (8, 8, 1)  # 1x1 blocks"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "def expand_from_blocks(blocks, width=10, height=10):"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"\"\"Reconstruct matrix from compressed block representation\"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "matrix = [[0 for _ in range(width)] for _ in range(height)]"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for row, col, size in blocks:"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "place_block(matrix, row, col, size)"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return matrix"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"\\n\" + \"=\"*50)"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"Method 1 - Hierarchical generation:\")"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hierarchical = generate_hierarchical_matrix()"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for row in hierarchical:"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(''.join(map(str, row)))"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(f\"\\nMatches original: {hierarchical == original}\")"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"\\n\" + \"=\"*50)"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(\"Method 4 - Compressed representation:\")"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "compressed = compress_to_blocks()"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(f\"Compressed to {len(compressed)} blocks: {compressed}\")"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "expanded = expand_from_blocks(compressed)"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for row in expanded:"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(''.join(map(str, row)))"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(f\"\\nMatches original: {expanded == original}\")"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "original_storage = 10 * 10  # 100 elements"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "compressed_storage = len(compressed) * 3  # 7 tuples of 3 elements each"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(f\"\\nCompression: {original_storage} elements -> {compressed_storage} tuples\")"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "print(f\"Compression ratio: {compressed_storage/original_storage:.2%}\")"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "![image.png](Logo/image.png)"
+        }
+      ]
+    }
+  ]
+}

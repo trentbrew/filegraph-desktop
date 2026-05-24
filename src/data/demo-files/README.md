@@ -1,0 +1,115 @@
+# Filegraph Demo Files
+
+This directory contains demo files that showcase Filegraph's custom file extensions and interconnected data relationships.
+
+## Namespace Architecture (RFC-002)
+
+This demo vault follows the RFC-002 ontology with structured namespaces:
+
+| Namespace    | Purpose  | Description                                          |
+| ------------ | -------- | ---------------------------------------------------- |
+| `@system/`   | System   | Configuration, metadata, federated graph             |
+| `@entities/` | Entities | Core referenceable objects (people, projects, tasks) |
+| `@finance/`  | Domain   | Personal finance with dedicated schemas              |
+| `@notes/`    | Content  | Prose and documentation                              |
+| `@canvases/` | Content  | Visual workspaces                                    |
+
+## Two Demo Scenarios
+
+### 1. TechStart Portfolio Website Project
+
+A small creative agency is building a modern portfolio website for TechStart, an AI startup. This scenario demonstrates project management workflows.
+
+### 2. Personal Finance Dashboard
+
+A comprehensive personal finance system demonstrating data relationships between accounts, bills, income, expenses, and financial goals.
+
+## File Structure
+
+### System Files
+
+- **`@system/_graph_.data`** - Federated graph of entire vault state
+- **`@system/config.data`** - Vault configuration and settings
+
+### Entity Files (RFC-002 Centralized)
+
+- **`@entities/_graph_.data`** - Federated graph of all entities
+- **`@entities/people.data`** - All people/contacts (Sarah, Marcus, Emma, Alex)
+- **`@entities/organizations.data`** - All organizations (TechStart, Creative Agency)
+- **`@entities/projects.data`** - All projects (Portfolio Website)
+- **`@entities/tasks.data`** - All tasks with assignments and milestones
+- **`@entities/milestones.data`** - Project milestones with progress tracking
+
+### Finance Files (Domain-Specific)
+
+- **`@finance/_graph_.data`** - Federated graph of financial data
+- **`@finance/accounts.data`** - Bank accounts (checking, savings, credit)
+- **`@finance/bills.data`** - Recurring bills linked to accounts
+- **`@finance/income.data`** - Income sources and payment schedules
+- **`@finance/expenses.data`** - Expense tracking with categories
+- **`@finance/transactions.data`** - Transaction history with account references
+- **`@finance/goals.data`** - Financial goals with target tracking
+- **`@finance/insurance.data`** - Insurance policies and coverage
+- **`@finance/taxes.data`** - Tax-related data and deductions
+- **`@finance/dashboard.data`** - Summary dashboard with computed fields
+
+### Content Files
+
+- **`@notes/project-kickoff-notes.note`** - Meeting notes with [[wikilinks]] to entities
+- **`@canvases/project-roadmap.canvas`** - Visual project phases and dependencies
+- **`@canvases/finance-overview.whiteboard`** - Excalidraw diagram of money flow
+
+## Key Features Demonstrated
+
+### Cross-File References
+
+The demo files showcase bi-directional linking:
+
+| Source File               | References  | Target                                                    |
+| ------------------------- | ----------- | --------------------------------------------------------- |
+| `@finance/bills.data`     | `account`   | `acc:checking:001` in `@finance/accounts.data`            |
+| `@entities/tasks.data`    | `assignee`  | `person:sarah:001` in `@entities/people.data`             |
+| `@entities/tasks.data`    | `project`   | `proj:portfolio-website:001` in `@entities/projects.data` |
+| `@entities/tasks.data`    | `milestone` | `ms:mvp:001` in `@entities/milestones.data`               |
+| `@entities/projects.data` | `client`    | `org:techstart:001` in `@entities/organizations.data`     |
+| `@finance/income.data`    | `account`   | `acc:checking:001` in `@finance/accounts.data`            |
+
+### Entity ID Format
+
+All entities follow the `namespace:slug:index` pattern:
+
+- `person:sarah:001` - Sarah Chen (team member)
+- `acc:checking:001` - Primary checking account
+- `bill:rent:001` - Monthly rent payment
+- `proj:portfolio-website:001` - Portfolio project
+
+### Computed Fields
+
+Files use `@expr` for dynamic calculations:
+
+- Monthly totals from recurring items
+- Project progress percentages
+- Account balance summaries
+
+## File Types
+
+| Extension     | Purpose                     | Example                   |
+| ------------- | --------------------------- | ------------------------- |
+| `.data`       | Structured JSON-LD data     | Projects, accounts, tasks |
+| `.note`       | Rich markdown documentation | Meeting notes, docs       |
+| `.canvas`     | ReactFlow node diagrams     | Project roadmaps          |
+| `.whiteboard` | Excalidraw drawings         | Finance flowcharts        |
+
+## Reset Demo Files
+
+To regenerate demo files:
+
+1. Delete the `.onboarding-complete` marker in your Filegraph vault
+2. Restart the application
+3. Demo files will be re-copied on next launch
+
+Or use the command: `just reset`
+
+---
+
+_Generated by Filegraph Onboarding Service_

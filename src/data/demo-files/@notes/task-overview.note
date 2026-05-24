@@ -1,0 +1,449 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-142",
+  "title": "Task Overview",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Task Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🌱 1. Project Setup"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Confirm all stakeholders have access to the document"
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Finalize primary contacts & ensure communication channels (Slack, email, meetings) are set up"
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Verify all necessary access credentials (WordPress, Webflow, Eventbrite, WooCommerce, etc.)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "📌 2. Planning & Research (Weeks 1-4)"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Audit existing WordPress site (plugins, pages, integrations)"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Draft a technical requirements document"
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Map out content migration & site architecture"
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Confirm all required tools & third-party services (MemberPress, Eventbrite, etc.)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎨 3. Design & Architecture (Weeks 4-9)"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Build wireframes & prototypes"
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Finalize design system & component library"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  Configure Webflow CMS & integrations"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Set up necessary third-party tools (MemberStack, Webflow Forms, etc.)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🛠️ 4. Development & Migration (Weeks 9-15)"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Build core website templates & pages"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Migrate and optimize content (text, media, forms, memberships)"
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Implement redirects & SEO optimizations"
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Ensure all integrations (Eventbrite, analytics, MemberPress replacement) are in place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔍 5. Testing & QA (Weeks 15-17)"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Run full website QA (performance, security, cross-browser testing)"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Check accessibility compliance"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Fix bugs, optimize loading speed"
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Validate integrations & data integrity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🚀 6. Launch Prep & Deployment (Week 17)"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Train stakeholders on Webflow & new workflows"
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Finalize domain setup & DNS configurations"
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Perform pre-launch checklist"
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Deploy site & monitor for any post-launch issues"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔧 7. Post-Launch Support (Weeks 17-19)"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Address early-stage issues & optimize as needed"
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Continue stakeholder training"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Finalize documentation & handoff"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "📑 8. Admin & Wrap-Up"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Confirm final payments & approvals"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Ensure ongoing support plan (if applicable)"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Collect feedback for future improvements"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1874 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-66",
+  "title": "Open Source Licenses",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Open Source Licenses"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This document provides a comprehensive overview of the open source licenses for the software packages utilized in Docket TV. Understanding these licenses is essential for ensuring compliance with legal standards and evaluating the implications on our ability to secure trademarks and potentially patent aspects of our intellectual property."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is a detailed list of each software package used within our platform, accompanied by its respective open source license, along with explanations of what these licenses entail and their legal implications for Docket TV."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Understanding Open Source Licenses"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Open source licenses are formal legal frameworks that dictate how software can be freely used, altered, and shared. These licenses are crucial for managing software rights and responsibilities, ensuring that developers can contribute to and evolve projects while maintaining legal clarity. Open source licenses come in various forms, each with its own set of permissions and constraints. Permissive licenses, such as the [MIT](https://opensource.org/license/mit) and [Apache](https://www.apache.org/licenses/LICENSE-2.0) licenses, offer minimal restrictions, promoting a broader dissemination and utilization of the software. On the other hand, copyleft licenses, like the GNU General Public License (GPL), require that any derivative works also be distributed under the same license terms, thus ensuring that the freedoms to use, modify, and share are preserved in all downstream derivatives."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Understanding Node Modules (NPM Packages)"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Node modules are integral components of application development, consisting of packages of code that can be installed via the Node Package Manager (NPM). These modules, which Docket TV utilizes extensively, contain reusable code that enhances functionality and efficiency across various aspects of our platform. Each node module comes with an open source license that dictates its usage, distribution, and modification rights. By meticulously adhering to these licenses, Docket TV ensures compliance with legal standards and respects the intellectual property rights of the developers who have contributed to these modules, thereby maintaining the integrity and legal standing of our broadcasting platform."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket TV uses a variety of open source licenses for its software packages. Below is a detailed list of each license, along with a breakdown of what they permit and restrict for Docket TV."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. MIT License"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The MIT license is one of the most permissive and flexible open source licenses. It allows users to do anything they wish with the code, provided they include the original copyright notice and license. This means that proprietary adaptations of the software are possible."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket TV uses 44 dependencies under the MIT License:"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@bhplugin/vue3-datatable**](https://www.npmjs.com/package/@bhplugin/vue3-datatable)"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@bruu/utils**](https://www.npmjs.com/package/@bruu/utils)"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@infectoone/vue-ganttastic**](https://www.npmjs.com/package/@infectoone/vue-ganttastic)"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@nuxt/cli**](https://www.npmjs.com/package/@nuxt/cli)"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@nuxt/ui**](https://www.npmjs.com/package/@nuxt/ui)"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@pinia/nuxt**](https://www.npmjs.com/package/@pinia/nuxt)"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@schedule-x/calendar**](https://www.npmjs.com/package/@schedule-x/calendar)"
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@schedule-x/calendar-controls**](https://www.npmjs.com/package/@schedule-x/calendar-controls)"
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@schedule-x/current-time**](https://www.npmjs.com/package/@schedule-x/current-time)"
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@schedule-x/event-modal**](https://www.npmjs.com/package/@schedule-x/event-modal)"
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@schedule-x/event-recurrence**](https://www.npmjs.com/package/@schedule-x/event-recurrence)"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@schedule-x/scroll-controller**](https://www.npmjs.com/package/@schedule-x/scroll-controller)"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@schedule-x/theme-default**](https://www.npmjs.com/package/@schedule-x/theme-default)"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@schedule-x/vue**](https://www.npmjs.com/package/@schedule-x/vue)"
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@sondh0127/vue-epg-planby**](https://www.npmjs.com/package/@sondh0127/vue-epg-planby)"
+            }
+          ]
+        },
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@supabase/supabase-js**](https://www.npmjs.com/package/@supabase/supabase-js)"
+            }
+          ]
+        },
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@vee-validate/rules**](https://www.npmjs.com/package/@vee-validate/rules)"
+            }
+          ]
+        },
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**axios**](https://www.npmjs.com/package/axios)"
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**daisyui**](https://www.npmjs.com/package/daisyui)"
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**date-fns**](https://www.npmjs.com/package/date-fns)"
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**filepond**](https://www.npmjs.com/package/filepond)"
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**frappe-gantt**](https://www.npmjs.com/package/frappe-gantt)"
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**pinia**](https://www.npmjs.com/package/pinia)"
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**pocketbase**](https://www.npmjs.com/package/pocketbase)"
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**prettier**](https://www.npmjs.com/package/prettier)"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**stripe**](https://www.npmjs.com/package/stripe)"
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**vee-validate**](https://www.npmjs.com/package/vee-validate)"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**yup**](https://www.npmjs.com/package/yup)"
+            }
+          ]
+        },
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@tailwindcss/typography**](https://www.npmjs.com/package/@tailwindcss/typography)"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**autoprefixer**](https://www.npmjs.com/package/autoprefixer)"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**nuxt**](https://www.npmjs.com/package/nuxt)"
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**postcss**](https://www.npmjs.com/package/postcss)"
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**sass**](https://www.npmjs.com/package/sass)"
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**sass-loader**](https://www.npmjs.com/package/sass-loader)"
+            }
+          ]
+        },
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**tailwindcss**](https://www.npmjs.com/package/tailwindcss)"
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**chalk**](https://www.npmjs.com/package/chalk)"
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**cheerio**](https://www.npmjs.com/package/cheerio)"
+            }
+          ]
+        },
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**cors**](https://www.npmjs.com/package/cors)"
+            }
+          ]
+        },
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**express**](https://www.npmjs.com/package/express)"
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**prettyjson**](https://www.npmjs.com/package/prettyjson)"
+            }
+          ]
+        },
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**zod**](https://www.npmjs.com/package/zod)"
+            }
+          ]
+        },
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**nodemon**](https://www.npmjs.com/package/nodemon)"
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**ts-node**](https://www.npmjs.com/package/ts-node)"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**http-proxy-middleware**](https://www.npmjs.com/package/http-proxy-middleware)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Key features of this license:"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Freedom to Use:** The software can be utilized for a wide range of purposes, encompassing both personal and commercial applications, without any restrictions on the nature of the usage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Restrictions and limitations for Docket TV:"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The MIT License allows Docket TV to use these dependencies freely, modify them, and distribute them as part of our platform, provided that the original copyright notice and license are included in the distribution. This license grants Docket TV the flexibility to incorporate these software packages into our application without restrictions on usage or distribution."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "References"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[https://opensource.org/license/mit](https://opensource.org/license/mit)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Apache License 2.0"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Apache License 2.0 is a liberal license that allows users the freedom to use the software for any purpose, to distribute it, to modify it, and to distribute modified versions of the software, under the terms of the license itself. It also provides an express grant of patent rights from contributors to users."
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket TV uses 6 dependencies under the Apache License 2.0:"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@ai-sdk/google**](https://www.npmjs.com/package/@ai-sdk/google)"
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@ai-sdk/openai**](https://www.npmjs.com/package/@ai-sdk/openai)"
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**ai**](https://www.npmjs.com/package/ai)"
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**echarts**](https://www.npmjs.com/package/echarts)"
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**ejs**](https://www.npmjs.com/package/ejs)"
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**jsdoc**](https://www.npmjs.com/package/jsdoc)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Key features of this license:"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-84",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Freedom of Use:** Users can use the software for any purpose without restrictions."
+            }
+          ]
+        },
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Modification and Redistribution:** Users are free to modify the software and distribute their modified versions, ensuring that innovations can be shared and built upon."
+            }
+          ]
+        },
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Patent Grant:** The license explicitly grants patent rights from contributors to the users, which means that users are protected from patent claims by the contributors."
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Protection Against Trademark Abuse:** It does not grant trademark rights, thus protecting the integrity of the trademark owner's brand."
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Retention of Copyright Notices:** When users distribute the software, they must provide recipients with a copy of the license and any notices. This ensures that all recipients are aware of their rights under the license."
+            }
+          ]
+        },
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**State Changes:** Requires modified versions to be marked as changed, so that problems introduced by others are not attributed erroneously to the original authors."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Restrictions and limitations for Docket TV:"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Liability:** The license includes a disclaimer of liability, stating that the software is provided \"as is\" without any warranties or guarantees. Users must acknowledge this disclaimer and understand that the software may not be error-free."
+            }
+          ]
+        },
+        {
+          "id": "b-93",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Trademark Use:** The license does not grant any rights to use the names, logos, or trademarks of the original authors for promotional purposes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Apache License 2.0 grants Docket TV the freedom to use, modify, and distribute these dependencies without restrictions, while also providing protection against patent claims and ensuring that copyright notices are retained in distributed copies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "References"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-99",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Mozilla Public License 2.0"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The MPL 2.0 is a weak copyleft license that allows contributors to combine the MPL software with proprietary code. Modifications to the MPL-covered code must be released under the MPL, but new files or additions can be licensed differently."
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket TV uses 1 dependency under the Mozilla Public License 2.0:"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**@vercel/analytics**](https://www.npmjs.com/package/@vercel/analytics)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Key features of this license:"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Universal Usage:** The software can be used for any purpose, including commercial applications."
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Modifiability:** Users are permitted to modify the software."
+            }
+          ]
+        },
+        {
+          "id": "b-110",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Distributable:** Both the original and modified versions of the software can be distributed."
+            }
+          ]
+        },
+        {
+          "id": "b-111",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Attribution Required:** Users must include the original copyright notice in any distributed copies."
+            }
+          ]
+        },
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**As-Is Provision:** The software is provided \"as is\" without any warranty."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Restrictions and limitations for Docket TV:"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Copyleft Provision:** Any modifications to MPL-covered code must remain under the MPL, though new files or additions can be licensed under different terms."
+            }
+          ]
+        },
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Patent Rights:** The MPL grants a license to any patents held by contributors that are necessary to operate the software."
+            }
+          ]
+        },
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Trademark Use:** The MPL does not allow the use of the original authors' names, logos, or trademarks for promotional purposes."
+            }
+          ]
+        },
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Liability:** The MPL explicitly states that the software is provided \"as is,\" without warranties or guarantees, absolving contributors of liability."
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Compatibility:** The MPL is compatible with the GNU General Public License (GPL) versions 2.0 or later, facilitating the combination of MPL-covered code with GPL-covered code."
+            }
+          ]
+        },
+        {
+          "id": "b-120",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Source Code Availability:** Distributors of the software must make available the source code of any modifications."
+            }
+          ]
+        },
+        {
+          "id": "b-121",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Notice Requirement:** A notice must be included in any modified files to indicate changes made to the original code."
+            }
+          ]
+        },
+        {
+          "id": "b-122",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Patent Termination:** Rights under the MPL are terminated for a user who initiates patent litigation against a contributor related to the software."
+            }
+          ]
+        },
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Jurisdiction:** Legal disputes concerning the software are governed by the laws of the jurisdiction where the software was created."
+            }
+          ]
+        },
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Termination:** Non-compliance with the terms of the MPL can result in the termination of the license."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-127",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The MPL 2.0 allows Docket TV to use, modify, and distribute the software under the terms of the license, provided that the original copyright notice is included in any distributed copies. This license ensures that the software can be freely used and modified while maintaining the integrity of the original author's copyright."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "References"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-130",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[https://www.mozilla.org/en-US/MPL/2.0/](https://www.mozilla.org/en-US/MPL/2.0/)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. ISC License"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The ISC License is a permissive open source license that is functionally equivalent to the MIT License. It is designed to be simple and easy to understand, with minimal restrictions on how the software can be used."
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket TV uses 1 dependency under the ISC License:"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-136",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**fs**](https://nodejs.org/api/fs.html)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Key features of this license:"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-139",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Freedom to Use:** The software is available for any purpose, including commercial applications."
+            }
+          ]
+        },
+        {
+          "id": "b-140",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Modification:** You have the liberty to alter the software to meet your specific requirements."
+            }
+          ]
+        },
+        {
+          "id": "b-141",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Distribution:** You are permitted to distribute both the original and modified versions of the software."
+            }
+          ]
+        },
+        {
+          "id": "b-142",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Attribution:** The sole requirement is to include the original copyright and permission notices in any distributed copies or substantial portions of the software, crediting the original author."
+            }
+          ]
+        },
+        {
+          "id": "b-143",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**No Warranty:** The software is provided \"as is,\" without any guarantees of performance or error-free operation. The author is not liable for any damages that may arise."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Restrictions and limitations for Docket TV:"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-146",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ISC License allows Docket TV to use, modify, and distribute the software without restrictions, provided that the original copyright and permission notices are included in any distributed copies. This license ensures that the software can be freely incorporated into our platform while respecting the rights of the original author."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "References"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-152",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[https://opensource.org/licenses/ISC](https://opensource.org/licenses/ISC)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. BSD-2-Clause License"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The BSD-2-Clause License is a very permissive license that allows almost unrestricted freedom, provided that the copyright notice and the license's disclaimer of warranty are included in the distributions."
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket TV uses 1 dependency under the BSD-2-Clause License:"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-158",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**dotenv**](https://www.npmjs.com/package/dotenv)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Key features of this license:"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-161",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Minimal Restrictions:** The BSD-2-Clause License imposes very few limitations on how the software can be utilized, thereby fostering an environment of substantial freedom for users in both personal and commercial settings. This aspect of the license ensures that developers and companies can integrate and use the software with ease, without the burden of compliance with stringent conditions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Restrictions and limitations for Docket TV:"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-164",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Copyright Notice:** Users must include the copyright notice in any distributed copies of the software."
+            }
+          ]
+        },
+        {
+          "id": "b-165",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Disclaimer of Warranty:** Users must include the disclaimer of warranty provided in the license, which states that the software is provided \"as is\" without any warranty."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-168",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The BSD-2-Clause License permits Docket TV to use, modify, and distribute the software with minimal restrictions. It mandates that the copyright notice and the disclaimer of warranty must be included in any distributed copies. This license facilitates the free integration of the software into our platform while preserving the copyright integrity of the original author."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "References"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-171",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[https://opensource.org/licenses/BSD-2-Clause](https://opensource.org/licenses/BSD-2-Clause)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Custom Licenses"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Some dependencies used in Docket TV are governed by custom licenses that provide specific terms and conditions for their use. These licenses are designed to offer unique features or services while ensuring compliance with legal requirements."
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1 dependency with a custom license is used in Docket TV:"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-177",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[**planby**](https://www.npmjs.com/package/planby)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Breakdown of PLANBY \"OPEN Free\" Plan License"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket TV utilizes the PLANBY open source component for the TV guide schedule UI. PLANBY offers an \"OPEN Free\" plan, which is a custom license designed to provide basic functionalities without cost. This license allows Docket TV to use PLANBY's services for free, subject to certain usage limits and restrictions. Here’s a breakdown of what this means for Docket TV:"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-181",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Cost-Free Basic Features**: The \"OPEN Free\" plan includes basic features that Docket TV can use without incurring direct costs. There are no fees for these features as long as usage limits specified in the terms are not exceeded."
+            }
+          ]
+        },
+        {
+          "id": "b-182",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Monetization Freedom**: Docket TV can generate revenue through its application without owing any licensing fees to PLANBY for the use of the free tier features. This allows for independent monetization while using PLANBY's services."
+            }
+          ]
+        },
+        {
+          "id": "b-183",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Intellectual Property and Customization**: Any intellectual property related to PLANBY's platform remains with PLANBY. The free license restricts extensive customization or proprietary extension of the provided features. For more advanced customization, a higher-tier plan such as PRO or Custom Enterprise may be required."
+            }
+          ]
+        },
+        {
+          "id": "b-184",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Compliance with Terms**: While using the free plan, Docket TV must adhere to all other terms and conditions associated with the plan, including usage policies and data handling practices. It’s important to review these terms to ensure compliance, especially regarding any restrictions on commercial use."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Restrictions and limitations for Docket TV:"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-187",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-190",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The PLANBY \"OPEN Free\" plan license allows Docket TV to use the PLANBY component for TV guide schedule UI without incurring direct costs, subject to usage limits and restrictions. This license provides basic features for free, enabling Docket TV to integrate the TV guide schedule UI into its platform while maintaining compliance with the terms of the license. For detailed terms and conditions, the PLANBY license can be found [here](https://planby.app/docs/planby-license.pdf) for further review."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each license type listed above has been verified to ensure that it does not infringe upon our ability to claim trademarks or patents on proprietary developments or innovations specific to Docket TV. This documentation serves to clarify the legal framework within which our technology operates, safeguarding our business interests and intellectual property rights."
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Understanding the open source licenses of the software packages used in Docket TV is crucial for maintaining legal compliance and protecting our intellectual property rights. By adhering to the terms of these licenses, we can ensure that our platform operates within the boundaries of the law while leveraging the benefits of open source software."
+        }
+      ]
+    }
+  ]
+}

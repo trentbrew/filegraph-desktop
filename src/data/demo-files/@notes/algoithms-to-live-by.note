@@ -1,0 +1,1132 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-204",
+  "title": "Algoithms to Live By",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Algoithms to Live By"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔁 1. **Optimal Stopping (37% Rule)**"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Agent planning, decision trees, retrieval."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: When choosing among plans, prompts, responses, or retrieved documents."
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Sample ~37% of candidates without committing; then select the next superior option."
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- In code generation: evaluate first N completions silently, then accept the first better-than-best."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- In search: traverse ~1/3 of paths deeply, then adopt opportunistic selection thereafter."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎰 2. **Explore / Exploit (Multi-armed Bandit)**"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Fine-tuning exploration strategies in agent behavior, particularly LLM-based loops."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: Balancing between trying new API calls, prompts, workflows, or models vs. reusing known good ones."
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Maintain value estimates of actions and adjust dynamically."
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Thompson Sampling or UCB-like logic to choose between prompt templates or tools."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Log actions/results in `FileGraph`; adapt based on performance."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔀 3. **Sorting**"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Efficient internal memory, caching priorities, workflow ordering."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: Task triage, file prioritization, retrieval ranking."
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Dynamically order tasks/files using relevance or urgency metrics."
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Sorting mechanisms on `next_actions`, `attention_scores`, or graph traversal costs."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Plug in merge sort or quicksort analogs for efficiency in ranked decision queues."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧠 4. **Caching**"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Memory management, retrieval efficiency, cost optimization."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: Keeping relevant summaries or embeddings in memory; avoiding redundant LLM calls."
+            }
+          ]
+        },
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Store frequent queries/responses; evict low-utility items over time."
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- LRU caches for embeddings or API calls."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Memory graphs with retention scores (already exists in your system—perfect hook!)."
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "📅 5. **Scheduling**"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Task execution strategy, agent time management."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: Choosing which task to do next under constraints."
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Prioritize based on deadline, cost, or impact."
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use `shortest processing time`, `earliest due date`, or `critical path` logic on a task DAG."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Tied to `task graphs` or justfile DAGs—plan agent work intervals this way."
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧮 6. **Bayes’ Rule**"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Belief updating, confidence estimation, hypothesis tracking."
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: Evaluating user feedback, environment changes, or internal results."
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Update internal probabilities as new evidence arrives."
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Each hypothesis gets an `epistemic_status` + `confidence`; updated with data."
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Could drive prompt routing or tool selection."
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧩 7. **Overfitting**"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Generalization in planning, avoiding brittle automation."
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: Preventing agents from tailoring plans too tightly to old data or one-off situations."
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Seek simple, robust abstractions; avoid excess specificity."
+            }
+          ]
+        },
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Regularize plans (minimize depth, branches)."
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Prefer simple prompt schemas unless complexity is justified by observed variance."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧘 8. **Relaxation**"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Dealing with intractable or ambiguous prompts."
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: When stuck or overloaded—generate approximate answers or relax constraints."
+            }
+          ]
+        },
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: “Take the win”—defer, approximate, chunk, or fallback."
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Multi-step plans begin with relaxed constraints and refine over time."
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Agents can propose “good enough for now” solutions explicitly."
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎲 9. **Randomness**"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Avoiding local maxima, increasing creativity."
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: Generating ideas, naming, or when determinism leads to stagnation."
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Occasionally inject randomness—especially early in a process."
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Temperature scheduling."
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Random prompt permutations or orderings."
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Stochastic routing of task paths."
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🌐 10. **Networking**"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Graph-based knowledge + action flows (your system already nails this)."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: Agent reasoning over entity graphs; collaborative agent ecosystems."
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Reason about relationships and connectivity across knowledge."
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Leverage FileGraph edges to infer dependencies, influences, or propagation paths."
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎮 11. **Game Theory**"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "*Application*: Multi-agent coordination, adversarial prompts, strategic planning."
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use case**: When agents work alongside, or against, each other (or humans)."
+            }
+          ]
+        },
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent behavior**: Model intentions, simulate responses, plan cooperatively."
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Utility functions per agent."
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Nash equilibrium approximations when selecting actions in uncertain or strategic spaces."
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "⛓️ Agent Design Insight: **Hybrid Loop**"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```mermaid"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "flowchart TD"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A[Hypothesis] --> B[Bayesian Update]"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "B --> C[Exploration Phase]"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C --> D[Plan Candidates]"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "D --> E[Optimal Stopping: Evaluate ~37%]"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "E --> F[Commit to Best So Far]"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "F --> G[Cache, Sort, Schedule]"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "G --> H[Relax/Retry if Blocked]"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "H --> I[Execute Plan]"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I --> J[Update Network Graph + Beliefs]"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    }
+  ]
+}

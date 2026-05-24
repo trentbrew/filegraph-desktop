@@ -1,0 +1,592 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-316",
+  "title": "Product Order Fulfilment Process (New Stack)",
+  "author": "person:jane-brew:001",
+  "status": "reviewing",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Product Order Fulfilment Process (New Stack)"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "End-to-end order fulfillment for a **Webflow Ecommerce** storefront using **Stripe** for payments and **ShipStation** for shipping + ops. Webflow handles checkout, orders, and emails; ShipStation handles rate shopping, labels, and tracking write-back. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders), [ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Stack"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow (storefront, orders, emails) ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders))"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stripe (payments + wallets) ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961361368979-Connect-a-payment-provider?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ShipStation (imports orders, creates labels, sends tracking back to Webflow) ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Diagram"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Customer → **Webflow Checkout (Stripe)** → **Order: Unfulfilled** → **ShipStation** (rate shop, label) → **ShipStation → Webflow** (tracking + carrier/service) → **Webflow “Order shipped” email**. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow), [Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders))"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "![image.png](Product%20Order%20Fulfilment%20Process%20(New%20Stack)/image.png)"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. 🛍️ Customer Places an Order (Webflow + Stripe)"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customer checks out on Webflow; pays via Stripe (cards + Apple/Google Pay via Web Payments)."
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow creates the order and emails both the customer and store manager."
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initial status: **Unfulfilled** (maps to **Awaiting Shipment** in ShipStation). ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders), [ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. 🧾 Webflow Captures the Order"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Order stored in Webflow; visible in Designer/Editor **Orders**."
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow’s order emails are customizable in the Designer. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. 🔄 Sync with ShipStation"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Official **Webflow ↔ ShipStation** app connection (V2 as of Mar 2025)."
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ShipStation imports orders + key fields (customer email/phone, item weights/options/images, requested service, etc.)."
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Status mapping: Webflow **unfulfilled/fulfilled/refunded** → ShipStation **Awaiting Shipment/Shipped/Cancelled**. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. 📦 Label Creation (ShipStation)"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Staff reviews orders, applies automation rules/presets, chooses carrier/service, and prints labels. (Standard ShipStation workflow.) ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/360026157731-Track-Shipments?utm_source=chatgpt.com))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. 🏷️ Fulfillment + Tracking Sync Back"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When you create/ship in ShipStation, it **sends back** to Webflow: **status update**, **tracking number**, **carrier**, and **service**."
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow shows tracking/provider on the order. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow), [Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961377975059-Orders-tab?utm_source=chatgpt.com))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. 📬 Customer Notification"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As soon as the order is fulfilled, **Webflow can email** the customer the shipping + tracking details."
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optionally, **ShipStation** can send shipment + delivery emails (since it imports customer email). Pick one system to avoid duplicates. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders), [ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "7. 🔁 Post-Fulfillment"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Inventory + analytics in Webflow as usual; Stripe handles payouts/disputes on Stripe’s schedule. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders))"
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Returns:** Use ShipStation’s **Branded Returns Portal** (self-service label creation). Note: the new “Returns & Exchanges” workflow is Shopify-specific; for Webflow, use Branded Returns / legacy portal features. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/38629172854043-Returns-Exchanges?utm_source=chatgpt.com))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🛠️ Optional Automations & Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ShipStation**: automation rules, product/ship presets, branded labels/packing slips, batching. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/360026157731-Track-Shipments?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Webflow**: bulk fulfill with provider + tracking; customize email templates. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961377975059-Orders-tab?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Zapier/Make**: side-flows (Slack alerts, CRM sync). (Supplemental; not required because ShipStation is native.) ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔍 Considerations / “Gotchas”"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Shipping rates at checkout:** Webflow uses **rule-based** methods (flat/price/qty/weight by zone). It does **not** natively calculate carrier live rates at checkout. Rate shopping happens in ShipStation **after** order creation. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961431933843-Configure-shipping-methods-for-different-shipping-zones?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Notifications:** Decide whether Webflow or ShipStation sends ship/delivery emails (not both). ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961386623251-Process-and-manage-orders), [ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**2025 change:** The ShipStation connector moved to **Webflow V2**—make sure you connect/reconfigure on that version. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Differences from Current (Woo + Easyship)"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Checkout & payments:** Woo + gateway → **Webflow + Stripe (wallets supported)**. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961361368979-Connect-a-payment-provider?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Fulfillment app:** Easyship → **ShipStation** (native Webflow app; writes back tracking + carrier/service). ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/5101261717147-Webflow))"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Rates at checkout:** Easyship can show live/duties on supported platforms; **Webflow doesn’t natively**—you’ll define shipping rules instead. ([Webflow Help Center](https://help.webflow.com/hc/en-us/articles/33961431933843-Configure-shipping-methods-for-different-shipping-zones?utm_source=chatgpt.com))"
+            }
+          ]
+        },
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Returns:** Easyship labels vs **ShipStation Branded Returns Portal** for self-serve. ([ShipStation Help](https://help.shipstation.com/hc/en-us/articles/360026158371-Branded-Returns-Portal?utm_source=chatgpt.com))"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

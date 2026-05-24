@@ -1,0 +1,290 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-370",
+  "title": "Dots",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Dots"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Looking at your reference image and the current ScrollDots implementation, I believe the goal is to create a sophisticated masking effect where:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**My Understanding of the Goal**"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Core Objective**: Transform the ScrollDots component so the dots act as \"holes\" or \"windows\" that progressively reveal hidden content layered beneath the main background image, creating an effect where:"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Layered Backgrounds**: We have multiple background layers stacked:"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Bottom layer**: Hidden content (could be text, patterns, or different imagery)"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Top layer**: Main background image that initially obscures everything"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Dots as Masks**: Each dot that appears during scroll acts as a \"hole\" that:"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Punches through the main background image layer"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Reveals the hidden content underneath at that exact position"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Creates the illusion of content being revealed/eroded as more dots appear"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Progressive Reveal**: As the user scrolls:"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Individual dots appear (like raindrops)"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Each dot reveals the underlying content through its \"hole\""
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Eventually, enough dots accumulate to create larger revealed areas"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The overall effect builds to a dramatic content reveal"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Visual Effect**: This matches your reference image where:"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Stage 1: Clean image (no dots)"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Stage 2: Dots appear like raindrops, each revealing underlying content"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Stage 3: Dots fill the screen, fully revealing the hidden content beneath"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Technical Approach**"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This would require:"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**CSS/SVG Masking**: Using advanced masking techniques to create transparent holes"
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Layered Backgrounds**: Multiple positioned background layers"
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Precise Positioning**: Each dot's position must create a corresponding hole in the mask"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Performance Optimization**: Efficient rendering of potentially hundreds of mask elements"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Is this understanding aligned with your vision?** If so, we can proceed to outline a comprehensive implementation plan that builds on the existing ScrollDots component while adding these sophisticated masking capabilities."
+        }
+      ]
+    }
+  ]
+}

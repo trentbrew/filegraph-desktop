@@ -1,0 +1,281 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-365",
+  "title": "Unit Testing Prompt",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Unit Testing Prompt"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You are tasked with fixing failing unit tests. Your goal is to make the tests pass through proper implementation, not by taking shortcuts or over-fitting to the specific test cases."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Key Requirements:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**No Over-fitting:**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don't hardcode specific values or responses that only work for the current test cases"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement the actual business logic and algorithms as intended"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consider edge cases and scenarios beyond what's explicitly tested"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Write code that would work correctly for similar inputs not covered by tests"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**No Shortcuts:**"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don't modify or comment out test assertions to make them \"pass\""
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don't mock or stub functionality that should be genuinely implemented"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don't use try/catch blocks to silently ignore errors unless error handling is the intended behavior"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don't return hardcoded values without proper computation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Proper Implementation Approach:**"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Analyze what each failing test is actually trying to verify"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Understand the expected behavior and business requirements"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Implement the underlying functionality correctly"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Ensure your solution handles the general case, not just the test scenarios"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Consider performance, maintainability, and code quality"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Before submitting your solution:**"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Run all tests to ensure you haven't broken existing functionality"
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verify your implementation makes logical sense beyond just passing tests"
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Check that your code follows established patterns and conventions in the codebase"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consider if your solution would handle reasonable variations of the input"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Remember: The tests are specifications for the desired behavior. Your job is to implement that behavior correctly, not to game the tests."
+        }
+      ]
+    }
+  ]
+}

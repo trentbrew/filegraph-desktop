@@ -1,0 +1,395 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-52",
+  "title": "Content Types",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Content Types"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** A structured, episodic format with multiple seasons and a consistent release schedule."
+            }
+          ]
+        },
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use Case:** TV shows, web series, or any ongoing content with episodes released over time."
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Form/Flow/Procedure:** This will include fields for season numbers, episode numbers, air dates, and potentially metadata integration with services like IMDB or TMDb."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** A one-time, feature-length film that typically runs between 70-180 minutes."
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use Case:** Theatrical releases, made-for-TV movies, or direct-to-streaming films."
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Form/Flow/Procedure:** This could include metadata integration (IMDB), fields for runtime, release date, director, cast, and synopsis."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** A one-time event or unique content that doesn’t fit the structure of a series or movie."
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use Case:** Holiday specials, documentaries, breaking news coverage, live events, charity broadcasts, or any unique content."
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Form/Flow/Procedure:** More flexible, with customizable fields depending on the nature of the special (e.g., live air date/time, description, event duration). You could allow producers to specify the type or theme of the special to tailor the form further."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** A live broadcast or pre-recorded event intended for a specific time, often with a more interactive or community-focused element."
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use Case:** Award shows, sports events, live concerts, church services, conferences."
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Form/Flow/Procedure:** Would include fields for live start time, expected duration, possibly options for viewer interaction, and post-event archiving."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** A short-run series with a predefined number of episodes, often with a narrative arc that concludes by the end."
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use Case:** Limited-run TV series, docuseries, or special event series."
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Form/Flow/Procedure:** Similar to a series but with a defined end, including fields for total episodes, air dates, and season structure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** Content that doesn’t fit into any of the above categories, typically a standalone piece."
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use Case:** Pilot episodes, stand-alone documentaries, single-episode content, or experimental projects."
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Form/Flow/Procedure:** Minimal fields with flexibility for the producer to describe the content in detail."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** Previously aired content that is being re-broadcast or archived for future viewing."
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Use Case:** Old series reruns, classic movies, special event re-airings."
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Form/Flow/Procedure:** Focused on the original air date, reason for re-airing, and metadata linking to the original content."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

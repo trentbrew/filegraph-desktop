@@ -1,0 +1,57 @@
+{
+  "@context": {
+    "fg": "https://filegraph.local/"
+  },
+  "@id": "fg:system:memories",
+  "@type": "AgentMemories",
+  "description": "Long-term memory storage for the Filegraph agent. Contains important facts, preferences, and context learned from conversations.",
+  "memories": [
+    {
+      "id": "mem:001",
+      "created_at": "2025-12-17T00:00:00Z",
+      "last_accessed": "2025-12-17T00:00:00Z",
+      "content": "User prefers Ollama with llava models for local image description and AI inference",
+      "importance": 0.8,
+      "category": "preferences",
+      "tags": ["llm", "ollama", "local-ai"],
+      "source": "conversation"
+    },
+    {
+      "id": "mem:002",
+      "created_at": "2025-12-17T00:00:00Z",
+      "last_accessed": "2025-12-17T00:00:00Z",
+      "content": "Default vault path is ~/.filegraph - the Home button should navigate here",
+      "importance": 0.9,
+      "category": "system",
+      "tags": ["vault", "navigation", "defaults"],
+      "source": "conversation"
+    },
+    {
+      "id": "mem:003",
+      "created_at": "2025-12-17T00:00:00Z",
+      "last_accessed": "2025-12-17T00:00:00Z",
+      "content": "Always use pnpm instead of npm or yarn for this project",
+      "importance": 1.0,
+      "category": "development",
+      "tags": ["package-manager", "pnpm", "tooling"],
+      "source": "conversation"
+    },
+    {
+      "id": "mem:004",
+      "created_at": "2025-12-17T00:00:00Z",
+      "last_accessed": "2025-12-17T00:00:00Z",
+      "content": "User values direct, autonomous agent behavior - act first, explain after",
+      "importance": 0.95,
+      "category": "preferences",
+      "tags": ["agent-behavior", "communication"],
+      "source": "user-profile"
+    }
+  ],
+  "settings": {
+    "max_memories": 1000,
+    "auto_prune": true,
+    "prune_threshold": 0.2,
+    "importance_decay_rate": 0.01,
+    "access_boost": 0.05
+  }
+}

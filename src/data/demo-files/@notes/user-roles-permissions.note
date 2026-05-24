@@ -1,0 +1,219 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-59",
+  "title": "User Roles & Permissions",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "User Roles & Permissions"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Navigating the relationship between organizations like Speak MPLS and their members (creators/producers) within the [Docket.tv](http://docket.tv/) platform is a nuanced challenge."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "By considering these aspects, [Docket.tv](http://docket.tv/) can cater to the diverse needs of organizations and creators, ensuring the platform is versatile enough to support different operational models. This approach not only accommodates the unique relationship between Speak MPLS and its members but also sets a foundation for other organizations with varying structures and needs."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here are some thoughts on how this relationship could be structured to maintain flexibility while catering to both generic and specific needs:"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Roles and Permissions**: Implement a robust system of roles and permissions within the platform. This system would allow organizations to have administrative control over their content and interactions with creators. For instance, Speak MPLS could have an 'Organization' account with permissions to manage content, schedule broadcasts, and invite creators. Meanwhile, members (creators) would have individual accounts with permissions tailored to creating, editing, and managing their content. This structure supports a hierarchy of control while empowering creators with autonomy over their work."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Collaboration Features**: Introduce features that facilitate collaboration between organizations and creators. This could include shared workspaces, content co-creation tools, and communication channels within the platform. For Speak MPLS, this means providing a digital extension of their physical studio space, where members can collaborate on projects, share resources, and communicate more efficiently."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Content Ownership and Attribution**: Clearly define content ownership and attribution mechanisms. This is crucial for organizations that produce their own content or host content from various creators. The platform could allow organizations like Speak MPLS to attribute content to individual creators (members) while maintaining the organization's overarching brand presence. This approach respects creators' intellectual property while aligning with the organization's content distribution goals."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Customizable Profiles**: Offer customizable profiles for both organizations and creators. Organizations can highlight their mission, available resources (like studio space and equipment rental), and featured content. Creators can showcase their portfolios, upcoming projects, and collaborations. This feature would help Speak MPLS members to build their personal brand within the community while remaining connected to the organization."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Engagement and Analytics Tools**: Provide both organizations and creators with tools to track engagement and analytics. While organizations might focus on overall platform performance and content reach, creators could benefit from insights into their specific content's performance. This dual approach ensures that both parties have the data they need to grow and engage their audience effectively."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Flexible Content Management**: Develop a content management system that accommodates various organizational structures. Some organizations might produce content in-house, while others, like Speak MPLS, facilitate content creation by providing resources to members. The platform should allow for this flexibility, enabling organizations to either directly manage content or delegate content management to individual creators."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Organizations**: The organization entity includes fields that suggest it can have multiple admins, producers, and users, which aligns with the \"Has Many\" relationship to Creators in the diagram."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Creators**: This likely corresponds to your user entity, which has fields for personal information and a link to an organization through the organization field. The user entity could also be related to producers in your schema, as they are a type of creator."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Videos**: This could be represented by your show entity, which includes details about individual shows or videos, their production, and scheduling."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Viewers**: There isn't a direct viewer entity in your schema, but it could be inferred that users can also be viewers, especially if there's functionality in your application that differentiates between user roles (e.g., admin, producer, viewer)."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Subscriptions**: There's no direct mention of a subscription entity in your schema, but there are fields like active_subscription in the organization entity that suggest the presence of subscription management."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Interactions**: This could be related to the chat entity, where interactions between users can take place. Additionally, notifications and tasks could also be considered forms of interaction."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**To ensure full alignment, we might want to consider the following:**"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Explicitly defining a viewer entity if there are specific attributes or relationships that differentiate viewers from other users."
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Adding a subscription entity to manage the details of subscriptions if they are more complex than a simple boolean flag."
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clarifying how interactions are tracked beyond chats, such as through user engagement with videos or other content."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

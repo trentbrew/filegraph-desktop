@@ -1,0 +1,775 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-334",
+  "title": "Four Week Plan",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Four Week Plan"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Grist & Toll Website:** finish branding, content migration, docs, and ship a polished site."
+            }
+          ]
+        },
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Custom Dashboard (read-only):** one dashboard aggregating Stripe/Webflow/Shippo with analytics + deep-links."
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User** — lead dev (platform + webflow build)"
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Lawan** — lead design (branding, styles, docs)"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Coordinator** — liaison (reviews, comms, asset wrangling)"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Nan** — client (content, approvals, testimonials, video)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Week 1 (Sep 1–7)"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Platform**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- PB schema + indexes (`orgs`, `connections`, `orders`, `order_lines`, `shipments`, `metrics_daily`)."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Hono routes: `GET /api/summary`, `GET /api/orders`, `GET /api/order/:id`."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- GH Action → `POST /admin/tasks/nightly` (Stripe/Webflow pulls; Shippo via webhooks)."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- UI scaffold: Overview + Orders; “Connections” screen (manual keys)."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Deep-links wired (Stripe, Shippo, Webflow Orders index)."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Website**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Done/pre-done: Logo color, remove unused variants, landing video size, EasyShip/Zapier tests, Stripe verification/demo checkout, sign-up for Webflow multi-player."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- In progress to finish: **Frontend branding**, **Update style guide**, **Populate CMS (products)**."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Tasks to kick off:"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Webflow documentation** outline (Lawan)."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Add Lawan to GoDaddy as admin** (User)."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **60-sec video** brief + storyboard (Nan + Coordinator)."
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Testimonials** outreach plan (Nan)."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Product migration** audit (User/Lawan): map spreadsheet → CMS fields."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Review: 30-min weekly with Nan (Coordinator drives agenda)."
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Week 2 (Sep 8–14)"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Website**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Webflow documentation** draft complete (Lawan)."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Product migration** pass 1 (User): import + image handling; spot-check detail pages."
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Start **Blog Post migration** (Lawan) + **Press/News** structure."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Performance pass: confirm landing video compression; hero imagery sizes."
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Review: content + product detail spot-check with Nan (Coordinator coordinates)."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Platform**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Compute **metrics_daily** (7/30/90), AOV, refund %, delivery %."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Shippo webhook handler (transactions + `track_updated`) → update `shipments`."
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Orders table: filters (status/channel/date), joined shipments, action buttons (deep-links)."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Reconciliation subcommands inside nightly job (Stripe ↔ PB, Webflow ↔ PB)."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Week 3 (Sep 15–21)"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Website**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Blog migration** complete; **Press/News** entries added."
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Testimonials** collected; add to site."
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **60-sec video** rough cut for review (Nan/Coordinator)."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Accessibility pass (color, focus, alt text) + content QA checklist."
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Review: full-site walkthrough; capture final changes."
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Platform**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Shipping pane: in-transit vs delivered, avg fulfillment→delivery time."
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Orders detail: joined lines, payments snapshot, shipments, activity timeline."
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Empty/error states, basic access control per org, token encryption."
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Week 4 (Sep 22–29)"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Pocketflow**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Polish (loading states, date/tz formatting, pagination)."
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Liability report (points later; for now refunds/chargebacks rate)."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Docs: setup guide, data dictionary, “Sync Now” admin note."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Ship v0 read-only."
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Website**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Final polish: typos, spacing, link checks; 404/500 pages."
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- SEO basics: titles, meta, OpenGraph, sitemap, robots."
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Redirects from legacy (WordPress) where applicable."
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Admin handoff: short Loom + Webflow docs."
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Go-live 🚀**"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Cross-project reviews (single standing meeting each week)"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Status per track, blockers, decision log, approvals needed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Definition of Done"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Website:** Branding applied site-wide; products migrated; blog/press migrated; performance + a11y passes; docs/handoff complete; site live."
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Platform v0:** Overview + Orders read from PB; nightly sync green; Shippo webhooks flowing; deep-links working; basic docs."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

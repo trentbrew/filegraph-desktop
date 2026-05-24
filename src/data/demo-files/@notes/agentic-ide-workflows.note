@@ -1,0 +1,3229 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "'filegraph.create-task',",
+  "title": "Agentic IDE Workflows",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Agentic IDE Workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'm thinking about how to handle queries in the vscode extension. You mentioned an ai chat interface for queries, but we already have one inside the IDE. I'm considering ways we could get the agent to learn how to CRUD in filegraph. \"Workflows\" are a common feature in agentic IDEs. You typically use slash commands for those. They are basically just global markdown files with special instructions. Maybe we will need a collection of markdown files for people to either manually or somehow automatically share those workflows with their agent... not sure if MCP is the right call for this or not."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "How do agents learn to use filegraph without us reinventing the wheel?"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let me break down the options:"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Agent Integration Landscape"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "What Agentic IDEs Already Have"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cursor: Composer, .cursorrules, @docs"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Windsurf: Cascade, workflows via slash commands"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Claude Code: MCP servers, context files"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cline: Custom instructions, tool use"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Continue: Context providers, slash commands"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Key insight: They all have different mechanisms, but they share one thing: They can read files."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Option 1: Markdown Workflow Files (Simplest, Best)"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Approach:"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".filegraph/"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── prompts/"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── _index.md              # Overview for agents"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── task-management.md     # How to manage tasks"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── note-taking.md         # How to take notes"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── query-examples.md      # Common queries"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── workflows/"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       ├── daily-standup.md"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       ├── pr-review.md"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       └── sprint-planning.md"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Example: .filegraph/prompts/task-management.md"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "For AI Agents"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You can manage project tasks using the `filegraph` CLI. This guide shows you how."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Available Commands"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "*List tasks:**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --status todo"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --status in-progress"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --status blocked"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --assignee person:alice"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --assignee @me  # Current user"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --priority high"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --priority critical"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --status blocked --assignee @me --priority high"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Create tasks:"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph create task \"Implement OAuth flow\" \\"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--priority high \\"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--status in-progress \\"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--assignee person:alice \\"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--tags \"auth,security\" \\"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--due \"2025-01-20\""
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Update tasks:"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph update task:auth-123 --status done"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph update task:auth-123 --actual-hours 4"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph update task:auth-123 --add-tags \"urgent\""
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph update task:auth-123 --assignee person:bob"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Query tasks:"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph query \"FIND task AS ?t WHERE ?t.status = 'blocked' RETURN ?t\""
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph query \"FIND task AS ?t WHERE ?t.dueDate < today AND ?t.status != 'done' RETURN ?t\""
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Common Workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When starting work on a task"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Find your assigned tasks: filegraph tasks --assignee @me --status todo"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Update status: filegraph update task:123 --status in-progress"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Track time as you work"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When blocked"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Update status: filegraph update task:123 --status blocked"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Create a note explaining the blocker: filegraph create note \"Blocker: Need API keys\" --related-to task:123"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Link to blocking task if exists: filegraph link task:123 --to task:456 --relation blockedBy"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When completing a task"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Update status: filegraph update task:123 --status done"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Record actual time: filegraph update task:123 --actual-hours 6"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Link to completed files: filegraph link task:123 --to file:src/auth.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Best Practices"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Always check existing tasks before creating duplicates"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Update status immediately when you start/finish work"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Use descriptive titles that explain the goal"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Link related entities (tasks, notes, files) for context"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Track time accurately for velocity estimation"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "How Agents Discover This"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "*1. Cursor:** Add to `.cursorrules`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When working with tasks, reference `.filegraph/prompts/task-management.md` for commands."
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Before creating tasks, always check existing tasks first."
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When starting work, update task status to in-progress."
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When blocked, update status and create a blocker note."
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Windsurf: Slash command"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: filegraph help"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: Show filegraph commands and workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "--"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Read `.filegraph/prompts/_index.md` for an overview of available commands."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "For specific topics:"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Task management: `.filegraph/prompts/task-management.md`"
+            }
+          ]
+        },
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note taking: `.filegraph/prompts/note-taking.md`"
+            }
+          ]
+        },
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Workflows: `.filegraph/prompts/workflows/`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Claude Code: Just works"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Claude Code automatically sees .filegraph/ as project context"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Prompts are markdown, so they're naturally readable"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Can ask: \"How do I manage tasks in this project?\""
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Continue: Add to .continuerc.json"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"contextProviders\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"filegraph\","
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"params\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"path\": \".filegraph/prompts/\""
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Option 2: MCP Server (More Complex, More Powerful)"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Model Context Protocol would expose filegraph as tools the agent can call directly."
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Pros"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Direct tool use - Agent calls functions, not CLI"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Structured responses - Returns JSON, not text"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Better for complex workflows - Agent can orchestrate multiple calls"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "IDE-agnostic - Works anywhere MCP is supported"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cons"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "More setup - User needs to install/configure MCP server"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Another moving part - CLI + MCP server to maintain"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Only works with Claude Code (for now) - Other IDEs don't support MCP yet"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "What It Would Look Like"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "MCP Server: @filegraph/mcp-server"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Exposes these tools to Claude:"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"tools\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"code_hq_list_tasks\","
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"List tasks with optional filters\","
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"inputSchema\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"status\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assignee\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"priority\": { \"type\": \"string\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"code_hq_create_task\","
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Create a new task\","
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"inputSchema\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"title\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"priority\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assignee\": { \"type\": \"string\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"required\": [\"title\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// etc."
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Claude's config: ~/Library/Application Support/Claude/claude_desktop_config.json"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"mcpServers\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"filegraph\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"command\": \"npx\","
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"args\": [\"@filegraph/mcp-server\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Then Claude can:"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "User: \"What tasks am I working on?\""
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Claude: [calls code_hq_list_tasks with assignee=\"@me\", status=\"in-progress\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "→ Returns: [{id: \"task:123\", title: \"Implement OAuth\"}, ...]"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"You're working on: Implement OAuth (task:123)\""
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "User: \"Mark it as done\""
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Claude: [calls code_hq_update_task with id=\"task:123\", status=\"done\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"✓ Marked task:123 as done\""
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Option 3: Hybrid (Recommended)"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Use both:"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Markdown files (default, works everywhere)"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".filegraph/prompts/ for all IDEs"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Zero setup required"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Human-readable docs + agent instructions"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "MCP server (optional, for power users)"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "@filegraph/mcp-server package"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Only for Claude Code users who want it"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Enables more complex agent workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This gives you:"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Works out of the box (markdown)"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Better experience for Claude Code users (MCP)"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Future-proof (as other IDEs add MCP)"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Progressive enhancement"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "My Recommendation: Start with Markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Why:"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Universal - Works in Cursor, Windsurf, Claude Code, Cline, Continue"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Simple - No installation, no config, no server"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Self-documenting - Humans can read the same files"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Easy to share - Copy .filegraph/prompts/ to another project"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Version controlled - Lives in git with your project"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Testable - You can verify instructions work by following them manually"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Concrete Plan:"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 1: Markdown Prompts (This Week)"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph init  # Creates .filegraph/prompts/ with templates"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".filegraph/prompts/"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── _index.md              # \"Here's what filegraph can do\""
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── task-management.md     # Complete guide"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── note-taking.md"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── queries.md"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── workflows/"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── daily-standup.md"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── pr-review.md"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── sprint-planning.md"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Add to filegraph init command:"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// src/cli-extensions/init.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "async function scaffoldPrompts(projectPath: string) {"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const promptsDir = `${projectPath}/.filegraph/prompts`;"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await mkdir(`${promptsDir}/workflows`, { recursive: true });"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Copy templates from filegraph package"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await copyFile("
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "resolve(__dirname, '../templates/prompts/_index.md'),"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`${promptsDir}/_index.md`"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await copyFile("
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "resolve(__dirname, '../templates/prompts/task-management.md'),"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`${promptsDir}/task-management.md`"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// etc."
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 2: VSCode Extension (This Month)"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Chat interface: Not needed! Use IDE's native chat"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Smart completions: Autocomplete for entity IDs"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Inline actions: CodeLens showing \"Create task from TODO comment\""
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Status bar: Show your current tasks"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 3: MCP Server (Next Month)"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Optional @filegraph/mcp-server package"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "For Claude Code power users"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Document in README: \"Optional: Install MCP server for enhanced agent integration\""
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Workflow Sharing Strategy"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Problem: How do users share/discover workflows?"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Built-in Workflows (Shipped with filegraph)"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph init  # Copies default workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".filegraph/workflows/"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── daily-standup.md"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── pr-review.md"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── sprint-planning.md"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── release-checklist.md"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Community Workflows (GitHub repo)"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "github.com/trenuser/filegraph-workflows/"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "workflows/"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── ci-cd-setup.md"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── bug-triage.md"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── feature-planning.md"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── retrospective.md"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Users can install:"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph workflows browse"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph workflows install ci-cd-setup"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph workflows publish my-workflow.md"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "IDE-Specific Sharing"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Cursor:"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "curl [https://filegraph.dev/workflows/pr-review.cursorrules](https://filegraph.dev/workflows/pr-review.cursorrules) >> .cursorrules"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Windsurf:"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph workflows install --ide windsurf pr-review"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The VSCode Extension Design"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Since you asked about the chat interface:"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Don't Build a Chat Interface"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Use the IDE's native chat. Instead, provide:"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Context Provider"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// When agent asks about tasks, automatically include:"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vscode.chat.registerProvider({"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: 'filegraph',"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "provideContext: async () => {"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const tasks = await exec('filegraph tasks --format json');"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return {"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content: `Current tasks:\\n${tasks}`,"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "metadata: { source: 'filegraph' }"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Quick Actions"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Add buttons to chat interface"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vscode.chat.registerAction({"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: 'filegraph.create-task',"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Create Task from Chat',"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "handler: async (message) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Parse task details from message"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await exec(`filegraph create task \"${title}\" --priority high`);"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Inline Suggestions"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// When agent mentions a task, show:"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// [View in Graph] [Update Status] [Add Note]"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Summary: The Stack"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─────────────────────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│     Users' Choice of IDE                │"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  (Cursor, Windsurf, Claude Code, etc.)  │"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└──────────────┬──────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌──────────────▼──────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   filegraph Markdown Prompts              │  ← Phase 1 (Start here)"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   (.filegraph/prompts/*.md)               │"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└──────────────┬──────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌──────────────▼──────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   filegraph CLI                           │  ← Already built"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   (CRUD operations, queries)            │"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└──────────────┬──────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌──────────────▼──────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   TQL Engine                            │  ← Already built"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   (EAV store, Datalog)                  │"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└─────────────────────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Optional (Phase 3):"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─────────────────────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   @filegraph/mcp-server                   │  ← For power users"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   (Direct tool calling)                 │"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└─────────────────────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "My Answer"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Don't build MCP yet. Don't build a chat interface."
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Do this:"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Ship markdown prompts with filegraph init"
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Document IDE integration for Cursor, Windsurf, Claude Code"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let agents read the prompts - they already know how"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Add MCP later if users demand it"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The beauty: Markdown files are:"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Zero setup"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Universal (work in all IDEs)"
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Human-readable docs"
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Git-friendly"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Easy to customize"
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Easy to share"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Start simple. Iterate based on real usage."
+        }
+      ]
+    }
+  ]
+}

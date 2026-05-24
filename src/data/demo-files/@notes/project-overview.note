@@ -1,0 +1,8591 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-262",
+  "title": "Project Overview",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Executive Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`.filegraph` is a project-scoped knowledge graph system designed for agentic development workflows. It combines TQL's powerful EAV query engine with opinionated conventions for project management, creating a semantic memory layer that both humans and AI agents can read, write, and reason over."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Core Principle**: Every project gets a `.filegraph/` directory containing a semantic graph of tasks, notes, people, milestones, and custom entities—queryable via CLI, manipulated by AI agents, and visualized in rich UIs."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Design Philosophy"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Local-First, Project-Scoped**"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each project has its own `.filegraph/` directory (like `.git`)"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Data lives alongside code in version control"
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optional global graph in `~/.filegraph/` for cross-project relationships"
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No cloud dependency for core functionality"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Human-Readable, Machine-Queryable**"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Storage: JSON-LD (semantic) + Markdown (readable)"
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Query: TQL's EQL-S (powerful) + Natural language (accessible)"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "UI: Rich datatables (visual) + CLI (scriptable)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Agent-Native**"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "AI agents are first-class consumers"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard commands, predictable outputs"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Semantic context embedded in every entity"
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Workflow templates for common operations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Extensible by Default**"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Built-in entities (tasks, notes, people)"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User-defined schemas without migration"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom views and visualizations"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Plugin architecture for integrations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Architecture"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─────────────────────────────────────────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│                     Presentation Layer                       │"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │   VSCode     │  │     Web      │  │   Terminal   │      │"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  Extension   │  │      UI      │  │     CLI      │      │"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └──────────────┘  └──────────────┘  └──────────────┘      │"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└────────────────────────────┬────────────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌────────────────────────────▼────────────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│                      Application Layer                       │"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ┌──────────────────────────────────────────────────────┐   │"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │              .filegraph Core Logic                     │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - Project initialization & scaffolding              │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - Entity CRUD operations                            │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - View management (kanban, calendar, graph)         │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - Workflow orchestration                            │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - Import/export (GitHub, Linear, Jira)             │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └──────────────────────────────────────────────────────┘   │"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└────────────────────────────┬────────────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌────────────────────────────▼────────────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│                        Engine Layer                          │"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ┌──────────────────────────────────────────────────────┐   │"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │                    TQL Engine                        │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - EAV Store (schema-agnostic facts)                 │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - Datalog Evaluator (EQL-S queries)                 │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - NL Orchestrator (natural language → queries)      │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - Agent Graph Runtime (workflow execution)          │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - Analytics Toolkit (relationship mining)           │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └──────────────────────────────────────────────────────┘   │"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└────────────────────────────┬────────────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌────────────────────────────▼────────────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│                       Storage Layer                          │"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ┌──────────────────────────────────────────────────────┐   │"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │         Project File System (.filegraph/)              │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - graph.jsonld (semantic triples)                   │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - entities/*.md (human-readable views)              │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - views/*.view.json (UI configurations)             │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  │  - workflows/*.workflow.json (agent templates)       │   │"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └──────────────────────────────────────────────────────┘   │"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└─────────────────────────────────────────────────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "File Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".filegraph/"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── graph.jsonld                    # Core semantic graph (TQL facts)"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── entities/                       # Human-readable entity views"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── tasks.md                   # Generated from graph"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── notes.md"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── people.md"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── milestones.md"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── [custom].md"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── views/                         # UI view configurations"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── default.view.json         # Datatable config"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── kanban.view.json"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── calendar.view.json"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── graph.view.json"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── workflows/                     # Agent workflow templates"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── daily-standup.json"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── pr-review.json"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── sprint-planning.json"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── prompts/                       # Agent guidance docs"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── task-management.md"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── note-taking.md"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── project-planning.md"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── schema/                        # Custom entity schemas"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── task.schema.json          # Built-in schemas"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── [custom].schema.json      # User-defined"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── .meta/                         # Internal metadata"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── config.json               # Project configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── indexes/                  # TQL indexes (gitignored)"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── cache/                    # Query cache (gitignored)"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Global Graph (Optional)"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "~/.filegraph/"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── global-graph.jsonld           # Cross-project relationships"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── projects/                     # Project registry"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── registry.json"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── config/"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── preferences.json          # User preferences"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Data Model"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "JSON-LD Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every entity is stored as linked data with semantic types:"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@context\": \"https://schema.org\","
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@graph\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@id\": \"task:auth-123\","
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"Task\","
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"title\": \"Implement OAuth flow\","
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"status\": \"in-progress\","
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assignee\": { \"@id\": \"person:alice\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"priority\": \"high\","
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"createdAt\": \"2025-01-15T10:00:00Z\","
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"dependsOn\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"@id\": \"task:db-456\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"tags\": [\"auth\", \"security\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"semanticContext\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"domain\": \"authentication\","
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"complexity\": \"medium\","
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"blockers\": []"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@id\": \"person:alice\","
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"Person\","
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"Alice Chen\","
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"email\": \"alice@example.com\","
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"role\": \"backend-engineer\""
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "TQL Fact Representation"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Internally stored as EAV triples:"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(task:auth-123, type, Task)"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(task:auth-123, title, \"Implement OAuth flow\")"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(task:auth-123, status, in-progress)"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(task:auth-123, assignee, person:alice)"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(task:auth-123, dependsOn, task:db-456)"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Markdown Views"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Generated from graph for human readability:"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "In Progress"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Implement OAuth flow"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ID**: task:auth-123"
+            }
+          ]
+        },
+        {
+          "id": "b-174",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Assignee**: @alice"
+            }
+          ]
+        },
+        {
+          "id": "b-175",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Priority**: High"
+            }
+          ]
+        },
+        {
+          "id": "b-176",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Depends On**: [[task:db-456]]"
+            }
+          ]
+        },
+        {
+          "id": "b-177",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Tags**: #auth #security"
+            }
+          ]
+        },
+        {
+          "id": "b-178",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Created**: 2025-01-15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Built-In Entity Types"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Entities"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Task**"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status: 'todo' | 'in-progress' | 'blocked' | 'review' | 'done';"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "priority: 'low' | 'medium' | 'high' | 'critical';"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "assignee?: PersonRef;"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "reviewer?: PersonRef;"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dueDate?: ISO8601;"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "estimatedHours?: number;"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "actualHours?: number;"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tags: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dependsOn: TaskRef[];"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "blockedBy: TaskRef[];"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "relatedFiles: FileRef[];"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "milestone?: MilestoneRef;"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Note**"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content: string; // Markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: 'decision' | 'meeting' | 'research' | 'idea' | 'general';"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tags: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "relatedTo: EntityRef[];"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "createdBy: PersonRef;"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updatedAt: ISO8601;"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Person**"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "email?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "role?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "avatar?: URL;"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "github?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "timezone?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Milestone**"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dueDate: ISO8601;"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status: 'planned' | 'active' | 'completed' | 'cancelled';"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tasks: TaskRef[];"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "progress: number; // 0-100"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Project** (for global graph)"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "path: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "repository?: URL;"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "team: PersonRef[];"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "relatedProjects: ProjectRef[];"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Custom Entities"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Users can define arbitrary schemas:"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"DesignAsset\","
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"Login screen mockup\","
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"figmaUrl\": \"https://...\","
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"relatedTasks\": [\"task:auth-123\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "CLI Interface"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Installation & Initialization"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "npm install -g filegraph"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "npx filegraph init"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "cd my-project"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph init"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph init --global"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Commands"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Query Operations**"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph query \"FIND task AS ?t WHERE ?t.status = 'blocked' RETURN ?t\""
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph query \"show me all high priority tasks assigned to alice\" --nl"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph tasks --status in-progress --assignee @me"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph notes --tag architecture"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**CRUD Operations**"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph create task \\"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--title \"Fix authentication bug\" \\"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--assignee @alice \\"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--priority high \\"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--tags auth,bug"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph create note \\"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--title \"Architecture Decision: Use PostgreSQL\" \\"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--type decision \\"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--content \"$(cat decision.md)\""
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph update task:auth-123 \\"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--status in-progress \\"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--actual-hours 4"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph delete task:auth-123"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph link task:auth-123 --to task:db-456 --relation dependsOn"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph link task:auth-123 --to file:src/auth.ts --relation implements"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Views**"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph show tasks --view kanban"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph show tasks --view calendar"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph show --view graph --focus task:auth-123"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph view create --name \"my-sprint\" \\"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--filter \"milestone:sprint-12\" \\"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--group-by assignee \\"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--sort priority"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Workflows**"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph workflow run daily-standup"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph workflow run pr-review --pr 123"
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph workflow create sprint-planning"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Import/Export**"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph import github-issues --repo owner/repo"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph import linear --team ENG"
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph import jira --project PROJ"
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph export --format json > backup.json"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph export --format csv --entity tasks > tasks.csv"
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph export --format markdown --entity notes > notes.md"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Analytics**"
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-326",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph analyze"
+        }
+      ]
+    },
+    {
+      "id": "b-327",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph analyze --entity tasks --metric velocity"
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph analyze --relationships"
+        }
+      ]
+    },
+    {
+      "id": "b-329",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph report sprint --milestone sprint-12"
+        }
+      ]
+    },
+    {
+      "id": "b-330",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph report team --assignee @alice --period week"
+        }
+      ]
+    },
+    {
+      "id": "b-331",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-332",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Utilities**"
+        }
+      ]
+    },
+    {
+      "id": "b-333",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-334",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph validate"
+        }
+      ]
+    },
+    {
+      "id": "b-335",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph doctor"
+        }
+      ]
+    },
+    {
+      "id": "b-336",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph sync --from ../other-project"
+        }
+      ]
+    },
+    {
+      "id": "b-337",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph web --port PORT"
+        }
+      ]
+    },
+    {
+      "id": "b-338",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-339",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-340",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "VSCode Extension"
+        }
+      ]
+    },
+    {
+      "id": "b-341",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Features"
+        }
+      ]
+    },
+    {
+      "id": "b-342",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. Custom Editor for graph.jsonld**"
+        }
+      ]
+    },
+    {
+      "id": "b-347",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-343",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rich datatable with inline editing"
+            }
+          ]
+        },
+        {
+          "id": "b-344",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sorting, filtering, grouping"
+            }
+          ]
+        },
+        {
+          "id": "b-345",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Multiple views (table, kanban, calendar, graph)"
+            }
+          ]
+        },
+        {
+          "id": "b-346",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Auto-save with 2-way sync to file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-348",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Sidebar Views**"
+        }
+      ]
+    },
+    {
+      "id": "b-353",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-349",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Entity tree view"
+            }
+          ]
+        },
+        {
+          "id": "b-350",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Quick filters by status/assignee"
+            }
+          ]
+        },
+        {
+          "id": "b-351",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Search across all entities"
+            }
+          ]
+        },
+        {
+          "id": "b-352",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Relationship explorer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-354",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Command Palette Integration**"
+        }
+      ]
+    },
+    {
+      "id": "b-355",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-356",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> Code HQ: Create Task"
+        }
+      ]
+    },
+    {
+      "id": "b-357",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> Code HQ: Search Entities"
+        }
+      ]
+    },
+    {
+      "id": "b-358",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> Code HQ: Show Graph View"
+        }
+      ]
+    },
+    {
+      "id": "b-359",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> Code HQ: Run Workflow"
+        }
+      ]
+    },
+    {
+      "id": "b-360",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> Code HQ: Sync with GitHub Issues"
+        }
+      ]
+    },
+    {
+      "id": "b-361",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-362",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. Inline Features**"
+        }
+      ]
+    },
+    {
+      "id": "b-367",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-363",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hover tooltips for entity references"
+            }
+          ]
+        },
+        {
+          "id": "b-364",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Auto-complete for `[[entity:id]]` links"
+            }
+          ]
+        },
+        {
+          "id": "b-365",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Code lens showing related tasks for files"
+            }
+          ]
+        },
+        {
+          "id": "b-366",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Decorators for task status in comments"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-368",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**5. Panels**"
+        }
+      ]
+    },
+    {
+      "id": "b-373",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-369",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Entity detail panel"
+            }
+          ]
+        },
+        {
+          "id": "b-370",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Relationship graph visualization"
+            }
+          ]
+        },
+        {
+          "id": "b-371",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timeline view (activity log)"
+            }
+          ]
+        },
+        {
+          "id": "b-372",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "AI chat interface for queries"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-374",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "UI Components"
+        }
+      ]
+    },
+    {
+      "id": "b-375",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Datatable View**"
+        }
+      ]
+    },
+    {
+      "id": "b-376",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-377",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─────────────────────────────────────────────────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-378",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│ Tasks                    🔍 Search    [+ New]  [⚙ Settings] │"
+        }
+      ]
+    },
+    {
+      "id": "b-379",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├─────────────────────────────────────────────────────────────┤"
+        }
+      ]
+    },
+    {
+      "id": "b-380",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│ Filters: [Status ▼] [Assignee ▼] [Priority ▼] [Tags ▼]    │"
+        }
+      ]
+    },
+    {
+      "id": "b-381",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├──┬─────────────────────┬────────┬──────────┬──────┬────────┤"
+        }
+      ]
+    },
+    {
+      "id": "b-382",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│☐ │ Title               │ Status │ Assignee │ Due  │ Tags   │"
+        }
+      ]
+    },
+    {
+      "id": "b-383",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├──┼─────────────────────┼────────┼──────────┼──────┼────────┤"
+        }
+      ]
+    },
+    {
+      "id": "b-384",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│☐ │ Implement OAuth     │ 🟡 WIP │ @alice   │ 1/20 │ #auth  │"
+        }
+      ]
+    },
+    {
+      "id": "b-385",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│☐ │ Fix database schema │ 🔴 BLK │ @bob     │ 1/18 │ #db    │"
+        }
+      ]
+    },
+    {
+      "id": "b-386",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│☑ │ Setup CI/CD         │ 🟢 DNE │ @alice   │ 1/15 │ #infra │"
+        }
+      ]
+    },
+    {
+      "id": "b-387",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└──┴─────────────────────┴────────┴──────────┴──────┴────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-388",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-389",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Kanban View**"
+        }
+      ]
+    },
+    {
+      "id": "b-390",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-391",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌────────────┬────────────┬────────────┬────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-392",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   To Do    │ In Progress│  Blocked   │    Done    │"
+        }
+      ]
+    },
+    {
+      "id": "b-393",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├────────────┼────────────┼────────────┼────────────┤"
+        }
+      ]
+    },
+    {
+      "id": "b-394",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│┌──────────┐│┌──────────┐│┌──────────┐│┌──────────┐│"
+        }
+      ]
+    },
+    {
+      "id": "b-395",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "││Setup Auth│││OAuth Flow│││DB Schema │││CI/CD     ││"
+        }
+      ]
+    },
+    {
+      "id": "b-396",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "││          │││@alice    │││@bob      │││@alice    ││"
+        }
+      ]
+    },
+    {
+      "id": "b-397",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "││#auth     │││Due: 1/20 │││⚠ Blocked│││✓ Done    ││"
+        }
+      ]
+    },
+    {
+      "id": "b-398",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│└──────────┘│└──────────┘│└──────────┘│└──────────┘│"
+        }
+      ]
+    },
+    {
+      "id": "b-399",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└────────────┴────────────┴────────────┴────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-400",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-401",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Graph View**"
+        }
+      ]
+    },
+    {
+      "id": "b-402",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-403",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-404",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  Project    │"
+        }
+      ]
+    },
+    {
+      "id": "b-405",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  \"Auth MVP\" │"
+        }
+      ]
+    },
+    {
+      "id": "b-406",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└──────┬──────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-407",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-408",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─────────────┴─────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-409",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│                           │"
+        }
+      ]
+    },
+    {
+      "id": "b-410",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─────▼─────┐              ┌─────▼─────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-411",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  Task     │──depends on─→│  Task     │"
+        }
+      ]
+    },
+    {
+      "id": "b-412",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  OAuth    │              │  DB Schema│"
+        }
+      ]
+    },
+    {
+      "id": "b-413",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  @alice   │              │  @bob     │"
+        }
+      ]
+    },
+    {
+      "id": "b-414",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└─────┬─────┘              └───────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-415",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-416",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "implements"
+        }
+      ]
+    },
+    {
+      "id": "b-417",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-418",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─────▼─────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-419",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   File    │"
+        }
+      ]
+    },
+    {
+      "id": "b-420",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│ auth.ts   │"
+        }
+      ]
+    },
+    {
+      "id": "b-421",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└───────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-422",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-423",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-424",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Agent Integration"
+        }
+      ]
+    },
+    {
+      "id": "b-425",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Agent Guidance Documents"
+        }
+      ]
+    },
+    {
+      "id": "b-426",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Located in `.filegraph/prompts/`, these teach AI agents how to use the system:"
+        }
+      ]
+    },
+    {
+      "id": "b-427",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**task-management.md**"
+        }
+      ]
+    },
+    {
+      "id": "b-428",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-429",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Available Commands"
+        }
+      ]
+    },
+    {
+      "id": "b-430",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Query tasks:"
+        }
+      ]
+    },
+    {
+      "id": "b-433",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-431",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`filegraph query \"FIND task WHERE ?t.assignee = @me\"`"
+            }
+          ]
+        },
+        {
+          "id": "b-432",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`filegraph tasks --status blocked`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-434",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Create tasks:"
+        }
+      ]
+    },
+    {
+      "id": "b-436",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-435",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`filegraph create task --title \"...\" --assignee @user`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-437",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Update progress:"
+        }
+      ]
+    },
+    {
+      "id": "b-440",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-438",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`filegraph update task:123 --status in-progress`"
+            }
+          ]
+        },
+        {
+          "id": "b-439",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`filegraph update task:123 --actual-hours 2`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-441",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Link to code:"
+        }
+      ]
+    },
+    {
+      "id": "b-443",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-442",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`filegraph link task:123 --to file:src/feature.ts`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-444",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Workflow Examples"
+        }
+      ]
+    },
+    {
+      "id": "b-445",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When starting work:"
+        }
+      ]
+    },
+    {
+      "id": "b-446",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Query your assigned tasks"
+        }
+      ]
+    },
+    {
+      "id": "b-447",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Update status to in-progress"
+        }
+      ]
+    },
+    {
+      "id": "b-448",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Link to relevant files"
+        }
+      ]
+    },
+    {
+      "id": "b-449",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When blocked:"
+        }
+      ]
+    },
+    {
+      "id": "b-450",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Update status to blocked"
+        }
+      ]
+    },
+    {
+      "id": "b-451",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Create note explaining blocker"
+        }
+      ]
+    },
+    {
+      "id": "b-452",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Link blocker to related task"
+        }
+      ]
+    },
+    {
+      "id": "b-453",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-454",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Workflow Templates"
+        }
+      ]
+    },
+    {
+      "id": "b-455",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**daily-standup.workflow.json**"
+        }
+      ]
+    },
+    {
+      "id": "b-456",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-457",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-458",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"daily-standup\","
+        }
+      ]
+    },
+    {
+      "id": "b-459",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Generate standup report\","
+        }
+      ]
+    },
+    {
+      "id": "b-460",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"nodes\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-461",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"gather_tasks\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-462",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"query\","
+        }
+      ]
+    },
+    {
+      "id": "b-463",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"query\": \"FIND task WHERE ?t.assignee = @me AND ?t.updatedAt > today-1d\""
+        }
+      ]
+    },
+    {
+      "id": "b-464",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-465",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"summarize\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-466",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"ai\","
+        }
+      ]
+    },
+    {
+      "id": "b-467",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"prompt\": \"Summarize progress on these tasks for standup\","
+        }
+      ]
+    },
+    {
+      "id": "b-468",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"input\": \"$gather_tasks.results\""
+        }
+      ]
+    },
+    {
+      "id": "b-469",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-470",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"format\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-471",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"template\","
+        }
+      ]
+    },
+    {
+      "id": "b-472",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"template\": \"standup.md\","
+        }
+      ]
+    },
+    {
+      "id": "b-473",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"data\": \"$summarize.output\""
+        }
+      ]
+    },
+    {
+      "id": "b-474",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-475",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-476",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"edges\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-477",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[\"gather_tasks\", \"summarize\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-478",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[\"summarize\", \"format\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-479",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-480",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-481",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-482",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Agent API"
+        }
+      ]
+    },
+    {
+      "id": "b-483",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Agents can import `.filegraph` as a library:"
+        }
+      ]
+    },
+    {
+      "id": "b-484",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-485",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { Filegraph } from 'filegraph';"
+        }
+      ]
+    },
+    {
+      "id": "b-486",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const hq = new Filegraph(process.cwd());"
+        }
+      ]
+    },
+    {
+      "id": "b-487",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Query"
+        }
+      ]
+    },
+    {
+      "id": "b-488",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const blockedTasks = await hq.query(`"
+        }
+      ]
+    },
+    {
+      "id": "b-489",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task AS ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-490",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "WHERE ?t.status = 'blocked'"
+        }
+      ]
+    },
+    {
+      "id": "b-491",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "RETURN ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-492",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`);"
+        }
+      ]
+    },
+    {
+      "id": "b-493",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Create"
+        }
+      ]
+    },
+    {
+      "id": "b-494",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await hq.create('task', {"
+        }
+      ]
+    },
+    {
+      "id": "b-495",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Fix bug in authentication',"
+        }
+      ]
+    },
+    {
+      "id": "b-496",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "assignee: 'person:alice',"
+        }
+      ]
+    },
+    {
+      "id": "b-497",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "priority: 'high'"
+        }
+      ]
+    },
+    {
+      "id": "b-498",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-499",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Natural language"
+        }
+      ]
+    },
+    {
+      "id": "b-500",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const results = await hq.queryNL('show me all overdue high priority tasks');"
+        }
+      ]
+    },
+    {
+      "id": "b-501",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Run workflow"
+        }
+      ]
+    },
+    {
+      "id": "b-502",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await hq.workflow('pr-review', { prNumber: 123 });"
+        }
+      ]
+    },
+    {
+      "id": "b-503",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-504",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-505",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Query Language (EQL-S)"
+        }
+      ]
+    },
+    {
+      "id": "b-506",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Powered by TQL's Datalog engine:"
+        }
+      ]
+    },
+    {
+      "id": "b-507",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Basic Queries"
+        }
+      ]
+    },
+    {
+      "id": "b-508",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```sql"
+        }
+      ]
+    },
+    {
+      "id": "b-509",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-- Find all tasks"
+        }
+      ]
+    },
+    {
+      "id": "b-510",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task AS ?t RETURN ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-511",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-- Filter by status"
+        }
+      ]
+    },
+    {
+      "id": "b-512",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task AS ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-513",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "WHERE ?t.status = 'blocked'"
+        }
+      ]
+    },
+    {
+      "id": "b-514",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "RETURN ?t.title, ?t.assignee"
+        }
+      ]
+    },
+    {
+      "id": "b-515",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-- Join relationships"
+        }
+      ]
+    },
+    {
+      "id": "b-516",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task AS ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-517",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "WHERE ?t.assignee = ?p AND ?p.name = 'Alice'"
+        }
+      ]
+    },
+    {
+      "id": "b-518",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "RETURN ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-519",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-- Regex matching"
+        }
+      ]
+    },
+    {
+      "id": "b-520",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task AS ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-521",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "WHERE ?t.title =~ /auth/i"
+        }
+      ]
+    },
+    {
+      "id": "b-522",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "RETURN ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-523",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-524",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Advanced Queries"
+        }
+      ]
+    },
+    {
+      "id": "b-525",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```sql"
+        }
+      ]
+    },
+    {
+      "id": "b-526",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-- Recursive dependencies"
+        }
+      ]
+    },
+    {
+      "id": "b-527",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task AS ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-528",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "WHERE ?t.id = 'task:auth-123'"
+        }
+      ]
+    },
+    {
+      "id": "b-529",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "AND ?t.dependsOn* = ?dep  -- Transitive closure"
+        }
+      ]
+    },
+    {
+      "id": "b-530",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "RETURN ?dep"
+        }
+      ]
+    },
+    {
+      "id": "b-531",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-- Aggregations"
+        }
+      ]
+    },
+    {
+      "id": "b-532",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task AS ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-533",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "WHERE ?t.milestone = 'sprint-12'"
+        }
+      ]
+    },
+    {
+      "id": "b-534",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "GROUP BY ?t.status"
+        }
+      ]
+    },
+    {
+      "id": "b-535",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "RETURN ?t.status, COUNT(?t) AS count"
+        }
+      ]
+    },
+    {
+      "id": "b-536",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "-- Date operations"
+        }
+      ]
+    },
+    {
+      "id": "b-537",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task AS ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-538",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "WHERE ?t.dueDate < today"
+        }
+      ]
+    },
+    {
+      "id": "b-539",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "AND ?t.status != 'done'"
+        }
+      ]
+    },
+    {
+      "id": "b-540",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "RETURN ?t"
+        }
+      ]
+    },
+    {
+      "id": "b-541",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ORDER BY ?t.priority DESC"
+        }
+      ]
+    },
+    {
+      "id": "b-542",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-543",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Natural Language"
+        }
+      ]
+    },
+    {
+      "id": "b-544",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-545",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph query \"what tasks are blocking the auth feature\" --nl"
+        }
+      ]
+    },
+    {
+      "id": "b-546",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph query \"show me alice's tasks this week\" --nl"
+        }
+      ]
+    },
+    {
+      "id": "b-547",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph query \"find all overdue critical bugs\" --nl"
+        }
+      ]
+    },
+    {
+      "id": "b-548",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-549",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-550",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Views & Visualization"
+        }
+      ]
+    },
+    {
+      "id": "b-551",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "View Configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-552",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-553",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-554",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"sprint-kanban\","
+        }
+      ]
+    },
+    {
+      "id": "b-555",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"kanban\","
+        }
+      ]
+    },
+    {
+      "id": "b-556",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"entityType\": \"task\","
+        }
+      ]
+    },
+    {
+      "id": "b-557",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"filters\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-558",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"milestone\": \"sprint-12\""
+        }
+      ]
+    },
+    {
+      "id": "b-559",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-560",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"groupBy\": \"status\","
+        }
+      ]
+    },
+    {
+      "id": "b-561",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"sortBy\": \"priority\","
+        }
+      ]
+    },
+    {
+      "id": "b-562",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"columns\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-563",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"id\": \"todo\", \"title\": \"To Do\", \"limit\": 5 },"
+        }
+      ]
+    },
+    {
+      "id": "b-564",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"id\": \"in-progress\", \"title\": \"In Progress\", \"limit\": 3 },"
+        }
+      ]
+    },
+    {
+      "id": "b-565",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"id\": \"review\", \"title\": \"Review\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-566",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"id\": \"done\", \"title\": \"Done\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-567",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-568",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"cardTemplate\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-569",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"title\": \"{{ title }}\","
+        }
+      ]
+    },
+    {
+      "id": "b-570",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"subtitle\": \"{{ assignee.name }}\","
+        }
+      ]
+    },
+    {
+      "id": "b-571",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"metadata\": [\"priority\", \"tags\", \"dueDate\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-572",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-573",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-574",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-575",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "View Types"
+        }
+      ]
+    },
+    {
+      "id": "b-576",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. Datatable**"
+        }
+      ]
+    },
+    {
+      "id": "b-581",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-577",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sortable columns"
+            }
+          ]
+        },
+        {
+          "id": "b-578",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Multi-select filters"
+            }
+          ]
+        },
+        {
+          "id": "b-579",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Inline editing"
+            }
+          ]
+        },
+        {
+          "id": "b-580",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bulk operations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-582",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Kanban**"
+        }
+      ]
+    },
+    {
+      "id": "b-586",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-583",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drag-and-drop"
+            }
+          ]
+        },
+        {
+          "id": "b-584",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "WIP limits"
+            }
+          ]
+        },
+        {
+          "id": "b-585",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Swimlanes (by assignee/priority)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-587",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Calendar**"
+        }
+      ]
+    },
+    {
+      "id": "b-591",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-588",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Month/week/day views"
+            }
+          ]
+        },
+        {
+          "id": "b-589",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Task scheduling"
+            }
+          ]
+        },
+        {
+          "id": "b-590",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Due date visualization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-592",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. Graph**"
+        }
+      ]
+    },
+    {
+      "id": "b-597",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-593",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Force-directed layout"
+            }
+          ]
+        },
+        {
+          "id": "b-594",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Relationship exploration"
+            }
+          ]
+        },
+        {
+          "id": "b-595",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dependency visualization"
+            }
+          ]
+        },
+        {
+          "id": "b-596",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Filter by entity type"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-598",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**5. Timeline**"
+        }
+      ]
+    },
+    {
+      "id": "b-602",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-599",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gantt chart for milestones"
+            }
+          ]
+        },
+        {
+          "id": "b-600",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Task duration tracking"
+            }
+          ]
+        },
+        {
+          "id": "b-601",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Critical path highlighting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-603",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**6. Card Grid**"
+        }
+      ]
+    },
+    {
+      "id": "b-607",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-604",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pinterest-style layout"
+            }
+          ]
+        },
+        {
+          "id": "b-605",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rich previews"
+            }
+          ]
+        },
+        {
+          "id": "b-606",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tag filtering"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-608",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-609",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Integrations"
+        }
+      ]
+    },
+    {
+      "id": "b-610",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "GitHub"
+        }
+      ]
+    },
+    {
+      "id": "b-611",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-612",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph import github-issues --repo owner/repo"
+        }
+      ]
+    },
+    {
+      "id": "b-613",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph sync github --auto"
+        }
+      ]
+    },
+    {
+      "id": "b-614",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-615",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Linear"
+        }
+      ]
+    },
+    {
+      "id": "b-616",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-617",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph import linear --team ENG --status \"In Progress\""
+        }
+      ]
+    },
+    {
+      "id": "b-618",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph sync linear --bidirectional"
+        }
+      ]
+    },
+    {
+      "id": "b-619",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-620",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Jira"
+        }
+      ]
+    },
+    {
+      "id": "b-621",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-622",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph import jira --project PROJ --jql \"assignee = currentUser()\""
+        }
+      ]
+    },
+    {
+      "id": "b-623",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-624",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Git Hooks"
+        }
+      ]
+    },
+    {
+      "id": "b-625",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-626",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "#!/bin/bash"
+        }
+      ]
+    },
+    {
+      "id": "b-627",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph validate || exit 1"
+        }
+      ]
+    },
+    {
+      "id": "b-628",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "#!/bin/bash"
+        }
+      ]
+    },
+    {
+      "id": "b-629",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph link file:$(git diff-tree --no-commit-id --name-only -r HEAD) \\"
+        }
+      ]
+    },
+    {
+      "id": "b-630",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "--to-commit $(git rev-parse HEAD)"
+        }
+      ]
+    },
+    {
+      "id": "b-631",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-632",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "CI/CD"
+        }
+      ]
+    },
+    {
+      "id": "b-633",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```yaml"
+        }
+      ]
+    },
+    {
+      "id": "b-634",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: Sync Code HQ"
+        }
+      ]
+    },
+    {
+      "id": "b-635",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "on: [push, pull_request]"
+        }
+      ]
+    },
+    {
+      "id": "b-636",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "jobs:"
+        }
+      ]
+    },
+    {
+      "id": "b-637",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sync:"
+        }
+      ]
+    },
+    {
+      "id": "b-638",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "runs-on: ubuntu-latest"
+        }
+      ]
+    },
+    {
+      "id": "b-639",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "steps:"
+        }
+      ]
+    },
+    {
+      "id": "b-640",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- uses: actions/checkout@v2"
+        }
+      ]
+    },
+    {
+      "id": "b-641",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- run: npx filegraph validate"
+        }
+      ]
+    },
+    {
+      "id": "b-642",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- run: npx filegraph sync github"
+        }
+      ]
+    },
+    {
+      "id": "b-643",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-644",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-645",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Analytics & Insights"
+        }
+      ]
+    },
+    {
+      "id": "b-646",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Built-in Analytics"
+        }
+      ]
+    },
+    {
+      "id": "b-647",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-648",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph analyze velocity --period sprint"
+        }
+      ]
+    },
+    {
+      "id": "b-649",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph analyze bottlenecks"
+        }
+      ]
+    },
+    {
+      "id": "b-650",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph analyze workload --group-by assignee"
+        }
+      ]
+    },
+    {
+      "id": "b-651",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph analyze dependencies --critical-path"
+        }
+      ]
+    },
+    {
+      "id": "b-652",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-653",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Custom Reports"
+        }
+      ]
+    },
+    {
+      "id": "b-654",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-655",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// .filegraph/reports/sprint-report.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-656",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export default async function sprintReport(hq: Filegraph, milestone: string) {"
+        }
+      ]
+    },
+    {
+      "id": "b-657",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const tasks = await hq.query(`"
+        }
+      ]
+    },
+    {
+      "id": "b-658",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "FIND task WHERE ?t.milestone = '${milestone}'"
+        }
+      ]
+    },
+    {
+      "id": "b-659",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`);"
+        }
+      ]
+    },
+    {
+      "id": "b-660",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const completed = tasks.filter(t => t.status === 'done');"
+        }
+      ]
+    },
+    {
+      "id": "b-661",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const velocity = completed.reduce((sum, t) => sum + t.estimatedHours, 0);"
+        }
+      ]
+    },
+    {
+      "id": "b-662",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return {"
+        }
+      ]
+    },
+    {
+      "id": "b-663",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "totalTasks: tasks.length,"
+        }
+      ]
+    },
+    {
+      "id": "b-664",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "completed: completed.length,"
+        }
+      ]
+    },
+    {
+      "id": "b-665",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "velocity,"
+        }
+      ]
+    },
+    {
+      "id": "b-666",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "burndown: calculateBurndown(tasks)"
+        }
+      ]
+    },
+    {
+      "id": "b-667",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-668",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-669",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-670",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-671",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-672",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Config"
+        }
+      ]
+    },
+    {
+      "id": "b-673",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`.filegraph/.meta/config.json`"
+        }
+      ]
+    },
+    {
+      "id": "b-674",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-675",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-676",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"version\": \"1.0.0\","
+        }
+      ]
+    },
+    {
+      "id": "b-677",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"project\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-678",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"My Project\","
+        }
+      ]
+    },
+    {
+      "id": "b-679",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"repository\": \"https://github.com/user/repo\""
+        }
+      ]
+    },
+    {
+      "id": "b-680",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-681",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"defaults\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-682",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"taskStatus\": \"todo\","
+        }
+      ]
+    },
+    {
+      "id": "b-683",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"taskPriority\": \"medium\","
+        }
+      ]
+    },
+    {
+      "id": "b-684",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assignee\": null"
+        }
+      ]
+    },
+    {
+      "id": "b-685",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-686",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"views\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-687",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"default\": \"datatable\","
+        }
+      ]
+    },
+    {
+      "id": "b-688",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"taskView\": \"kanban\""
+        }
+      ]
+    },
+    {
+      "id": "b-689",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-690",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"integrations\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-691",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"github\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-692",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"enabled\": true,"
+        }
+      ]
+    },
+    {
+      "id": "b-693",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"repo\": \"user/repo\","
+        }
+      ]
+    },
+    {
+      "id": "b-694",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"syncIssues\": true"
+        }
+      ]
+    },
+    {
+      "id": "b-695",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-696",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-697",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"workflows\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-698",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"autorun\": [\"daily-standup\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-699",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-700",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"ai\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-701",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"provider\": \"anthropic\","
+        }
+      ]
+    },
+    {
+      "id": "b-702",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"model\": \"claude-sonnet-4\""
+        }
+      ]
+    },
+    {
+      "id": "b-703",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-704",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-705",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-706",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Global Config"
+        }
+      ]
+    },
+    {
+      "id": "b-707",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`~/.filegraph/config/preferences.json`"
+        }
+      ]
+    },
+    {
+      "id": "b-708",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-709",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-710",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"defaultEditor\": \"vscode\","
+        }
+      ]
+    },
+    {
+      "id": "b-711",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"theme\": \"dark\","
+        }
+      ]
+    },
+    {
+      "id": "b-712",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"aliases\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-713",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@me\": \"person:alice\""
+        }
+      ]
+    },
+    {
+      "id": "b-714",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-715",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"projects\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-716",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-717",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"Backend API\","
+        }
+      ]
+    },
+    {
+      "id": "b-718",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"path\": \"~/code/backend-api\""
+        }
+      ]
+    },
+    {
+      "id": "b-719",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-720",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-721",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-722",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-723",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-724",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Security & Privacy"
+        }
+      ]
+    },
+    {
+      "id": "b-725",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Data Ownership"
+        }
+      ]
+    },
+    {
+      "id": "b-729",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-726",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All data stored locally in project directory"
+            }
+          ]
+        },
+        {
+          "id": "b-727",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No telemetry or tracking"
+            }
+          ]
+        },
+        {
+          "id": "b-728",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optional cloud sync (user-controlled)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-730",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Access Control"
+        }
+      ]
+    },
+    {
+      "id": "b-734",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-731",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Project-level: Anyone with repo access"
+            }
+          ]
+        },
+        {
+          "id": "b-732",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Global graph: User's private data"
+            }
+          ]
+        },
+        {
+          "id": "b-733",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shared entities: Explicit opt-in"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-735",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Sensitive Data"
+        }
+      ]
+    },
+    {
+      "id": "b-739",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-736",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`.meta/` and indexes in `.gitignore`"
+            }
+          ]
+        },
+        {
+          "id": "b-737",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Support for encrypted fields"
+            }
+          ]
+        },
+        {
+          "id": "b-738",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optional: Encrypt entire graph with user key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-740",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-741",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Extension Points"
+        }
+      ]
+    },
+    {
+      "id": "b-742",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Custom Entity Types"
+        }
+      ]
+    },
+    {
+      "id": "b-743",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-744",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// .filegraph/schema/design-asset.schema.json"
+        }
+      ]
+    },
+    {
+      "id": "b-745",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-746",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"EntitySchema\","
+        }
+      ]
+    },
+    {
+      "id": "b-747",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"DesignAsset\","
+        }
+      ]
+    },
+    {
+      "id": "b-748",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"fields\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-749",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"figmaUrl\": { \"type\": \"string\", \"format\": \"uri\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-750",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"status\": { \"enum\": [\"draft\", \"review\", \"approved\"] },"
+        }
+      ]
+    },
+    {
+      "id": "b-751",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"relatedTasks\": { \"type\": \"array\", \"items\": { \"$ref\": \"Task\" } }"
+        }
+      ]
+    },
+    {
+      "id": "b-752",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-753",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"views\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-754",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"card\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-755",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"thumbnail\": \"{{ figmaUrl }}/thumbnail\","
+        }
+      ]
+    },
+    {
+      "id": "b-756",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"title\": \"{{ name }}\""
+        }
+      ]
+    },
+    {
+      "id": "b-757",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-758",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-759",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-760",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-761",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Custom Views"
+        }
+      ]
+    },
+    {
+      "id": "b-762",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-763",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// .filegraph/views/custom/heatmap.view.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-764",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { View } from 'filegraph';"
+        }
+      ]
+    },
+    {
+      "id": "b-765",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export class HeatmapView extends View {"
+        }
+      ]
+    },
+    {
+      "id": "b-766",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "render(data: Entity[]) {"
+        }
+      ]
+    },
+    {
+      "id": "b-767",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Custom rendering logic"
+        }
+      ]
+    },
+    {
+      "id": "b-768",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return generateHeatmap(data);"
+        }
+      ]
+    },
+    {
+      "id": "b-769",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-770",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-771",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-772",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Custom Workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-773",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-774",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// .filegraph/workflows/custom/deploy-checklist.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-775",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export default {"
+        }
+      ]
+    },
+    {
+      "id": "b-776",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "trigger: 'manual',"
+        }
+      ]
+    },
+    {
+      "id": "b-777",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "steps: ["
+        }
+      ]
+    },
+    {
+      "id": "b-778",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ query: 'FIND task WHERE ?t.milestone = current AND ?t.status != done' },"
+        }
+      ]
+    },
+    {
+      "id": "b-779",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ condition: 'results.length === 0', message: 'All tasks complete!' },"
+        }
+      ]
+    },
+    {
+      "id": "b-780",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ ai: 'Generate deployment checklist based on recent changes' },"
+        }
+      ]
+    },
+    {
+      "id": "b-781",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ notify: 'slack://deploys' }"
+        }
+      ]
+    },
+    {
+      "id": "b-782",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-783",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-784",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-785",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-786",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Roadmap"
+        }
+      ]
+    },
+    {
+      "id": "b-787",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 1: Core Engine (Q1 2025)"
+        }
+      ]
+    },
+    {
+      "id": "b-793",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-788",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ TQL integration"
+            }
+          ]
+        },
+        {
+          "id": "b-789",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Basic CLI"
+            }
+          ]
+        },
+        {
+          "id": "b-790",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Project initialization"
+            }
+          ]
+        },
+        {
+          "id": "b-791",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Core entity types"
+            }
+          ]
+        },
+        {
+          "id": "b-792",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Query interface"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-794",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 2: Rich UI (Q2 2025)"
+        }
+      ]
+    },
+    {
+      "id": "b-799",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-795",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "VSCode extension"
+            }
+          ]
+        },
+        {
+          "id": "b-796",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Datatable & Kanban views"
+            }
+          ]
+        },
+        {
+          "id": "b-797",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Graph visualization"
+            }
+          ]
+        },
+        {
+          "id": "b-798",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Markdown preview"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-800",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 3: Agent Integration (Q3 2025)"
+        }
+      ]
+    },
+    {
+      "id": "b-805",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-801",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Workflow templates"
+            }
+          ]
+        },
+        {
+          "id": "b-802",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent guidance docs"
+            }
+          ]
+        },
+        {
+          "id": "b-803",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Natural language queries"
+            }
+          ]
+        },
+        {
+          "id": "b-804",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "GitHub Actions integration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-806",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 4: Collaboration (Q4 2025)"
+        }
+      ]
+    },
+    {
+      "id": "b-811",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-807",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Real-time sync"
+            }
+          ]
+        },
+        {
+          "id": "b-808",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conflict resolution"
+            }
+          ]
+        },
+        {
+          "id": "b-809",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Team features"
+            }
+          ]
+        },
+        {
+          "id": "b-810",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cloud backup (optional)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-812",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Future"
+        }
+      ]
+    },
+    {
+      "id": "b-817",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-813",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mobile app"
+            }
+          ]
+        },
+        {
+          "id": "b-814",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Slack/Discord bots"
+            }
+          ]
+        },
+        {
+          "id": "b-815",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Advanced analytics"
+            }
+          ]
+        },
+        {
+          "id": "b-816",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Plugin marketplace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-818",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-819",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Success Metrics"
+        }
+      ]
+    },
+    {
+      "id": "b-820",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For Developers"
+        }
+      ]
+    },
+    {
+      "id": "b-825",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-821",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Time to create/update tasks < 10 seconds"
+            }
+          ]
+        },
+        {
+          "id": "b-822",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Query results < 100ms (local)"
+            }
+          ]
+        },
+        {
+          "id": "b-823",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Zero-config setup for new projects"
+            }
+          ]
+        },
+        {
+          "id": "b-824",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Works offline"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-826",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For AI Agents"
+        }
+      ]
+    },
+    {
+      "id": "b-831",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-827",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "100% command success rate"
+            }
+          ]
+        },
+        {
+          "id": "b-828",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Deterministic workflow execution"
+            }
+          ]
+        },
+        {
+          "id": "b-829",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rich semantic context available"
+            }
+          ]
+        },
+        {
+          "id": "b-830",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No hallucination on project state"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-832",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For Teams"
+        }
+      ]
+    },
+    {
+      "id": "b-837",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-833",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Single source of truth for project state"
+            }
+          ]
+        },
+        {
+          "id": "b-834",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Git-friendly merge resolution"
+            }
+          ]
+        },
+        {
+          "id": "b-835",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-project visibility"
+            }
+          ]
+        },
+        {
+          "id": "b-836",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Automated reporting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-838",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-839",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Open Questions"
+        }
+      ]
+    },
+    {
+      "id": "b-840",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Merge Conflict Strategy**: How to handle concurrent edits to graph.jsonld?"
+        }
+      ]
+    },
+    {
+      "id": "b-841",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Last-write-wins with conflict markers?"
+        }
+      ]
+    },
+    {
+      "id": "b-842",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- CRDT-based eventual consistency?"
+        }
+      ]
+    },
+    {
+      "id": "b-843",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Manual merge tool?"
+        }
+      ]
+    },
+    {
+      "id": "b-844",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Scale Limits**: When does single graph.jsonld become unwieldy?"
+        }
+      ]
+    },
+    {
+      "id": "b-845",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Split at 10k entities?"
+        }
+      ]
+    },
+    {
+      "id": "b-846",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Lazy loading strategies?"
+        }
+      ]
+    },
+    {
+      "id": "b-847",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Archive old data?"
+        }
+      ]
+    },
+    {
+      "id": "b-848",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Schema Evolution**: How to handle breaking schema changes?"
+        }
+      ]
+    },
+    {
+      "id": "b-849",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Migration scripts?"
+        }
+      ]
+    },
+    {
+      "id": "b-850",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Backwards compatibility?"
+        }
+      ]
+    },
+    {
+      "id": "b-851",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Version graph format?"
+        }
+      ]
+    },
+    {
+      "id": "b-852",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Cross-Project Links**: How to resolve references when projects move?"
+        }
+      ]
+    },
+    {
+      "id": "b-853",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Relative paths?"
+        }
+      ]
+    },
+    {
+      "id": "b-854",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Global registry?"
+        }
+      ]
+    },
+    {
+      "id": "b-855",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Broken link detection?"
+        }
+      ]
+    },
+    {
+      "id": "b-856",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **AI Provider Choice**: Anthropic vs OpenAI vs local models?"
+        }
+      ]
+    },
+    {
+      "id": "b-857",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Make provider pluggable?"
+        }
+      ]
+    },
+    {
+      "id": "b-858",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Support multiple simultaneously?"
+        }
+      ]
+    },
+    {
+      "id": "b-859",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Fallback strategies?"
+        }
+      ]
+    },
+    {
+      "id": "b-860",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-861",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Conclusion"
+        }
+      ]
+    },
+    {
+      "id": "b-862",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`.filegraph` bridges the gap between human project management and AI agent capabilities by creating a semantic, queryable, version-controlled knowledge graph that lives alongside your code. By building on TQL's powerful query engine and wrapping it with opinionated conventions and rich UIs, it becomes the \"operating system\" for agentic development workflows."
+        }
+      ]
+    },
+    {
+      "id": "b-863",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The key insight: **AI agents need structured, semantic context to be truly useful**. `.filegraph` provides that context in a way that's natural for humans to read and write, but rigorous enough for machines to reason over."
+        }
+      ]
+    }
+  ]
+}

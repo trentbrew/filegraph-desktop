@@ -1,0 +1,71 @@
+[
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:proj:portfolio-website:001",
+    "@type": [
+      "Entity",
+      "Project"
+    ],
+    "id": "proj:portfolio-website:001",
+    "slug": "portfolio-website",
+    "name": "TechStart Portfolio Website",
+    "description": "Modern portfolio website for TechStart startup featuring case studies, team profiles, and blog",
+    "status": "active",
+    "budget": 35000,
+    "currency": "USD",
+    "startDate": "2024-01-15",
+    "targetDate": "2024-04-30",
+    "client": "org:techstart:001",
+    "lead": "person:sarah:001",
+    "priority": "high",
+    "tags": [
+      "web-design",
+      "portfolio",
+      "react",
+      "startup"
+    ],
+    "technologies": [
+      "React",
+      "Next.js",
+      "TailwindCSS",
+      "Framer Motion",
+      "Vercel"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:proj:website-redesign:001",
+    "@type": [
+      "Entity",
+      "Project"
+    ],
+    "id": "proj:website-redesign:001",
+    "slug": "website-redesign",
+    "name": "Website Redesign Project",
+    "description": "Complete redesign of TechStart's main website with new design system and component library",
+    "status": "active",
+    "budget": 45000,
+    "currency": "USD",
+    "startDate": "2024-11-01",
+    "targetDate": "2025-02-28",
+    "client": "org:techstart:001",
+    "lead": "person:sarah:001",
+    "team": [
+      "person:marcus:001",
+      "person:emma:001"
+    ],
+    "priority": "high",
+    "tags": [
+      "redesign",
+      "design-system",
+      "ux"
+    ],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Figma"
+    ],
+    "notes": "Referenced in @notes/entity-link-showcase.note"
+  }
+]

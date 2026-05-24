@@ -1,0 +1,133 @@
+[
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:ms:discovery:001",
+    "@type": [
+      "Entity",
+      "Milestone"
+    ],
+    "id": "ms:discovery:001",
+    "slug": "discovery",
+    "name": "Discovery Complete",
+    "description": "Requirements gathered, project scope defined, and initial kickoff completed",
+    "project": "proj:portfolio-website:001",
+    "dueDate": "2024-01-20",
+    "status": "completed",
+    "completedDate": "2024-01-19",
+    "deliverables": [
+      "Requirements document",
+      "Project timeline",
+      "Statement of work"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:ms:design:001",
+    "@type": [
+      "Entity",
+      "Milestone"
+    ],
+    "id": "ms:design:001",
+    "slug": "design",
+    "name": "Design System Approved",
+    "description": "Design system created and client approval received",
+    "project": "proj:portfolio-website:001",
+    "dueDate": "2024-02-10",
+    "status": "completed",
+    "completedDate": "2024-02-08",
+    "deliverables": [
+      "Design system documentation",
+      "Component library",
+      "Style guide"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:ms:mvp:001",
+    "@type": [
+      "Entity",
+      "Milestone"
+    ],
+    "id": "ms:mvp:001",
+    "slug": "mvp",
+    "name": "MVP Launch Ready",
+    "description": "Core functionality implemented and ready for client review",
+    "project": "proj:portfolio-website:001",
+    "dueDate": "2024-03-25",
+    "status": "in-progress",
+    "progress": 65,
+    "deliverables": [
+      "Homepage",
+      "Case studies",
+      "Team profiles",
+      "Basic animations"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:ms:content:001",
+    "@type": [
+      "Entity",
+      "Milestone"
+    ],
+    "id": "ms:content:001",
+    "slug": "content",
+    "name": "Content Integration",
+    "description": "Blog platform and content management system integrated",
+    "project": "proj:portfolio-website:001",
+    "dueDate": "2024-04-10",
+    "status": "pending",
+    "progress": 0,
+    "deliverables": [
+      "Blog functionality",
+      "CMS integration",
+      "Content migration"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:ms:launch:001",
+    "@type": [
+      "Entity",
+      "Milestone"
+    ],
+    "id": "ms:launch:001",
+    "slug": "launch",
+    "name": "Production Launch",
+    "description": "Website deployed to production and goes live",
+    "project": "proj:portfolio-website:001",
+    "dueDate": "2024-04-30",
+    "status": "pending",
+    "progress": 0,
+    "deliverables": [
+      "Production deployment",
+      "Performance optimization",
+      "Client training",
+      "Documentation"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:ms:design-system:001",
+    "@type": [
+      "Entity",
+      "Milestone"
+    ],
+    "id": "ms:design-system:001",
+    "slug": "design-system",
+    "name": "Design System Foundation",
+    "description": "Create core design system components including typography, colors, spacing, and base UI components",
+    "project": "proj:website-redesign:001",
+    "dueDate": "2025-01-15",
+    "status": "in-progress",
+    "progress": 45,
+    "owner": "person:emma:001",
+    "deliverables": [
+      "Design tokens",
+      "Typography system",
+      "Color palette",
+      "Component library foundation"
+    ],
+    "notes": "Referenced in @notes/entity-link-showcase.note as an example of cross-entity linking"
+  }
+]

@@ -1,0 +1,1087 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-349",
+  "title": "File Structure",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "File Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Single-file components & routes stay**. But the *default* project shape is **vertical slice by feature**, not layers. The compiler already splits by capability; you don’t need `/server` vs `/client` folders."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Group everything a feature needs (types, docs, rules, actions/queries, invariants, views, tests) **together**."
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Routes are thin shells over domain slices."
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-slice calls go through exported actions/queries—**no direct DB** across domains."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app/"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "routes/"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "+layout.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos/"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "page.trellis          # UI + small server block"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "domains/"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos/"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos.types.trellis   # type Todo, DTOs"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos.doc.trellis     # doc todos (CRDT), indexes"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos.rules.trellis   # Read/Write rules, checkers"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos.invariants.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos.server.trellis  # actions/queries/pipe"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos.views.trellis   # reusable views (List, Item)"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos.spec.trellis    # unit/integration tests"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "index.trellis         # re-exports for the route"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "components/               # cross-domain UI bits"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "styles/                   # global CSS/tokens (optional)"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Route shell (thin)"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// app/routes/todos/page.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { list, add, toggle, exportCSV } from \"@/domains/todos\""
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "view Page {"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "let page = list(\"all\", \"\")"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<Form enhance on:submit={add(title.value)} />"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<TodoList items={page.items} on:toggle={toggle} />"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<Button download from={exportCSV}>Export</Button>"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app/"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "routes/"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dashboard/page.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "projects/[id]/page.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "auth/sign-in/page.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "domains/"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "todos/ ..."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "projects/"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "projects.types.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "projects.doc.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "projects.rules.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "projects.invariants.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "projects.server.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "projects.views.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "index.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "auth/"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "auth.server.trellis     # session(), mint Proofs"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "auth.rules.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "components/"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tests/                      # e2e + timeline replays"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "packages/"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "domain-todos/               # published/internal pkg"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "domain-projects/"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ui-kit/                     # headless components"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "adapters-react/             # interop (optional)"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app/"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "routes/..."
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "trellis.config.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each `packages/domain-*` exposes `index.trellis` (types, rules, actions, queries, views)."
+            }
+          ]
+        },
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enforce boundaries with lints: routes may import only from `domains/*` or `packages/*`, not other routes."
+            }
+          ]
+        },
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`page.trellis` / `+layout.trellis` / `+error.trellis` in `routes/`."
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Inside a domain dir:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `.types.trellis` — data shapes only."
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `.doc.trellis` — `doc<>, index` declarations."
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `.rules.trellis` — `rule`, `checker`, capability algebra."
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `.invariants.trellis` — invariants + repairs."
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `.server.trellis` — `query`, `action`, `pipe` (imports proofs from checkers)."
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `.views.trellis` — reusable `view`s with no direct DB."
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `index.trellis` — `export { … }` for public surface."
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `.spec.trellis` — tests (can mount views/actions deterministically)."
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-82",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Do** colocate invariants & indexes with the docs they guard."
+            }
+          ]
+        },
+        {
+          "id": "b-83",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Do** keep route files < \\~200 lines; push logic into the domain."
+            }
+          ]
+        },
+        {
+          "id": "b-84",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Do** export *capability-checked* entry points only."
+            }
+          ]
+        },
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Don’t** import another domain’s `doc` or call its DB; call its exported `action/query`."
+            }
+          ]
+        },
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Don’t** put auth/session logic in features—centralize in `domains/auth`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// domains/projects/projects.server.trellis"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { session, Proof, ProjectRead, ProjectWrite } from \"./projects.rules\""
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { TodoWrite, add as addTodo } from \"@/domains/todos\""
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "action addDefaultTask(projectId:id,"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "canP: Proof<ProjectWrite(currentUser)>,"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "canT: Proof<TodoWrite(currentUser)>"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ") using session() {"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// safe: both capabilities required"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "addTodo(`Kickoff for ${projectId}`, canT)"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-100",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "400 lines or > 3 server entry points → split `page` logic into `.views.trellis` + keep `page` thin."
+            }
+          ]
+        },
+        {
+          "id": "b-101",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shared across 2+ routes → move to `domains/*`."
+            }
+          ]
+        },
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Touches proofs/invariants/indexes → live in the domain, never in the route."
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unit: `.spec.trellis` next to the file under test."
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Slice integration: `domains/<x>/<x>.spec.trellis` (actions + invariants)."
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Route/e2e: `app/tests/<route>.spec.trellis` (loads with deterministic VM + timeline)."
+            }
+          ]
+        },
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Capability flow is per *function*, not folder. Vertical slices keep the proof surface small and auditable."
+            }
+          ]
+        },
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Replication planning indexes live with the domain—planner choices are visible in that slice’s Explain panel."
+            }
+          ]
+        },
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Routes stay declarative; domains own correctness (rules, invariants), interop via typed exports."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

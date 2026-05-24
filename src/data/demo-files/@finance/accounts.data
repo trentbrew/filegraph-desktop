@@ -1,0 +1,80 @@
+[
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:acc:checking:001",
+    "@type": [
+      "Entity",
+      "Account"
+    ],
+    "id": "acc:checking:001",
+    "slug": "checking",
+    "name": "Primary Checking",
+    "type": "checking",
+    "institution": "Chase",
+    "balance": 4250,
+    "currency": "USD"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:acc:savings:001",
+    "@type": [
+      "Entity",
+      "Account"
+    ],
+    "id": "acc:savings:001",
+    "slug": "savings",
+    "name": "Emergency Fund",
+    "type": "savings",
+    "institution": "Ally",
+    "balance": 15000,
+    "apy": 0.045,
+    "currency": "USD"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:acc:investment:001",
+    "@type": [
+      "Entity",
+      "Account"
+    ],
+    "id": "acc:investment:001",
+    "slug": "investment",
+    "name": "Brokerage",
+    "type": "investment",
+    "institution": "Fidelity",
+    "balance": 42500,
+    "currency": "USD"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:acc:retirement:001",
+    "@type": [
+      "Entity",
+      "Account"
+    ],
+    "id": "acc:retirement:001",
+    "slug": "retirement",
+    "name": "401k",
+    "type": "retirement",
+    "institution": "Vanguard",
+    "balance": 85000,
+    "currency": "USD"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:acc:credit:001",
+    "@type": [
+      "Entity",
+      "Account"
+    ],
+    "id": "acc:credit:001",
+    "slug": "credit",
+    "name": "Rewards Card",
+    "type": "credit",
+    "institution": "Amex",
+    "balance": -1850,
+    "limit": 10000,
+    "apr": 0.1999,
+    "currency": "USD"
+  }
+]

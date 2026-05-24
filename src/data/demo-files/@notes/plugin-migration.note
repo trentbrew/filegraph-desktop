@@ -1,0 +1,920 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-147",
+  "title": "Plugin Migration",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Plugin Migration"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**CONTENT & PRESENTATION**"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**KeyDesign Addon & WPBakery Page Builder** → **LET GO OF**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These are WordPress-specific tools. Webflow has a built-in visual builder, so no external plugin is needed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Slider Revolution** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If the current site has advanced sliders, Webflow has built-in slider components, or you could use a third-party JavaScript library like [Swiper.js](https://swiperjs.com/)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Typing Effect** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow supports CSS animations and interactions. If the effect is more complex, you can use custom JavaScript like [Typed.js](https://mattboldt.com/demos/typed-js/)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**ClassyPress PRO by Mittun** → **LET GO OF**"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is a WordPress theme, so it’s not transferable. Webflow allows for full custom design, so you’ll rebuild the look from scratch."
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Question about GiveSmart**: If GiveSmart requires a plugin, check if it has an embeddable widget for Webflow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**EVENTS & COMMUNITY ENGAGEMENT**"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Blocks for Eventbrite** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow does not have a built-in Eventbrite integration, but you can use:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Eventbrite Embed**: Use an iframe to embed Eventbrite event pages."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Zapier Integration**: Automate event listing updates in Webflow."
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Webflow CMS**: Manually list events and link to Eventbrite for registration."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Contact Form 7 & WP Forms** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow has a built-in **Forms** feature. For advanced forms:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use **Formstack, Typeform, or Jotform** and embed them."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use **Zapier** to connect forms to Webflow CMS or other CRMs."
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Popup Maker** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow allows for pop-ups through native **interactions and animations**."
+            }
+          ]
+        },
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If pop-ups require conditions (e.g., based on user input), use **ConvertFlow or Elfsight Popup**."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**WP-FormAssembly** → **KEEP (IF SALESFORCE INTEGRATION IS NEEDED)**"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If forms are integrating with Salesforce, check if Webflow's form system meets needs."
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alternative: Embed **FormAssembly forms** in Webflow or use Zapier."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**MEMBERSHIP & E-COMMERCE**"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**MemberPress Basic** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow does not have built-in membership functionality. Consider:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **MemberStack**: Best for simple membership with Webflow-native UI."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Outseta**: If email, CRM, and payment processing are needed."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **MemberSpace**: If simple content gating is enough."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**WooCommerce** → **REPLACE (IF NEEDED)**"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow **does** support e-commerce, but it's not as robust as WooCommerce."
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Options**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use Webflow’s e-commerce if selling a few digital/physical items."
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use **Shopify Buy Button** or **Snipcart** if more complex checkout needed."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Do we need this AND Eventbrite?** – If Eventbrite handles event sales, WooCommerce might not be needed."
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**MEDIA & CONTENT ENHANCEMENT**"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**EmbedPress** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow **natively** supports YouTube, Vimeo, Google Docs, and other embeds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Smush (Image Optimization)** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow **automatically optimizes images** on upload."
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Further optimization: **Use TinyPNG or ImageOptim before upload.**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**WP Extra File Types** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-62",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow supports common file types but has limits. If additional file types are needed:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use **Google Drive, Dropbox, or AWS S3 for storage** and link to files."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**NAVIGATION & STRUCTURE**"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Breadcrumb NavXT** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow does not have built-in breadcrumbs."
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Solution: Use **Webflow CMS to create breadcrumb navigation** manually."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Redux Framework** → **LET GO OF**"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This was for WordPress theme settings. Webflow **does not need this** since branding and styles are set visually."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**PERFORMANCE & TECHNICAL**"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Redis Object Cache & WP Super Cache** → **LET GO OF**"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow **has built-in CDN and caching**, so no external plugin is needed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**WP-Optimize** → **LET GO OF**"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow **optimizes performance automatically**."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**UpdraftPlus (Backups)** → **KEEP (ALTERNATIVE NEEDED)**"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-83",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow **does not** have an automatic backup system like WordPress."
+            }
+          ]
+        },
+        {
+          "id": "b-84",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Options:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Manually **duplicate projects** in Webflow."
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use **Webflow Backup feature** (limited but useful)."
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- For full data backup, **export collections as CSV regularly**."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**ANALYTICS & MARKETING**"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Google Analytics by MonsterInsights** → **REPLACE**"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow does not need a plugin. Just **add the GA tracking ID in Webflow settings**."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Envato Market** → **LET GO OF**"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This was for theme/plugin updates in WordPress, not needed in Webflow."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "fg": "https://filegraph.local/graph/"
+  },
+  "@id": "fg:finance:graph",
+  "@type": "FederatedGraph",
+  "namespace": "@finance",
+  "description": "Federated graph of all financial data",
+  "nodes": [
+    { "id": "acc:checking:001", "type": "Account", "file": "accounts.data", "label": "Primary Checking" },
+    { "id": "acc:savings:001", "type": "Account", "file": "accounts.data", "label": "Emergency Fund" },
+    { "id": "acc:investment:001", "type": "Account", "file": "accounts.data", "label": "Brokerage" },
+    { "id": "acc:retirement:001", "type": "Account", "file": "accounts.data", "label": "401k" },
+    { "id": "acc:credit:001", "type": "Account", "file": "accounts.data", "label": "Rewards Card" },
+    { "id": "goal:emergency-fund:001", "type": "Goal", "file": "goals.data", "label": "Emergency Fund" },
+    { "id": "goal:investment:001", "type": "Goal", "file": "goals.data", "label": "Investment Growth" },
+    { "id": "goal:debt-free:001", "type": "Goal", "file": "goals.data", "label": "Debt Free" },
+    { "id": "bill:rent:001", "type": "Bill", "file": "bills.data", "label": "Rent" },
+    { "id": "bill:utilities:001", "type": "Bill", "file": "bills.data", "label": "Utilities" },
+    { "id": "bill:internet:001", "type": "Bill", "file": "bills.data", "label": "Internet" },
+    { "id": "inc:salary:001", "type": "Income", "file": "income.data", "label": "Primary Salary" },
+    { "id": "inc:freelance:001", "type": "Income", "file": "income.data", "label": "Freelance" }
+  ],
+  "edges": [
+    { "source": "goal:emergency-fund:001", "target": "acc:savings:001", "label": "funded_by" },
+    { "source": "goal:investment:001", "target": "acc:investment:001", "label": "funded_by" },
+    { "source": "goal:debt-free:001", "target": "acc:credit:001", "label": "targets" },
+    { "source": "bill:rent:001", "target": "acc:checking:001", "label": "paid_from" },
+    { "source": "bill:utilities:001", "target": "acc:checking:001", "label": "paid_from" },
+    { "source": "bill:internet:001", "target": "acc:checking:001", "label": "paid_from" },
+    { "source": "inc:salary:001", "target": "acc:checking:001", "label": "deposits_to" },
+    { "source": "inc:freelance:001", "target": "acc:checking:001", "label": "deposits_to" }
+  ],
+  "stats": {
+    "nodeCount": { "@expr": "nodes.length" },
+    "edgeCount": { "@expr": "edges.length" },
+    "lastUpdated": "2024-12-09T00:00:00Z"
+  }
+}

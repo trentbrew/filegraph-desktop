@@ -1,0 +1,3352 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-392",
+  "title": "AI Agents & LLMs",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "AI Agents & LLMs"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "LD-C has **profound implications** for AI agents and LLMs, essentially creating a **reliable reasoning layer** that addresses many of the fundamental limitations of current AI systems. Here's how:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. Grounding AI in Verifiable Computation**"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**The Hallucination Antidote**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"AIResponse\","
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"question\": \"What's the monthly payment on a $500,000 mortgage at 4.5% for 30 years?\","
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"monthlyPayment\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"mortgagePayment(.principal, .annualRate, .years)\","
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"principal\", \"annualRate\", \"years\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"rateValidation\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".annualRate > 0 && .annualRate < 0.2\","
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Interest rate outside reasonable bounds\""
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"principal\": {\"@value\": \"500000\", \"@type\": \"USD\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"annualRate\": {\"@value\": \"0.045\", \"@type\": \"ldc:Percentage\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"years\": 30"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: AI can provide answers with **built-in mathematical verification** instead of guessing calculations."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. AI Agent Trust & Verification**"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Auditable Agent Decisions**"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"AITradingDecision\","
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"agent\": \"hedge-fund-alpha\","
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"timestamp\": \"2025-01-15T10:30:00Z\","
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"tradeSignal\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "match [.technicalIndicators.rsi, .fundamentalData.peRatio] {"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[rsi, pe] if rsi < 30 && pe < 15: \"STRONG_BUY\","
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[rsi, pe] if rsi > 70 && pe > 25: \"STRONG_SELL\","
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "_: \"HOLD\""
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"\"\","
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"technicalIndicators\", \"fundamentalData\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"riskLimits\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".positionSize <= .capital * 0.02\","
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Position exceeds 2% risk limit\""
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@prov\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"dataSources\": [\"bloomberg://equity/AAPL\", \"sec://filings/AAPL\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"modelVersion\": \"trading-v3.2.1\""
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: Every AI decision becomes **auditable and explainable** with full provenance."
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Multi-Agent Coordination**"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Agent Consensus with LD-C**"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"MultiAgentConsensus\","
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"task\": \"Portfolio Rebalancing\","
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"agents\": [\"risk-manager\", \"market-analyst\", \"compliance-officer\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"finalDecision\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if .complianceOfficer.approved && .riskManager.approved"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "then .marketAnalyst.recommendation"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "else \"NO_ACTION\""
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"\"\","
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"complianceOfficer\", \"riskManager\", \"marketAnalyst\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"unanimousApproval\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"every(.agents, agent => agent.approved == true)\","
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"All agents must approve major portfolio changes\""
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: Multiple AI agents can coordinate through **verifiable constraint systems** rather than opaque negotiations."
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. LLM Training & Fine-Tuning**"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Synthetic Training Data Generation**"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"TrainingExample\","
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"domain\": \"FinancialDerivatives\","
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"syntheticScenario\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"generateDerivativeScenario(.marketConditions, .complexity)\","
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"marketConditions\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"correctAnswer\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"blackScholes(.syntheticScenario.underlier, .syntheticScenario.strike, ...)\","
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"syntheticScenario\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"realisticParameters\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".syntheticScenario.volatility > 0 && .syntheticScenario.volatility < 2.0\","
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Generated volatility outside realistic bounds\""
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: LLMs can be trained on **mathematically verified examples** instead of potentially incorrect human-written ones."
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5. AI Safety & Alignment**"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Constitutional AI with Enforceable Constraints**"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"AIConstitution\","
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"principles\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"id\": \"financial-safety\","
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Never recommend overly risky investments\","
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maxRisk\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".recommendation.riskScore <= 7\","
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Investment recommendation too risky\""
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"id\": \"regulatory-compliance\","
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Ensure all recommendations are legally compliant\","
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"kycCheck\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".user.verified && .user.jurisdiction in .product.allowedJurisdictions\","
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"User not eligible for this product\""
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: AI behavior can be **mathematically constrained** to stay within ethical and legal boundaries."
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**6. Agentic Workflows with Guarantees**"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Reliable Multi-Step Processes**"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"AIWorkflow\","
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"goal\": \"Client Portfolio Analysis\","
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"steps\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"agent\": \"data-collector\","
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"task\": \"Gather client financial data\","
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"dataCompleteness\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"hasFields(.clientData, ['income', 'assets', 'riskTolerance'])\","
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Incomplete client data collected\""
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"agent\": \"portfolio-analyzer\","
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"task\": \"Analyze current portfolio\","
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"analysis\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"analyzePortfolio(.clientData.assets, .marketData)\","
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"clientData\", \"marketData\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"agent\": \"recommendation-engine\","
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"task\": \"Generate personalized recommendations\","
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"suitability\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".recommendations.riskLevel == .clientData.riskTolerance\","
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Recommendations don't match client risk profile\""
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: Complex AI workflows become **verifiably correct** end-to-end."
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**7. Continuous Learning with Validation**"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Self-Improving AI with Built-in Testing**"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"AIModelUpdate\","
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"model\": \"credit-scoring-v4\","
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"trainingData\": \"<https://data.org/credit/v3>\","
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"newModel\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"trainModel(.trainingData, .hyperparameters)\","
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"trainingData\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"performance\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"evaluateModel(.newModel, .validationData)\","
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"newModel\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"accuracyImprovement\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".performance.accuracy > .previousModel.accuracy\","
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"New model doesn't improve accuracy\""
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"fairness\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".performance.disparity < 0.05\","
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Model shows unacceptable demographic disparity\""
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: AI model updates can be **automatically validated** against safety and performance constraints."
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**8. Economic AI Agents**"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Autonomous Economic Actors**"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"AutonomousFund\","
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"AI-Managed Growth Fund\","
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"investmentDecision\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"portfolioOptimizer(.marketConditions, .riskPreferences, .constraints)\","
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@volatile\": true"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"execution\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"executeTrades(.investmentDecision, .liquidityConstraints)\","
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@caps\": [\"trading-api\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@sig\": {\"required\": [\"compliance-officer\"]}"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"regulatoryCompliance\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".portfolio.concentration < 0.1\","
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Portfolio too concentrated in single asset\""
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"liquidityRequirement\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".cash > .assets * 0.05\","
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Insufficient cash for redemptions\""
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: AI agents can autonomously manage real economic value within **mathematically enforced guardrails**."
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**9. LLM + LD-C Hybrid Reasoning**"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Structured Reasoning Process**"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"ComplexReasoningTask\","
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"query\": \"Should we invest in Company XYZ given current market conditions?\","
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"financialAnalysis\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"analyzeFinancials(.companyData.financialStatements)\","
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"companyData\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"marketAnalysis\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"analyzeMarketConditions(.sectorData, .economicIndicators)\","
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"sectorData\", \"economicIndicators\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"finalRecommendation\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"synthesizeRecommendation(.financialAnalysis, .marketAnalysis, .riskProfile)\","
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"financialAnalysis\", \"marketAnalysis\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@view\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"reasoningChain\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@query\": \"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "SELECT ?step ?input ?output ?confidence"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "WHERE {"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "?analysisStep :step ?step ;"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ":input ?input ;"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ":output ?output ;"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ":confidence ?confidence ."
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "} ORDER BY ?step"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"\"\""
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implication**: LLMs can leverage LD-C for **structured, verifiable sub-reasoning** while handling natural language interfaces."
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**10. AI Governance & Compliance**"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Regulatory Compliance for AI Systems**"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"AIGovernanceFramework\","
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"regulations\": [\"GDPR\", \"SEC AI Rules\", \"EU AI Act\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"explainability\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".aiSystem.providesExplanations == true\","
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"AI system must provide decision explanations\""
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"humanOversight\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".criticalDecisions.humanApprovalRequired == true\","
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Critical decisions require human approval\""
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"dataPrivacy\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \".trainingData.anonymized == true && .trainingData.consentObtained == true\","
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@message\": \"Training data violates privacy regulations\""
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@rule\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"complianceReport\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"generateComplianceReport(.aiSystem, .regulations)\","
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@depends\": [\"aiSystem\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**The Transformative Implications**"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**For AI Safety:**"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-307",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Mathematical guarantees** instead of probabilistic alignment"
+            }
+          ]
+        },
+        {
+          "id": "b-308",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Constraint enforcement** that cannot be reasoned around"
+            }
+          ]
+        },
+        {
+          "id": "b-309",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Audit trails** for every significant decision"
+            }
+          ]
+        },
+        {
+          "id": "b-310",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Multi-agent coordination** with verified outcomes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**For Enterprise AI:**"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-313",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Regulatory compliance** built into the reasoning process"
+            }
+          ]
+        },
+        {
+          "id": "b-314",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Financial accuracy** through verified computations"
+            }
+          ]
+        },
+        {
+          "id": "b-315",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Risk management** as a first-class concern"
+            }
+          ]
+        },
+        {
+          "id": "b-316",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Explainable AI** with full provenance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**For AI Development:**"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-319",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Testing and validation** as inherent properties"
+            }
+          ]
+        },
+        {
+          "id": "b-320",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Continuous monitoring** of AI behavior against constraints"
+            }
+          ]
+        },
+        {
+          "id": "b-321",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Version control** for AI reasoning patterns"
+            }
+          ]
+        },
+        {
+          "id": "b-322",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Composition** of verified AI components"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**The Killer App: Trustworthy Autonomous Systems**"
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "LD-C enables AI systems that can be:"
+        }
+      ]
+    },
+    {
+      "id": "b-331",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-326",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Trusted** with financial decisions"
+            }
+          ]
+        },
+        {
+          "id": "b-327",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Audited** by regulators"
+            }
+          ]
+        },
+        {
+          "id": "b-328",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Composed** into complex workflows"
+            }
+          ]
+        },
+        {
+          "id": "b-329",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Governed** by mathematical constraints"
+            }
+          ]
+        },
+        {
+          "id": "b-330",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Verified** to be correct and compliant"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-332",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This transforms AI from \"black box predictors\" to **verifiable reasoning engines** that can reliably operate in high-stakes environments like finance, healthcare, and governance."
+        }
+      ]
+    },
+    {
+      "id": "b-333",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The combination of LLMs for flexible reasoning and LD-C for verifiable computation creates AI systems that are both powerful and trustworthy - addressing the fundamental limitation that has prevented AI from being deployed in many critical domains."
+        }
+      ]
+    }
+  ]
+}

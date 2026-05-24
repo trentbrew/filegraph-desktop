@@ -1,0 +1,1592 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-259",
+  "title": "Features by User Type",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Features by User Type"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ **SPRINT PLANNING: Docket.tv Features by User Type**"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎛️ **Broadcaster Features**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Cablecast API Integration"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Integrate Cablecast API for schedule & metadata sync"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Enable broadcasters to import schedules, show metadata, and VOD links via Cablecast API. Includes token-based auth, sync intervals, and fallback UI."
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `integration`, `backend`, `MVP`"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: L"
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Configurable TV Guide"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Build embeddable, customizable TV Guide"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Broadcasters can embed a TV Guide widget on their site and customize branding (colors, logo, layout)."
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `frontend`, `widget`, `MVP`"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: L"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Program & Timeslot Management"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Visual scheduler for managing program times"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Drag-and-drop scheduling tool for assigning content to time blocks. Support recurring and one-off shows."
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `frontend`, `feature`, `broadcasting`"
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: XL"
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Team & Creator Management"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Invite and manage producer permissions"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Allow broadcasters to invite collaborators with roles like “Producer”, “Scheduler”, “Moderator”."
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `auth`, `permissions`, `MVP`"
+            }
+          ]
+        },
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Compliance & Accessibility Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Compliance tools: CC upload + 17+ tagging"
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Upload SRT/TTML files, auto-generate captions, tag content with FCC warnings like “17+” or “Disclaimers Required”."
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `accessibility`, `content-moderation`, `MVP`"
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Analytics Dashboard"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Build broadcaster analytics dashboard"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: View top shows, average watch time, retention rates, and producer performance across all scheduled content."
+            }
+          ]
+        },
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `analytics`, `dashboard`, `insights`"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: L"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "7. Historical Content Archive"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Upload + tag historical programming"
+            }
+          ]
+        },
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Create a content archive interface with tagging, visibility controls, and search filters."
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `media`, `backend`, `frontend`, `archive`"
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "8. Multi-Channel Support"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Enable multi-channel broadcasting under one account"
+            }
+          ]
+        },
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Broadcasters can manage Channel 16, 17, 75 from one dashboard, including segmented scheduling + permissions."
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `multi-tenant`, `org`, `admin-tools`"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: L"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎬 **Producer Features**"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. VOD Upload & Metadata"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Upload and manage VOD content"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Producers can upload episodes, assign metadata (titles, tags, CC, warnings)."
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `uploader`, `media`, `MVP`"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Real-Time Captioning"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: AI captioning for live and uploaded videos"
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Transcribe content in real-time or post-upload, with manual editing interface."
+            }
+          ]
+        },
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `AI`, `accessibility`, `integration`"
+            }
+          ]
+        },
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: L"
+            }
+          ]
+        },
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Schedule Participation UI"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Allow producers to view/request time slots"
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Let producers see assigned slots, request 1st/2nd/3rd choices, and view series history."
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `frontend`, `calendar`, `producer-tools`"
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-82",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Live Interaction Controls"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Toggle live chat or polls for livestreams"
+            }
+          ]
+        },
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Producers can enable/disable interactive tools like chat, feedback, or polls on their content."
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `engagement`, `streaming`, `frontend`"
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Performance Insights"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Per-show analytics for producers"
+            }
+          ]
+        },
+        {
+          "id": "b-93",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Track views, comments, watch duration for each episode/show."
+            }
+          ]
+        },
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `analytics`, `creator-tools`"
+            }
+          ]
+        },
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Producer Portfolio Page"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-99",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Public portfolio for creators"
+            }
+          ]
+        },
+        {
+          "id": "b-100",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Auto-generate public page for each producer with show list, schedule, optional donation/support links."
+            }
+          ]
+        },
+        {
+          "id": "b-101",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `creator-tools`, `public-page`"
+            }
+          ]
+        },
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "📺 **Viewer Features**"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Interactive TV Guide"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Build searchable, filterable TV Guide"
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Users can filter shows by genre, date/time, channel. Guide displays in list or grid layout."
+            }
+          ]
+        },
+        {
+          "id": "b-110",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `UI`, `frontend`, `viewer-experience`"
+            }
+          ]
+        },
+        {
+          "id": "b-111",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: L"
+            }
+          ]
+        },
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Mini-Player + Streaming"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Add mini-player with live playback"
+            }
+          ]
+        },
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Users can stream directly in-guide and browse while watching."
+            }
+          ]
+        },
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `player`, `frontend`, `UX`"
+            }
+          ]
+        },
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Viewer Interaction Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-122",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Enable chat, polls, likes for episodes"
+            }
+          ]
+        },
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Add real-time chat, emoji reactions, poll widgets, and “like/save” tools to increase engagement."
+            }
+          ]
+        },
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `engagement`, `frontend`, `viewer`"
+            }
+          ]
+        },
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Accessibility Features"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-129",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Improve guide accessibility + player support"
+            }
+          ]
+        },
+        {
+          "id": "b-130",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Add screen reader support, color contrast options, text scaling."
+            }
+          ]
+        },
+        {
+          "id": "b-131",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `accessibility`, `frontend`, `UX`"
+            }
+          ]
+        },
+        {
+          "id": "b-132",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-133",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Subscriptions & Notifications"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-136",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Subscribe to shows/channels + reminders"
+            }
+          ]
+        },
+        {
+          "id": "b-137",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Let users follow shows/channels and get email/app notifications for upcoming episodes."
+            }
+          ]
+        },
+        {
+          "id": "b-138",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `notifications`, `viewer`, `feature`"
+            }
+          ]
+        },
+        {
+          "id": "b-139",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: L"
+            }
+          ]
+        },
+        {
+          "id": "b-140",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🤝 **Sponsor Features**"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Ad Campaign Manager"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-145",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Create and manage sponsor ad campaigns"
+            }
+          ]
+        },
+        {
+          "id": "b-146",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: UI for sponsors to upload creative, define schedule, and choose channels/shows for ad placement."
+            }
+          ]
+        },
+        {
+          "id": "b-147",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `sponsor`, `campaigns`, `ads`, `MVP`"
+            }
+          ]
+        },
+        {
+          "id": "b-148",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: L"
+            }
+          ]
+        },
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Ad Performance Reports"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-152",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Analytics dashboard for sponsors"
+            }
+          ]
+        },
+        {
+          "id": "b-153",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Impressions, views, and channel reach reports for each campaign, with exportable data."
+            }
+          ]
+        },
+        {
+          "id": "b-154",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `analytics`, `ads`, `sponsor`"
+            }
+          ]
+        },
+        {
+          "id": "b-155",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Backlog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Sponsor Branding Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-159",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Title**: Enable sponsor badges and in-player branding"
+            }
+          ]
+        },
+        {
+          "id": "b-160",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: Allow broadcasters to tag content with sponsor visuals (“Powered by…”), pre-roll/mid-roll placements."
+            }
+          ]
+        },
+        {
+          "id": "b-161",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Labels**: `branding`, `ads`, `partner-tools`"
+            }
+          ]
+        },
+        {
+          "id": "b-162",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effort**: M"
+            }
+          ]
+        },
+        {
+          "id": "b-163",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status**: Future"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

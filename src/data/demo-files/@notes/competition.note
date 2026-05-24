@@ -1,0 +1,861 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-389",
+  "title": "Competition",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Competition"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Good instinct to check—but no, there's **nothing with this exact combination** of properties. Let me map what exists:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Close neighbors (but missing key pieces)"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**SPARQL + SHACL stack**"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Has: RDF queries, shape validation"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Missing: Embedded computation in-document, units, deterministic time, incremental views, provenance as first-class"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem: SPARQL is external queries *over* data, not computation *within* it. No portable DAG."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**JSON Schema + JSON Logic**"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Has: Validation, simple expressions"
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Missing: Graph semantics, queries across documents, RDF interop, units, provenance"
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem: JSON Logic is too anemic (no proper stdlib, no aggregation), JSON Schema can't express derived properties"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Datalog variants (Datomic, LogicBlox, Souffle)**"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Has: Rules, incremental views, queries, temporal (in Datomic)"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Missing: JSON-LD compatibility, units, deterministic serialization, web linking"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem: Closed-world databases, not web-scale linked data. Can't embed computation in exchanged documents."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**GraphQL**"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Has: Queries, schema, resolvers"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Missing: Computation travels with data, RDF semantics, units, rules, constraints, provenance"
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem: Resolvers are code-behind, not portable specs. No determinism guarantees."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Excel/Google Sheets**"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Has: Formulas, reactive computation, incremental recalc"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Missing: RDF/linked data, structured queries, provenance, signatures, type safety"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem: Great UX, terrible for programmatic interchange or auditing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Nix/Dhall/CUE**"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Has: Pure functional configuration, type checking, determinism"
+            }
+          ]
+        },
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Missing: RDF/graph semantics, queries, units, temporal validity"
+            }
+          ]
+        },
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem: Config languages, not data interchange. No web linking or provenance chain."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**XTDB (formerly Crux)**"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Has: Temporal database, datalog, immutability, transaction log"
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Missing: Portable document format, units, embedded computation that travels with data"
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem: Database engine, not a document specification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Hydra/JSON-LD APIs**"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Has: RDF, hypermedia, linked data"
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Missing: Computation, validation, queries in-document"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Problem: Describes *APIs*, not computable data."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The gap LD-C fills"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The unique combination is:"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **JSON-LD compatible** (web linking, RDF interop)"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Computation travels with data** (portable DAG, not code-behind)"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Deterministic** (time/randomness injected, not sampled)"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Units as values** (dimensional analysis)"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Incremental** (views, invalidation tracking)"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Auditable** (provenance + signatures first-class)"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. **Constraint-checked** (not just validated, but with computed predicates)"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Closest spiritual ancestor: **Turtle + SPARQL + SHACL + custom application code**, but that's a *stack*, not a single portable format. LD-C collapses it into one exchangeable document."
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Why the gap exists"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Most systems optimize for one of:"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Data exchange** (JSON-LD, RDF): computation is external"
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Computation** (Datalog, Nix): data exchange is secondary"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Databases** (Datomic, XTDB): can't serialize computation portably"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Config** (CUE, Dhall): not designed for linked, evolving data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "LD-C sits in the **Venn diagram center**: linked data that carries its own computation rules, deterministically evaluatable anywhere, with audit trails."
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Prior art that came close"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Tim Berners-Lee's N3/Notation3** (2000s) had rules and formulas in RDF, but:"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Never standardized"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No units, no deterministic time handling"
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Baroque syntax"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No modern tooling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**RIF (Rule Interchange Format)** W3C spec:"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way too complex (died from over-generalization)"
+            }
+          ]
+        },
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No JSON, no modern ergonomics"
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Didn't integrate with JSON-LD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Wolfram Language** notebooks:"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Computation + data together"
+            }
+          ]
+        },
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But: proprietary, not RDF, not web-scale"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The validator test"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Ask: \"Can I send a financial report as LD-C and have the recipient reproduce all computed totals, verify signatures, check constraints, and trace provenance *from the document alone*?\""
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "No existing format says yes to all of that. You need:"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Database + code + validation rules + separate audit trail + manual unit tracking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "LD-C: \"It's in the JSON.\""
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**My guess why it doesn't exist**: it requires touching three communities (semantic web, data engineering, PL/formal methods) that don't usually talk. You need:"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RDF people to accept computation"
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Data engineers to accept linked data"
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "PL researchers to accept \"good enough\" determinism over full formal verification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The design threading that needle—pragmatic but principled—is *hard*. You've done it. I genuinely think this is novel enough to matter."
+        }
+      ]
+    }
+  ]
+}

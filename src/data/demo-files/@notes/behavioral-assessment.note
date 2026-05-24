@@ -1,0 +1,2782 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-417",
+  "title": "Behavioral Assessment",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Behavioral Assessment"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "ACCESSIBLE AI SUGGESTIONS COMPONENT"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I would implement an accessible suggestions component using React/Next.js with the following approach:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**CORE IMPLEMENTATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use semantic HTML with a list or radio group pattern with proper ARIA roles and labels"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement aria-live=\"polite\" regions for screen reader announcements of async updates"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Support full keyboard navigation (arrow keys, Enter/Space, Escape)"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintain stable focus management throughout the interaction lifecycle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**LOADING & ERROR STATES:**"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Display skeleton loaders during API calls"
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement debouncing/throttling to prevent excessive API requests"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Support cancellable requests when users navigate away"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide clear error messages with retry options"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**TESTING APPROACH:**"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Keyboard-only navigation works without mouse input"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Screen readers properly announce updates and state changes"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Component performs well on mobile devices"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verify WCAG 2.1 AA compliance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Note: Before implementation, I would gather requirements, constraints, and success criteria to understand the specific use case and user needs."
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "WORDPRESS WIDGET STYLE ISOLATION"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To prevent style conflicts between a React widget and WordPress theme, I would use a layered approach:"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**PRIMARY STRATEGY - SHADOW DOM:**"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Encapsulate the widget using Shadow DOM for style isolation"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use CSS-in-JS (styled-components or Emotion) to scope styles within the shadow boundary"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Intentionally control font/theme inheritance where desired"
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ensure focus traversal and accessibility work across the shadow boundary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**FALLBACK - IFRAME:**"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For browsers without Shadow DOM support or when hard isolation is required"
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provides complete style isolation but with trade-offs in communication and accessibility"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**WORDPRESS-SPECIFIC CONSIDERATIONS:**"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Properly enqueue scripts and styles through WordPress hooks"
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Package as a plugin or Gutenberg block for proper encapsulation"
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Test across popular WordPress themes to ensure compatibility"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "ACCESSIBLE DYNAMIC AI-INJECTED CONTENT"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To ensure AI-injected content is accessible to assistive technologies:"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**CORE ACCESSIBILITY:**"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wrap dynamic content in semantic HTML containers (article, section elements)"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use aria-live=\"polite\" for non-disruptive announcements"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avoid stealing focus; let screen readers naturally discover content"
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ensure new content is reachable via keyboard/tab order"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**UPDATE HANDLING:**"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Batch frequent updates to avoid announcement fatigue"
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Announce meaningful diffs, not just \"content changed\""
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Handle content removal gracefully with appropriate ARIA updates"
+            }
+          ]
+        },
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintain idempotent rendering for React/Next.js hydration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**TESTING:**"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verify behavior with NVDA, JAWS, and VoiceOver"
+            }
+          ]
+        },
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Test with keyboard-only navigation"
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ensure updates don't cause layout shifts or lost focus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Note: Before implementation, I would gather requirements, constraints, and success criteria to understand the specific use case and user needs."
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "REACT WIDGET STYLE CONFLICTS IN WORDPRESS"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To resolve style conflicts when embedding a React widget in WordPress:"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**ISOLATION STRATEGY:**"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use Shadow DOM as primary isolation mechanism"
+            }
+          ]
+        },
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Apply CSS-in-JS for component-level style scoping"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fallback to iframe for complete isolation if needed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**WORDPRESS INTEGRATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Package as a proper WordPress plugin or Gutenberg block"
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use proper script/style enqueueing through wp*enqueue*\\* functions"
+            }
+          ]
+        },
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Namespace CSS classes if Shadow DOM isn't viable"
+            }
+          ]
+        },
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Test with common WordPress themes (Twenty Twenty-Four, Astra, etc.)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**ACCESSIBILITY CONSIDERATIONS:**"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ensure focus management works across boundaries"
+            }
+          ]
+        },
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Test keyboard navigation and screen reader compatibility"
+            }
+          ]
+        },
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintain proper ARIA relationships"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "SCREEN READER ACCESS FOR DYNAMIC AI CONTENT"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To ensure screen readers can access dynamically added AI content:"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**IMPLEMENTATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use aria-live=\"polite\" for non-urgent updates"
+            }
+          ]
+        },
+        {
+          "id": "b-82",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use aria-live=\"assertive\" only for critical alerts"
+            }
+          ]
+        },
+        {
+          "id": "b-83",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wrap content in semantic containers with proper roles"
+            }
+          ]
+        },
+        {
+          "id": "b-84",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintain logical tab order for keyboard navigation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**UPDATE MANAGEMENT:**"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Avoid focus stealing during content injection"
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Batch rapid updates to prevent announcement spam"
+            }
+          ]
+        },
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Only announce meaningful changes (diffs)"
+            }
+          ]
+        },
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use aria-busy during loading states"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**TESTING:**"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-93",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verify with NVDA, JAWS, and VoiceOver"
+            }
+          ]
+        },
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Test on mobile screen readers (iOS VoiceOver, Android TalkBack)"
+            }
+          ]
+        },
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ensure content is discoverable via screen reader navigation modes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Note: Before implementation, I would gather requirements, constraints, and success criteria to understand the specific use case and user needs."
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "DEBUGGING COMPONENT FAILURE IN WORDPRESS STAGING"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "My debugging approach for a component that works locally but fails in staging:"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**INITIAL INVESTIGATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Check browser console for JavaScript errors"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Inspect Network tab for failed requests, CORS errors, or 4xx/5xx responses"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Verify all environment variables are set correctly in staging"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Compare API base URLs between environments"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**ENVIRONMENT PARITY:**"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Check for CORS/CSP policy differences"
+            }
+          ]
+        },
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verify API keys and secrets are configured"
+            }
+          ]
+        },
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Compare build-time vs runtime configurations"
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Check Node.js/PHP versions match"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**WORDPRESS-SPECIFIC:**"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Review server error logs (PHP error log, web server logs)"
+            }
+          ]
+        },
+        {
+          "id": "b-113",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Check hosting provider settings and resource limits"
+            }
+          ]
+        },
+        {
+          "id": "b-114",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Verify plugin conflicts aren't occurring"
+            }
+          ]
+        },
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Test with minimal theme/plugin configuration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**SYSTEMATIC ISOLATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Create minimal reproducible case"
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use feature flags to isolate problematic code"
+            }
+          ]
+        },
+        {
+          "id": "b-120",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Check for firewall or CDN interference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "HANDLING SLOW AI API RESPONSES"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To maintain good UX when AI API calls take several seconds:"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**PROGRESSIVE LOADING:**"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement streaming/progressive rendering to show tokens as they arrive"
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Display skeleton loaders or content placeholders immediately"
+            }
+          ]
+        },
+        {
+          "id": "b-127",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Show the AI's reasoning process or status messages (\"Analyzing...\", \"Generating response...\")"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**USER CONTROL:**"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-130",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide a cancel button for long-running requests"
+            }
+          ]
+        },
+        {
+          "id": "b-131",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement request timeout with user-friendly messaging"
+            }
+          ]
+        },
+        {
+          "id": "b-132",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Offer retry functionality with exponential backoff"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**PERCEIVED PERFORMANCE:**"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-135",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Keep layout stable to prevent content shifts"
+            }
+          ]
+        },
+        {
+          "id": "b-136",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use aria-live=\"polite\" for progress announcements"
+            }
+          ]
+        },
+        {
+          "id": "b-137",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Show estimated time remaining if available"
+            }
+          ]
+        },
+        {
+          "id": "b-138",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintain UI responsiveness during loading"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**ERROR HANDLING:**"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-141",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Graceful degradation if API fails"
+            }
+          ]
+        },
+        {
+          "id": "b-142",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clear error messages with actionable next steps"
+            }
+          ]
+        },
+        {
+          "id": "b-143",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Log latency metrics for monitoring"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Note: Before implementation, I would gather requirements, constraints, and success criteria to understand the specific use case and user needs."
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "PREVENTING FRONTEND CRASHES FROM AI API ERRORS"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To prevent occasional API errors from crashing the frontend:"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**TYPE SAFETY & VALIDATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enforce typed contracts with TypeScript interfaces"
+            }
+          ]
+        },
+        {
+          "id": "b-150",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Validate API responses with runtime schema validation (Zod, Yup)"
+            }
+          ]
+        },
+        {
+          "id": "b-151",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use structured outputs from AI APIs when available"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**ERROR BOUNDARIES:**"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-154",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wrap AI components in React Error Boundaries"
+            }
+          ]
+        },
+        {
+          "id": "b-155",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide fallback UI when errors occur"
+            }
+          ]
+        },
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Log errors to telemetry service (Sentry, LogRocket)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**RESILIENT API CALLS:**"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-159",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement retry logic with exponential backoff"
+            }
+          ]
+        },
+        {
+          "id": "b-160",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set reasonable timeouts to prevent hanging requests"
+            }
+          ]
+        },
+        {
+          "id": "b-161",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use nullish coalescing and optional chaining for safe property access"
+            }
+          ]
+        },
+        {
+          "id": "b-162",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Render safe fallback content on error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**OBSERVABILITY:**"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-165",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Log all errors with context for debugging"
+            }
+          ]
+        },
+        {
+          "id": "b-166",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Track error rates and patterns"
+            }
+          ]
+        },
+        {
+          "id": "b-167",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set up alerts for error thresholds"
+            }
+          ]
+        },
+        {
+          "id": "b-168",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement circuit breakers for repeated failures"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "INTEGRATING CUSTOM AI WIDGET IN WORDPRESS"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "My approach to integrating a custom AI-powered widget in WordPress:"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**PLANNING & PROTOTYPING:**"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clarify the goal, audience, and success metrics"
+            }
+          ]
+        },
+        {
+          "id": "b-174",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prototype the experience outside WordPress first (standalone React app)"
+            }
+          ]
+        },
+        {
+          "id": "b-175",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Validate UX and functionality before WordPress integration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**WORDPRESS INTEGRATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-178",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Package as a WordPress plugin or Gutenberg block"
+            }
+          ]
+        },
+        {
+          "id": "b-179",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Create a server-side REST API endpoint (not client-side calls)"
+            }
+          ]
+        },
+        {
+          "id": "b-180",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Store API keys server-side, never expose to frontend"
+            }
+          ]
+        },
+        {
+          "id": "b-181",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement proper authentication and rate limiting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**IMPLEMENTATION DETAILS:**"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-184",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use schema validation for all API responses"
+            }
+          ]
+        },
+        {
+          "id": "b-185",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement caching strategy (transients or object cache)"
+            }
+          ]
+        },
+        {
+          "id": "b-186",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Add defensive UI states (loading/error/empty)"
+            }
+          ]
+        },
+        {
+          "id": "b-187",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use role=\"status\" for accessible streaming updates"
+            }
+          ]
+        },
+        {
+          "id": "b-188",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Apply content filters and moderation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**PRODUCTION READINESS:**"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-191",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lazy-load widget assets to avoid blocking page load"
+            }
+          ]
+        },
+        {
+          "id": "b-192",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Add comprehensive logging and metrics (observability)"
+            }
+          ]
+        },
+        {
+          "id": "b-193",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement graceful fallbacks if AI service is down"
+            }
+          ]
+        },
+        {
+          "id": "b-194",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use wp_cron for prefetching or precomputing when appropriate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Note: Before implementation, I would gather requirements, constraints, and success criteria to understand the specific use case and user needs."
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "IMPROVING PERFORMANCE FOR LARGE AI RESPONSES"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Strategies to optimize performance when AI responses are large:"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**PAYLOAD OPTIMIZATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-200",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reduce payload size at the source (request only needed fields)"
+            }
+          ]
+        },
+        {
+          "id": "b-201",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement streaming to show content progressively"
+            }
+          ]
+        },
+        {
+          "id": "b-202",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Paginate long responses into manageable chunks"
+            }
+          ]
+        },
+        {
+          "id": "b-203",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Compress responses (gzip/brotli)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**FRONTEND PERFORMANCE:**"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-206",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Code-split AI components to reduce initial bundle size"
+            }
+          ]
+        },
+        {
+          "id": "b-207",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lazy-load heavy assets only when needed"
+            }
+          ]
+        },
+        {
+          "id": "b-208",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Offload processing to Web Workers for CPU-intensive tasks"
+            }
+          ]
+        },
+        {
+          "id": "b-209",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement virtual scrolling for long content"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**CACHING STRATEGY:**"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-212",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cache responses aggressively (client-side and server-side)"
+            }
+          ]
+        },
+        {
+          "id": "b-213",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use stale-while-revalidate pattern"
+            }
+          ]
+        },
+        {
+          "id": "b-214",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For WordPress: use transients or object cache"
+            }
+          ]
+        },
+        {
+          "id": "b-215",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement CDN caching where appropriate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**NETWORK EFFICIENCY:**"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-218",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set reasonable timeouts and implement backpressure"
+            }
+          ]
+        },
+        {
+          "id": "b-219",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use HTTP/2 or HTTP/3 for multiplexing"
+            }
+          ]
+        },
+        {
+          "id": "b-220",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optimize images/media with responsive images and modern formats"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**MONITORING:**"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-223",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Track Core Web Vitals (LCP, FID, CLS)"
+            }
+          ]
+        },
+        {
+          "id": "b-224",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement Real User Monitoring (RUM)"
+            }
+          ]
+        },
+        {
+          "id": "b-225",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use performance budgets and alerts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Note: Before implementation, I would gather requirements, constraints, and success criteria to understand the specific use case and user needs."
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "AI-GENERATED IMAGE PROCESSING COMPONENT"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Design approach for showing an AI-generated image during processing:"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**INITIAL STATE:**"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-231",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Display a skeleton loader or blur-up placeholder"
+            }
+          ]
+        },
+        {
+          "id": "b-232",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide meaningful alt text describing what's being generated"
+            }
+          ]
+        },
+        {
+          "id": "b-233",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use proper aspect ratio container to prevent layout shift"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**PROGRESS INDICATION:**"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-236",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Show processing status with aria-live=\"polite\" updates"
+            }
+          ]
+        },
+        {
+          "id": "b-237",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optionally display progress percentage or status message"
+            }
+          ]
+        },
+        {
+          "id": "b-238",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For some models, stream progressive image updates if supported"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**USER CONTROL:**"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-241",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide cancel button for long-running generation"
+            }
+          ]
+        },
+        {
+          "id": "b-242",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement retry functionality on errors"
+            }
+          ]
+        },
+        {
+          "id": "b-243",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Show clear error messages if generation fails"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**FINAL IMAGE DISPLAY:**"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-246",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Swap placeholder with final image without layout shift"
+            }
+          ]
+        },
+        {
+          "id": "b-247",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use responsive images (srcset) for different viewports"
+            }
+          ]
+        },
+        {
+          "id": "b-248",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optimize with CDN and modern formats (WebP, AVIF)"
+            }
+          ]
+        },
+        {
+          "id": "b-249",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ensure proper caching headers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**ACCESSIBILITY:**"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-252",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide descriptive alt text for the generated image"
+            }
+          ]
+        },
+        {
+          "id": "b-253",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Announce completion to screen readers"
+            }
+          ]
+        },
+        {
+          "id": "b-254",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintain keyboard focus appropriately"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Note: Before implementation, I would gather requirements, constraints, and success criteria to understand the specific use case and user needs."
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "PREVENTING MULTIPLE RAPID API CALLS"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To prevent multiple API calls from rapid button clicks:"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**IMPLEMENTATION STRATEGIES:**"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Debouncing/Throttling:"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use lodash.debounce or custom debounce for user input"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use throttle for actions that should happen at most once per interval"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Request Flag Pattern:"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const [isLoading, setIsLoading] = useState(false);"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const handleClick = async () => {"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (isLoading) return;"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "setIsLoading(true);"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "try {"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await apiCall();"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "} finally {"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "setIsLoading(false);"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Disabled Button State:"
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Disable button while request is in flight"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Show loading spinner or indicator"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Provide clear feedback that action is processing"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Request Deduplication:"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use request ID to deduplicate identical requests"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cancel previous pending request before making new one"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Implement proper cleanup in useEffect"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**USER EXPERIENCE:**"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-285",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Show loading state immediately on click"
+            }
+          ]
+        },
+        {
+          "id": "b-286",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide clear feedback about what's happening"
+            }
+          ]
+        },
+        {
+          "id": "b-287",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Handle errors gracefully with retry options"
+            }
+          ]
+        },
+        {
+          "id": "b-288",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ensure accessibility (announce state changes)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Note: Before implementation, I would gather requirements, constraints, and success criteria to understand the specific use case and user needs."
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Tell us why you believe you're the ideal candidate for this role."
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I bring proven experience with your key technologies (React/Next.js, AI integrations, responsive design) and a track record of building accessible, performant web applications. I'm particularly passionate about bridging the gap between AI and UX - creating intuitive interfaces that make AI capabilities feel natural and accessible to users. My background in both frontend development and product design gives me a holistic perspective for crafting these experiences. Most importantly, I'm genuinely excited about applying these skills to advance innovation in industrial automation, where thoughtful AI integration can have meaningful impact."
+        }
+      ]
+    }
+  ]
+}

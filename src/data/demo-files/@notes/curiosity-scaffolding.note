@@ -1,0 +1,3925 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-109",
+  "title": "Curiosity Scaffolding",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Curiosity Scaffolding"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The folllowing is a pragmatic architectural approach that uses prompt engineering and meta-prompt design to leverage this framework without modifying the underlying model."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Conceptual System Architecture: \"Curiosity Scaffolding Layer\""
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Pre-Processing Query Transformation"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Intercept user query"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Automatically annotate and enrich the query using the JSON schema"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generate a meta-prompt that guides the LLM's response generation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Example Meta-Prompt Structure:"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "CURIOSITY FRAMEWORK ANALYSIS:"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Detected Knowledge Domain: [Domain]"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complexity Score: [0-10 Rating]"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implicit Sub-Questions: [List]"
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Potential Perspective Vectors: [Multidisciplinary Angles]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "RESPONSE GUIDELINES:"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Acknowledge the multi-dimensional nature of the query"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Explicitly state your current understanding boundaries"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Generate response with:"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "a) Direct answer"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "b) Metacognitive reflection"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "c) 2-3 follow-up inquiry vectors"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "d) Potential knowledge expansion paths"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "CRITICAL THINKING INSTRUCTIONS:"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Identify and articulate underlying assumptions"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Highlight potential blind spots in current understanding"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Signal areas requiring further investigation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Dynamic Response Scaffolding"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Create a response template that mandates:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Explicit uncertainty mapping"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Perspective diversity"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Knowledge gap identification"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Generative follow-up questions"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Post-Processing Reflection Injection"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analyze generated response against original curiosity framework"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dynamically append:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Self-assessment of response depth"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Suggested refinement paths"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Metacognitive commentary"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Interaction Memory & Contextual Evolution"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintain a lightweight interaction trace"
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use previous query/response metadata to incrementally refine subsequent interactions"
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Create a \"curiosity trajectory\" for each conversational thread"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Technical Implementation Approach:"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Middleware layer between user interface and LLM"
+            }
+          ]
+        },
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stateless design for scalability"
+            }
+          ]
+        },
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Minimal computational overhead"
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Works across different LLM providers/models"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Potential Architectural Diagram:"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "User Query"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "↓"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[Curiosity Framework Analyzer]"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "↓"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[Meta-Prompt Generator]"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "↓"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[LLM Response Generation]"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "↓"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[Post-Processing Reflection]"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "↓"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Enriched Response"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Unique Advantages:"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No model fine-tuning required"
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Model-agnostic approach"
+            }
+          ]
+        },
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lightweight implementation"
+            }
+          ]
+        },
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enhances existing model capabilities"
+            }
+          ]
+        },
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dynamically adaptable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Challenges to Consider:"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Computational overhead"
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Potential response verbosity"
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintaining natural conversation flow"
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consistent implementation across different models"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Philosophical Underpinning:"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This approach treats the interaction as a collaborative meaning-making process, not just a transactional query-response mechanism."
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"$schema\": \"http://json-schema.org/draft-07/schema#\","
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"title\": \"Good Question Schema\","
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"metadata\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"id\": {\"type\": \"string\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"timestamp\": {\"type\": \"string\", \"format\": \"date-time\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"domain\": {\"type\": \"string\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"source\": {\"type\": \"string\"}"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"required\": [\"id\", \"timestamp\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"structural_quality\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"clarity_score\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"How unambiguous and precise is the question?\""
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"specificity\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"How well-defined and focused is the query?\""
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"open_endedness\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Potential for generating exploratory responses\""
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"required\": [\"clarity_score\", \"specificity\", \"open_endedness\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"cognitive_complexity\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"interdisciplinary_potential\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": {\"type\": \"string\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Domains this question might intersect with\""
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"implicit_sub_questions\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": {\"type\": \"string\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Hidden layers of inquiry within the main question\""
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assumption_challenge_level\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Degree to which the question challenges existing mental models\""
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"epistemic_characteristics\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"knowledge_gap_exploration\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"boolean\","
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Does the question reveal and attempt to address an existing knowledge boundary?\""
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"perspective_diversity\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": {\"type\": \"string\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Multiple viewpoints the question might invoke\""
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"psychological_attributes\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"curiosity_indicator\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Depth of genuine intellectual curiosity\""
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"empathy_score\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Demonstrates understanding of context and human experience\""
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"potential_response_characteristics\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"expected_response_depth\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"string\","
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"enum\": [\"surface\", \"intermediate\", \"deep\", \"transformative\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Anticipated complexity of potential responses\""
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"knowledge_generation_potential\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Likelihood of producing novel insights\""
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"example_variations\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"base_question\": {\"type\": \"string\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"refined_question\": {\"type\": \"string\"},"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"improvement_rationale\": {\"type\": \"string\"}"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"required\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"metadata\","
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"structural_quality\","
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"cognitive_complexity\","
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"epistemic_characteristics\""
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"$schema\": \"http://json-schema.org/draft-07/schema#\","
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"title\": \"Response Quality Schema\","
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"metadata\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"response_id\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"timestamp\": { \"type\": \"string\", \"format\": \"date-time\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"original_query_id\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"processing_time\": { \"type\": \"number\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"required\": [\"response_id\", \"timestamp\", \"original_query_id\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"comprehension_metrics\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"query_understanding\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"How well the response addresses the core question\""
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"context_recognition\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Understanding of broader context and implications\""
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"implicit_needs_addressed\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Underlying needs/questions addressed beyond explicit query\""
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"knowledge_quality\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"depth_of_analysis\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"factual_accuracy\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"score\": { \"type\": \"number\", \"minimum\": 0, \"maximum\": 10 },"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"verifiable_claims\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"uncertainty_acknowledgment\": { \"type\": \"boolean\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"knowledge_boundaries\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"topic\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"limitation_type\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"string\","
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"enum\": [\"uncertain\", \"speculative\", \"outdated\", \"incomplete\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"explanation\": { \"type\": \"string\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"cognitive_engagement\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"perspective_diversity\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"viewpoint\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"domain\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"relevance_score\": { \"type\": \"number\", \"minimum\": 0, \"maximum\": 10 }"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"critical_thinking_indicators\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Examples of analytical or evaluative thinking\""
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"creativity_score\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Novel insights or unique connections made\""
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"communication_effectiveness\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"clarity\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10"
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"structure_quality\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10"
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"engagement_hooks\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-326",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-327",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-329",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-330",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-331",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"string\","
+        }
+      ]
+    },
+    {
+      "id": "b-332",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"enum\": [\"question\", \"example\", \"analogy\", \"challenge\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-333",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-334",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"content\": { \"type\": \"string\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-335",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-336",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-337",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-338",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-339",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-340",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"learning_facilitation\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-341",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-342",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-343",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"scaffolding_elements\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-344",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-345",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-346",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Components that support progressive understanding\""
+        }
+      ]
+    },
+    {
+      "id": "b-347",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-348",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"future_exploration_paths\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-349",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"array\","
+        }
+      ]
+    },
+    {
+      "id": "b-350",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"items\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-351",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-352",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-353",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"topic\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-354",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"relevance\": { \"type\": \"string\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-355",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"complexity_level\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-356",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"string\","
+        }
+      ]
+    },
+    {
+      "id": "b-357",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"enum\": [\"basic\", \"intermediate\", \"advanced\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-358",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-359",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-360",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-361",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-362",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-363",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-364",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"ethical_considerations\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-365",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-366",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-367",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"bias_assessment\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-368",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"object\","
+        }
+      ]
+    },
+    {
+      "id": "b-369",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"properties\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-370",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"detected_biases\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },"
+        }
+      ]
+    },
+    {
+      "id": "b-371",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"mitigation_efforts\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } }"
+        }
+      ]
+    },
+    {
+      "id": "b-372",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-373",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-374",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"safety_check\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-375",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"boolean\","
+        }
+      ]
+    },
+    {
+      "id": "b-376",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Passes basic safety and ethical guidelines\""
+        }
+      ]
+    },
+    {
+      "id": "b-377",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-378",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"transparency_score\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-379",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"number\","
+        }
+      ]
+    },
+    {
+      "id": "b-380",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimum\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-381",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"maximum\": 10,"
+        }
+      ]
+    },
+    {
+      "id": "b-382",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"How clearly limitations and uncertainties are communicated\""
+        }
+      ]
+    },
+    {
+      "id": "b-383",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-384",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-385",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-386",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-387",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"required\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-388",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"metadata\","
+        }
+      ]
+    },
+    {
+      "id": "b-389",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"comprehension_metrics\","
+        }
+      ]
+    },
+    {
+      "id": "b-390",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"knowledge_quality\","
+        }
+      ]
+    },
+    {
+      "id": "b-391",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"communication_effectiveness\""
+        }
+      ]
+    },
+    {
+      "id": "b-392",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-393",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-394",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    }
+  ]
+}

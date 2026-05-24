@@ -1,0 +1,297 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-343",
+  "title": "Seed Prompt",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Seed Prompt"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Develop PocketFlow TikTok Generator, a backend+frontend workflow that creates Adult Swim–style TikTok video scripts from brand context. It should allow users to submit brand inputs and parameters, then generate a JSON composition (assets, timing, text), with download + API trigger. In this initial phase for this feature, let's call it \"Phase 1 — Integrated Workflow MVP,\" let's have dev-mode usage with seeded data and no auth flow."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "User Configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want one user in one category: 1 Internal Operator (dev-mode). Let's create three different sample projects (sample brands)."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Board Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's have the standard Kanban columns for the status of each task, such as \"Queued\", \"Sourcing\", \"Composing\", \"Rendered\", \"Published\"."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Authentication"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "There will be no end-user authentication (dev-mode only) for this application as this is an internal MVP and uses only local API keys (.env) for Pexels and Gemini."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Task Card Features"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "For each task in the UI for a task card, you should be able to:"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "edit brand context and parameters (duration, clip count)"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "generate and download JSON script (plan with timing/assets/text)"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "view 5 video + 5 image asset refs (from Pexels)"
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "view 5 text blocks (≤6 chars each)"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "see constraints check (14s total, 2.8s per clip)"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "see logs/errors and rerun"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "User Flow"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When you first launch PocketFlow TikTok Generator, it's going to open the \"Content Generation → TikTok Video\" workflow screen with a prefilled demo. No login; a dev-mode operator is assumed."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When you click on a user, you go into the main view, which displays their recent runs and presets. When you click on a project, you open a project detail with saved presets, last JSON script, and asset history."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Board Interaction"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You're going to see the columns. You'll be able to create a run, move cards as states update (auto-progress), filter by project, and trigger \"Generate\" / \"Download JSON\" from the card."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Visual Indicators"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You will see clip counters, duration meter (14s target), text-length badges (≤6 chars), and error/warning chips so you can quickly confirm the recipe and spot failures."
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Permission System"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You can create/edit your own runs and download scripts, but you can't publish or modify runs owned by other projects."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    }
+  ]
+}

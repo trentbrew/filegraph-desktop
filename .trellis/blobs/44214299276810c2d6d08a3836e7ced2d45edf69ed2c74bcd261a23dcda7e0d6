@@ -1,0 +1,160 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://filegraph.dev/ontology#",
+    "fg": "https://filegraph.dev/ontology#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "id": "@id",
+    "type": "@type",
+    "File": "fg:File",
+    "Entity": "fg:Entity",
+    "Relationship": "fg:Relationship",
+    "Memory": "fg:Memory",
+    "Action": "fg:Action",
+    "Person": {
+      "@id": "fg:Person",
+      "@type": "@id"
+    },
+    "Organization": {
+      "@id": "fg:Organization",
+      "@type": "@id"
+    },
+    "Project": {
+      "@id": "fg:Project",
+      "@type": "@id"
+    },
+    "Task": {
+      "@id": "fg:Task",
+      "@type": "@id"
+    },
+    "Milestone": {
+      "@id": "fg:Milestone",
+      "@type": "@id"
+    },
+    "Account": {
+      "@id": "fg:Account",
+      "@type": "@id"
+    },
+    "Transaction": {
+      "@id": "fg:Transaction",
+      "@type": "@id"
+    },
+    "Bill": {
+      "@id": "fg:Bill",
+      "@type": "@id"
+    },
+    "Subscription": {
+      "@id": "fg:Subscription",
+      "@type": "@id"
+    },
+    "Goal": {
+      "@id": "fg:Goal",
+      "@type": "@id"
+    },
+    "Note": {
+      "@id": "fg:Note",
+      "@type": "@id"
+    },
+    "CalendarEvent": {
+      "@id": "fg:CalendarEvent",
+      "@type": "@id"
+    },
+    "Reminder": {
+      "@id": "fg:Reminder",
+      "@type": "@id"
+    },
+    "mentions": {
+      "@id": "fg:mentions",
+      "@type": "@id"
+    },
+    "storedIn": {
+      "@id": "fg:storedIn",
+      "@type": "@id"
+    },
+    "relatedTo": {
+      "@id": "fg:relatedTo",
+      "@type": "@id"
+    },
+    "derivedFrom": {
+      "@id": "fg:derivedFrom",
+      "@type": "@id"
+    },
+    "confidence": {
+      "@id": "fg:confidence",
+      "@type": "xsd:float"
+    },
+    "slug": "fg:slug",
+    "tags": {
+      "@id": "fg:tags",
+      "@container": "@set"
+    },
+    "status": "fg:status",
+    "urgency": {
+      "@id": "fg:urgency",
+      "@type": "xsd:integer"
+    },
+    "importance": {
+      "@id": "fg:importance",
+      "@type": "xsd:float"
+    },
+    "category": "fg:category",
+    "lastAccessed": {
+      "@id": "fg:lastAccessed",
+      "@type": "xsd:dateTime"
+    },
+    "worksFor": {
+      "@id": "fg:worksFor",
+      "@type": "@id"
+    },
+    "memberOf": {
+      "@id": "fg:memberOf",
+      "@type": "@id"
+    },
+    "assignedTo": {
+      "@id": "fg:assignedTo",
+      "@type": "@id"
+    },
+    "partOf": {
+      "@id": "fg:partOf",
+      "@type": "@id"
+    },
+    "dependsOn": {
+      "@id": "fg:dependsOn",
+      "@type": "@id"
+    },
+    "owns": {
+      "@id": "fg:owns",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "email": "schema:email",
+    "telephone": "schema:telephone",
+    "url": "schema:url",
+    "image": "schema:image",
+    "startDate": {
+      "@id": "schema:startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "schema:endDate",
+      "@type": "xsd:date"
+    },
+    "location": "schema:location",
+    "amount": {
+      "@id": "schema:amount",
+      "@type": "xsd:decimal"
+    },
+    "currency": "schema:priceCurrency",
+    "created": {
+      "@id": "dcterms:created",
+      "@type": "xsd:dateTime"
+    },
+    "modified": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

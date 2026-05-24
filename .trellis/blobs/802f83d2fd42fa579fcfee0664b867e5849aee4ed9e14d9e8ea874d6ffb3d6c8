@@ -1,0 +1,287 @@
+{
+  "@context": {
+    "fin": "https://finance.local/"
+  },
+  "@id": "fin:bills",
+  "@type": "BillCollection",
+  "recurring": [
+    {
+      "id": "bill:rent:001",
+      "slug": "rent",
+      "name": "Rent",
+      "amount": 1650,
+      "dueDay": 1,
+      "frequency": "monthly",
+      "category": "housing",
+      "autopay": true,
+      "account": "acc:checking:001"
+    },
+    {
+      "id": "bill:electric:001",
+      "slug": "electric",
+      "name": "Electric",
+      "amount": 85,
+      "dueDay": 15,
+      "frequency": "monthly",
+      "category": "utilities",
+      "autopay": true,
+      "account": "acc:checking:001"
+    },
+    {
+      "id": "bill:gas:001",
+      "slug": "gas",
+      "name": "Gas",
+      "amount": 45,
+      "dueDay": 20,
+      "frequency": "monthly",
+      "category": "utilities",
+      "autopay": false,
+      "account": "acc:checking:001"
+    },
+    {
+      "id": "bill:internet:001",
+      "slug": "internet",
+      "name": "Internet",
+      "amount": 70,
+      "dueDay": 10,
+      "frequency": "monthly",
+      "category": "utilities",
+      "autopay": true,
+      "account": "acc:checking:001"
+    },
+    {
+      "id": "bill:phone:001",
+      "slug": "phone",
+      "name": "Phone",
+      "amount": 45,
+      "dueDay": 22,
+      "frequency": "monthly",
+      "category": "utilities",
+      "autopay": true,
+      "account": "acc:credit:001"
+    },
+    {
+      "id": "bill:insurance-car:001",
+      "slug": "insurance-car",
+      "name": "Car Insurance",
+      "amount": 125,
+      "dueDay": 5,
+      "frequency": "monthly",
+      "category": "transport",
+      "autopay": true,
+      "account": "acc:checking:001"
+    },
+    {
+      "id": "bill:insurance-health:001",
+      "slug": "insurance-health",
+      "name": "Health Insurance",
+      "amount": 150,
+      "dueDay": 1,
+      "frequency": "monthly",
+      "category": "health",
+      "autopay": true,
+      "account": "acc:checking:001"
+    },
+    {
+      "id": "bill:insurance-renters:001",
+      "slug": "insurance-renters",
+      "name": "Renters Insurance",
+      "amount": 25,
+      "dueDay": 1,
+      "frequency": "monthly",
+      "category": "housing",
+      "autopay": true,
+      "account": "acc:checking:001"
+    },
+    {
+      "id": "bill:gym:001",
+      "slug": "gym",
+      "name": "Gym Membership",
+      "amount": 40,
+      "dueDay": 10,
+      "frequency": "monthly",
+      "category": "health",
+      "autopay": true,
+      "account": "acc:checking:001"
+    },
+    {
+      "id": "bill:credit-payment:001",
+      "slug": "credit-payment",
+      "name": "Credit Card Payment",
+      "amount": 500,
+      "dueDay": 25,
+      "frequency": "monthly",
+      "category": "debt",
+      "autopay": false,
+      "account": "acc:checking:001"
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "sub:netflix:001",
+      "slug": "netflix",
+      "name": "Netflix",
+      "amount": 15.99,
+      "frequency": "monthly",
+      "category": "entertainment",
+      "autopay": true
+    },
+    {
+      "id": "sub:spotify:001",
+      "slug": "spotify",
+      "name": "Spotify",
+      "amount": 10.99,
+      "frequency": "monthly",
+      "category": "entertainment",
+      "autopay": true
+    },
+    {
+      "id": "sub:icloud:001",
+      "slug": "icloud",
+      "name": "iCloud Storage",
+      "amount": 2.99,
+      "frequency": "monthly",
+      "category": "tech",
+      "autopay": true
+    },
+    {
+      "id": "sub:1password:001",
+      "slug": "1password",
+      "name": "1Password",
+      "amount": 35.88,
+      "frequency": "yearly",
+      "category": "tech",
+      "autopay": true
+    },
+    {
+      "id": "sub:youtube:001",
+      "slug": "youtube",
+      "name": "YouTube Premium",
+      "amount": 13.99,
+      "frequency": "monthly",
+      "category": "entertainment",
+      "autopay": true
+    },
+    {
+      "id": "sub:chatgpt:001",
+      "slug": "chatgpt",
+      "name": "ChatGPT Plus",
+      "amount": 20,
+      "frequency": "monthly",
+      "category": "tech",
+      "autopay": true
+    },
+    {
+      "id": "sub:nytimes:001",
+      "slug": "nytimes",
+      "name": "NY Times",
+      "amount": 4,
+      "frequency": "weekly",
+      "category": "news",
+      "autopay": true
+    },
+    {
+      "id": "sub:github:001",
+      "slug": "github",
+      "name": "GitHub Pro",
+      "amount": 4,
+      "frequency": "monthly",
+      "category": "tech",
+      "autopay": true
+    }
+  ],
+  "annualPayments": [
+    {
+      "id": "annual:domain-com:001",
+      "slug": "domain-com",
+      "name": "Personal Domain (.com)",
+      "amount": 12,
+      "dueDate": "2024-08-15",
+      "category": "tech"
+    },
+    {
+      "id": "annual:domain-io:001",
+      "slug": "domain-io",
+      "name": "Business Domain (.io)",
+      "amount": 45,
+      "dueDate": "2024-11-01",
+      "category": "tech"
+    },
+    {
+      "id": "annual:amazon-prime:001",
+      "slug": "amazon-prime",
+      "name": "Amazon Prime",
+      "amount": 139,
+      "dueDate": "2024-06-20",
+      "category": "shopping"
+    },
+    {
+      "id": "annual:costco:001",
+      "slug": "costco",
+      "name": "Costco Membership",
+      "amount": 65,
+      "dueDate": "2024-09-01",
+      "category": "shopping"
+    },
+    {
+      "id": "annual:aaa:001",
+      "slug": "aaa",
+      "name": "AAA Membership",
+      "amount": 89,
+      "dueDate": "2024-04-15",
+      "category": "transport"
+    },
+    {
+      "id": "annual:vehicle-reg:001",
+      "slug": "vehicle-reg",
+      "name": "Vehicle Registration",
+      "amount": 285,
+      "dueDate": "2024-09-15",
+      "category": "transport"
+    },
+    {
+      "id": "annual:pro-license:001",
+      "slug": "pro-license",
+      "name": "Professional License",
+      "amount": 150,
+      "dueDate": "2024-12-31",
+      "category": "career"
+    }
+  ],
+  "monthlyRecurring": {
+    "@expr": "recurring.map(b => b.amount).reduce((a, b) => a + b, 0)"
+  },
+  "monthlySubscriptions": {
+    "@expr": "subscriptions.map(s => s.frequency == 'yearly' ? s.amount / 12 : (s.frequency == 'weekly' ? s.amount * 4.33 : s.amount)).reduce((a, b) => a + b, 0)"
+  },
+  "monthlyAnnualizedPayments": {
+    "@expr": "annualPayments.map(a => a.amount / 12).reduce((a, b) => a + b, 0)"
+  },
+  "totalMonthly": {
+    "@expr": "monthlyRecurring + monthlySubscriptions + monthlyAnnualizedPayments"
+  },
+  "totalMonthlyFormatted": {
+    "@expr": "$currency(totalMonthly)"
+  },
+  "totalAnnual": {
+    "@expr": "totalMonthly * 12"
+  },
+  "totalAnnualFormatted": {
+    "@expr": "$currency(totalAnnual)"
+  },
+  "autopayCount": {
+    "@expr": "recurring.filter(b => b.autopay).length + subscriptions.filter(s => s.autopay).length"
+  },
+  "manualCount": {
+    "@expr": "recurring.filter(b => !b.autopay).length"
+  },
+  "subscriptionCount": {
+    "@expr": "subscriptions.length"
+  },
+  "recurringCount": {
+    "@expr": "recurring.length"
+  },
+  "annualCount": {
+    "@expr": "annualPayments.length"
+  }
+}

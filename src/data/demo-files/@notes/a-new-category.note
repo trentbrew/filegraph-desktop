@@ -1,0 +1,517 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-364",
+  "title": "A new category",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "A new category"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Based on my comprehensive market analysis, here's what stands out about TQL's potential:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎯 Most Compelling Opportunities:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **The \"jq for Humans\" Positioning**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This resonates strongly because:"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**jq has 20k+ GitHub stars** but everyone complains about its complexity"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Developers already search for alternatives** - this is an established pain point"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Low barrier to entry** - CLI tools spread organically through dev communities"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Natural language makes it 10x more accessible** while keeping jq's power"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **No-Code Data Layer Gap**"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This aligns perfectly with your original vision but expands it:"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Retool/Webflow/Airtable all need flexible data backends**"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Current solutions force schema decisions upfront** - TQL's schema-agnostic approach is revolutionary here"
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Platform partnerships could drive rapid adoption** without massive sales effort"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Cross-Dataset Analytics Niche**"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This feels like the most technically defensible advantage:"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Nobody else can query GitHub API + Stripe + local JSON files simultaneously**"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**EAV model enables joins across completely different data structures**"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Solves real enterprise data integration problems** that cost companies millions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🚀 Recommended Focus Areas:"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Immediate (0-6 months):"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Polish the CLI experience** - make it the best jq alternative"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Build developer community** - GitHub, npm, brew installation"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Create stunning demos** - show queries that are impossible with other tools"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Medium-term (6-18 months):"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **No-code platform integrations** - become Retool's preferred data layer"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Enterprise features** - auth, caching, team collaboration"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **SaaS offering** - cloud version with managed storage"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Long-term (18+ months):"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Visual query builder** - drag-and-drop interface for complex queries"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **AI copilot** - proactive insights and query suggestions"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Platform ecosystem** - third-party extensions and data connectors"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "💡 Unique Insight from the Research:"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The market analysis revealed that **TQL isn't just a better query tool - it's a new category**. The closest analogy is how Figma created \"collaborative design\" as a category between traditional design tools and Google Docs."
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "TQL could create **\"conversational data exploration\"** as a new category between:"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Traditional BI (heavy, structured, slow)"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SQL/GraphQL (technical, schema-dependent)"
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "jq (powerful but arcane)"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Natural language AI (conversational but unreliable)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your technology sits perfectly at the intersection of all these - structured enough for reliability, conversational enough for accessibility, and flexible enough for any data."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎪 Where to Focus First:"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'd recommend **starting with developers** via the CLI route because:"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **They'll appreciate the technical innovation** most"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Viral distribution** through package managers and GitHub"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Provides battle-testing** before enterprise deployment"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Creates advocate base** for the no-code version"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "What aspect of this resonates most with how you see TQL evolving? The developer tool path, the no-code platform play, or something else entirely?"
+        }
+      ]
+    }
+  ]
+}

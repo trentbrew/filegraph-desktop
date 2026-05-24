@@ -1,0 +1,176 @@
+{
+  "@context": { "schema": "https://schema.org/" },
+  "@type": "Note",
+  "@id": "note:project-kickoff",
+  "title": "Project Kickoff Notes",
+  "author": "person:sarah:001",
+  "status": "published",
+  "created_at": "2024-01-10T09:00:00Z",
+  "updated_at": "2024-01-10T14:30:00Z",
+  "blocks": [
+    {
+      "id": "b-h1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        { "type": "text", "text": "FileGraph Project Kickoff" }
+      ]
+    },
+    {
+      "id": "b-date",
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "Meeting Date: January 10, 2024" }
+      ]
+    },
+    {
+      "id": "b-attendees-h",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        { "type": "text", "text": "Attendees" }
+      ]
+    },
+    {
+      "id": "b-attendees",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-a1",
+          "type": "paragraph",
+          "content": [
+            { "type": "mention", "entityId": "person:sarah:001" },
+            { "type": "text", "text": " - Project Lead" }
+          ]
+        },
+        {
+          "id": "b-a2",
+          "type": "paragraph",
+          "content": [
+            { "type": "mention", "entityId": "person:james:001" },
+            { "type": "text", "text": " - Engineering" }
+          ]
+        },
+        {
+          "id": "b-a3",
+          "type": "paragraph",
+          "content": [
+            { "type": "mention", "entityId": "person:maria:001" },
+            { "type": "text", "text": " - Design" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-agenda-h",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        { "type": "text", "text": "Agenda" }
+      ]
+    },
+    {
+      "id": "b-agenda",
+      "type": "orderedList",
+      "children": [
+        {
+          "id": "b-ag1",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Review project scope for " },
+            { "type": "mention", "entityId": "proj:filegraph:001" }
+          ]
+        },
+        {
+          "id": "b-ag2",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Discuss timeline and milestones" }
+          ]
+        },
+        {
+          "id": "b-ag3",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Assign initial tasks" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-notes-h",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        { "type": "text", "text": "Key Decisions" }
+      ]
+    },
+    {
+      "id": "b-decision",
+      "type": "blockquote",
+      "children": [
+        {
+          "id": "b-d1",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Agreed to use TipTap for rich text editing. ", "marks": ["bold"] },
+            { "type": "text", "text": "This will enable Notion-style block editing with mentions, wikilinks, and slash commands." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-action-h",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        { "type": "text", "text": "Action Items" }
+      ]
+    },
+    {
+      "id": "b-actions",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-act1",
+          "type": "paragraph",
+          "content": [
+            { "type": "mention", "entityId": "person:james:001" },
+            { "type": "text", "text": " - Set up TipTap editor by " },
+            { "type": "text", "text": "Jan 15", "marks": ["highlight"] }
+          ]
+        },
+        {
+          "id": "b-act2",
+          "type": "paragraph",
+          "content": [
+            { "type": "mention", "entityId": "person:maria:001" },
+            { "type": "text", "text": " - Create mockups for note viewer" }
+          ]
+        },
+        {
+          "id": "b-act3",
+          "type": "paragraph",
+          "content": [
+            { "type": "mention", "entityId": "person:sarah:001" },
+            { "type": "text", "text": " - Define .note file format spec" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-hr",
+      "type": "horizontalRule"
+    },
+    {
+      "id": "b-related",
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "Related: " },
+        { "type": "mention", "entityId": "proj:filegraph:001" },
+        { "type": "text", "text": " | " },
+        { "type": "mention", "entityId": "org:turtle:001" }
+      ]
+    }
+  ]
+}

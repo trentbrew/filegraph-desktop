@@ -1,0 +1,558 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-352",
+  "title": "Constitution",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Constitution"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Principles"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "I. Component-First Architecture"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every feature starts as a reusable Vue component; Components must be self-contained, independently testable, and documented with fixtures; Clear purpose required - no organizational-only components; Components live in `app/components/blocks/` with standardized structure (Component.vue, form.yaml, fixture.ts, theme.ts)"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "II. Design System Integration"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every component integrates with the token-driven design system; Design tokens managed via Style Dictionary → CSS variables; Live token editing with localStorage persistence; Components use tailwind-variants for theme composition; Color selection with visual swatches and accessibility considerations"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "III. Form-Driven Configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every component exposes configuration via YAML form schemas; Form fields support conditional visibility via `when` conditions; Repeater fields with drag-and-drop reordering; Flat-to-nested prop mapping for complex data structures; Local persistence of form state and repeater order"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "IV. Live Preview & Testing"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every component supports live preview with device frame simulation; Preview modes: Laptop/Tablet/Phone responsive testing; Real-time prop updates with immediate visual feedback; Design token changes applied instantly to preview; Skeleton loaders during component loading states"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "V. Developer Experience"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every component includes comprehensive documentation and examples; Block registry auto-discovers components from file system; Storybook-like viewer at `/blocks` for component exploration; Hot reloading for rapid development iteration; TypeScript throughout for type safety"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Technology Stack Requirements"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Frontend Framework"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Primary**: Nuxt 3 with Vue 3 Composition API"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**UI Library**: Nuxt UI with Tailwind CSS"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**State Management**: Vue reactive refs with localStorage persistence"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Build Tools**: Vite with TypeScript support"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Design System"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Token Management**: Style Dictionary for design token processing"
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Styling**: Tailwind CSS with custom CSS variables"
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Theme System**: tailwind-variants for component theming"
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Icons**: Iconify with Lucide and Simple Icons"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Development Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Linting**: ESLint with Nuxt ESLint config"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Type Checking**: TypeScript with strict mode"
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Package Manager**: pnpm for dependency management"
+            }
+          ]
+        },
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Version Control**: Git with conventional commit messages"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Development Workflow"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Component Creation Process"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Create component directory in `app/components/blocks/[ComponentName]/`"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Implement `[ComponentName].vue` with TypeScript"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Define `form.yaml` schema for configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Create `fixture.ts` with sample data"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Implement `theme.ts` with tailwind-variants"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Test in block viewer at `/blocks/[component-slug]`"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Quality Gates"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All components must pass TypeScript compilation"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ESLint must pass without errors"
+            }
+          ]
+        },
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Components must render correctly in all device preview modes"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Form schemas must validate without errors"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design tokens must apply correctly to components"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Review Process"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All PRs must include component documentation updates"
+            }
+          ]
+        },
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "New components must be tested in block viewer"
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design token changes must be validated across all components"
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Performance impact must be assessed for new features"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Governance"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Constitution supersedes all other practices; Amendments require documentation, approval, and migration plan for existing components; All PRs/reviews must verify compliance with component standards; Complexity must be justified with clear use cases; Use component documentation for runtime development guidance"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Version**: 1.0.0 | **Ratified**: 2025-01-27 | **Last Amended**: 2025-01-27"
+        }
+      ]
+    }
+  ]
+}

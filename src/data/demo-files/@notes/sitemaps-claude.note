@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-141",
+  "title": "Sitemaps (Claude)",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Sitemaps (Claude)"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "https://claude.site/artifacts/5afccd90-b28b-4165-9814-776ae4b7e7bd?fullscreen=true (Webflow)"
+            }
+          ]
+        },
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "https://claude.site/artifacts/7b511a87-d8d8-436e-b9e4-73f5e03c33d8?fullscreen=true (Wordpress)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

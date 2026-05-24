@@ -1,0 +1,5204 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "string;                // slug, e.g. \"gumbo\"",
+  "title": "Brand Profiles",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Brand Profiles"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "First pass"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Absolutely. Here’s a compact, practical schema that cleanly maps a “brand profile” to DaisyUI v5 themes, plus voice/values metadata you can use across docs and generators."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# Type shape (TypeScript)"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Core -----------------------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export type Hex = `#${string}` | `oklch(${string})` | `rgb(${string})`;"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export type Url = `https://${string}` | `http://${string}` | `data:${string}`;"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandProfile {"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: string;                // slug, e.g. \"gumbo\""
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;              // Human name"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "version: string;           // semver for the profile"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updatedAt: string;         // ISO timestamp"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "links?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "site?: Url; repo?: Url; assets?: Url; figma?: Url;"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "authors?: { name: string; email?: string }[];"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Visual identity ----------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "colors: BrandColors;       // semantic tokens → DaisyUI"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "fonts: BrandFonts;         // stacks + files"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "logos: BrandLogos;         // primary/alt/marks + usage"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "styles?: BrandStyles;      // radii, shadows, motion, borders"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Narrative identity -------------------------------------------------------"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "voice: BrandVoice;         // tone, do/don’t, sample copy"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "values: string[];          // e.g. [\"Community\", \"Craft\", \"Candor\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "accessibility?: A11yPolicy;// contrast, motion prefs"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Colors map directly to DaisyUI vars (primary/secondary/accent/neutral/base)"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// and state colors (info/success/warning/error). Each color can define “content”"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// foreground for guaranteed contrast. daisyUI v5 reads these CSS vars directly."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandColors {"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "primary: ColorPair;"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "secondary: ColorPair;"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "accent: ColorPair;"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "neutral: ColorPair;"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "base: {"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "100: Hex; 200: Hex; 300: Hex; content: Hex; // base layers + foreground"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "info: ColorPair;"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "success: ColorPair;"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "warning: ColorPair;"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "error: ColorPair;"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Optional extensions (DaisyUI supports custom names too)"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "extended?: Record<string, ColorPair | Hex>;"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface ColorPair { value: Hex; content?: Hex }"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Typography"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandFonts {"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "display?: FontSpec; // big headlines/hero"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "heading: FontSpec;"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "body: FontSpec;"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "mono?: FontSpec;"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface FontSpec {"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "cssStack: string;                 // e.g. `\"Inter\", system-ui, sans-serif`"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "files?: { woff2: Url; weight: number; style?: 'normal'|'italic' }[];"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tracking?: number;                // em units (Tailwind letter-spacing scale)"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "leading?: number;                 // unitless line-height"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Logos & marks"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandLogos {"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "primary: LogoAsset;               // default lockup"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "alt?: LogoAsset[];                // horizontal, stacked, monochrome, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "marks?: LogoAsset[];              // icons / app marks"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "rules?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "clearspace?: string;            // e.g. \"1x cap height\""
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "minSizePx?: number;             // minimum render size"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "backgroundPrefs?: ('light'|'dark'|'image')[];"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "misuse?: string[];              // short don'ts (“no drop shadows”)"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface LogoAsset {"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "light: Url;                       // works on light bg"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dark?: Url;                       // alt for dark bg"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "mono?: Url;                       // single-color version"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "inverted?: Url;                   // white-only / reversed"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Style tokens that pair well with DaisyUI components"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandStyles {"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "radius?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sm?: string; md?: string; lg?: string; xl?: string; full?: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "border?: { width?: string; style?: 'solid'|'dashed'; };"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "shadow?: { sm?: string; md?: string; lg?: string; };"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "motion?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "duration?: { fast?: number; base?: number; slow?: number }; // ms"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "easing?: { in?: string; out?: string; inOut?: string };     // cubic-bezier()"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Component-level knobs (optional DaisyUI overrides)"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "components?: Record<string, Record<string, string|number>>;"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Narrative: tone, voice, lexicon, examples"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandVoice {"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tone: ('warm'|'playful'|'serious'|'confident'|'neutral'|'bold')[];"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "persona: string;                  // one-liner (“Curious editor with taste”)"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "syntax: {"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sentenceLength?: { typical: number; max: number };"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "contractions?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "oxfordComma?: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "lexicon?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "prefer?: string[]; avoid?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "taglines?: string[]; adjectives?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "do?: string[];                     // style DOs"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dont?: string[];                   // style DON’Ts"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "samples?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "headline?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "byline?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "microcopy?: string[];           // buttons, empty states"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface A11yPolicy {"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "minContrastBody?: number;         // e.g. 4.5"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "minContrastUi?: number;           // e.g. 3.0"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "focusRing?: { color?: Hex; width?: string; offset?: string };"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "motionReduceStrategy?: ('shorter'|'none')[];"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# Minimal JSON example"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"id\": \"gumbo\","
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"Gumbo Media\","
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"version\": \"1.0.0\","
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"updatedAt\": \"2025-10-20T18:00:00Z\","
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"colors\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"primary\": { \"value\": \"oklch(0.65 0.15 30)\", \"content\": \"#0d0d0d\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"secondary\": { \"value\": \"oklch(0.72 0.08 240)\", \"content\": \"#0b0b0b\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"accent\": { \"value\": \"oklch(0.75 0.18 330)\", \"content\": \"#0b0b0b\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"neutral\": { \"value\": \"oklch(0.45 0 0)\", \"content\": \"#f6f6f6\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"base\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"100\": \"oklch(0.99 0 0)\","
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"200\": \"oklch(0.96 0 0)\","
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"300\": \"oklch(0.92 0 0)\","
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"content\": \"oklch(0.18 0 0)\""
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"info\":    { \"value\": \"oklch(0.85 0.06 235)\", \"content\": \"#0b0b0b\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"success\": { \"value\": \"oklch(0.75 0.12 150)\", \"content\": \"#0b0b0b\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"warning\": { \"value\": \"oklch(0.85 0.15 85)\",  \"content\": \"#0b0b0b\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"error\":   { \"value\": \"oklch(0.6 0.2 25)\",    \"content\": \"#0b0b0b\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"extended\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"brand-muted\": { \"value\": \"oklch(0.92 0.02 30)\", \"content\": \"#0b0b0b\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"fonts\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"heading\": { \"cssStack\": \"\\\"General Sans\\\", system-ui, sans-serif\", \"leading\": 1.2, \"tracking\": 0 },"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"body\":    { \"cssStack\": \"\\\"Inter\\\", system-ui, sans-serif\", \"leading\": 1.5, \"tracking\": 0 },"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"mono\":    { \"cssStack\": \"\\\"Berkeley Mono\\\", ui-monospace, SFMono-Regular, monospace\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"logos\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"primary\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"Wordmark\","
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"light\": \"https://cdn.example.com/gumbo/wordmark-dark.svg\","
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"dark\":  \"https://cdn.example.com/gumbo/wordmark-light.svg\","
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"mono\":  \"https://cdn.example.com/gumbo/wordmark-mono.svg\""
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"rules\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"clearspace\": \"1x cap height\","
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minSizePx\": 24,"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"backgroundPrefs\": [\"light\", \"dark\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"misuse\": [\"do not skew\", \"do not add drop shadow\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"styles\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"radius\": { \"sm\": \"0.25rem\", \"md\": \"0.5rem\", \"lg\": \"0.75rem\", \"xl\": \"1rem\", \"full\": \"9999px\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"shadow\": { \"sm\": \"0 1px 2px hsl(0 0% 0% / 0.07)\", \"md\": \"0 6px 20px hsl(0 0% 0% / 0.12)\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"motion\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"duration\": { \"fast\": 120, \"base\": 200, \"slow\": 320 },"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"easing\": { \"in\": \"cubic-bezier(.32,0,.67,0)\", \"out\": \"cubic-bezier(.33,1,.68,1)\", \"inOut\": \"cubic-bezier(.65,0,.35,1)\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"voice\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"tone\": [\"confident\", \"warm\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"persona\": \"A curious editor with taste.\","
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"syntax\": { \"sentenceLength\": { \"typical\": 14, \"max\": 24 }, \""
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-180",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final pass"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "/**"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Brand Profile Framework Schema"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Based on DaisyUI theming system with extensions for comprehensive brand management"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*/"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// COLOR SYSTEM (Based on DaisyUI)"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandColors {"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Required colors (DaisyUI standard)"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "primary: string;           // --p: Main brand color"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "secondary: string;         // --s: Secondary brand color"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "accent: string;            // --a: Accent color for highlights"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "neutral: string;           // --n: Neutral color for text and borders"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// State colors"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "info: string;              // --in: Information state"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "success: string;           // --su: Success state"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "warning: string;           // --wa: Warning state"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "error: string;             // --er: Error state"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Base/Background colors"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'base-100': string;        // --b1: Base background color"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'base-200': string;        // --b2: Slightly darker background"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'base-300': string;        // --b3: Even darker background"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'base-content': string;    // --bc: Foreground content on base colors"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Optional auto-generated content colors (can be manually set)"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'primary-content'?: string;    // Text color on primary background"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'secondary-content'?: string;  // Text color on secondary background"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'accent-content'?: string;     // Text color on accent background"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'neutral-content'?: string;    // Text color on neutral background"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'info-content'?: string;       // Text color on info background"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'success-content'?: string;    // Text color on success background"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'warning-content'?: string;    // Text color on warning background"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'error-content'?: string;      // Text color on error background"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface ColorPalette {"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "light: BrandColors;"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dark?: BrandColors;"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Support for additional custom themes"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[themeName: string]: BrandColors;"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// TYPOGRAPHY SYSTEM"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface FontFamily {"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;              // e.g., \"Inter\", \"Roboto\""
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "fallbacks: string[];       // Fallback fonts"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "source: 'google' | 'custom' | 'system';"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "weights?: number[];        // Available weights: [400, 500, 700]"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "url?: string;              // URL for custom fonts or Google Fonts"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface TypographyScale {"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Font families"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "heading: FontFamily;       // For headings (h1-h6)"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "body: FontFamily;          // For body text"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "mono?: FontFamily;         // For code/monospace"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Font sizes (can use Tailwind scale or custom)"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "scale?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "xs: string;              // e.g., \"0.75rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sm: string;              // e.g., \"0.875rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "base: string;            // e.g., \"1rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "lg: string;              // e.g., \"1.125rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "xl: string;              // e.g., \"1.25rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'2xl': string;           // e.g., \"1.5rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'3xl': string;           // e.g., \"1.875rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'4xl': string;           // e.g., \"2.25rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'5xl': string;           // e.g., \"3rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Line heights"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "lineHeight?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tight: number;           // e.g., 1.2"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "normal: number;          // e.g., 1.5"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "relaxed: number;         // e.g., 1.75"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Letter spacing"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "letterSpacing?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tight: string;           // e.g., \"-0.05em\""
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "normal: string;          // e.g., \"0\""
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "wide: string;            // e.g., \"0.05em\""
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// LOGO & VISUAL ASSETS"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface LogoVariant {"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "url: string;               // URL to logo file"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "format: 'svg' | 'png' | 'jpg' | 'webp';"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "width?: number;            // Original width in pixels"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "height?: number;           // Original height in pixels"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description?: string;      // Usage context"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandLogos {"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "primary: LogoVariant;      // Main logo"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "light?: LogoVariant;       // Logo for dark backgrounds"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dark?: LogoVariant;        // Logo for light backgrounds"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "icon?: LogoVariant;        // Favicon/app icon version"
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "wordmark?: LogoVariant;    // Text-only version"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "symbol?: LogoVariant;      // Symbol/icon only version"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// SPACING & LAYOUT"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface SpacingSystem {"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "unit: number;              // Base spacing unit in rem (e.g., 0.25 = 4px)"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "scale?: number[];          // Multipliers: [1, 2, 3, 4, 6, 8, 12, 16, 24]"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BorderRadius {"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "none: string;              // \"0\""
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sm: string;                // \"0.125rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "base: string;              // \"0.25rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "md: string;                // \"0.375rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "lg: string;                // \"0.5rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "xl: string;                // \"0.75rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'2xl': string;             // \"1rem\""
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "full: string;              // \"9999px\""
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// BRAND VOICE & PERSONALITY"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandVoice {"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Tone descriptors (pick 3-5)"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tones: Array<"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'professional' | 'friendly' | 'authoritative' | 'playful' |"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'empathetic' | 'inspiring' | 'educational' | 'conversational' |"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'bold' | 'minimalist' | 'luxurious' | 'casual' | 'technical'"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> ;"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Writing guidelines"
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "grammar?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "perspective: '1st-person' | '2nd-person' | '3rd-person';"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "formality: 'formal' | 'casual' | 'mixed';"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "punctuation?: string;    // e.g., \"Use Oxford comma\""
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Vocabulary preferences"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vocabulary?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "preferred: string[];     // Words to use"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "avoid: string[];         // Words to avoid"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "jargon: 'minimal' | 'moderate' | 'technical';"
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Example phrases that capture the brand voice"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "examples?: string[];"
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// BRAND VALUES & PERSONALITY"
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-326",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandValues {"
+        }
+      ]
+    },
+    {
+      "id": "b-327",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "mission: string;           // Brand mission statement"
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vision?: string;           // Brand vision statement"
+        }
+      ]
+    },
+    {
+      "id": "b-329",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Core values (3-5 recommended)"
+        }
+      ]
+    },
+    {
+      "id": "b-330",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "coreValues: Array<{"
+        }
+      ]
+    },
+    {
+      "id": "b-331",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;            // e.g., \"Innovation\""
+        }
+      ]
+    },
+    {
+      "id": "b-332",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: string;     // What this value means"
+        }
+      ]
+    },
+    {
+      "id": "b-333",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}>;"
+        }
+      ]
+    },
+    {
+      "id": "b-334",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Brand personality traits"
+        }
+      ]
+    },
+    {
+      "id": "b-335",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "personality?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-336",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "archetype?:"
+        }
+      ]
+    },
+    {
+      "id": "b-337",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'Innocent' | 'Explorer' | 'Sage' | 'Hero' | 'Outlaw' |"
+        }
+      ]
+    },
+    {
+      "id": "b-338",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'Magician' | 'Regular' | 'Lover' | 'Jester' | 'Caregiver' |"
+        }
+      ]
+    },
+    {
+      "id": "b-339",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'Creator' | 'Ruler';"
+        }
+      ]
+    },
+    {
+      "id": "b-340",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "traits?: string[];       // e.g., [\"Innovative\", \"Trustworthy\", \"Bold\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-341",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-342",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Target audience"
+        }
+      ]
+    },
+    {
+      "id": "b-343",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "audience?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-344",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "primary: string;         // Primary audience description"
+        }
+      ]
+    },
+    {
+      "id": "b-345",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "secondary?: string;      // Secondary audience"
+        }
+      ]
+    },
+    {
+      "id": "b-346",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "demographics?: string;   // Age, location, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-347",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "psychographics?: string; // Interests, values, behaviors"
+        }
+      ]
+    },
+    {
+      "id": "b-348",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-349",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-350",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-351",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// COMPONENT STYLES (DaisyUI Extensions)"
+        }
+      ]
+    },
+    {
+      "id": "b-352",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-353",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface ComponentStyles {"
+        }
+      ]
+    },
+    {
+      "id": "b-354",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Button variants"
+        }
+      ]
+    },
+    {
+      "id": "b-355",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "buttons?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-356",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "defaultStyle: 'solid' | 'outline' | 'ghost' | 'link';"
+        }
+      ]
+    },
+    {
+      "id": "b-357",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "shape: 'square' | 'rounded' | 'circle' | 'pill';"
+        }
+      ]
+    },
+    {
+      "id": "b-358",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "size: 'xs' | 'sm' | 'md' | 'lg';"
+        }
+      ]
+    },
+    {
+      "id": "b-359",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-360",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Input/form elements"
+        }
+      ]
+    },
+    {
+      "id": "b-361",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "forms?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-362",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "inputStyle: 'bordered' | 'ghost' | 'filled';"
+        }
+      ]
+    },
+    {
+      "id": "b-363",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "labelPosition: 'top' | 'left' | 'floating';"
+        }
+      ]
+    },
+    {
+      "id": "b-364",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-365",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Cards and containers"
+        }
+      ]
+    },
+    {
+      "id": "b-366",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "cards?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-367",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "shadow: 'none' | 'sm' | 'md' | 'lg' | 'xl';"
+        }
+      ]
+    },
+    {
+      "id": "b-368",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "border: boolean;"
+        }
+      ]
+    },
+    {
+      "id": "b-369",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-370",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-371",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-372",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ANIMATION & MOTION"
+        }
+      ]
+    },
+    {
+      "id": "b-373",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-374",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface MotionPreferences {"
+        }
+      ]
+    },
+    {
+      "id": "b-375",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Animation speed"
+        }
+      ]
+    },
+    {
+      "id": "b-376",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "duration: {"
+        }
+      ]
+    },
+    {
+      "id": "b-377",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "fast: string;            // e.g., \"150ms\""
+        }
+      ]
+    },
+    {
+      "id": "b-378",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "base: string;            // e.g., \"300ms\""
+        }
+      ]
+    },
+    {
+      "id": "b-379",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "slow: string;            // e.g., \"500ms\""
+        }
+      ]
+    },
+    {
+      "id": "b-380",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-381",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Easing functions"
+        }
+      ]
+    },
+    {
+      "id": "b-382",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "easing: {"
+        }
+      ]
+    },
+    {
+      "id": "b-383",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "default: string;         // e.g., \"ease-in-out\""
+        }
+      ]
+    },
+    {
+      "id": "b-384",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "in: string;              // e.g., \"ease-in\""
+        }
+      ]
+    },
+    {
+      "id": "b-385",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "out: string;             // e.g., \"ease-out\""
+        }
+      ]
+    },
+    {
+      "id": "b-386",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-387",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Motion preferences"
+        }
+      ]
+    },
+    {
+      "id": "b-388",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "reducedMotion?: boolean;   // Respect prefers-reduced-motion"
+        }
+      ]
+    },
+    {
+      "id": "b-389",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "hoverEffects?: 'subtle' | 'moderate' | 'pronounced';"
+        }
+      ]
+    },
+    {
+      "id": "b-390",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-391",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-392",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// METADATA & DOCUMENTATION"
+        }
+      ]
+    },
+    {
+      "id": "b-393",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-394",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandMetadata {"
+        }
+      ]
+    },
+    {
+      "id": "b-395",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;              // Brand name"
+        }
+      ]
+    },
+    {
+      "id": "b-396",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "version: string;           // Schema version (e.g., \"1.0.0\")"
+        }
+      ]
+    },
+    {
+      "id": "b-397",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "lastUpdated: string;       // ISO date string"
+        }
+      ]
+    },
+    {
+      "id": "b-398",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Documentation"
+        }
+      ]
+    },
+    {
+      "id": "b-399",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "documentation?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-400",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "designSystem?: string;   // URL to design system docs"
+        }
+      ]
+    },
+    {
+      "id": "b-401",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "brandGuidelines?: string; // URL to brand guidelines"
+        }
+      ]
+    },
+    {
+      "id": "b-402",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "styleGuide?: string;     // URL to style guide"
+        }
+      ]
+    },
+    {
+      "id": "b-403",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-404",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Usage rules"
+        }
+      ]
+    },
+    {
+      "id": "b-405",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "usage?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-406",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "logoMinSize?: string;    // Minimum logo size"
+        }
+      ]
+    },
+    {
+      "id": "b-407",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "clearSpace?: string;     // Clear space around logo"
+        }
+      ]
+    },
+    {
+      "id": "b-408",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "doNots?: string[];       // Things not to do"
+        }
+      ]
+    },
+    {
+      "id": "b-409",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-410",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Contact & ownership"
+        }
+      ]
+    },
+    {
+      "id": "b-411",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "owner?: {"
+        }
+      ]
+    },
+    {
+      "id": "b-412",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "department?: string;     // e.g., \"Marketing\""
+        }
+      ]
+    },
+    {
+      "id": "b-413",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "contact?: string;        // Contact email"
+        }
+      ]
+    },
+    {
+      "id": "b-414",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-415",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-416",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-417",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// COMPLETE BRAND PROFILE"
+        }
+      ]
+    },
+    {
+      "id": "b-418",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-419",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface BrandProfile {"
+        }
+      ]
+    },
+    {
+      "id": "b-420",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Core identification"
+        }
+      ]
+    },
+    {
+      "id": "b-421",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "metadata: BrandMetadata;"
+        }
+      ]
+    },
+    {
+      "id": "b-422",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Visual design tokens"
+        }
+      ]
+    },
+    {
+      "id": "b-423",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "colors: ColorPalette;"
+        }
+      ]
+    },
+    {
+      "id": "b-424",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "typography: TypographyScale;"
+        }
+      ]
+    },
+    {
+      "id": "b-425",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "logos: BrandLogos;"
+        }
+      ]
+    },
+    {
+      "id": "b-426",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Layout & spacing"
+        }
+      ]
+    },
+    {
+      "id": "b-427",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "spacing?: SpacingSystem;"
+        }
+      ]
+    },
+    {
+      "id": "b-428",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "borderRadius?: BorderRadius;"
+        }
+      ]
+    },
+    {
+      "id": "b-429",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Component styling"
+        }
+      ]
+    },
+    {
+      "id": "b-430",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "components?: ComponentStyles;"
+        }
+      ]
+    },
+    {
+      "id": "b-431",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "motion?: MotionPreferences;"
+        }
+      ]
+    },
+    {
+      "id": "b-432",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Brand personality & voice"
+        }
+      ]
+    },
+    {
+      "id": "b-433",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "voice: BrandVoice;"
+        }
+      ]
+    },
+    {
+      "id": "b-434",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "values: BrandValues;"
+        }
+      ]
+    },
+    {
+      "id": "b-435",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Custom extensions"
+        }
+      ]
+    },
+    {
+      "id": "b-436",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "custom?: Record<string, any>;  // For additional brand-specific data"
+        }
+      ]
+    },
+    {
+      "id": "b-437",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-438",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-439",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// USAGE EXAMPLE"
+        }
+      ]
+    },
+    {
+      "id": "b-440",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ============================================================================"
+        }
+      ]
+    },
+    {
+      "id": "b-441",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export const exampleBrandProfile: BrandProfile = {"
+        }
+      ]
+    },
+    {
+      "id": "b-442",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "metadata: {"
+        }
+      ]
+    },
+    {
+      "id": "b-443",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"Acme Corporation\","
+        }
+      ]
+    },
+    {
+      "id": "b-444",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "version: \"1.0.0\","
+        }
+      ]
+    },
+    {
+      "id": "b-445",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "lastUpdated: \"2024-01-15T00:00:00Z\","
+        }
+      ]
+    },
+    {
+      "id": "b-446",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "documentation: {"
+        }
+      ]
+    },
+    {
+      "id": "b-447",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "designSystem: \"https://acme.com/design\","
+        }
+      ]
+    },
+    {
+      "id": "b-448",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "brandGuidelines: \"https://acme.com/brand\""
+        }
+      ]
+    },
+    {
+      "id": "b-449",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-450",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-451",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "colors: {"
+        }
+      ]
+    },
+    {
+      "id": "b-452",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "light: {"
+        }
+      ]
+    },
+    {
+      "id": "b-453",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "primary: \"oklch(49.12% 0.3096 275.75)\","
+        }
+      ]
+    },
+    {
+      "id": "b-454",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "secondary: \"oklch(69.71% 0.329 342.55)\","
+        }
+      ]
+    },
+    {
+      "id": "b-455",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "accent: \"oklch(76.76% 0.184 183.61)\","
+        }
+      ]
+    },
+    {
+      "id": "b-456",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "neutral: \"oklch(23.12% 0.016 285.75)\","
+        }
+      ]
+    },
+    {
+      "id": "b-457",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "info: \"oklch(70.76% 0.195 231.61)\","
+        }
+      ]
+    },
+    {
+      "id": "b-458",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "success: \"oklch(64.77% 0.196 149.44)\","
+        }
+      ]
+    },
+    {
+      "id": "b-459",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "warning: \"oklch(80.89% 0.199 83.87)\","
+        }
+      ]
+    },
+    {
+      "id": "b-460",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "error: \"oklch(58.42% 0.253 27.33)\","
+        }
+      ]
+    },
+    {
+      "id": "b-461",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'base-100': \"oklch(100% 0 0)\","
+        }
+      ]
+    },
+    {
+      "id": "b-462",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'base-200': \"oklch(96.14% 0 0)\","
+        }
+      ]
+    },
+    {
+      "id": "b-463",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'base-300': \"oklch(92.4% 0.004 286.32)\","
+        }
+      ]
+    },
+    {
+      "id": "b-464",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'base-content': \"oklch(23.12% 0.016 285.75)\""
+        }
+      ]
+    },
+    {
+      "id": "b-465",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-466",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-467",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "typography: {"
+        }
+      ]
+    },
+    {
+      "id": "b-468",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "heading: {"
+        }
+      ]
+    },
+    {
+      "id": "b-469",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"Inter\","
+        }
+      ]
+    },
+    {
+      "id": "b-470",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "fallbacks: [\"system-ui\", \"sans-serif\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-471",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "source: \"google\","
+        }
+      ]
+    },
+    {
+      "id": "b-472",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "weights: [600, 700, 800],"
+        }
+      ]
+    },
+    {
+      "id": "b-473",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "url: \"https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800\""
+        }
+      ]
+    },
+    {
+      "id": "b-474",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-475",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "body: {"
+        }
+      ]
+    },
+    {
+      "id": "b-476",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"Inter\","
+        }
+      ]
+    },
+    {
+      "id": "b-477",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "fallbacks: [\"system-ui\", \"sans-serif\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-478",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "source: \"google\","
+        }
+      ]
+    },
+    {
+      "id": "b-479",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "weights: [400, 500, 600],"
+        }
+      ]
+    },
+    {
+      "id": "b-480",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "url: \"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600\""
+        }
+      ]
+    },
+    {
+      "id": "b-481",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-482",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-483",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "logos: {"
+        }
+      ]
+    },
+    {
+      "id": "b-484",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "primary: {"
+        }
+      ]
+    },
+    {
+      "id": "b-485",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "url: \"/logos/acme-logo.svg\","
+        }
+      ]
+    },
+    {
+      "id": "b-486",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "format: \"svg\","
+        }
+      ]
+    },
+    {
+      "id": "b-487",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: \"Full color logo for light backgrounds\""
+        }
+      ]
+    },
+    {
+      "id": "b-488",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-489",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "icon: {"
+        }
+      ]
+    },
+    {
+      "id": "b-490",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "url: \"/logos/acme-icon.svg\","
+        }
+      ]
+    },
+    {
+      "id": "b-491",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "format: \"svg\","
+        }
+      ]
+    },
+    {
+      "id": "b-492",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: \"Icon-only version for favicons and app icons\""
+        }
+      ]
+    },
+    {
+      "id": "b-493",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-494",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-495",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "voice: {"
+        }
+      ]
+    },
+    {
+      "id": "b-496",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tones: [\"professional\", \"friendly\", \"inspiring\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-497",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "grammar: {"
+        }
+      ]
+    },
+    {
+      "id": "b-498",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "perspective: \"1st-person\","
+        }
+      ]
+    },
+    {
+      "id": "b-499",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "formality: \"casual\""
+        }
+      ]
+    },
+    {
+      "id": "b-500",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-501",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-502",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "values: {"
+        }
+      ]
+    },
+    {
+      "id": "b-503",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "mission: \"To empower businesses with innovative solutions.\","
+        }
+      ]
+    },
+    {
+      "id": "b-504",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "coreValues: ["
+        }
+      ]
+    },
+    {
+      "id": "b-505",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-506",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"Innovation\","
+        }
+      ]
+    },
+    {
+      "id": "b-507",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: \"We constantly push boundaries and embrace new ideas\""
+        }
+      ]
+    },
+    {
+      "id": "b-508",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-509",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-510",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"Trust\","
+        }
+      ]
+    },
+    {
+      "id": "b-511",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: \"We build lasting relationships through transparency\""
+        }
+      ]
+    },
+    {
+      "id": "b-512",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-513",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-514",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "audience: {"
+        }
+      ]
+    },
+    {
+      "id": "b-515",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "primary: \"Small to medium business owners\","
+        }
+      ]
+    },
+    {
+      "id": "b-516",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "demographics: \"Ages 30-55, primarily North America\""
+        }
+      ]
+    },
+    {
+      "id": "b-517",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-518",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-519",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-520",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    }
+  ]
+}

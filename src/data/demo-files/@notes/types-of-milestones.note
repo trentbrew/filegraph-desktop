@@ -1,0 +1,514 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-4",
+  "title": "Types of Milestones",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Types of Milestones"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is a **high-level, end-to-end milestone sequence** you might see in a **full-service product design and development** engagement. Each project is unique, but these core milestones commonly appear in a comprehensive process:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Discovery & Requirements Gathering**"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Research**: Identify target audience, pain points, and market gaps."
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Stakeholder Interviews**: Align on goals, success metrics, and high-level features."
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Project Scope**: Document functional and non-functional requirements; formalize the SOW."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Branding & Design Foundations**"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Brand Identity**: Finalize logo, color palette, typography, and overall creative direction."
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Design System**: Establish reusable UI components, spacing, icon sets, and style guidelines for consistency across the product."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **UX Wireframes & Prototyping**"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Information Architecture**: Map out navigation flows, user journeys, and screen hierarchies."
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Low-Fidelity Wireframes**: Sketch core layouts and content structure to validate flow and functionality."
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Interactive Prototype**: A clickable prototype (in Figma, Sketch, etc.) for early feedback from stakeholders and users."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **High-Fidelity UI & Visual Designs**"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Final Mockups**: Convert wireframes into polished screens with brand-aligned visuals, refined typography, and interactive states."
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Testing**: Conduct usability tests on refined UI to confirm that flows are intuitive and engaging."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Technical Architecture & Planning**"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Tech Stack Selection**: Decide on frontend frameworks, backend languages, databases, and devops approach."
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Architecture Diagrams**: Outline system structure, APIs, microservices (if applicable), and data flows."
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Sprint Planning**: Break down the work into sprints or development cycles, finalize backlog and priorities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Frontend & Backend Development**"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Backend Setup**: Implement server logic, databases, and API endpoints."
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Frontend Development**: Build UI screens, integrate real data, and ensure responsiveness."
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Integration**: Connect frontend with backend services, handle authentication, and set up any third-party integrations (payment gateways, AI APIs, etc.)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "7. **QA, Testing & Iteration**"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Functional Testing**: Verify each feature works as intended."
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Performance & Security Checks**: Load tests, code reviews, and security scans to maintain stability."
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Bug Fixing & Polishing**: Address issues, refine edge cases, and optimize user flows."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "8. **Beta Release & User Feedback**"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Staging/Beta Deployment**: Release a near-final version to select users or internal testers."
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Feedback Cycle**: Collect user insights, usage analytics, and bug reports."
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Final Adjustments**: Prioritize and implement necessary fixes or feature tweaks before public launch."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "9. **Launch & Handoff**"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Production Deployment**: Go live on app stores or web hosting (AWS, Azure, etc.)."
+            }
+          ]
+        },
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Knowledge Transfer**: Provide documentation, design assets, brand guidelines, or style guides."
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Team Training**: If needed, train internal teams on how to manage content, monitor systems, or handle ongoing updates."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "10. **Ongoing Maintenance & Iterative Growth**"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Post-Launch Monitoring**: Track metrics (uptime, usage patterns, user satisfaction)."
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Continuous Improvement**: Add features, address new user stories, or adapt to changing requirements."
+            }
+          ]
+        },
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Long-Term Roadmap**: Plan major updates, expansions, or platform migrations as the product evolves."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Final Note"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Not every project will need each milestone in the same depth, and some phases often run in parallel (e.g., design iteration overlapping with backend architecture). But this list provides a **typical scaffold** that ensures a thorough, end-to-end product build—from initial idea to a robust, maintainable solution."
+        }
+      ]
+    }
+  ]
+}

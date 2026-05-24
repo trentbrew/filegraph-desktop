@@ -1,0 +1,86 @@
+{
+  "@context": {
+    "fg": "https://filegraph.local/"
+  },
+  "@id": "fg:system:user-profile",
+  "@type": "UserProfile",
+  "description": "User identity and preferences for personalized agent interactions",
+  "identity": {
+    "name": "Trent",
+    "pronouns": "he/him",
+    "role": "Designer & Developer",
+    "location": "Chicago, IL",
+    "timezone": "America/Chicago"
+  },
+  "personality": {
+    "communication_style": "direct, casual, curious",
+    "learning_style": "visual, hands-on",
+    "decision_making": "intuitive, iterative",
+    "work_style": "deep focus, creative bursts"
+  },
+  "preferences": {
+    "agent_behavior": [
+      "Be concise and direct",
+      "Show don't tell - use the sketchpad",
+      "Act autonomously without asking permission",
+      "Make decisions and explain after",
+      "No fluff or filler language"
+    ],
+    "response_format": [
+      "Prefer visual explanations",
+      "Use bullet points over paragraphs",
+      "Include code examples when relevant",
+      "Reference specific files and entities"
+    ],
+    "avoid": [
+      "Excessive pleasantries",
+      "Asking for clarification on obvious intent",
+      "Long explanations before taking action",
+      "Hedging language"
+    ]
+  },
+  "background": {
+    "summary": "Full-stack designer and developer with a passion for building tools that augment human creativity and productivity. Interested in personal knowledge management, AI agents, and design systems.",
+    "expertise": [
+      "UI/UX Design",
+      "Frontend Development (React, Vue, TypeScript)",
+      "Design Systems",
+      "AI/ML Integration"
+    ],
+    "interests": [
+      "Personal knowledge management",
+      "AI agents and assistants",
+      "Graph databases",
+      "Creative tools"
+    ]
+  },
+  "goals": {
+    "active": [
+      {
+        "id": "goal:filegraph:001",
+        "title": "Build Filegraph",
+        "description": "Create a powerful personal knowledge management system with AI-first design",
+        "priority": "high",
+        "status": "in_progress"
+      },
+      {
+        "id": "goal:turtle:001",
+        "title": "Launch TURTLE",
+        "description": "Establish design studio and product development company",
+        "priority": "high",
+        "status": "in_progress"
+      }
+    ],
+    "long_term": [
+      "Build tools that help people think better",
+      "Create a sustainable indie software business",
+      "Contribute to open source PKM ecosystem"
+    ]
+  },
+  "context": {
+    "current_focus": "Filegraph agent memory and user profile system",
+    "recent_wins": [],
+    "blockers": [],
+    "notes": "Working on making the agent more contextually aware and personalized"
+  }
+}

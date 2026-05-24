@@ -1,0 +1,2799 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-401",
+  "title": "LD-C + Nodebook → YC",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "LD-C + Nodebook → YC"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The LD-C Datatable → Nodebook Connection"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You're building the infrastructure you need for Nodebook while creating a reusable component. This is the RIGHT way to build in parallel—each piece reinforces the other."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"StrategicAlignment\","
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"what_youre_doing_right\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"building_primitives_first\": \"LD-C datatable → reusable across projects\","
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"dogfooding_immediately\": \"Using it for Nodebook collections\","
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"solving_your_own_problem\": \"Calendar, emails, tables all use same component\","
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"platform_thinking\": \"Portable from day one = future optionality\""
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"why_this_works_for_yc\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"shows_technical_depth\": \"Not just building app, building infrastructure\","
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"demonstrates_vision\": \"One component → multiple use cases\","
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"proves_founder_fit\": \"You're the user, validating as you build\","
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"creates_defensibility\": \"LD-C becomes your moat\""
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**The YC story writes itself:**"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"We're building Nodebook, an agent-native workspace. The core innovation is treating all personal data (email, calendar, tasks, notes) as computable LD-C tables. This means agents can reason about your entire context, not just isolated data silos. We're using it ourselves—I manage my entire workflow through it—and the VS Code extension we built is already getting traction from developers who want the same primitives.\""
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's a **STRONG narrative**: infrastructure-first, dogfooded, with ecosystem potential."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. The Portability Strategy (Technical Assessment)"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your collaborator's analysis is **spot-on**. Let me validate and add some thoughts:"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**The Adapter Pattern is Correct**"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// This is the right abstraction"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "interface PlatformAdapter {"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// State management"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "getState(): Promise<UIState>;"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "setState(state: UIState): Promise<void>;"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Document operations"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "onUpdateDocument(text: string): Promise<void>;"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Optional features"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "requestReveal?(target: RevealTarget): Promise<void>;"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "evaluateExpr?(expr: string, scope: any): Promise<Result>;"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// VS Code implementation"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "class VSCodeAdapter implements PlatformAdapter {"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "private vscode = acquireVsCodeApi();"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "async onUpdateDocument(text: string) {"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "this.vscode.postMessage({ type: 'update', text });"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ..."
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Web implementation"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "class WebAdapter implements PlatformAdapter {"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "constructor("
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "private onSave: (text: string) => void,"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "private evaluator: Evaluator"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ") {}"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "async onUpdateDocument(text: string) {"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "this.onSave(text);"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "async evaluateExpr(expr: string, scope: any) {"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return this.evaluator.eval(expr, scope);"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Why this is smart:**"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Clean separation of concerns"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Easy to test (mock the adapter)"
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Platform-agnostic component"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Can add Obsidian/Electron/Tauri adapters later"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Evaluator Portability is Critical**"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The evaluator is your **secret sauce**. Making it portable is essential:"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Browser-safe evaluator bundle"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// src/evaluator/browser.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export { parse, evaluate, validate } from './core';"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Ensure no Node.js dependencies"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// - No fs, path, crypto (Node versions)"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// - Use browser-native APIs where possible"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// - Bundle as ESM for tree-shaking"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Key decisions:**"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Client-side evaluation** (for Nodebook UX)"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pros: Instant feedback, offline-first"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cons: Security sandboxing needed"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Recommendation:** Use for Nodebook (trusted user environment)"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Server-side evaluation** (for web apps with untrusted users)"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pros: Secure, unlimited compute"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cons: Network latency, requires backend"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Recommendation:** Use for public LD-C tools"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "For **Nodebook specifically**, client-side is fine because:"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User owns their data"
+            }
+          ]
+        },
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Local-first architecture"
+            }
+          ]
+        },
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No untrusted code execution"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**The Monaco Question**"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your collaborator mentions Monaco for syntax highlighting. Here's my take:"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"EditorChoices\","
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"monaco\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"pros\": \"Full VS Code experience, excellent TypeScript support\","
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"cons\": \"5MB+ bundle, overkill for small formulas\","
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"use_for\": \"Full code editor mode (advanced users)\""
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"codemirror\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"pros\": \"Lighter (~500KB), excellent for DSLs\","
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"cons\": \"More setup for custom language support\","
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"use_for\": \"Formula editing (most users)\""
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"lightweight_highlighter\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"pros\": \"Tiny (~50KB), fast\","
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"cons\": \"No advanced features\","
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"use_for\": \"Read-only display, mobile\""
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"recommendation\": \"CodeMirror for formula modal, Monaco optional for power users\""
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "For Nodebook, I'd **start with CodeMirror** for the formula editor:"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Small bundle impact"
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Great for DSL-style syntax"
+            }
+          ]
+        },
+        {
+          "id": "b-120",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Easy to add LD-C language mode"
+            }
+          ]
+        },
+        {
+          "id": "b-121",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lazy load Monaco later for \"advanced editor\" mode"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. The Nodebook MVP Scope (YC-Ready in 30 Days)"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's define what \"shippable\" means for Nodebook:"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 1-2: Core Infrastructure**"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const mvpFeatures = {"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"data_layer\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"collections\": \"LD-C tables (using your datatable component)\","
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"types\": [\"Email\", \"Calendar Event\", \"Note\", \"Task\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"operations\": \"CRUD + query (no complex transformations yet)\""
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"integrations\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"email\": \"Gmail read-only (via API)\","
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"calendar\": \"Google Calendar read-only\","
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"notes\": \"Local markdown files\","
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"tasks\": \"Local LD-C file\""
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"agent_layer\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"context_retrieval\": \"Semantic search across all collections\","
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"simple_actions\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Summarize emails from today\","
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Show calendar conflicts\","
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"Find related notes\""
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"no_auto_execution\": \"Agent suggests, user approves\""
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"ui\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"views\": \"Your datatable component for each collection\","
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"agent_panel\": \"Chat interface for queries\","
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"minimal_styling\": \"Functional > beautiful for MVP\""
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What you DON'T need for MVP:**"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-157",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "❌ Multiple view types (calendar, kanban, etc.) — table view only"
+            }
+          ]
+        },
+        {
+          "id": "b-158",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "❌ Two-way sync — read-only is fine initially"
+            }
+          ]
+        },
+        {
+          "id": "b-159",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "❌ Mobile app — desktop only"
+            }
+          ]
+        },
+        {
+          "id": "b-160",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "❌ Sophisticated agent planning — simple prompts + retrieval"
+            }
+          ]
+        },
+        {
+          "id": "b-161",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "❌ Team features — single-user first"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 3: Dogfooding**"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Use Nodebook for:"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-165",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Managing your Nodebook development tasks"
+            }
+          ]
+        },
+        {
+          "id": "b-166",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tracking emails about your projects"
+            }
+          ]
+        },
+        {
+          "id": "b-167",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Calendar for meetings/deadlines"
+            }
+          ]
+        },
+        {
+          "id": "b-168",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Notes about features/bugs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Track these metrics:**"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-171",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "How many times/day do you open it?"
+            }
+          ]
+        },
+        {
+          "id": "b-172",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "What queries do you run most?"
+            }
+          ]
+        },
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Where does it break down?"
+            }
+          ]
+        },
+        {
+          "id": "b-174",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "What features would make you use it 10x more?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 4: 10 Alpha Users**"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Find 10 people (friends, ex-colleagues, Twitter followers) who:"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-178",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Are \"power users\" (manage lots of info)"
+            }
+          ]
+        },
+        {
+          "id": "b-179",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use multiple tools (Gmail + Calendar + Notion/Obsidian)"
+            }
+          ]
+        },
+        {
+          "id": "b-180",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Will give honest feedback"
+            }
+          ]
+        },
+        {
+          "id": "b-181",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don't need polish"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Success metric:** 3+ use it daily for a week"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. The YC Application Narrative"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here's how you position this:"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**One-Liner**"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"Agent-native operating system for personal data—giving AI persistent memory of your work.\""
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**What do you make?**"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"Nodebook unifies email, calendar, notes, and tasks into a computable graph that AI agents can reason about. Instead of 'goldfish memory' chatbots, agents have full context across your entire workflow. We're using LD-C (a spec we created for verifiable computation) as the foundation, ensuring agents can't hallucinate facts about your data.\""
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Why now?**"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"Apple Intelligence, Microsoft Copilot, and others are all moving toward 'agent-native computing,' but they're bolting agents onto existing apps. We're building the OS layer that makes this architecture work—persistent, queryable context that agents can act on. The shift is happening NOW.\""
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Traction**"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"We've been dogfooding for 3 weeks—I run my entire workflow through it. We have 10 alpha users, 3 of whom use it daily. The VS Code extension we built for LD-C tables (the foundation) has 500 installs in 2 weeks.\""
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Market**"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"Every knowledge worker is the market—but we're starting with solo operators (founders, researchers, executives) who already hack together Notion + ChatGPT + email. They're desperate for this. Later: expand to teams, then enterprise.\""
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. My Recommendation: Phased Approach"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Weeks 1-2: Build Nodebook MVP**"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-205",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use LD-C datatable component"
+            }
+          ]
+        },
+        {
+          "id": "b-206",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gmail + Calendar read-only sync"
+            }
+          ]
+        },
+        {
+          "id": "b-207",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Local notes/tasks"
+            }
+          ]
+        },
+        {
+          "id": "b-208",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Simple agent queries"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 3: Dogfood Hard**"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-211",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use it for EVERYTHING"
+            }
+          ]
+        },
+        {
+          "id": "b-212",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Track all pain points"
+            }
+          ]
+        },
+        {
+          "id": "b-213",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fix top 5 blockers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 4: 10 Alpha Users**"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-216",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ship to people you know"
+            }
+          ]
+        },
+        {
+          "id": "b-217",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Get daily usage from 3+"
+            }
+          ]
+        },
+        {
+          "id": "b-218",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Collect feedback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 5: YC Application**"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-221",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Apply with:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Working product (demo video)"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Personal dogfooding proof"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 3-10 active users"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Clear vision + roadmap"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**If client work is happening:**"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-228",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Timebox Nodebook: 20 hours/week"
+            }
+          ]
+        },
+        {
+          "id": "b-229",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kill other side projects (temporarily)"
+            }
+          ]
+        },
+        {
+          "id": "b-230",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Focus = competitive advantage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. The Portability ROI"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Making the datatable portable NOW pays dividends:"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"PortabilityValue\","
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"short_term\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"nodebook\": \"Use same component across all collection types\","
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"testing\": \"Easier to test in isolation\","
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"demos\": \"Can show in browser for YC demo day\""
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"medium_term\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"ecosystem\": \"Others can build on LD-C tables\","
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"distribution\": \"Datatable becomes its own product\","
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"validation\": \"Proves LD-C utility beyond Nodebook\""
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"long_term\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"platform_play\": \"LD-C becomes infrastructure standard\","
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"multiple_products\": \"Nodebook, LD-C Studio, datatable components\","
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"acquihire_insurance\": \"If Nodebook fails, datatable has standalone value\""
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Your collaborator's plan is solid.** I'd prioritize:"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Extract adapter interface** (1 day)"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Web demo** (1 day) — proves portability"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Client-side validation** (0.5 days) — improves UX"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Monaco/CodeMirror** (later) — not blocking"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Final Thoughts"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**You're in a really strong position:**"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Building infrastructure you need (LD-C datatable)"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Using it for product you want (Nodebook)"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Thinking about portability early"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Have technical depth (evaluator, graph architecture)"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "✅ Market timing is perfect (agent-native computing)"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**The risk is scope creep.** Stay disciplined:"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-269",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nodebook MVP = email + calendar + notes + tasks + simple agent"
+            }
+          ]
+        },
+        {
+          "id": "b-270",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "LD-C datatable = table view only (no calendar/kanban yet)"
+            }
+          ]
+        },
+        {
+          "id": "b-271",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Portability = adapter pattern + web demo (no full Storybook yet)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**30 days is tight but doable** if you:"
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-274",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Work 20+ hours/week on Nodebook"
+            }
+          ]
+        },
+        {
+          "id": "b-275",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don't add features beyond MVP"
+            }
+          ]
+        },
+        {
+          "id": "b-276",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ship ugly but functional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Want me to help you:**"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Draft the Nodebook MVP spec (features + technical plan)?"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Write the YC application?"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Plan the 30-day sprint with weekly milestones?"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Let's get you into YC.**"
+        }
+      ]
+    }
+  ]
+}

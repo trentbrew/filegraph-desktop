@@ -1,0 +1,2465 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-138",
+  "title": "Page Structure",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Page Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Home (`/`)"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Introduce [Docket.tv](http://docket.tv/), highlight key features, and guide users to relevant sections."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View platform overview"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Browse featured content"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Navigate to TV guide, live streams, or broadcaster pages"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sign up or log in"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. TV Guide (`/guide`)"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Provide an interactive, scheduled program listing."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View the schedule of upcoming programs"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Search and filter by category, broadcaster, or show"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Click on shows to see details (descriptions, air times, producers)"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Add shows to personal watchlist (requires login)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Live Stream (`/live`)"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Enable users to watch currently airing broadcasts."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Watch live streams from broadcasters"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View real-time chat (login required to participate)"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Share live streams via social media"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Show & Episode Pages (`/shows/:show_id` and `/episodes/:episode_id`)"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Display details about a specific show or episode."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View episode information (title, description, duration)"
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Watch VOD (if available)"
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Follow show for updates (login required)"
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Engage with comments or ratings (login required)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Broadcaster Pages (`/broadcasters/:broadcaster_id`)"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Provide a dedicated space for each broadcaster."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View broadcaster profile, mission, and featured content"
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Browse the broadcaster’s TV guide"
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Follow the broadcaster (login required)"
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Contact the broadcaster (login required)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Creator & Producer Profiles (`/producers/:producer_id`)"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Highlight individual creators and their content."
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View producer bio, featured content, and upcoming programs"
+            }
+          ]
+        },
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Follow the producer (login required)"
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Contact the producer (login required)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "7. Content Submission & Media Management (`/submit`)"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Allow producers and broadcasters to upload and manage their video content."
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Producer | Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upload VODs or submit live programming"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide metadata (title, description, runtime, category)"
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Request a broadcast slot"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Manage submitted content (edit, delete, reschedule)"
+            }
+          ]
+        },
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Attach closed captions & translations"
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generate automatic captions (if enabled)"
+            }
+          ]
+        },
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set content visibility (public, private, members-only)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "8. Video Asset Library (`/media`)"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Enable producers and broadcasters to manage their media files."
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Producer | Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View all uploaded video assets"
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Search and filter by title, date, tags, or category"
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Replace or update video files without losing metadata"
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Assign videos to specific shows or episodes"
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Download or retrieve embed codes for external sharing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "9. Bumper & Commercial Management (`/bumpers`)"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Manage bumpers, interstitials, and commercial spots."
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upload bumpers, station IDs, and promos"
+            }
+          ]
+        },
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set rules for automatic bumper insertion"
+            }
+          ]
+        },
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Assign bumpers to specific shows or time slots"
+            }
+          ]
+        },
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monitor bumper effectiveness (viewer retention data)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "10. Advertising & Sponsorships (`/ads`)"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Manage ad campaigns and sponsorships."
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upload and schedule ad placements"
+            }
+          ]
+        },
+        {
+          "id": "b-99",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Define ad targeting criteria (time slots, demographics)"
+            }
+          ]
+        },
+        {
+          "id": "b-100",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set ad campaign budgets and impressions"
+            }
+          ]
+        },
+        {
+          "id": "b-101",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View ad performance analytics"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "11. Closed Captions & Translations (`/captions`)"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Provide tools for adding and managing captions/subtitles."
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Producer | Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upload closed captions in SRT, VTT, or TTML format"
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Auto-generate captions using AI (if enabled)"
+            }
+          ]
+        },
+        {
+          "id": "b-110",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Edit captions in a web-based caption editor"
+            }
+          ]
+        },
+        {
+          "id": "b-111",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Translate captions into multiple languages"
+            }
+          ]
+        },
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set accessibility settings for default captions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "12. Viewer Account & Subscriptions (`/account`)"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Allow viewers to personalize their experience."
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Member | Producer | Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Edit profile details"
+            }
+          ]
+        },
+        {
+          "id": "b-120",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Manage subscriptions (followed shows, producers)"
+            }
+          ]
+        },
+        {
+          "id": "b-121",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enable/disable notifications for new episodes"
+            }
+          ]
+        },
+        {
+          "id": "b-122",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Change password"
+            }
+          ]
+        },
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View billing (if applicable)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "13. Subscription Management (`/subscriptions`)"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Let users track and manage their subscriptions."
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Member | Producer | Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-130",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View a list of followed shows and producers"
+            }
+          ]
+        },
+        {
+          "id": "b-131",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set notification preferences (email, push, in-app alerts)"
+            }
+          ]
+        },
+        {
+          "id": "b-132",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unsubscribe from shows or producers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "14. Analytics Dashboard (`/dashboard`)"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Provide broadcasters and producers with viewer insights."
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Producer | Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-139",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View audience engagement statistics"
+            }
+          ]
+        },
+        {
+          "id": "b-140",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Track show performance"
+            }
+          ]
+        },
+        {
+          "id": "b-141",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monitor ad revenue & commercial effectiveness"
+            }
+          ]
+        },
+        {
+          "id": "b-142",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Export reports"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "15. Admin Panel (`/admin`)"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Allow platform-wide management and configuration."
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Manage users (broadcasters, producers, viewers)"
+            }
+          ]
+        },
+        {
+          "id": "b-150",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oversee content approvals (if needed)"
+            }
+          ]
+        },
+        {
+          "id": "b-151",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monitor site analytics and system health"
+            }
+          ]
+        },
+        {
+          "id": "b-152",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Configure platform settings"
+            }
+          ]
+        },
+        {
+          "id": "b-153",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Review flagged content for policy violations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "16. Help & Documentation (`/help`)"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Provide resources for users, including FAQs and platform guides."
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-160",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Browse FAQs"
+            }
+          ]
+        },
+        {
+          "id": "b-161",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Read step-by-step guides"
+            }
+          ]
+        },
+        {
+          "id": "b-162",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Contact support"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "17. About & Contact (`/about`)"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Explain the mission and values of [Docket.tv](http://docket.tv/)."
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-169",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Learn about [Docket.tv](http://docket.tv/)’s goals and values"
+            }
+          ]
+        },
+        {
+          "id": "b-170",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View team and partner organizations"
+            }
+          ]
+        },
+        {
+          "id": "b-171",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Contact support"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "18. Legal & Policies (`/legal`)"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Display terms, privacy policy, and content guidelines."
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Guest | Viewer | Member | Producer | Broadcaster | Admin (No login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-178",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Review content submission guidelines"
+            }
+          ]
+        },
+        {
+          "id": "b-179",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Read privacy and terms of service"
+            }
+          ]
+        },
+        {
+          "id": "b-180",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Learn about copyright and accessibility policies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "19. Account & Platform Settings (`/settings`)"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Purpose**: Allow users to configure personal and platform-wide settings."
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Access**: Member | Producer | Broadcaster | Admin (Login required)"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Actions**:"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**General Settings (`/settings/general`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-188",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update username, email, and profile picture"
+            }
+          ]
+        },
+        {
+          "id": "b-189",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Change display preferences (light/dark mode, font size)"
+            }
+          ]
+        },
+        {
+          "id": "b-190",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set time zone and language preferences"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Privacy & Security (`/settings/privacy`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-193",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enable two-factor authentication (2FA)"
+            }
+          ]
+        },
+        {
+          "id": "b-194",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Manage login sessions and device access"
+            }
+          ]
+        },
+        {
+          "id": "b-195",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Configure privacy settings (who can see my profile, watch history, etc.)"
+            }
+          ]
+        },
+        {
+          "id": "b-196",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Request account data download (GDPR compliance)"
+            }
+          ]
+        },
+        {
+          "id": "b-197",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Delete or deactivate account"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Notification Settings (`/settings/notifications`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-200",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Toggle email, push, and in-app notifications for:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- New episodes from subscribed shows"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Live stream alerts"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Broadcast schedule changes"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Messages from broadcasters or producers"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-206",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set notification frequency (real-time, daily digest, weekly summary)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Subscription & Membership (`/settings/subscriptions`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-209",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Manage followed shows and producers"
+            }
+          ]
+        },
+        {
+          "id": "b-210",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cancel or upgrade premium subscriptions (if applicable)"
+            }
+          ]
+        },
+        {
+          "id": "b-211",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "View billing history and download invoices"
+            }
+          ]
+        },
+        {
+          "id": "b-212",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update payment methods"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Content Preferences (`/settings/content`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-215",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enable/disable autoplay for videos"
+            }
+          ]
+        },
+        {
+          "id": "b-216",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set preferred closed captioning language"
+            }
+          ]
+        },
+        {
+          "id": "b-217",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Adjust parental controls (age-restricted content)"
+            }
+          ]
+        },
+        {
+          "id": "b-218",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customize playback quality (adaptive, high, medium, low)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Broadcaster & Producer Tools (`/settings/broadcaster`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*(Available for Broadcasters & Producers only)*"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-222",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Manage team access and roles"
+            }
+          ]
+        },
+        {
+          "id": "b-223",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set default video publishing rules (public, private, members-only)"
+            }
+          ]
+        },
+        {
+          "id": "b-224",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Configure automated scheduling for uploads"
+            }
+          ]
+        },
+        {
+          "id": "b-225",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customize branding (logos, color scheme, on-screen watermark)"
+            }
+          ]
+        },
+        {
+          "id": "b-226",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integrate external streaming tools (RTMP settings)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Advertising & Sponsorship (`/settings/ads`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*(Available for Broadcasters & Admins only)*"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-230",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set up and manage ad campaigns"
+            }
+          ]
+        },
+        {
+          "id": "b-231",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Define ad slot rules (pre-roll, mid-roll, post-roll)"
+            }
+          ]
+        },
+        {
+          "id": "b-232",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monitor ad revenue and impressions"
+            }
+          ]
+        },
+        {
+          "id": "b-233",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Approve or reject sponsorship deals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Closed Captions & Accessibility (`/settings/accessibility`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-236",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enable auto-generated closed captions"
+            }
+          ]
+        },
+        {
+          "id": "b-237",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Choose default caption format (SRT, VTT, TTML)"
+            }
+          ]
+        },
+        {
+          "id": "b-238",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set up translation preferences for multilingual subtitles"
+            }
+          ]
+        },
+        {
+          "id": "b-239",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Configure audio description settings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Developer & API Access (`/settings/developer`)**"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*(Available for Admins & Broadcasters only)*"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-243",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generate API keys for third-party integrations"
+            }
+          ]
+        },
+        {
+          "id": "b-244",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Set up webhooks for real-time data updates"
+            }
+          ]
+        },
+        {
+          "id": "b-245",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Manage OAuth connections"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-248",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Guest users** can browse most public content but need to log in for personalized actions."
+            }
+          ]
+        },
+        {
+          "id": "b-249",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Members** can follow creators, save shows, and participate in engagement features."
+            }
+          ]
+        },
+        {
+          "id": "b-250",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Producers** gain access to content submission, media management, and analytics."
+            }
+          ]
+        },
+        {
+          "id": "b-251",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Broadcasters** manage schedules, ads, and closed captions."
+            }
+          ]
+        },
+        {
+          "id": "b-252",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Admins** oversee platform-wide operations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This structure ensures clear navigation while prioritizing accessibility, usability, and monetization."
+        }
+      ]
+    }
+  ]
+}

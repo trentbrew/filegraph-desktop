@@ -1,0 +1,1189 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-353",
+  "title": "Autumn Components",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Autumn Components"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A Nuxt 3 application showcasing reusable page 'block' components with a live editor. Blocks are registered dynamically from `app/components/blocks`, configured via YAML forms, previewed with fixtures, and styled via a token-driven design system (Style Dictionary + CSS variables). Includes a storybook-like viewer at `/blocks` with device preview, form-driven props, and live-editable design tokens persisted in localStorage."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Built with [Nuxt 3](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI](https://ui.nuxt.com/)."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Setup"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Make sure to install the dependencies:"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "npm install"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm install"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "yarn install"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "bun install"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Development Server"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Start the development server on `http://localhost:PORT` (where PORT is assigned dynamically):"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "npm run dev"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm run dev"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "yarn dev"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "bun run dev"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Production"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Build the application for production:"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "npm run build"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm run build"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "yarn build"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "bun run build"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Locally preview production build:"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "npm run preview"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm run preview"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "yarn preview"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "bun run preview"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Features"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧱 Dynamic Block Discovery"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Auto-discovers components from `app/components/blocks/` directory"
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each block follows standardized structure: `Component.vue`, `form.yaml`, `fixture.ts`, `theme.ts`"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generates kebab-case slugs and human-readable names automatically"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "📝 Form-Driven Configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "YAML schema-driven form generation"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Support for various field types: text, textarea, select, color-select, number, toggle"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conditional field visibility via `when` conditions"
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Repeater fields with drag-and-drop reordering"
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Local persistence of form state and repeater order"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎨 Live Design Token Editing"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Real-time editing of design tokens with color pickers"
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Visual color swatches in form selects"
+            }
+          ]
+        },
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "CSS custom properties updated instantly"
+            }
+          ]
+        },
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "localStorage persistence across page reloads"
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reset functionality to restore defaults"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "📱 Device Preview"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Responsive preview modes: Laptop, Tablet, Phone"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Live component rendering with current props"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Device frame simulation for accurate testing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔧 Developer Experience"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-62",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "TypeScript throughout for type safety"
+            }
+          ]
+        },
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hot reloading for rapid development"
+            }
+          ]
+        },
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Comprehensive component documentation"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Storybook-like viewer interface"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Block Component Viewer"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The main feature is available at `/blocks`. This viewer provides:"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Block Gallery**: Browse all available block components in a grid layout"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Component Detail**: View individual components with their fixture data"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Live Editor**: Three-tab interface (Form, Tokens, Settings)"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Device Preview**: Toggle between Laptop/Tablet/Phone views"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Props Inspector**: View raw JSON data for each component"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Using the Block Viewer"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Start the development server:"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm run dev"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Navigate to `http://localhost:PORT/blocks` to see the list of available blocks"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Click on a block to view its detail page at `/blocks/[slug]`"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Use the editor tabs:"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Form**: Edit component props via schema-driven forms"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tokens**: Modify design tokens with color pickers"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Settings**: Configure design system settings (coming soon)"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Toggle device preview modes to test responsive behavior"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. View raw props data in the Structure drawer"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Design Token System"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The system supports live editing of:"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Colors**: Primary, secondary, tertiary, quaternary palettes with multiple shades"
+            }
+          ]
+        },
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Radius**: Border radius values for consistent rounded corners"
+            }
+          ]
+        },
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Space**: Spacing values for margins and padding"
+            }
+          ]
+        },
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effects**: Shadow and other visual effects"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "All changes are persisted in localStorage and applied instantly to the preview."
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Component Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each block component follows this standardized structure:"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app/components/blocks/[ComponentName]/"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── [ComponentName].vue    # Main component implementation"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── form.yaml             # Form schema for configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── fixture.ts            # Sample data for preview"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── theme.ts              # Theme configuration with tailwind-variants"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Creating a New Component"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Create a new directory in `app/components/blocks/[ComponentName]/`"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Implement the component with TypeScript"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Define the form schema in `form.yaml`"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Create sample data in `fixture.ts`"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Implement theming in `theme.ts`"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. The component will be auto-discovered and available in the block viewer"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Technology Stack"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Framework**: Nuxt 3 with Vue 3 Composition API"
+            }
+          ]
+        },
+        {
+          "id": "b-113",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**UI Library**: Nuxt UI with Tailwind CSS"
+            }
+          ]
+        },
+        {
+          "id": "b-114",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Design System**: Style Dictionary for token processing"
+            }
+          ]
+        },
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Styling**: Tailwind CSS with custom CSS variables"
+            }
+          ]
+        },
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Icons**: Iconify with Lucide and Simple Icons"
+            }
+          ]
+        },
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**State Management**: Vue reactive refs with localStorage persistence"
+            }
+          ]
+        },
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Build Tools**: Vite with TypeScript support"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

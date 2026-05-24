@@ -1,0 +1,1399 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-296",
+  "title": "Functions as Facts",
+  "author": "person:jane-brew:001",
+  "status": "reviewing",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Functions as Facts"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Treating **functions as facts** opens the door to using **Prolog (or a Prolog-like logic engine)** as the orchestration layer: a local reasoning substrate that’s compact, explainable, and symbolic. This positions your agent as a hybrid of *latent priors (via embeddings)* and *structured inference (via logic)*."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let’s walk through why this is a powerful approach—and how to make it work."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧩 Functions as Facts"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In logic terms, a function can be represented as a **predicate with inputs and outputs**, plus possibly metadata (cost, category, state effects). For example:"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```prolog"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function(average, [List], Result) :- is_list(List), sum(List, S), length(List, L), Result is S / L."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Or abstractly:"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```prolog"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function(name(average), input_type(list), output_type(number), category(statistical), cost(low))."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Now a query like:"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```prolog"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "?- function(Name, input_type(list), output_type(number), category(statistical))."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Returns all functions that match the criteria—this becomes your **retrieval mechanism**."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧠 Embeddings + Prolog: A Hybrid Strategy"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Embeddings** are used to translate user queries into structured symbolic forms: e.g., extract `category`, `input_type`, or infer function names."
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Prolog** then uses these as constraints to retrieve, compose, or reason about function calls."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This gives you:"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Fuzzy front-end** (handle messy natural language)"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Crisp back-end** (handle precise function matching and sequencing)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This mimics how a small brain might compensate for limited intuition with meticulous logic—exactly the sort of balance local-first AI needs."
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "✨ Why Prolog Works Well Here"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Small and fast**: Prolog interpreters can run in-browser (`tau-prolog`, `jsprolog`) and are lightweight."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Symbolic clarity**: You get transparent, explainable control over function selection."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Composability**: You can represent multi-step workflows as goal satisfaction chains."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Extensibility**: You can model temporal state, constraints, effects, or user preferences."
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔧 Implementation Idea"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Define your function corpus** in Prolog facts."
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Embed user input** using a tiny transformer or even keyword matcher."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Translate embeddings into constraints** (e.g., `wants(filter), input_type(list)`)."
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Query Prolog** to get candidate functions."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Execute or plan** using JavaScript or call stack."
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Optionally:"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Add weights or ranks based on embedding distance or usage frequency."
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Compose multi-function plans as Prolog rules."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🪞Philosophically Speaking"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Using Prolog centers the system not on black-box cognition, but on **interpretable relationships**. It embodies a different paradigm of intelligence: not raw power, but **coherence and clarity**. This aligns beautifully with the ethos of a local-first agent—where **understanding, not just outcome**, is the goal."
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🌐 Core Architecture: Hybrid Local Agent"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Functions as Logic Facts**"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```prolog"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function(avg, [list(number)], number)."
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "category(avg, statistical)."
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "alias(avg, \"average\")."
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Embeddings as Fuzzy Entry Points**"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Embed:"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User queries"
+            }
+          ]
+        },
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Function docstrings"
+            }
+          ]
+        },
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conceptual anchors (e.g., \"filter\", \"compare\", \"lookup\")"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Then use nearest-neighbor search to retrieve:"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Function *names* (to suggest to Prolog)"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "*Semantic classes* (to constrain the Prolog query)"
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "*Entity mentions* (to guide argument construction)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Knowledge Graph as Context Frame**"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A local, compact knowledge graph (~hundreds of nodes):"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Encodes relationships between domains (e.g., `temperature -> unit -> Celsius`)"
+            }
+          ]
+        },
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provides auxiliary data to validate or enrich function arguments"
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acts as a *contextual substrate* for Prolog or fallback for missing knowledge"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Planner / Orchestrator**"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Embedding matches intent → translates to Prolog goals"
+            }
+          ]
+        },
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prolog returns matching function(s) or plans"
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "JS engine executes, logs, and feeds results back to the reasoning loop"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🛠️ Skeleton Workflow"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "📥 1. User Input"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const input = \"get the average temperature for this week\";"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔎 2. Embedding Phase"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use MiniLM to embed input"
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nearest-neighbor search returns:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `intent`: \"average\""
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `domain`: \"temperature\""
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `entity`: \"week\""
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Translates into Prolog constraints:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```prolog"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "intent(avg)."
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "domain(temperature)."
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "time_scope(week)."
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧠 3. Prolog Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```prolog"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function(avg_temp, [list(day_temp)], number)."
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "alias(avg_temp, \"average temperature\")."
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "contextual_scope(avg_temp, time, week)."
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "entity_type(avg_temp, temperature)."
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "% If multiple functions match, rank via embedding distance or past usage"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Query:"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```prolog"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "?- function(Fn, Args, Out), domain(Fn, temperature), time_scope(Fn, week)."
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "⚙️ 4. JS Function Calling"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const fn = resolveFunction(\"avg_temp\");"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const result = fn([72, 75, 68, 70, 74, 69, 71]); // weekly temps"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔁 5. Feedback Loop"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Result is saved"
+            }
+          ]
+        },
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Context graph is updated"
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Function usage patterns are refined (e.g., via Hebbian heuristics)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧬 Small-World Graph Layer"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acts like **episodic memory**"
+            }
+          ]
+        },
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Connects entities (e.g., \"week\" → \"days\" → \"temperature sensors\")"
+            }
+          ]
+        },
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Represents evolving state"
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enables *Prolog-backed inference + vector-backed generalization*"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Useful for:"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-129",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Inferring missing arguments"
+            }
+          ]
+        },
+        {
+          "id": "b-130",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Navigating from abstract prompts to concrete data"
+            }
+          ]
+        },
+        {
+          "id": "b-131",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Giving \"world awareness\" to function invocations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔮 Philosophical Note"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is not just computation—it's a sketch of **cognitive minimalism**. You're building an architecture that *thinks locally, reasons transparently, and remembers personally*. It resists scale fetishism in favor of coherence, intimacy, and introspection. A *slow AI*, but not a dumb one."
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Would you like:"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-138",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A JS+Prolog code snippet (e.g., with `tau-prolog`) showing function querying?"
+            }
+          ]
+        },
+        {
+          "id": "b-139",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A tiny embedding + knowledge graph mockup to show how these layers interrelate?"
+            }
+          ]
+        },
+        {
+          "id": "b-140",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A planner design to handle multi-function tasks?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let’s go as deep as you want."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+@prefix fg: <https://filegraph.dev/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Filegraph Ontology
+# A tight, bridging-focused ontology for personal knowledge graphs
+# ─────────────────────────────────────────────────────────────────────────────
+
+fg: a owl:Ontology ;
+    rdfs:label "Filegraph Ontology" ;
+    rdfs:comment "Core ontology for Filegraph personal knowledge graphs" ;
+    owl:versionInfo "1.0.0" ;
+    dcterms:created "2025-12-20"^^xsd:date .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Core Classes
+# ─────────────────────────────────────────────────────────────────────────────
+
+fg:File a owl:Class ;
+    rdfs:label "File" ;
+    rdfs:comment "Any file in the vault (.note, .data, .sketch, etc.)" .
+
+fg:Entity a owl:Class ;
+    rdfs:label "Entity" ;
+    rdfs:comment "Extracted structured entity (person, org, project, task, etc.)" ;
+    rdfs:subClassOf fg:File .
+
+fg:Relationship a owl:Class ;
+    rdfs:label "Relationship" ;
+    rdfs:comment "Typed edge between entities with optional metadata" .
+
+fg:Memory a owl:Class ;
+    rdfs:label "Memory" ;
+    rdfs:comment "Agent's saved context and learned information" .
+
+fg:Action a owl:Class ;
+    rdfs:label "Action" ;
+    rdfs:comment "Agent action log entry" .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Entity Type Subclasses (aligned with Schema.org where possible)
+# ─────────────────────────────────────────────────────────────────────────────
+
+fg:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf fg:Entity, schema:Person .
+
+fg:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:subClassOf fg:Entity, schema:Organization .
+
+fg:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:subClassOf fg:Entity .
+
+fg:Task a owl:Class ;
+    rdfs:label "Task" ;
+    rdfs:subClassOf fg:Entity, schema:Action .
+
+fg:Milestone a owl:Class ;
+    rdfs:label "Milestone" ;
+    rdfs:subClassOf fg:Entity .
+
+fg:Account a owl:Class ;
+    rdfs:label "Account" ;
+    rdfs:comment "Financial account" ;
+    rdfs:subClassOf fg:Entity .
+
+fg:Transaction a owl:Class ;
+    rdfs:label "Transaction" ;
+    rdfs:subClassOf fg:Entity, schema:MonetaryAmount .
+
+fg:Bill a owl:Class ;
+    rdfs:label "Bill" ;
+    rdfs:subClassOf fg:Entity, schema:Invoice .
+
+fg:Subscription a owl:Class ;
+    rdfs:label "Subscription" ;
+    rdfs:subClassOf fg:Entity .
+
+fg:Goal a owl:Class ;
+    rdfs:label "Goal" ;
+    rdfs:subClassOf fg:Entity .
+
+fg:Note a owl:Class ;
+    rdfs:label "Note" ;
+    rdfs:comment "Prose note file" ;
+    rdfs:subClassOf fg:File .
+
+fg:CalendarEvent a owl:Class ;
+    rdfs:label "Calendar Event" ;
+    rdfs:subClassOf fg:Entity, schema:Event .
+
+fg:Reminder a owl:Class ;
+    rdfs:label "Reminder" ;
+    rdfs:subClassOf fg:Entity .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Core Properties (Bridging & Provenance)
+# ─────────────────────────────────────────────────────────────────────────────
+
+fg:mentions a owl:ObjectProperty ;
+    rdfs:label "mentions" ;
+    rdfs:comment "File mentions an entity" ;
+    rdfs:domain fg:File ;
+    rdfs:range fg:Entity .
+
+fg:storedIn a owl:ObjectProperty ;
+    rdfs:label "stored in" ;
+    rdfs:comment "Entity is stored in a file (inverse of mentions)" ;
+    rdfs:domain fg:Entity ;
+    rdfs:range fg:File ;
+    owl:inverseOf fg:mentions .
+
+fg:relatedTo a owl:ObjectProperty ;
+    rdfs:label "related to" ;
+    rdfs:comment "Entity is related to another entity" ;
+    rdfs:domain fg:Entity ;
+    rdfs:range fg:Entity ;
+    owl:symmetric true .
+
+fg:derivedFrom a owl:ObjectProperty ;
+    rdfs:label "derived from" ;
+    rdfs:comment "Provenance chain - this entity/file was derived from another" ;
+    rdfs:range [ owl:unionOf (fg:File fg:Entity) ] .
+
+fg:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence" ;
+    rdfs:comment "Confidence score for a relationship (0.0-1.0)" ;
+    rdfs:range xsd:float .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Entity Properties (Common across types)
+# ─────────────────────────────────────────────────────────────────────────────
+
+fg:slug a owl:DatatypeProperty ;
+    rdfs:label "slug" ;
+    rdfs:comment "URL-safe identifier" ;
+    rdfs:domain fg:Entity ;
+    rdfs:range xsd:string .
+
+fg:tags a owl:DatatypeProperty ;
+    rdfs:label "tags" ;
+    rdfs:comment "Tags for categorization" ;
+    rdfs:domain fg:Entity .
+
+fg:status a owl:DatatypeProperty ;
+    rdfs:label "status" ;
+    rdfs:comment "Status of an entity" ;
+    rdfs:domain fg:Entity ;
+    rdfs:range xsd:string .
+
+fg:urgency a owl:DatatypeProperty ;
+    rdfs:label "urgency" ;
+    rdfs:comment "Urgency level (1-3)" ;
+    rdfs:domain fg:Entity ;
+    rdfs:range xsd:integer .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Memory & Agent Properties
+# ─────────────────────────────────────────────────────────────────────────────
+
+fg:importance a owl:DatatypeProperty ;
+    rdfs:label "importance" ;
+    rdfs:comment "Importance score (0.0-1.0)" ;
+    rdfs:domain fg:Memory ;
+    rdfs:range xsd:float .
+
+fg:category a owl:DatatypeProperty ;
+    rdfs:label "category" ;
+    rdfs:comment "Category for organization" ;
+    rdfs:range xsd:string .
+
+fg:lastAccessed a owl:DatatypeProperty ;
+    rdfs:label "last accessed" ;
+    rdfs:comment "Timestamp of last access" ;
+    rdfs:range xsd:dateTime .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Relationship Types (as instances, not classes)
+# ─────────────────────────────────────────────────────────────────────────────
+
+fg:worksFor a owl:ObjectProperty ;
+    rdfs:label "works for" ;
+    rdfs:subPropertyOf fg:relatedTo ;
+    rdfs:domain fg:Person ;
+    rdfs:range fg:Organization .
+
+fg:memberOf a owl:ObjectProperty ;
+    rdfs:label "member of" ;
+    rdfs:subPropertyOf fg:relatedTo ;
+    rdfs:domain fg:Person ;
+    rdfs:range fg:Organization .
+
+fg:assignedTo a owl:ObjectProperty ;
+    rdfs:label "assigned to" ;
+    rdfs:subPropertyOf fg:relatedTo ;
+    rdfs:domain fg:Task ;
+    rdfs:range fg:Person .
+
+fg:partOf a owl:ObjectProperty ;
+    rdfs:label "part of" ;
+    rdfs:subPropertyOf fg:relatedTo ;
+    rdfs:comment "Task/milestone is part of a project" .
+
+fg:dependsOn a owl:ObjectProperty ;
+    rdfs:label "depends on" ;
+    rdfs:subPropertyOf fg:relatedTo ;
+    rdfs:comment "Task depends on another task" .
+
+fg:owns a owl:ObjectProperty ;
+    rdfs:label "owns" ;
+    rdfs:subPropertyOf fg:relatedTo ;
+    rdfs:domain fg:Person ;
+    rdfs:range fg:Account .

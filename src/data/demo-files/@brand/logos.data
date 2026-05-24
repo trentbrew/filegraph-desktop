@@ -1,0 +1,28 @@
+{
+  "@context": {
+    "brand": "https://schema.local/brand/"
+  },
+  "@id": "brand:logos",
+  "@type": "LogoCollection",
+  "description": "Brand logos and marks",
+  "items": [
+    {
+      "id": "brand:logo-primary:001",
+      "slug": "logo-primary",
+      "name": "Primary Logo",
+      "variant": "full",
+      "path": "@brand/raw/logo-primary.svg",
+      "format": "image/svg+xml",
+      "usage": "Main brand mark for headers, documents, and marketing"
+    },
+    {
+      "id": "brand:logo-icon:001",
+      "slug": "logo-icon",
+      "name": "Icon Mark",
+      "variant": "icon",
+      "path": "@brand/raw/logo-icon.png",
+      "format": "image/png",
+      "usage": "Favicon, app icon, small placements"
+    }
+  ]
+}

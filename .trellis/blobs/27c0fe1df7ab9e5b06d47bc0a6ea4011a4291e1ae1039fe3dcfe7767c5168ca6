@@ -1,0 +1,83 @@
+{
+  "@context": {
+    "brand": "https://schema.local/brand/"
+  },
+  "@id": "brand:colors",
+  "@type": "ColorCollection",
+  "description": "Brand color tokens",
+  "items": [
+    {
+      "id": "brand:color-indigo:001",
+      "slug": "indigo",
+      "name": "Indigo 500",
+      "descriptive_name": "Electric Indigo",
+      "hex": "#6366f1",
+      "role": "primary",
+      "usage": "Primary actions, links, focus states"
+    },
+    {
+      "id": "brand:color-violet:001",
+      "slug": "violet",
+      "name": "Violet 500",
+      "descriptive_name": "Royal Violet",
+      "hex": "#8b5cf6",
+      "role": "secondary",
+      "usage": "Accents, highlights, gradients"
+    },
+    {
+      "id": "brand:color-midnight:001",
+      "slug": "midnight",
+      "name": "Zinc 950",
+      "descriptive_name": "Midnight Black",
+      "hex": "#0a0a0b",
+      "role": "background",
+      "usage": "Main background color (dark mode)"
+    },
+    {
+      "id": "brand:color-charcoal:001",
+      "slug": "charcoal",
+      "name": "Zinc 900",
+      "descriptive_name": "Charcoal Gray",
+      "hex": "#18181b",
+      "role": "surface",
+      "usage": "Cards, panels, elevated surfaces"
+    },
+    {
+      "id": "brand:color-snow:001",
+      "slug": "snow",
+      "name": "Zinc 50",
+      "descriptive_name": "Snow White",
+      "hex": "#fafafa",
+      "role": "text",
+      "usage": "Primary text color"
+    },
+    {
+      "id": "brand:color-emerald:001",
+      "slug": "emerald",
+      "name": "Emerald 500",
+      "descriptive_name": "Success Green",
+      "hex": "#10b981",
+      "role": "success",
+      "usage": "Success states, confirmations"
+    },
+    {
+      "id": "brand:color-amber:001",
+      "slug": "amber",
+      "name": "Amber 500",
+      "descriptive_name": "Warning Amber",
+      "hex": "#f59e0b",
+      "role": "warning",
+      "usage": "Warning states, cautions"
+    },
+    {
+      "id": "brand:color-rose:001",
+      "slug": "rose",
+      "name": "Rose 500",
+      "descriptive_name": "Error Rose",
+      "hex": "#f43f5e",
+      "role": "error",
+      "usage": "Error states, destructive actions"
+    }
+  ],
+  "@schema": {}
+}

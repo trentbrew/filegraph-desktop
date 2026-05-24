@@ -1,0 +1,294 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:entity-link-showcase",
+  "title": "Entity Links & Mentions Showcase",
+  "status": "published",
+  "created_at": "2024-12-12T00:00:00.000Z",
+  "updated_at": "2024-12-12T00:00:00.000Z",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Entity Links & Mentions"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This note demonstrates the new EntityLink component and improved markdown rendering. FileGraph now supports multiple ways to reference entities."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Team Members"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Our team includes "
+        },
+        {
+          "type": "mention",
+          "entityId": "person:sarah:001"
+        },
+        {
+          "type": "text",
+          "text": " (Project Manager), "
+        },
+        {
+          "type": "mention",
+          "entityId": "person:marcus:001"
+        },
+        {
+          "type": "text",
+          "text": " (Lead Developer), and "
+        },
+        {
+          "type": "mention",
+          "entityId": "person:emma:001"
+        },
+        {
+          "type": "text",
+          "text": " (UI/UX Designer)."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project References"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "We're working on "
+        },
+        {
+          "type": "mention",
+          "entityId": "proj:website-redesign:001"
+        },
+        {
+          "type": "text",
+          "text": " for "
+        },
+        {
+          "type": "mention",
+          "entityId": "org:techstart:001"
+        },
+        {
+          "type": "text",
+          "text": ". The current milestone is "
+        },
+        {
+          "type": "mention",
+          "entityId": "ms:design-system:001"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Unresolved References"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "These references don't exist yet and show the unresolved state: "
+        },
+        {
+          "type": "mention",
+          "entityId": "person:unknown:999"
+        },
+        {
+          "type": "text",
+          "text": " and "
+        },
+        {
+          "type": "mention",
+          "entityId": "proj:future-project:001"
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Rich Text Formatting"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is ",
+          "marks": ["bold"]
+        },
+        {
+          "type": "text",
+          "text": "bold text"
+        },
+        {
+          "type": "text",
+          "text": ", this is "
+        },
+        {
+          "type": "text",
+          "text": "italic text",
+          "marks": ["italic"]
+        },
+        {
+          "type": "text",
+          "text": ", and this is "
+        },
+        {
+          "type": "text",
+          "text": "code",
+          "marks": ["code"]
+        },
+        {
+          "type": "text",
+          "text": ". You can also have "
+        },
+        {
+          "type": "text",
+          "text": "strikethrough",
+          "marks": ["strike"]
+        },
+        {
+          "type": "text",
+          "text": " and "
+        },
+        {
+          "type": "text",
+          "text": "highlighted",
+          "marks": ["highlight"],
+          "highlightColor": "#fef08a"
+        },
+        {
+          "type": "text",
+          "text": " text."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "External Links"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Check out the "
+        },
+        {
+          "type": "text",
+          "text": "FileGraph documentation",
+          "marks": ["link"],
+          "href": "https://filegraph.app"
+        },
+        {
+          "type": "text",
+          "text": " and "
+        },
+        {
+          "type": "text",
+          "text": "GitHub repository",
+          "marks": ["link"],
+          "href": "https://github.com/filegraph"
+        },
+        {
+          "type": "text",
+          "text": " for more information."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "horizontalRule"
+    },
+    {
+      "id": "b-14",
+      "type": "blockquote",
+      "children": [
+        {
+          "id": "b-14-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pro tip: ",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": "Type @ to mention any entity, or use [[double brackets]] for wikilinks. Hover over any entity link to see a preview!"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

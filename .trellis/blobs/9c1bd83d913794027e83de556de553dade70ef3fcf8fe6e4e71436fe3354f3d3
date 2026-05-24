@@ -1,0 +1,123 @@
+:root {
+  --dsg-border-color: var(--border);
+  --dsg-selection-border-color: var(--primary);
+  --dsg-selection-border-radius: var(--radius-sm);
+  --dsg-selection-border-width: 2px;
+  --dsg-selection-background-color: color-mix(
+    in oklch,
+    var(--primary) 18%,
+    transparent
+  );
+  --dsg-selection-disabled-border-color: var(--muted);
+  --dsg-selection-disabled-background-color: color-mix(
+    in oklch,
+    var(--muted) 35%,
+    transparent
+  );
+  --dsg-header-text-color: var(--muted-foreground);
+  --dsg-header-active-text-color: var(--foreground);
+  --dsg-cell-background-color: var(--card);
+  --dsg-cell-foreground-color: var(--foreground);
+  --dsg-cell-disabled-background-color: color-mix(
+    in oklch,
+    var(--muted) 65%,
+    transparent
+  );
+  --dsg-scroll-shadow-color: color-mix(
+    in oklch,
+    var(--foreground) 25%,
+    transparent
+  );
+}
+
+.dark {
+  --dsg-border-color: var(--border);
+  --dsg-selection-border-color: var(--primary);
+  --dsg-selection-background-color: color-mix(
+    in oklch,
+    var(--primary) 30%,
+    transparent
+  );
+  --dsg-selection-disabled-border-color: var(--muted-foreground);
+  --dsg-selection-disabled-background-color: color-mix(
+    in oklch,
+    var(--muted) 55%,
+    transparent
+  );
+  --dsg-header-text-color: var(--muted-foreground);
+  --dsg-header-active-text-color: var(--foreground);
+  --dsg-cell-background-color: color-mix(
+    in oklch,
+    var(--card) 60%,
+    var(--background) 40%
+  );
+  --dsg-cell-foreground-color: var(--foreground);
+  --dsg-cell-disabled-background-color: color-mix(
+    in oklch,
+    var(--muted) 45%,
+    transparent
+  );
+  --dsg-scroll-shadow-color: color-mix(
+    in oklch,
+    var(--foreground) 40%,
+    transparent
+  );
+}
+
+.dsg-container {
+  background: var(--dsg-cell-background-color);
+  color: var(--dsg-cell-foreground-color);
+  height: 100% !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+}
+
+.dsg-cell {
+  color: var(--dsg-cell-foreground-color);
+  background: var(--dsg-cell-background-color);
+}
+
+.dsg-cell-header,
+.dsg-cell-gutter {
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
+
+.dsg-cell-header-active,
+.dsg-cell-gutter-active {
+  color: var(--foreground);
+}
+
+.dsg-active-cell-focus {
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--primary) 40%, transparent);
+}
+
+.dsg-input,
+.dsg-context-menu,
+.dsg-context-menu-item,
+.dsg-add-row,
+.dsg-add-row-btn,
+.dsg-add-row-input {
+  color: var(--foreground);
+  background: var(--card);
+}
+
+.dsg-add-row-btn,
+.dsg-add-row-input {
+  border-color: var(--border);
+}
+
+.dsg-context-menu-item:hover,
+.dsg-add-row-btn:hover,
+.dsg-add-row-input:hover {
+  background: color-mix(in oklch, var(--muted) 30%, transparent);
+}

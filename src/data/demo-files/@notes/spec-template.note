@@ -1,0 +1,597 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-339",
+  "title": "[ SPEC TEMPLATE ]",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "[ SPEC TEMPLATE ]"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Develop ${PROJECT_NAME}, a ${PROJECT_DESCRIPTION}. It should allow users to ${CORE_FUNCTIONALITY}. In this initial phase for this feature, let's call it \"${PHASE_NAME},\" let's have ${USER_SETUP_DESCRIPTION}."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "User Configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I want ${TOTAL_USER_COUNT} users in ${USER_CATEGORY_COUNT} different categories: ${USER_CATEGORIES_AND_COUNTS}. Let's create ${PROJECT_COUNT} different sample projects."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Board Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's have the ${BOARD_TYPE} columns for the status of each task, such as ${COLUMN_NAMES}."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Authentication"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "There will be ${AUTHENTICATION_SETUP} for this application as this is ${AUTHENTICATION_REASON}."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Task Card Features"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "For each task in the UI for a task card, you should be able to:"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "${TASK_CARD_FEATURES}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "User Flow"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When you first launch ${PROJECT_NAME}, it's going to ${INITIAL_SCREEN_BEHAVIOR}. ${LOGIN_FLOW_DESCRIPTION}."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When you click on a user, you go into the main view, which displays ${MAIN_VIEW_CONTENT}. When you click on a project, you open ${PROJECT_VIEW_DESCRIPTION}."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Board Interaction"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You're going to see the columns. You'll be able to ${BOARD_INTERACTION_FEATURES}."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Visual Indicators"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You will see ${VISUAL_INDICATORS} so you can quickly ${VISUAL_INDICATOR_PURPOSE}."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Permission System"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You can ${USER_PERMISSIONS_OWN_CONTENT}, but you can't ${USER_PERMISSIONS_OTHERS_CONTENT}."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Template Variables Reference"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Identity"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${PROJECT_NAME}` - Name of the application/project"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${PROJECT_DESCRIPTION}` - Brief description of what the project is"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${PHASE_NAME}` - Name of the current development phase"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${CORE_FUNCTIONALITY}` - Main features the application should provide"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Users & Roles"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${TOTAL_USER_COUNT}` - Total number of users (e.g., \"five\")"
+            }
+          ]
+        },
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${USER_CATEGORY_COUNT}` - Number of different user types (e.g., \"two\")"
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${USER_CATEGORIES_AND_COUNTS}` - Description of user roles and quantities"
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${USER_SETUP_DESCRIPTION}` - How users are configured/managed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${PROJECT_COUNT}` - Number of sample projects to create"
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${BOARD_TYPE}` - Type of board layout (e.g., \"standard Kanban\")"
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${COLUMN_NAMES}` - List of column names in quotes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Authentication & Access"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${AUTHENTICATION_SETUP}` - Authentication requirements"
+            }
+          ]
+        },
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${AUTHENTICATION_REASON}` - Explanation for auth setup choice"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${INITIAL_SCREEN_BEHAVIOR}` - What happens on app launch"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${LOGIN_FLOW_DESCRIPTION}` - How users log in or select themselves"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Interface & Navigation"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${MAIN_VIEW_CONTENT}` - What's shown in the main view after login"
+            }
+          ]
+        },
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${PROJECT_VIEW_DESCRIPTION}` - What opens when clicking on a project"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Features & Interactions"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${TASK_CARD_FEATURES}` - List of task card capabilities"
+            }
+          ]
+        },
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${BOARD_INTERACTION_FEATURES}` - What users can do with the board"
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${VISUAL_INDICATORS}` - Visual cues for users"
+            }
+          ]
+        },
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${VISUAL_INDICATOR_PURPOSE}` - What the visual cues help accomplish"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Permissions"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${USER_PERMISSIONS_OWN_CONTENT}` - What users can do with their own content"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`${USER_PERMISSIONS_OTHERS_CONTENT}` - What users cannot do with others' content"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

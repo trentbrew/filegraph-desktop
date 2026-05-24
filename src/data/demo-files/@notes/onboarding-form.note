@@ -1,0 +1,1482 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-2",
+  "title": "Onboarding Form",
+  "author": "person:jane-brew:001",
+  "status": "reviewing",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Onboarding Form"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is a **comprehensive breakdown** of how you might design a **customer onboarding**, **interactive form**, and **rate calculator** to streamline your subscription-based or retainer services model. This structure will help you collect critical project details, guide prospects to the right plan, and start each client relationship on a clear, professional footing."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. Overall Flow: From Form to Onboarding**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Entry Point**"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A link on your website (“Get Started” or “Calculate Your Plan”), shared proposal link, or direct outreach funnel (e.g., email)."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The client clicks to access the **interactive form** or **rate calculator**."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Form / Calculator Completion**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The client answers questions related to project scope, concurrency needs, and timeline expectations."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The form outputs a recommended plan or retainer tier."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Optionally, the client can select add-ons (consulting, project management, advanced features, etc.)."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Confirmation & Onboarding**"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- After submitting the form, they see a summary of their “estimated plan cost” or recommended tier."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- They can schedule an optional discovery call (if they need deeper scoping) or proceed to an immediate sign-up if they already know what they want."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Payment & Workspace Setup**"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- For those ready to commit, you direct them to **Stripe** (or another billing platform) to initiate their subscription or retainer."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Once payment is confirmed, the client is **onboarded**: you set up Slack/Notion/Linear (whichever PM tool you use), share a welcome kit, and start the engagement."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Designing the Interactive Form / Rate Calculator**"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is a sample question flow and the logic behind it. You can build this in tools like **Typeform**, **Tally**, **Jotform**, or even a **custom web form** on your site. For more advanced logic and design, consider **Bubble**, **Webflow** + **Memberstack**, or an integrated solution with **Notion** forms."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2.1. Core Sections**"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Basic Info**"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Contact Details**: Name, email, company name, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Project Title** (optional): A short label so they can refer back to it."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Service Requirements**"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Check all that apply**:"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Branding / Visual Design"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- UI/UX"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Frontend Web Dev"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Backend / Database"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Mobile App Dev"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- DevOps / Maintenance"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- AI / Automation / Integrations"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 3D / Animation / Physical Product Renders"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Consulting / Strategy"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Logic**: Each selection adds weight to the final price or recommended tier."
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Concurrency / Active Workstreams**"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- “How many tasks or features do you anticipate needing *at the same time*?”"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Options might be:"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 1 at a time (Basic)"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 2–3 at a time (Pro)"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 4+ at a time (Enterprise)"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Logic**: More concurrency → higher monthly cost."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Project Complexity**"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- “How complex are these tasks on average?”"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Options could be:"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Minor tasks/updates only"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Medium features (building new pages, moderate dev tasks)"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Large-scale builds / multiple integrated systems"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Logic**: Large-scale builds significantly impact monthly cost or push them to a higher plan."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Preferred Turnaround**"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- “Do you need tasks done within:"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 2–3 business days (fast)"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 1–2 weeks (moderate)"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Flexible timelines (as needed)?”"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Logic**: Tighter turnarounds might bump them into a higher tier or reflect a “rush” add-on."
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Budget Range / Investment Level**"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Ask if they have a monthly budget in mind (e.g., “Under $2k,” “$2k–$5k,” “$5k–$10k,” etc.)."
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Logic**: This can help you nudge them toward a plan that fits their price comfort."
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. **Self-Managed vs. Fully Managed**"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- “Do you plan to handle project management and prioritization yourself, or do you want us to handle that?”"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If **self-managed**, they get a discounted rate (less overhead for you)."
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If **fully managed**, the calculator bumps up to reflect additional PM and strategy efforts."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "8. **Optional Add-Ons**"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- “Would you like additional consulting, workshops, advanced branding, or ongoing marketing support?”"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Each add-on tacks an extra monthly fee or a one-time cost."
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2.2. Scoring & Logic**"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Assign Point Values**: For each question, you assign “weights.” E.g., if they pick “4+ concurrency,” add 20 points; if they want “complex backend,” add 15 points, etc."
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Map Points to Plan**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 0–20 points → Basic Tier"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 21–40 points → Pro Tier"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 41+ points → Enterprise"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Dynamic Price**: If you prefer direct pricing, each selection adds a cost increment. The form can sum these up and display a final “Estimated Monthly Rate.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Showing Results to the Client**"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "After they complete the form, display:"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Recommended Tier**: e.g., “Based on your answers, we suggest the Pro Tier ($4,000/month).”"
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Breakdown**: “You chose [X concurrent tasks, advanced backend, 1–2 week turnaround], which adds up to [$Y].”"
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Call to Action**: “Click here to schedule a quick 15-minute discovery call” or “Click here to sign up now.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This final page is crucial—it provides immediate clarity and prompts the next step without friction."
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. Onboarding Steps**"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Once the client either schedules a call or signs up:"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Payment & Contract**"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Direct them to **Stripe** subscriptions or a contract signing tool (HelloSign, DocuSign) if you use formal agreements."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Upon payment, you get a notification to kick off the next phase."
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Welcome Email / Slack Invite**"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Send a **welcome email** with a link to the Slack workspace or Slack Connect channel."
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Include a short PDF or Notion page summarizing:"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Their chosen plan and concurrency limit"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Basic guidelines on how to submit tasks"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Estimated turnarounds or SLAs"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Project Management Tool Setup**"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If you’re using **Linear**, create a project or workspace for them."
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If you’re using **Notion**, create a dedicated space or board."
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If they’re self-managed, share instructions on how to submit tasks, reorder priorities, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If they’re fully managed, let them know your typical process and how you’ll handle scheduling."
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Discovery Call (If Applicable)**"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Some clients might skip it, others might want it. Use this call to confirm scope, timeline, and answer any questions about the process."
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If you have a “hands-off” or minimal approach, you can skip or shorten this significantly."
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5. Best Practices & Considerations**"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Keep the Form Lean**"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Too many questions can overwhelm prospects. Only ask for what genuinely helps you place them in the correct plan."
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Clarify “Estimates”**"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Make sure they know that **final pricing** or timelines may slightly adjust after deeper discussion, but the calculator gives a strong ballpark."
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Use Automations**"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- With **Zapier**, **Make (Integromat)**, or direct integrations, you can automatically add form submissions to your CRM, Slack channel, or PM tool. This reduces manual follow-up."
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Communicate Boundaries**"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If your model includes “unlimited requests” but limited concurrency, state that explicitly in the form’s explanation. Manage those expectations early."
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **A/B Test**"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Periodically test different question flows or visuals. See which approach yields more completions or better-aligned clients."
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Offer an “I’m Not Sure Yet” Path**"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- For clients who can’t answer certain questions, let them skip or pick a default. Then you can refine after a short call. This lowers form abandonment."
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Example of a Simple Question Flow**"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q1**: Which services do you need?"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-121",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "(Check options) → Weighted pricing logic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q2**: How many concurrent tasks or “active requests” do you anticipate?"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "1 → +X"
+            }
+          ]
+        },
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "2–3 → +Y"
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "4+ → +Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q3**: Complexity?"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-129",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Minor / moderate / major → Different multipliers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q4**: Preferred turnaround speed?"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-132",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fast → +A"
+            }
+          ]
+        },
+        {
+          "id": "b-133",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Moderate → +B"
+            }
+          ]
+        },
+        {
+          "id": "b-134",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flexible → +C"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q5**: Self-Managed or Fully Managed?"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-137",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Self → -10% discount from final cost"
+            }
+          ]
+        },
+        {
+          "id": "b-138",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Full → +10% or +20% to reflect PM overhead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q6**: Do you need any add-on services (consulting, 3D animations, advanced DevOps)?"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-141",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each selected item adds a certain cost."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Final**: Sum up → “We estimate your monthly subscription at $X.”"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**6. Summary**"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-146",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A **customer onboarding + interactive form + rate calculator** is an excellent way to pre-qualify leads, illustrate pricing tiers, and kick off projects with clarity."
+            }
+          ]
+        },
+        {
+          "id": "b-147",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Key elements**: Gather essential scope details, weigh them to generate a recommended plan, and confirm final steps in a frictionless manner."
+            }
+          ]
+        },
+        {
+          "id": "b-148",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "By combining **automation** and **clear next steps**, you reduce the manual back-and-forth while giving clients immediate confidence in your process."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Ultimately, this approach ensures you and your client start on the **same page**—with transparent expectations about cost, timelines, and deliverables, all before any major work begins."
+        }
+      ]
+    }
+  ]
+}

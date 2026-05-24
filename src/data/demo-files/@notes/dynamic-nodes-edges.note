@@ -1,0 +1,176 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-294",
+  "title": "Dynamic Nodes & Edges",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Dynamic Nodes & Edges"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Dynamic Graph Representation & Inference"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "your question about **json-ld versus prolog facts** is a good one, especially when you want both \"librarian\" and \"detective\" capabilities. json-ld is excellent for **data interchange and semantic web compatibility**. it lets you describe structured data in a way that's machine-readable and widely understood across the web. it's good for *storing and sharing* the graph."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "but if you want the graph to *reason*—to infer new facts from existing ones—then something like **prolog or datalog** makes a lot more sense. these are logic programming languages designed for exactly that: defining rules and making deductions. you can layer prolog-like logic on top of your json-ld stored graph. the json-ld holds the facts, and prolog provides the rules to find hidden connections or derive new truths."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Edge Computing and the Hybrid Model"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "the idea of **compute at the edge** for real-time, personalized knowledge is compelling. chatgpt's \"brain stem feeding the cloud\" analogy captures it well. local graphs, tailored to your immediate context and updated instantly, would make for an incredibly responsive and personal knowledge system. the \"distilled insights\" going upstream to a centralized cloud could then contribute to a broader, more generalized knowledge base without bogging down the edge device."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "the limitation, as noted, is the **current hardware limitations** of edge devices. they're not typically built for the kind of intensive computation (like running large embedding models or complex inference engines) that a truly dynamic graph would require. a **hybrid model**—edge for immediate context and personalized interaction, cloud for deeper cognition, large-scale inference, and storing the global graph—seems like the most practical path forward in the near future. this needs advancements in silicon, but also, as chatgpt mentioned, \"trust\"—trust in the local computation, trust in the privacy, trust in the synchronization."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Emergent Node and Edge Creation"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "the **`[[link]]` syntax in note-taking apps** is a perfect mental model for how dynamic node and edge creation could work. it’s not just a hyperlink; it’s an invitation for the graph to expand."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **inline node creation:** when you type `[[new concept]]` and select to create it, a new node instantly materializes in your graph. this is a direct, user-driven way to grow the knowledge base."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **contextual metadata and edges:** the fascinating part is what happens next. as you noted, \"every time a node is created the whole graph has a lil spasm & new edges emerge.\" this \"spasm\" would involve the system:"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **embedding the new node:** taking \"new concept\" and its surrounding text, generating a vector embedding for it."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **inferring meaning from context:** using natural language processing (nlp) on the rest of the note (or relevant connected notes) to understand the \"new concept\" in its context. this allows the system to auto-populate metadata for the new node (e.g., inferring its type, related keywords, or even sentiment)."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **discovering new edges:** comparing the embedding of the new node against existing nodes in the graph to identify semantic similarities. this is where new, relevant edges are automatically created, linking the new concept to existing ideas, people, or projects you've already captured."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "it's like your personal knowledge graph is constantly listening, learning, and making connections in the background, creating a richer, more interconnected web of information as you simply take notes. your notes become prompts, and the system, with its \"good memory,\" fills in the blanks and draws the lines you might not have explicitly thought to draw."
+        }
+      ]
+    }
+  ]
+}

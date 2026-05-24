@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "fg": "https://filegraph.local/graph/"
+  },
+  "@id": "fg:system:graph",
+  "@type": "GlobalGraph",
+  "description": "Federated graph of entire system state - aggregates all namespace graphs",
+  "federates": [
+    "@entities/_graph_.data",
+    "@finance/_graph_.data"
+  ],
+  "stats": {
+    "totalNodes": { "@expr": "/* Derived from federated graphs */" },
+    "totalEdges": { "@expr": "/* Derived from federated graphs */" },
+    "lastUpdated": "2024-12-09T00:00:00Z"
+  }
+}

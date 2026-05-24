@@ -1,0 +1,1993 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-278",
+  "title": "sam.gov API docs",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "sam.gov API docs"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Get Opportunities API provides all the published opportunity details based on the request parameters. This API requires pagination, and the response will be provided to users synchronously."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**This API only provides the latest active version of the opportunity. To view all version of the opportunity, please visit Data Services Section of SAM.gov. All active notices in SAM.gov are updated daily and all archived notices are updated on a weekly basis.**"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[Active Opportunities](https://sam.gov/data-services?domain=Contract%20Opportunities%2Fdatagov)"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[Archived Opportunities](https://sam.gov/data-services?domain=Contract%20Opportunities%2FArchived%20Data)"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Get Opportunities API can be accessed from Production or Alpha via the following environments:"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Version Control - v2**"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Production:https://api.sam.gov/opportunities/v2/search"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alpha:https://api-alpha.sam.gov/opportunities/v2/search"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "User of this public API must provide an API key to use this Opportunities public API. Request per day are limited based on the federal or non-federal or general roles. Note: User can request a public API Key in the Account Details page on SAM.gov (if testing in production) Else on alpha.sam.gov (if testing in prodlike)."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**User Account API Key Creation**"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Registered user can request for a public API on ‘Account Details’ page. This page can be accessed on Account Details page on SAM.gov"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User must enter account password on ‘Account Details’ page to view the API Key information. If an incorrect password is entered, an error will be returned."
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "After the API Key is generated on ‘Account Details’ page, the API Key can be viewed on the Account Details page immediately. The API Key is visible until user navigates to a different page."
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If an error is encountered during the API Key generation/retrieval, then user will receive an error message and must try again."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Users can search by any of the below request parameters with Date field as mandatory."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Request Parameters that API accepts** | **Description** | **Required** | **Data Type** | **Applicable Versions** |"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| api_key | Public Key of users | Yes | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| ptype | Procurement Type. Below are the available Procurement Types:u= Justification (J&A)p = Pre solicitationa = Award Noticer = Sources Soughts = Special Noticeo = Solicitationg = Sale of Surplus Propertyk = Combined Synopsis/Solicitationi = Intent to Bundle Requirements (DoD-Funded)Note: Below services are now retired:f = Foreign Government Standardl = Fair Opportunity / Limited SourcesUse Justification (u) instead of fair Opportunity | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| solnum | Solicitation Number | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| noticeid | Notice ID | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| title | Title | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| postedFrom | Posted date FromFormat must be MM/dd/yyyyNote: Date range between Posted Date From and To is 1 year | Yes | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| postedTo | Posted date To Format must be MM/dd/yyyyNote: Date range between Posted Date From and To is 1 year | Yes | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| deptname | Department Name (L1) | No | String | v2 - Deprecated |"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| subtier | Agency Name (L2) | No | String | v2 - Deprecated |"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| state | Place of Performance (State) | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| status (Coming Soon) | Status of the opportunityAccepts following: active, inactive, archived, cancelled, deleted | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| zip | Place of Performance (Zip code) | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| organizationCode | Code of associated organization | No | string | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| organizationName | Name of associated organization. This Request Parameter can be used to filter the dataset by Department Name or Subtier Name*Note: General Search can be performed* | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| typeOfSetAside | [Refer Set-Aside Value Section](https://open.gsa.gov/api/get-opportunities-public-api/#set-aside-values) | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| typeOfSetAsideDescription | Set Aside code Description. See above descriptions mentioned against each of the Set Aside Code | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| ncode | NAICS Code. This code is maximum of 6 digits | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| ccode | Classification Code | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| rdlfrom | Response Deadline date. Format must be MM/dd/yyyyNote: If response date From & To is provided, then the date range is 1 year | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| rdlto | Response Deadline date. Format must be MM/dd/yyyyNote: If response date From & To is provided, then the date range is 1 year | No | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| limit | Total number of records to be retrieved per page. This field must be a numberMax Value = 1000. Default limit value is 1. | No | Int | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| offset | Indicates the page index. Default offset starts with 0 | No | Int | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Based on the request parameters, API provides below response parameters."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Request Parameters that API accepts** | **Description** | **Data Type** | **Applicable Versions** |"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| totalRecords | Total number of records for the search | Number | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| limit | Limit entered by a user while making the request i.e. total number of records that user wished to retrieve per page | Number | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| offset | Page index specified by a user. Default offset starts with 0 if user does not provide any offset in the request | Number | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| title | Opportunity Title | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| solicitationNumber | Solicitation Number | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| fullParentPathName | Names of all organizations notice is associated with | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| fullParentPathCode | Codes of all organizations notice is associated with | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| department | Department (L1) | String | v2 - Deprecated |"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| subtier | Sub-Tier (L2) | String | v2 - Deprecated |"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| office | Office (L3) | String | v2 - Deprecated |"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| postedDate | Opportunity Posted DateYYYY-MM-DD HH:MM:SS | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| type | Opportunity current type | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| baseType | Opportunity original type | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| archiveType | Archive Type | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| archiveDate | Archived Date | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| setAside | Set Aside Description | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| setAsideCode | Set Aside Code | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| reponseDeadLine | Response Deadline Date | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| naicsCode | NAICS Code. This code is maximum of 6 digits | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| classificationCode | Classification Code | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| active | If Active = Yes, then the opportunity is active, if No, then opportunity is Archived | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award | Award Information (If Available):Award amountAwardeeAward dateAward Number | JSON Object | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.number | Award Number | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.amount | Award Amount | Number | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.date | Award Date | Date and Time | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee | NameLocationueiSAM | JSON Object | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.name | Awardee Name | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.ueiSAM | Unique Entity Identifier SAM - Allow 12 digit value, alphanumericExample: ueiSAM=025114695AST | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.streetAddress | Awardee Street Address 1 | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.streetAddress2 | Awardee Street Address 2 | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.city | Awardee City | JSON Object | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.city.code | Awardee City Code | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.city.name | Awardee City Name | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.state | Awardee State | JSON Object | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.state.code | Awardee State Code | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.state.name | Awardee State Name | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.country | Awardee Country | JSON Object | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.country.code | Awardee Country Code | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.country.name | Awardee Country Name | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.award.awardee.location.zip | Awardee Zip | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| pointofContact | Point of Contact Information. It can have below fields if available:FaxTypeEmailPhoneTitleFull name | JSON Array |  |"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.pointOfContact.type | Point of Contact Type | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.pointOfContact.title | Point of Contact Title | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.pointOfContact.fullname | Point of Contact Full Name | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.pointOfContact.email | Point of Contact Email | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.pointOfContact.phone | Point of Contact Phone | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.pointOfContact.fax | Point of Contact Fax | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| description | A link to an opportunity description.Note: To download the description, user should append the public API Key. If no description is available then, user is shown an error message “ Description not found” | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.pointOfContact.additionalInfo | Additional Information*Note: This field will only show if additional information is given* | JSON Array | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.pointOfContact.additionalInfo.content | Content of Additional Information*Note: This field will only show if a text is provided for additional information* | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| organizationType | Type of an organization – department/sub-tier/office | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| officeAddress | Office Address Information. It can have below fields if available:CityStateZip | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.officeAddress.city | Office Address City | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.officeAddress.state | Office Address State | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.officeAddress.zip | Office Address Zip | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| placeOfPerformance | Place of performance information. It can have below fields if available: StreetCityStateZip | JSON Object | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.streetAddress | Pop Address | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.streetAddress2 | Pop Address2 | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.city | JSON Object | Pop City | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.city.code | Pop City code | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.city.name | Pop City name | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.city.state | JSON Object | Pop City state | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.state.code | Pop city state code | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.state.name | Pop city state name | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.country | JSON Object | Pop Country | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.country.code | Pop Country Code | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.country.name | Pop Country name | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| data.placeOfPerformance.zip | Pop Country zip | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| additionalInfoLink | Any additional info link if available for the opportunity | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| uiLink | Direct UI link to the opportunity. To view the opportunity on UI, user must have either a contracting officer or a Contracting Specialist role. If user hits the link without logging in, user is directed to 404 not found page | String | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| links | Every record in a response has this links array consisting of:rel: selfhref: link to the specific opportunity itself. User should provide an API key to access the opportunity directlyAlso, every response has a master links array consisting of:rel: selfhref: link to the actual request. User should provide an API key to access the request | Array | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| resourceLinks | Direct URL to download attachments in the opportunity | Array of Strings | v2 |"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Set-Aside Values**"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Several methods pertaining to submitting Contract Opportunities involve the Set-Aside Type field. Use the Set-Aside codes to submit notices."
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Only one Set-Aside value is accepted in the field at this time"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Refer below table for valid Set-Aside values:"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Code** | **SetAside Values** |"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| SBA | Total Small Business Set-Aside (FAR 19.5) |"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| SBP | Partial Small Business Set-Aside (FAR 19.5) |"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 8A | 8(a) Set-Aside (FAR 19.8) |"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 8AN | 8(a) Sole Source (FAR 19.8) |"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| HZC | Historically Underutilized Business (HUBZone) Set-Aside (FAR 19.13) |"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| HZS | Historically Underutilized Business (HUBZone) Sole Source (FAR 19.13) |"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| SDVOSBC | Service-Disabled Veteran-Owned Small Business (SDVOSB) Set-Aside (FAR 19.14) |"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| SDVOSBS | Service-Disabled Veteran-Owned Small Business (SDVOSB) Sole Source (FAR 19.14) |"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| WOSB | Women-Owned Small Business (WOSB) Program Set-Aside (FAR 19.15) |"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| WOSBSS | Women-Owned Small Business (WOSB) Program Sole Source (FAR 19.15) |"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| EDWOSB | Economically Disadvantaged WOSB (EDWOSB) Program Set-Aside (FAR 19.15) |"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| EDWOSBSS | Economically Disadvantaged WOSB (EDWOSB) Program Sole Source (FAR 19.15) |"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| LAS | Local Area Set-Aside (FAR 26.2) |"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| IEE | Indian Economic Enterprise (IEE) Set-Aside (specific to Department of Interior) |"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| ISBEE | Indian Small Business Economic Enterprise (ISBEE) Set-Aside (specific to Department of Interior) |"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| BICiv | Buy Indian Set-Aside (specific to Department of Health and Human Services, Indian Health Services) |"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| VSA | Veteran-Owned Small Business Set-Aside (specific to Department of Veterans Affairs) |"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| VSS | Veteran-Owned Small Business Sole source (specific to Department of Veterans Affairs) |"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Example 1: Search by award type**"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-143",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Request URL"
+            }
+          ]
+        },
+        {
+          "id": "b-144",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Response (JSON Output) v2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Example 2: Updated v2 Endpoint with FH Information**"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Request URL"
+            }
+          ]
+        },
+        {
+          "id": "b-150",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Response (JSON Output)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You can view the full details of this API in the OpenAPI Specification file available here: [OpenAPI File](https://open.gsa.gov/api/get-opportunities-public-api/v1/get-opportunities-v2.yml)"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[OpenAPI File](https://open.gsa.gov/api/get-opportunities-public-api/v1/get-opportunities-v2.yml)"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Get Opportunities Public API v2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "200 - Success"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "404 – No Data found"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "400 – Bad Request"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "500 – Internal Server Error"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Scenario** | **Error Messages** |"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| For limit, user provides range beyond 1000. | Limit valid range is 0-1000. Please provide valid input. |"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| For limit or offset, user inputs characters/special characters. | limit/offset must be a positive number. |"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| For postedFrom, postedTo, rdlfrom, rdlto user enters an invalid date format. | Invalid Date Entered. Expected date format is MM/dd/yyyy |"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| User does not provide postedFrom and postedTo values. | PostedFrom and PostedTo are mandatory |"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| User provides more than 1 year of date range for postedFrom and postedToORUser provides more than 1 year of date range for rdlfrom and rdlto | Date range must be 1 year(s) apart |"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| User provides invalid API Key | An invalid api_key was supplied |"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| User does not provide any API key | No api_key was supplied |"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| User clicks on the description link available in the response and description content is not available | Description Not Found |"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[Back to top](https://open.gsa.gov/api/get-opportunities-public-api/#)"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-175",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reach out to the SAM.gov team at [www.fsd.gov](https://www.fsd.gov/)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Date** | **Version** | **Description** |"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 5/20/19 | v0.1 | Base Version |"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 8/6/19 | v0.2 | Format Updated |"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 10/17/19 | v0.3 | Added Set-Aside Code |"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 10/23/19 | v0.4 | Set-Aside Values Updated |"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 10/24/19 | v0.5 | Office Address Description Updated |"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 11/1/19 | v1.0 | Initial Release Finalized |"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 12/2/19 | v1.1 | Added OpenAPI Specification |"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 12/18/19 | v1.2 | Opportunities Response parameters updated to include Award Details JSON Specification and provided the examples |"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 1/20/2020 | v1.3 | Added Award Response and Versioning columns |"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 1/31/2020 | v1.4 | Added field “ResourceLinks” with Coming Soon to prod |"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 2/18/2020 | v1.5 | Added UEI information and versioning column and response example for awards |"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 2/27/2020 | v1.6 | Added ResourceLinks to Response Section |"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 6/20/2020 | v1.7 | Added additional information field to point of contact parameter in the response |"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 7/3/2020 | v1.8 | Updated field parameters to include all FH information for given notices in both request and response |"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 9/14/2020 | v1.9 | Updated OpenAPI Specification section to include v2 endpoints |"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 10/25/2020 | v1.91 | Added new request field for status |"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 05/12/2021 | v1.92 | Changed Beta.SAM to SAM and Changed Beta to Prodution based on JIRA IAEDEV-51713 |"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 05/17/2021 | v1.93 | Changed Beta to Prod and removed coming soon JIRA IAEDEV-51713 |"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 05/18/2021 | v1.94 | Changed SAM.Gov to SAM.gov based on JIRA IAEDEV-51713 |"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 05/18/2021 | v1.95 | Changed Prod to Production JIRA IAEDEV-51713 |"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 05/19/2021 | v1.96 | Changed SAM.Gov to SAM.gov based on JIRA IAEDEV-51713 |"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| 06/11/2021 | v1.97 | Added inactive in status |"
+        }
+      ]
+    }
+  ]
+}

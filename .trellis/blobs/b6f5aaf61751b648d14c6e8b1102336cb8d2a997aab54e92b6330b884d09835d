@@ -1,0 +1,452 @@
+/* Canvas Viewer - React Flow theme customization */
+
+.canvas-react-flow {
+  background: var(--muted);
+}
+
+.home-canvas .canvas-react-flow {
+  background: transparent;
+}
+
+.home-canvas .canvas-stage {
+  background: transparent !important;
+}
+
+.home-canvas .canvas-react-flow .react-flow__background {
+  background-color: transparent !important;
+}
+
+.canvas-react-flow .react-flow__node,
+.react-flow__node-default {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--card-foreground);
+  font-size: 12px;
+  padding: 0 !important;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+/* Table nodes are auto-sized by content - remove ReactFlow wrapper styling */
+.react-flow__node-table {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.react-flow__node-freehand {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible;
+  padding: 0 !important;
+}
+
+.react-flow__node-freehand .react-flow__resize-control {
+  pointer-events: all;
+}
+
+.freehand-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  transform-origin: top left;
+  cursor: crosshair;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+.freehand-overlay svg {
+  width: 100%;
+  height: 100%;
+}
+
+.freehand-overlay svg path {
+  fill: var(--foreground);
+}
+
+.react-flow__node-freehand svg path {
+  fill: var(--foreground);
+}
+
+.canvas-react-flow .react-flow__node:hover {
+  border-color: var(--primary);
+}
+
+/* Table node hover/selected handled by inner .canvas-node */
+.canvas-react-flow .react-flow__node-table:hover,
+.react-flow__node-table:hover {
+  border-color: transparent !important;
+}
+
+.canvas-react-flow .react-flow__node.selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+/* Table node selected handled by inner .canvas-node */
+.canvas-react-flow .react-flow__node-table.selected,
+.react-flow__node-table.selected {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.canvas-react-flow .react-flow__edge {
+  stroke: var(--border);
+  stroke-width: 2;
+}
+
+.canvas-react-flow .react-flow__edge.selected {
+  stroke: var(--primary);
+}
+
+.canvas-react-flow .react-flow__edge-path {
+  stroke: var(--muted-foreground);
+}
+
+.canvas-react-flow .react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--primary);
+}
+
+/* Edge label text (SVG text element) */
+.canvas-react-flow .react-flow__edge-text {
+  fill: var(--foreground);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* Edge label background (SVG rect) */
+.canvas-react-flow .react-flow__edge-textbg {
+  fill: var(--card);
+  stroke: var(--border);
+  stroke-width: 1;
+  rx: 4;
+  ry: 4;
+}
+
+.canvas-react-flow .react-flow__handle {
+  background: var(--primary);
+  border: 2px solid var(--background);
+  width: 8px;
+  height: 8px;
+}
+
+/* Hide native cursor inside canvas; custom cursor handles feedback */
+.canvas-react-flow,
+.canvas-react-flow *:not(input):not(textarea):not(button) {
+  /* cursor: none !important; */
+}
+
+/* Controls styling */
+.canvas-react-flow__controls {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.canvas-react-flow__controls button {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.canvas-react-flow__controls button:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.canvas-react-flow__controls button:last-child {
+  border-bottom: none;
+}
+
+.canvas-react-flow__controls button path {
+  fill: currentColor;
+}
+
+/* Minimap styling */
+.canvas-react-flow__minimap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.canvas-react-flow .react-flow__minimap-mask {
+  fill: var(--primary);
+  fill-opacity: 0.15;
+  stroke: var(--primary);
+  stroke-width: 2;
+}
+
+.canvas-react-flow .react-flow__minimap-node {
+  fill: var(--muted);
+  stroke: var(--border);
+}
+
+/* Background pattern */
+.canvas-react-flow .react-flow__background {
+  background-color: var(--background);
+}
+
+/* Selection box */
+.canvas-react-flow .react-flow__selection {
+  background: var(--primary);
+  opacity: 0.1;
+  border: 1px solid var(--primary);
+}
+
+/* Connection line (when dragging) */
+.canvas-react-flow .react-flow__connectionline {
+  stroke: var(--primary);
+  stroke-width: 2;
+}
+
+.canvas-react-flow .react-flow__connectionline path {
+  stroke: var(--primary);
+}
+
+/* Node resizer */
+.canvas-react-flow .react-flow__resize-control.handle {
+  background: var(--primary);
+  border: 2px solid var(--background);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8L8 4'/%3E%3Cpath d='M4 4v4h4'/%3E%3C/svg%3E");
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Proper cursors for each handle position */
+.canvas-react-flow .react-flow__resize-control.handle.left,
+.canvas-react-flow .react-flow__resize-control.handle.right {
+  cursor: ew-resize;
+}
+
+.canvas-react-flow .react-flow__resize-control.handle.top,
+.canvas-react-flow .react-flow__resize-control.handle.bottom {
+  cursor: ns-resize;
+}
+
+.canvas-react-flow .react-flow__resize-control.handle.top.left,
+.canvas-react-flow .react-flow__resize-control.handle.bottom.right {
+  cursor: nwse-resize;
+}
+
+.canvas-react-flow .react-flow__resize-control.handle.bottom.left,
+.canvas-react-flow .react-flow__resize-control.handle.top.right {
+  cursor: nesw-resize;
+}
+
+.canvas-react-flow .react-flow__resize-control.line {
+  border-color: var(--primary);
+}
+
+/* Home canvas: invisible resize handles with large click targets
+   Size scales inversely with zoom to maintain consistent screen size */
+.home-canvas-flow .react-flow__resize-control.handle {
+  --base-size: 20px;
+  --zoom: var(--rf-zoom, 1);
+  --scaled-size: calc(var(--base-size) / var(--zoom));
+
+  background: transparent !important;
+  border: none !important;
+  width: var(--scaled-size) !important;
+  height: var(--scaled-size) !important;
+  transform: translate(-50%, -50%);
+}
+
+/* Show a subtle indicator on hover for discoverability */
+.home-canvas-flow .react-flow__resize-control.handle:hover {
+  background: var(--primary) !important;
+  opacity: 0.5;
+  border-radius: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8L8 4'/%3E%3Cpath d='M4 4v4h4'/%3E%3C/svg%3E");
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Proper cursors for each handle position */
+.home-canvas-flow .react-flow__resize-control.handle.left,
+.home-canvas-flow .react-flow__resize-control.handle.right {
+  cursor: ew-resize;
+}
+
+.home-canvas-flow .react-flow__resize-control.handle.top,
+.home-canvas-flow .react-flow__resize-control.handle.bottom {
+  cursor: ns-resize;
+}
+
+.home-canvas-flow .react-flow__resize-control.handle.top.left,
+.home-canvas-flow .react-flow__resize-control.handle.bottom.right {
+  cursor: nwse-resize;
+}
+
+.home-canvas-flow .react-flow__resize-control.handle.bottom.left,
+.home-canvas-flow .react-flow__resize-control.handle.top.right {
+  cursor: nesw-resize;
+}
+
+/* Hide the line resize controls entirely (edge midpoints) */
+.home-canvas-flow .react-flow__resize-control.line {
+  opacity: 0;
+}
+
+/* ============================================
+   MAXIMIZED NODE MODE
+   Creates a seamless fullscreen experience
+   ============================================ */
+
+/* Container in maximized mode */
+.canvas-maximized {
+  overflow: hidden;
+}
+
+/* ReactFlow in maximized mode */
+.canvas-react-flow.canvas-maximized-mode {
+}
+
+/* Keep background grid visible in maximized mode for spatial context */
+.canvas-react-flow.canvas-maximized-mode .react-flow__background {
+  opacity: 0.5;
+}
+
+/* Hide all nodes except the maximized one */
+.canvas-react-flow.canvas-maximized-mode .react-flow__node,
+.home-canvas-flow.canvas-maximized-mode .react-flow__node {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show only the maximized node */
+.canvas-react-flow.canvas-maximized-mode .react-flow__node.selected,
+.home-canvas-flow.canvas-maximized-mode .react-flow__node.selected {
+  opacity: 1;
+  pointer-events: auto !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+
+/* Hide edges in maximized mode */
+.canvas-react-flow.canvas-maximized-mode .react-flow__edges,
+.home-canvas-flow.canvas-maximized-mode .react-flow__edges {
+  opacity: 0;
+}
+
+/* Hide minimap and controls in maximized mode */
+.canvas-react-flow.canvas-maximized-mode .canvas-react-flow__minimap,
+.canvas-react-flow.canvas-maximized-mode .canvas-react-flow__controls,
+.home-canvas-flow.canvas-maximized-mode .canvas-react-flow__minimap,
+.home-canvas-flow.canvas-maximized-mode .canvas-react-flow__controls {
+  opacity: 0;
+  /* pointer-events: none; */
+}
+
+/* The maximized node's inner content */
+.canvas-react-flow.canvas-maximized-mode .react-flow__node.selected .canvas-node,
+.home-canvas-flow.canvas-maximized-mode .react-flow__node.selected .canvas-node {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: var(--card);
+}
+
+/* Hide the node toolbar in maximized mode (optional - keep if you want exit button) */
+.canvas-react-flow.canvas-maximized-mode .react-flow__node.selected .canvas-node > div:first-child,
+.home-canvas-flow.canvas-maximized-mode .react-flow__node.selected .canvas-node > div:first-child {
+  background: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Hide resize handles in maximized mode */
+.canvas-react-flow.canvas-maximized-mode .react-flow__resize-control,
+.home-canvas-flow.canvas-maximized-mode .react-flow__resize-control {
+  display: none !important;
+}
+
+/* Hide connection handles in maximized mode */
+.canvas-react-flow.canvas-maximized-mode .react-flow__handle,
+.home-canvas-flow.canvas-maximized-mode .react-flow__handle {
+  opacity: 0;
+  /* pointer-events: none; */
+}
+
+/* Disable panning indicator in maximized mode */
+.canvas-react-flow.canvas-maximized-mode .react-flow__pane,
+.home-canvas-flow.canvas-maximized-mode .react-flow__pane {
+  cursor: default;
+}
+
+/* ============================================
+   MAXIMIZED NODE COMPONENT STYLES
+   ============================================ */
+
+/* The maximized node itself */
+.canvas-node.canvas-node-maximized {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Maximized node toolbar */
+.canvas-node.canvas-node-maximized > div:first-child {
+  border-radius: 0;
+  background: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Maximized node content area */
+.canvas-node.canvas-node-maximized > div:last-child {
+  flex: 1;
+  overflow: auto;
+}
+
+.react-flow__node-default {
+}
+
+.canvas-react-flow {
+}
+
+/* ============================================
+   SELECTION FOCUS MODE
+   When a node is selected, dim non-selected nodes
+   ============================================ */
+
+/* Dim non-selected nodes when in selection mode */
+.home-canvas-flow.has-selection .react-flow__node:not(.selected) {
+  opacity: 0.4;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Selected nodes stay fully visible */
+.home-canvas-flow.has-selection .react-flow__node.selected {
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Also dim edges that aren't connected to selected nodes */
+.home-canvas-flow.has-selection .react-flow__edge:not(.selected) {
+  opacity: 0.3;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Dim the background dots slightly */
+.home-canvas-flow.has-selection .react-flow__background {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Ensure smooth transition when deselecting */
+.home-canvas-flow .react-flow__node,
+.home-canvas-flow .react-flow__edge,
+.home-canvas-flow .react-flow__background {
+  transition: opacity 0.2s ease-out;
+}

@@ -1,0 +1,188 @@
+[
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:task:task-01:001",
+    "@type": [
+      "Entity",
+      "Task"
+    ],
+    "id": "task:task-01:001",
+    "slug": "task-01",
+    "title": "Discovery & Requirements Workshop",
+    "description": "Conduct client workshop to gather requirements and define project scope",
+    "status": "done",
+    "priority": "high",
+    "points": 5,
+    "assignee": "person:sarah:001",
+    "project": "proj:portfolio-website:001",
+    "milestone": "ms:discovery:001",
+    "dueDate": "2024-01-20",
+    "completedDate": "2024-01-19",
+    "tags": [
+      "planning",
+      "client-meeting"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:task:task-02:001",
+    "@type": [
+      "Entity",
+      "Task"
+    ],
+    "id": "task:task-02:001",
+    "slug": "task-02",
+    "title": "Design System Creation",
+    "description": "Create comprehensive design system with colors, typography, and components",
+    "status": "done",
+    "priority": "high",
+    "points": 8,
+    "assignee": "person:emma:001",
+    "project": "proj:portfolio-website:001",
+    "milestone": "ms:design:001",
+    "dueDate": "2024-02-10",
+    "completedDate": "2024-02-08",
+    "tags": [
+      "design",
+      "design-system"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:task:task-03:001",
+    "@type": [
+      "Entity",
+      "Task"
+    ],
+    "id": "task:task-03:001",
+    "slug": "task-03",
+    "title": "Homepage Layout Implementation",
+    "description": "Build responsive homepage with hero section and key features",
+    "status": "in-progress",
+    "priority": "high",
+    "points": 8,
+    "assignee": "person:marcus:001",
+    "project": "proj:portfolio-website:001",
+    "milestone": "ms:mvp:001",
+    "dueDate": "2024-03-15",
+    "tags": [
+      "development",
+      "frontend"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:task:task-04:001",
+    "@type": [
+      "Entity",
+      "Task"
+    ],
+    "id": "task:task-04:001",
+    "slug": "task-04",
+    "title": "Case Studies Component",
+    "description": "Develop reusable case study components with filtering and animations",
+    "status": "in-progress",
+    "priority": "medium",
+    "points": 6,
+    "assignee": "person:marcus:001",
+    "project": "proj:portfolio-website:001",
+    "milestone": "ms:mvp:001",
+    "dueDate": "2024-03-20",
+    "tags": [
+      "development",
+      "frontend"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:task:task-05:001",
+    "@type": [
+      "Entity",
+      "Task"
+    ],
+    "id": "task:task-05:001",
+    "slug": "task-05",
+    "title": "Team Profile Section",
+    "description": "Create interactive team member profiles with bios and social links",
+    "status": "todo",
+    "priority": "medium",
+    "points": 4,
+    "assignee": "person:emma:001",
+    "project": "proj:portfolio-website:001",
+    "milestone": "ms:mvp:001",
+    "dueDate": "2024-03-25",
+    "tags": [
+      "design",
+      "frontend"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:task:task-06:001",
+    "@type": [
+      "Entity",
+      "Task"
+    ],
+    "id": "task:task-06:001",
+    "slug": "task-06",
+    "title": "Blog Platform Integration",
+    "description": "Integrate CMS for blog functionality with markdown support",
+    "status": "todo",
+    "priority": "low",
+    "points": 5,
+    "assignee": "person:marcus:001",
+    "project": "proj:portfolio-website:001",
+    "milestone": "ms:content:001",
+    "dueDate": "2024-04-10",
+    "tags": [
+      "development",
+      "cms"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:task:task-07:001",
+    "@type": [
+      "Entity",
+      "Task"
+    ],
+    "id": "task:task-07:001",
+    "slug": "task-07",
+    "title": "Performance Optimization",
+    "description": "Optimize images, implement lazy loading, and improve Core Web Vitals",
+    "status": "todo",
+    "priority": "medium",
+    "points": 6,
+    "assignee": "person:marcus:001",
+    "project": "proj:portfolio-website:001",
+    "milestone": "ms:launch:001",
+    "dueDate": "2024-04-20",
+    "tags": [
+      "optimization",
+      "performance"
+    ]
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:task:task-08:001",
+    "@type": [
+      "Entity",
+      "Task"
+    ],
+    "id": "task:task-08:001",
+    "slug": "task-08",
+    "title": "Client Training & Documentation",
+    "description": "Create user documentation and conduct client training session",
+    "status": "todo",
+    "priority": "medium",
+    "points": 3,
+    "assignee": "person:sarah:001",
+    "project": "proj:portfolio-website:001",
+    "milestone": "ms:launch:001",
+    "dueDate": "2024-04-25",
+    "tags": [
+      "documentation",
+      "training"
+    ]
+  }
+]

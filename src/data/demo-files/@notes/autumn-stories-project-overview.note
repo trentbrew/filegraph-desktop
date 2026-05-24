@@ -1,0 +1,1698 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-354",
+  "title": "Autumn Stories (Project Overview)",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Autumn Stories (Project Overview)"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Executive Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is **Autumn Stories Sample**, a sophisticated interactive storytelling web application built with Nuxt 3. The application presents immersive, scroll-driven narratives about community development projects, specifically focusing on Baltimore's York Road investment initiative, MCCEI impact reporting, and legacy storytelling. It features a New York Times-style scrollytelling interface with synchronized visual and textual content, interactive maps, animated data visualizations, and video content."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Technology Stack"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Primary Language**: TypeScript/JavaScript"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Framework**: Nuxt 3.17.4 (Vue.js-based)"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**UI Library**: Nuxt UI 3.1.3 with Tailwind CSS"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Database**: None (static content application)"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Key Libraries**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- D3.js for data visualizations"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- GSAP for animations"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- MapLibre GL for interactive maps"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- TopoJSON for geographic data"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- SortableJS for drag-and-drop interactions"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Build Tools**: Nuxt (Vite-based), ESLint, TypeScript"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Asset Management**: AWS S3/CloudFront integration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Populated Template"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Identity"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${PROJECT_NAME}**: \"Autumn Stories Sample\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: package.json name field, README title, directory structure"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${PROJECT_DESCRIPTION}**: \"Interactive storytelling platform featuring scroll-driven narratives about community development projects with synchronized visuals, maps, and data visualizations\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: README content, component structure, scene definitions"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${PHASE_NAME}**: \"Sample/Demo Phase\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: Directory name \"autumn-stories-sample\", sample content in scenes"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${CORE_FUNCTIONALITY}**: \"Scrollytelling narratives with interactive visualizations, maps, and multimedia content\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: Scene structure, visual components, scroll-based interactions"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "User & Role Variables"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${TOTAL_USER_COUNT}**: \"0 (no user accounts)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: No authentication system, no user models, static content only"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${USER_CATEGORY_COUNT}**: \"1 (public viewers)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: No user management, no roles, public access only"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${USER_CATEGORIES_AND_COUNTS}**: \"Public Viewers: Unlimited (no authentication required)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: Static application with no user system"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${USER_SETUP_DESCRIPTION}**: \"No user setup required - application is publicly accessible\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: No authentication, no registration, no user management"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Structure Variables"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${PROJECT_COUNT}**: \"3 (story reels)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: Three defined story reels in index.vue: invest-york-road, mccei-impact-report, infinite-legacy"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${BOARD_TYPE}**: \"N/A (not a board-based application)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: This is a storytelling application, not a project management tool"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${COLUMN_NAMES}**: \"N/A (not applicable)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: No board or column structure in this storytelling application"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Authentication Variables"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${AUTHENTICATION_SETUP}**: \"None - public access only\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: No auth middleware, no login components, no user sessions"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${AUTHENTICATION_REASON}**: \"Content is public and educational - no user accounts needed\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: Community development storytelling is meant for public consumption"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${INITIAL_SCREEN_BEHAVIOR}**: \"Shows story reel selection page with three available stories\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: index.vue displays grid of story options"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${LOGIN_FLOW_DESCRIPTION}**: \"N/A - no login required\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: No authentication system implemented"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Interface Variables"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${MAIN_VIEW_CONTENT}**: \"Story reel selection grid with three interactive story cards\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: index.vue shows grid layout with story cards"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${PROJECT_VIEW_DESCRIPTION}**: \"Immersive scrollytelling interface with synchronized visual and textual content, interactive maps, and animated data visualizations\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: [slug].vue implements scroll-driven storytelling with visual components"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Feature Variables"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${TASK_CARD_FEATURES}**: \"N/A (not a task management application)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: This is a storytelling platform, not a task management system"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${BOARD_INTERACTION_FEATURES}**: \"Scroll-based navigation, click-to-play videos, interactive map exploration, animated data visualizations\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: ScrollVisual components, map interactions, GSAP animations"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${VISUAL_INDICATORS}**: \"Progress indicators, animated counters, color-coded data visualizations, map pulse points, video play buttons\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: ImpactStats, GapMeter, BeforeAfterChart, MapCanvas pulse points"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${VISUAL_INDICATOR_PURPOSE}**: \"Guide user attention, show data relationships, indicate interactive elements, provide visual feedback\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: Component props and animation triggers"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Permission Variables"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-111",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${USER_PERMISSIONS_OWN_CONTENT}**: \"N/A (no user accounts)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: No user system, no content ownership"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**${USER_PERMISSIONS_OTHERS_CONTENT}**: \"N/A (no user accounts)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Evidence*: No user system, no content restrictions"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Confidence*: High"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Analysis Notes"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-120",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Assumptions Made**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- This is a demo/sample application based on directory name"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Content focuses on community development and social impact"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No backend database or user management needed"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Unclear Areas**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Specific deployment environment details"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Content management workflow for adding new stories"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-129",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Recommendations**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Consider adding content management capabilities"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Implement analytics tracking for story engagement"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "File Structure Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Key directories and files that informed the analysis:"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-135",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`app/pages/` - Main application routes and story pages"
+            }
+          ]
+        },
+        {
+          "id": "b-136",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`app/components/storytime/` - Core storytelling components and scenes"
+            }
+          ]
+        },
+        {
+          "id": "b-137",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`app/assets/` - Static content including images, videos, and geographic data"
+            }
+          ]
+        },
+        {
+          "id": "b-138",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`package.json` - Dependencies and project configuration"
+            }
+          ]
+        },
+        {
+          "id": "b-139",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`nuxt.config.ts` - Application configuration and AWS integration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Complete Populated Template"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Identity"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-144",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Project Name**: \"Autumn Stories Sample\""
+            }
+          ]
+        },
+        {
+          "id": "b-145",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description**: \"Interactive storytelling platform featuring scroll-driven narratives about community development projects with synchronized visuals, maps, and data visualizations\""
+            }
+          ]
+        },
+        {
+          "id": "b-146",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Phase**: \"Sample/Demo Phase\""
+            }
+          ]
+        },
+        {
+          "id": "b-147",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Core Functionality**: \"Scrollytelling narratives with interactive visualizations, maps, and multimedia content\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "User Management"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-150",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Total User Count**: \"0 (no user accounts)\""
+            }
+          ]
+        },
+        {
+          "id": "b-151",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Category Count**: \"1 (public viewers)\""
+            }
+          ]
+        },
+        {
+          "id": "b-152",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Categories**: \"Public Viewers: Unlimited (no authentication required)\""
+            }
+          ]
+        },
+        {
+          "id": "b-153",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Setup**: \"No user setup required - application is publicly accessible\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Project Count**: \"3 (story reels)\""
+            }
+          ]
+        },
+        {
+          "id": "b-157",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Board Type**: \"N/A (not a board-based application)\""
+            }
+          ]
+        },
+        {
+          "id": "b-158",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Column Names**: \"N/A (not applicable)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Authentication"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-161",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Authentication Setup**: \"None - public access only\""
+            }
+          ]
+        },
+        {
+          "id": "b-162",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Authentication Reason**: \"Content is public and educational - no user accounts needed\""
+            }
+          ]
+        },
+        {
+          "id": "b-163",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Initial Screen**: \"Shows story reel selection page with three available stories\""
+            }
+          ]
+        },
+        {
+          "id": "b-164",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Login Flow**: \"N/A - no login required\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Interface"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-167",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Main View**: \"Story reel selection grid with three interactive story cards\""
+            }
+          ]
+        },
+        {
+          "id": "b-168",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Project View**: \"Immersive scrollytelling interface with synchronized visual and textual content, interactive maps, and animated data visualizations\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Features"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-171",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Task Card Features**: \"N/A (not a task management application)\""
+            }
+          ]
+        },
+        {
+          "id": "b-172",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Board Interactions**: \"Scroll-based navigation, click-to-play videos, interactive map exploration, animated data visualizations\""
+            }
+          ]
+        },
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Visual Indicators**: \"Progress indicators, animated counters, color-coded data visualizations, map pulse points, video play buttons\""
+            }
+          ]
+        },
+        {
+          "id": "b-174",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Visual Indicator Purpose**: \"Guide user attention, show data relationships, indicate interactive elements, provide visual feedback\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Permissions"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-177",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Permissions (Own Content)**: \"N/A (no user accounts)\""
+            }
+          ]
+        },
+        {
+          "id": "b-178",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Permissions (Others' Content)**: \"N/A (no user accounts)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This analysis reveals that Autumn Stories Sample is a sophisticated, content-rich storytelling application designed to present community development narratives through an engaging, interactive web interface. It's built as a static application with no user management, focusing entirely on delivering immersive storytelling experiences to public audiences."
+        }
+      ]
+    }
+  ]
+}

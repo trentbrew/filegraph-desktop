@@ -1,0 +1,440 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-137",
+  "title": "User Research",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "User Research"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Legacy Systems and Modern Replacements:** Many public access and community TV stations rely on specialized playback and scheduling systems like Cablecast (Tightrope), TelVue HyperCaster, Castus, or older *legacy* servers (e.g. Leightronix Nexus). User feedback reveals significant pain points with these solutions. For example, TelVue’s interface is often criticized as outdated and unintuitive ([Cablecast vs. TelVue Channel Playback Systems - Reddit](https://www.reddit.com/r/VIDEOENGINEERING/comments/1bcx3h0/cablecast_vs_telvue_channel_playback_systems/#:~:text=Telvue%20in%20my%20opinion%20was,you%20directly%20on%20our)). One station manager who test-drove competing systems noted *“Castus would be my number 2 pick. Cost and feature sets are good. Telvue… was stable but the daily interface felt dated and not very intuitive.”* ([ระบบเล่นช่อง Cablecast เทียบกับ TelVue : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/1bcx3h0/cablecast_vs_telvue_channel_playback_systems/?tl=th#:~:text=%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%99%E0%B8%8A%E0%B9%88%E0%B8%AD%E0%B8%87%20Cablecast%20%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B8%A2%E0%B8%9A%E0%B8%81%E0%B8%B1%E0%B8%9A%20TelVue%20%3A,opinion%20was%20stable%20but)) ([Cablecast vs. TelVue Channel Playback Systems - Reddit](https://www.reddit.com/r/VIDEOENGINEERING/comments/1bcx3h0/cablecast_vs_telvue_channel_playback_systems/#:~:text=Telvue%20in%20my%20opinion%20was,you%20directly%20on%20our)) This suggests that while the core functionality (playout stability) is there, the user experience in managing schedules and content can be clunky on older TelVue systems. Similarly, **Leightronix’s Nexus** line – a longstanding workhorse for PEG channels – has been discontinued, leaving stations with end-of-life equipment and no easy upgrade path ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=The%20announcement%20earlier%20this%20year,faster%20than%20their%20existing%20supplier)) ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Changing%20such%20a%20critical%20system,including%20Castus%2C%20Leightronix%2C%20and%20TelVue)). Users report that nothing in the modern market is *“as easy to program as the Nexus”*, highlighting how newer platforms have a steeper learning curve or more complex workflows ([What is a good Cable Channel play back system? : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/lxqfse/what_is_a_good_cable_channel_play_back_system/#:~:text=We%20looked%20at%203%20for,put%20them%20in%20the%20mix))."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Cost and Support Complaints:** Price is a major friction point. A Massachusetts public access board compared quotes and found **TelVue’s solution priced around $74k** (with ongoing annual subscriptions), versus **Cablecast at ~$70k** (no annual fee) and **Castus ~$42k** ([[PDF] MILLBURY CABLE TELEVISION COMMISSION MINUTES ED](https://www.millburyma.gov/public-access-department/minutes/cable-television-commission-minutes-3#:~:text=,an%20annual%20subscription%20fee)). The substantial upfront costs (tens of thousands of dollars) and, in TelVue’s case, recurring fees, are a heavy burden for small stations. Some operators do praise their vendors’ support – e.g. TelVue’s tech support is described as *“excellent”* ([Cablecast for Local Government : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/13fjuza/cablecast_for_local_government/#:~:text=We%20had%20to%20replace%20our,it%2C%20tech%20support%20is%20excellent)) and Castus is widely lauded for *“amazing”* customer service ([Cablecast for Local Government : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/13fjuza/cablecast_for_local_government/#:~:text=Check%20out%20Castus,Like%20actually%20so%20good)) – but even those positive notes come with caveats. Castus, for instance, was called *“expensive but…so good”* in terms of support ([Cablecast for Local Government : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/13fjuza/cablecast_for_local_government/#:~:text=Check%20out%20Castus,Like%20actually%20so%20good)). In practice, many stations feel **locked into aging technology** that’s pricey to maintain. TelVue’s older “Princeton” servers famously ran on locked-down OS environments, limiting users’ control over the system ([Does Televue (Princeton) Play Nice? - Drupal Groups](https://groups.drupal.org/node/21710#:~:text=Does%20Televue%20,users%20have%20even%20less%20access)). Such closed systems frustrate tech-savvy staff who want flexibility, yet at the same time many station managers lack the IT resources to comfortably adopt more open DIY alternatives like OpenBroadcaster. OpenBroadcaster (an open-source scheduling and playout system) offers cost relief and a “simple web interface” ([OpenBroadcaster - Wikipedia](https://en.wikipedia.org/wiki/OpenBroadcaster#:~:text=Websiteopenbroadcaster%20)), but it requires technical know-how to install and support – a barrier for organizations without dedicated engineering staff."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Workflow Inefficiencies:** Across proprietary solutions, users highlight workflow pain points that slow them down. **Scheduling content** is a recurring concern – operators switching to Cablecast consistently cite that it’s *“much faster and easier…for scheduling”* compared to their previous systems ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Customers%20who%20switched%20to%20Cablecast,anywhere%3B%20and%20many%20more%20benefits)). This implies that older or rival tools (TelVue, Castus, etc.) often require more manual steps or have less friendly scheduling interfaces. Stations also struggle with **integrating new distribution channels** using legacy tools. Cablecast’s marketing notes that its platform handles *“cable television, the web, mobile devices, and OTT platforms with no additional effort”* ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=%E2%80%8D)), underscoring the fact that many incumbent systems were designed for cable broadcast **only**. Those legacy or competing systems often bolt on streaming/OTT support as an afterthought, requiring extra work. A user on a community forum confirmed that none of the major products perfectly met all needs out-of-the-box – every option had trade-offs, and *“none will ever be as easy [or straightforward] as the Nexus”* was a telling remark ([What is a good Cable Channel play back system? : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/lxqfse/what_is_a_good_cable_channel_play_back_system/#:~:text=We%20looked%20at%203%20for,put%20them%20in%20the%20mix)) about the complexity of modern replacements. In summary, current solutions in this niche show **weaknesses in user experience (non-intuitive UIs, cumbersome scheduling), high costs, and patchwork support for new media channels**, leaving many community media managers dissatisfied or anxious about the future."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Cord-Cutting Eroding Funding:** Public access TV stations (PEG channels) are facing a financial crunch due to macro shifts in media consumption. Traditionally, these local channels are funded by cable **franchise fees** – a small percentage of cable companies’ revenue allocated to community media by law. With the rapid rise of cord-cutting, that revenue base is shrinking dramatically. Industry reports use stark language: the move from cable to streaming has *“decimated revenues”* for PEG stations, which rely on cable subscriber fees ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=The%20rise%20in%20so,fund%20their%20stations%2C%20operators%20said)). For instance, in Connecticut testimony, station operators warned lawmakers that *“we’re done… the lights won’t be on”* if funding isn’t modernized, as cable subscriber loss bleeds their budgets ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=Without%20an%20expansion%20of%20those,forced%20to%20shut%20their%20doors)). Concrete local examples back this up: Westborough TV in Massachusetts saw a **35% drop in cable subscribers since 2015**, resulting in a **24% decline** in funding for the station ([Streaming services dam up revenue for local cable access - Community Advocate](https://www.communityadvocate.com/2024/06/03/streaming-services-dam-up-revenue-for-local-cable-access/#:~:text=business%20promotions%2C%20among%20other%20programs)). Their projections show that by 2027, they could face a six-figure budget gap ([Streaming services dam up revenue for local cable access - Community Advocate](https://www.communityadvocate.com/2024/06/03/streaming-services-dam-up-revenue-for-local-cable-access/#:~:text=WTV%20has%20a%20reserve%20fund%2C,a%20financial%20gap%20of%20%24138%2C000)). This pattern is echoed nationwide – a New Hampshire report noted *“franchise fees, which support the stations, have dwindled”*, forcing tough choices on layoffs or reduced services."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Policy Changes Exacerbating the Decline:** In 2019, an FCC rule change further threatened PEG funding. The FCC’s new interpretation allows cable operators to count the value of in-kind services (like channel capacity or network support for PEG channels) against the franchise fees they pay ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=But%20the%20new%20FCC%20interpretation,a%20cut%20of%20those%20fees)). In effect, cable companies can reduce the cash support to local stations by claiming the cost of providing the channel, which **directly cuts into budgets** for community media. The *Brattleboro Commons* reported that this regulatory shift, combined with the long-term trend of subscriber losses, was seen as a “potential catastrophic loss” of funding for stations ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=BRATTLEBORO%20%E2%80%94%20Uncertainty%20still%20hangs,FACT%29%20solvent%20for%20decades)) ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=The%20change%20in%20franchise%20fees,fees%20has%20also%20declined%20proportionally)). Some stations braced for as much as a 30-40% immediate revenue hit if the rule fully implemented. These policy headwinds mean that even stations in areas where cable subscriptions haven’t plummeted yet are still at risk of sudden funding drops."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Adaptation and Advocacy:** In response, there’s a clear trend of public access stations **seeking new funding models and pushing for legislative relief**. Several states (e.g. Massachusetts, Connecticut) have introduced bills to apply fees or taxes on streaming services to fund community media ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=,internet%20or%20video%20streaming%20services)) ([Streaming services dam up revenue for local cable access - Community Advocate](https://www.communityadvocate.com/2024/06/03/streaming-services-dam-up-revenue-for-local-cable-access/#:~:text=One%20possible%20source%20is%20making,policy%20on%20streaming%20entertainment%20services)). The idea is to “modernize” the funding model by acknowledging that Netflix, Hulu, Disney+, and others occupy the same local bandwidth and audience attention as cable, and thus could contribute to local media in the same way ([A Summary of Community Media and the Funding Challenges - Urban Media Arts](https://urbanmediaarts.org/a-summary-of-community-media-and-the-funding-challenges/#:~:text=high%20concentration%20of%20community%20media,infrastructure%20but%20aren%E2%80%99t%20contributing%20financially)) ([A Summary of Community Media and the Funding Challenges - Urban Media Arts](https://urbanmediaarts.org/a-summary-of-community-media-and-the-funding-challenges/#:~:text=engage,infrastructure%20but%20aren%E2%80%99t%20contributing%20financially)). While it’s uncertain if these measures will pass (they face opposition from Big Tech and telecom lobbies ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=Yet%2C%20despite%20the%20showing%20of,passed%20on%20to%20their%20customers))), the legislative push underscores how urgent the funding issue has become. Stations are also diversifying their revenue where possible – for example, introducing membership fees, production services, or local business sponsorships – but such steps rarely replace the scale of lost cable funds. The overarching trend is that **public access TV is at an inflection point**: the old model (fully funded by cable fees) is fading, and survival will depend on aligning with digital-era revenue streams. This dire need for adaptation puts a spotlight on operational efficiency and audience engagement; stations must do more with less, and prove their relevance on new platforms to attract both funding and viewers."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Operational Inefficiencies and Outdated Processes:** Small community broadcasters often operate with thin resources and aging infrastructure, leading to numerous pain points in day-to-day operations. A survey of public access station complaints found common issues of *“poor scheduling and playback, programming playing late or not at all”* on the channel ([Public Access TV](https://publicaccesstv.us/publicaccess.html#:~:text=supported%2C%20and%20give%20rise%20to,viewers%27%20general%20disagreement%20with%20other)). In practice, this could mean an old automation system misfires and a show doesn’t air on time, or staff have to manually intervene frequently. Such reliability issues not only frustrate audiences but also erode the trust of producers who expect their content to be aired as scheduled. **Outdated equipment** is another frequent complaint – many stations make do with cameras, editing gear, and studio facilities that are well past their prime ([Public Access TV](https://publicaccesstv.us/publicaccess.html#:~:text=supported%2C%20and%20give%20rise%20to,viewers%27%20general%20disagreement%20with%20other)). Maintenance woes (e.g. VTRs or DVD players breaking, old servers crashing) divert the limited staff from content and community work to fire-fighting tech problems. The **signal quality** itself can suffer (some PEG channels are still broadcasting in standard definition 4:3, or have analog transmission issues leading to *“weak…unwatchable”* picture quality ([Public Access TV](https://publicaccesstv.us/publicaccess.html#:~:text=supported%2C%20and%20give%20rise%20to,viewers%27%20general%20disagreement%20with%20other))). All of this contributes to a perception that some community channels are low-quality or “behind the times,” which in turn makes it harder to attract new viewers or justify funding for upgrades."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Small Teams and Skill Gaps:** The human factor is a double-edged sword. Community media is often powered by passionate staff and volunteers, but their numbers are few. **Three-quarters of PEG operations have only 1 to 3 employees** ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Three%20quarters%20of%20PEG%20operations,one%20organization%20or%20municipal%20department)), often wearing multiple hats (a station manager might also be the IT person, the trainer, and the outreach coordinator all in one). With such limited capacity, there’s little time to research new technologies, learn complex systems, or develop new distribution strategies. Training is another hurdle: many volunteers or staff may not have IT backgrounds, and longtime employees may be comfortable with older workflows. This can breed *“staff indifference”* or resistance to change, as noted in some complaints ([Public Access TV](https://publicaccesstv.us/publicaccess.html#:~:text=poor%20scheduling%20and%20playback%2C%20programming,viewers%27%20general%20disagreement%20with%20other)). If a new solution requires extensive retraining or new technical skills, a small station might simply stick to the familiar (even if inefficient) process to avoid overwhelming their tiny team. In essence, **capacity and knowledge deficits** keep many hyperlocal broadcasters stuck in a time warp – they know they need to modernize, but they lack the bandwidth to do so while keeping the channel on-air day-to-day."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Reaching a Diminishing Audience:** Another challenge is the growing chasm between community TV channels and the audience they aim to serve. As more viewers shift to social media and streaming for local information, traditional appointment viewing on cable access channels is declining. Some stations report that the *“challenge of populating public access channels with consistent content”* has grown harder, especially post-COVID, as fewer community members produce shows and more events move online ([Sourcing Content for Public Access Television Channels in a Digital ...](https://acm-ne.org/sourcing-content-for-public-access-television-channels-in-a-digital-and-post-pandemic-era/#:~:text=...%20acm,pandemic%20and%20digital%20competitors)). Meanwhile, those that do produce content expect it to be available on-demand and online. Stations that haven’t set up robust video-on-demand libraries or live streaming options find themselves **invisible to cord-cutters**. A Nieman Lab study observed that although PEG channels provide crucial local news and information, they are often overlooked as *“relics from a bygone analog era”* by the general public ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Although%20skeptics%20see%20PEG%20channels,Maui%2C%20%2028%20Community%20Media)). The same study, however, notes a positive trend: *“most public access channels today stream their channels online, upload content to app-based platforms such as Roku, and leverage social media”* ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Although%20skeptics%20see%20PEG%20channels,Maui%2C%20%2028%20Community%20Media)). The challenge, then, is **uneven adoption** – the well-resourced media centers (often in bigger cities) are leaping to multi-platform distribution, but many smaller stations still struggle to manage even their basic cable channel feed effectively. This gap can create a vicious cycle: without modern outreach, they don’t attract new viewers or producers, leading to stale content and even fewer reasons for locals to tune in."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Technological Gaps:** Community broadcasters also face specific technology gaps that hinder efficiency. For example, **remote management** became critical during the pandemic (and is generally a boon for 24/7 operations), yet some legacy systems required staff to be on-site to load or switch content. Stations that hadn’t invested in IP-based systems or remote access tools were caught flat-footed when lockdowns hit. Even now, not all stations can easily control their playout or scheduling from home – a clear disadvantage if there’s a snowstorm or if the single staffer is on vacation. Likewise, integration of **closed captioning** and meeting transcription is a growing need (for ADA compliance and social media clips), but implementing those features with old equipment is non-trivial. Modern solutions exist (AI captioning services, cloud-based encoders), but again it’s an extra step and cost that many haven’t mastered. All these challenges underscore an overarching pain point: **community media has mission-critical needs (to inform and engage the public) but is often stuck with suboptimal tools** and too few hands to operate them. Any solution that promises to alleviate these inefficiencies would address a very real pain."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Given the above challenges, one might assume stations are eagerly searching for modern platforms to save the day – but in reality, **adoption of new technology in the PEG sector has been slow**. Several barriers consistently surface:"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Financial Constraints:** As noted, budgets are tight and shrinking. Even if a new integrated system or service could solve their problems, coming up with funding for it is a major hurdle. Capital budget approvals (often from city councils or education boards) can take years, and operating budgets are strained by the decline in franchise fees. The cost of status quo is also high (maintaining old equipment, patching together free tools, etc.), but those expenses are often hidden or tolerated because they don’t require a single big outlay. In short, many community media orgs operate in **survival mode financially**, making any large investment feel risky. The comparison of Cablecast vs TelVue vs Castus pricing ([[PDF] MILLBURY CABLE TELEVISION COMMISSION MINUTES ED](https://www.millburyma.gov/public-access-department/minutes/cable-television-commission-minutes-3#:~:text=,an%20annual%20subscription%20fee)) demonstrates how significant the costs are relative to a small station’s budget. Even switching from one commercial vendor to another might be infeasible if the old gear was bought with a one-time grant a decade ago and no similar funding exists now."
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Technical Capacity and Fears:** Adopting new tech can be intimidating for stations with little IT support. Many PEG stations historically used turnkey appliances – a box that, once set up, runs reliably with minimal tinkering (e.g., a Leightronix playback server that ran 15 years with “zero issues” ([Leightronix Nexus line EOL? : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/t18j9u/leightronix_nexus_line_eol/#:~:text=%E2%80%A2))). Moving to a modern solution might involve cloud services, networking, custom configurations, or simply a new interface that the current staff isn’t trained on. One station engineer remarked that he *preferred a turnkey appliance*, as managing a software-driven system would require involving the organization’s IT department, adding complexity he didn’t have time for ([Leightronix Nexus line EOL? : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/t18j9u/leightronix_nexus_line_eol/#:~:text=%E2%80%A2)). This reflects a broader **institutional inertia**: if the old system hasn’t outright failed, there is reluctance to replace it because of the learning curve and potential for disruption. Also, some municipalities have strict IT policies – for example, they might be wary of cloud solutions due to security or require on-premises data for public records. These factors can slow down or block adoption of cloud-based innovations that would otherwise help."
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Change Management and Culture:** Beyond pure tech issues, there’s sometimes *institutional resistance*. Community media centers can be governed by boards or tied into city bureaucracies where decision-making is slow. A station might know they need to stream on social media to reach people, but city lawyers could worry about enabling comments or appearing to endorse a private platform. Or volunteer producers might resist a new scheduling system if it means they have to learn new submission procedures. In some cases, older volunteers or staff may simply be skeptical of why new technology is needed at all (“our channel has worked fine for 20 years!” mindset). This cultural barrier means that even when solutions are available, adoption is **not just about offering a tool**, but also about educating and persuading the people involved. Successful tech adoption in this space often requires demonstrating that it’s *not* going to eliminate the access mission or make things too “corporate,” but rather free up time to do more community engagement."
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Existing Vendor Lock-in:** A practical barrier is that many stations are already tied to one of the major vendors (TelVue, Tightrope, etc.) and have years of archive content and workflows built around that system. Switching to a new platform – say, Docket – might involve migrating a large video library, re-training all producers on how to submit content, and possibly losing some features (like legacy bulletin board systems or playback of antiquated formats) that the old system provided. Unless the new solution clearly *overcomes a pain that the current vendor cannot*, organizations will stick with the devil they know. Indeed, some vendors take advantage of this lock-in by charging high **support fees once equipment is out of warranty** (since the station feels stuck). Leightronix, for example, charges fees to support discontinued products ([Support - LEIGHTRONIX, INC.](https://www.leightronix.com/support#:~:text=Please%20note%2C%20if%20your%20product,important%20you%20provide%20us)), which stations may pay rather than gamble on an all-new system. This inertia is a huge factor; it essentially raises the bar for how **compelling and easy** a new solution must be to justify the switch."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In summary, to make modernization **“inevitable”** for these organizations, any new platform (such as Docket) must tackle not just the technical problems but also these adoption barriers. It needs to be **affordable, drop-in simple, and low-risk** to implement, given the scarcity of time, money, and tech support at a typical community media station. Solutions that align with how these stations operate (e.g. offering turnkey setup, migration of old content, and hands-on training) will have a far better chance than those that assume a startup-style agility. The pain points are real and recognized – but bridging the gap to a remedy requires understanding why these pains haven’t been addressed already."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The struggles and slow adaptation in public access media closely mirror those in other grassroots media sectors. **Local journalism** (like small-town newspapers and hyperlocal news sites) provides cautionary tales and inspiration. Many local newspapers failed to adapt to digital in time and have shut down, contributing to “news deserts.” Those that survived often did so by embracing new distribution (web, social media, newsletters) and new funding models (memberships, nonprofits). The key takeaway for community TV: **ignoring changing audience behavior is fatal**. Just as print publishers had to go online or die, local broadcasters must pivot to on-demand and online delivery or risk irrelevance. The Nieman Lab points out that as commercial local news collapses, public and nonprofit media can step up – but only if they reimagine themselves in the digital landscape ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=PMN%E2%80%99s%20pivot%20demonstrates%20an%20untapped,other%20sources%20are%20rapidly%20disappearing)) ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=The%20worsening%20journalism%20crisis%20demands,another%20avenue%20that%20deserve%20attention)). Public access channels have the opportunity to fill gaps in local information, but to do so, they need to be on the platforms where people now consume content."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Independent streaming creators** demonstrate the power of agility and low-cost innovation. Today, one can stream a high school sports game or a city council meeting on Facebook Live or YouTube with just a smartphone and an internet connection. This ease-of-use sets a benchmark: if a volunteer can bypass a TV station and reach the community directly via a free streaming platform, then community media centers need to offer something just as easy and far-reaching (or risk being bypassed altogether). In fact, some PEG stations have started using tools like Zoom, OBS, and YouTube to produce and distribute content because they’re readily available and simple. The rise of “decentralized broadcasters” – small independent channels on platforms like Twitch or local OTT apps – shows that audiences will follow compelling local content when it’s accessible ([Radio Trends, Challenges, & Opportunities | Radio.co](https://radio.co/blog/radio-trends-challenges-opportunities?srsltid=AfmBOopKv2GrDRzTOoLKJVhpZh3CZJgFGEKtwOUwEuOhFfcNwuxLD42X#:~:text=%3E%2060,favour%20independent%2C%20decentralised%20broadcasters)). The *Radio.co* survey found **60% of audio listeners favor independent, hyper-local content** over generic programming ([Radio Trends, Challenges, & Opportunities | Radio.co](https://radio.co/blog/radio-trends-challenges-opportunities?srsltid=AfmBOopKv2GrDRzTOoLKJVhpZh3CZJgFGEKtwOUwEuOhFfcNwuxLD42X#:~:text=%3E%2060,favour%20independent%2C%20decentralised%20broadcasters)). By analogy, viewers likely favor local video content too, if they can find it easily. This bodes well for community media’s mission, but only if stations adopt the **user-centric practices** of indie creators: multi-platform sharing, engaging directly on social media, and lowering the friction for content to be produced and consumed."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Community radio and podcasting** also offer lessons. Many community radio stations faced similar funding and technology transitions – some faltered, but others thrived by streaming their signal online, launching podcasts of local talk shows, and thus reaching younger audiences. The successful ones didn’t abandon their core purpose (local voices, local music, etc.), but they **diversified how they deliver it**. Likewise, a community TV channel could expand into a local news YouTube channel, a Roku app, or a Facebook video series and find new audience segments. Grassroots media experiments (like neighborhood blogs, local YouTubers, etc.) show that content doesn’t need cable or expensive equipment to achieve impact; it needs consistency and community connection. The takeaway for PEG: *Technology should be an enabler, not a gatekeeper.* If the tools at a station’s disposal are too cumbersome, community volunteers may go around them. Docket’s strategy can be informed by this — by offering a platform that is *open and flexible* enough to integrate with popular channels (e.g. automatic posting of videos to YouTube, simple clipping for Instagram, etc.), it can harness the strengths of these new media rather than compete with them."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Another parallel is the importance of **data and feedback loops**. Digital-native media startups iterate quickly based on user feedback and analytics (what stories get clicks, which videos get views). Community TV has historically lacked metrics – aside from anecdotal feedback, they rarely know how many people watched a given program on cable. As stations move into streaming, they can gather view counts, engagement stats, etc., which can be game-changing for proving their relevance (to funders or governments). Docket might consider how to surface these insights easily, helping stations demonstrate growth or impact. This is similar to how local news sites use web analytics to adjust content strategy; community media could use OTT viewership data to, for instance, schedule popular shows at better times or justify more resources for a particular program that’s a hit online."
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In essence, adjacent sectors teach that **modernization is non-negotiable** if you want to survive and that the tools must meet creators and audiences where they are. The ones who succeeded did so by **streamlining operations, embracing new channels, and staying true to local content** while shedding outdated workflows. Any solution targeting public access TV should incorporate those lessons – it should remove friction in creation and distribution, integrate with digital platforms, and perhaps even introduce new revenue or engagement opportunities (as some local news outlets have done via memberships or crowdfunding). By learning from these related fields, Docket can craft a strategy that not only solves the immediate pains of community broadcasters but also empowers them to thrive in the current media ecosystem."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Through this deep analysis, several **recurring pain points** clearly emerge across public access TV, community media, and independent local broadcasters:"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Funding Pressures and Uncertain Future:** Virtually every source underscores a crisis in the traditional funding model. With cable fees declining ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=The%20rise%20in%20so,fund%20their%20stations%2C%20operators%20said)) ([Streaming services dam up revenue for local cable access - Community Advocate](https://www.communityadvocate.com/2024/06/03/streaming-services-dam-up-revenue-for-local-cable-access/#:~:text=business%20promotions%2C%20among%20other%20programs)) and policy changes threatening to cut support ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=But%20the%20new%20FCC%20interpretation,a%20cut%20of%20those%20fees)), stations are desperate for cost-effective solutions. A real market need exists for technologies that help **do more with less** – whether that’s automating labor-intensive tasks, reducing equipment costs, or expanding audience (and sponsor) reach to justify new funding. If Docket can position itself as a means to *save money or generate new value* (for example, by attracting viewers on streaming platforms, or reducing the need for multiple systems), adoption will be far easier to justify in budget meetings."
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Outdated Technology and Reliability Issues:** From **poor playback reliability to non-intuitive software** interfaces, the technological pain is acute. Users complain about clunky scheduling, content not airing as expected, and the inability of legacy systems to keep up with modern demands ([Public Access TV](https://publicaccesstv.us/publicaccess.html#:~:text=supported%2C%20and%20give%20rise%20to,viewers%27%20general%20disagreement%20with%20other)) ([Cablecast vs. TelVue Channel Playback Systems - Reddit](https://www.reddit.com/r/VIDEOENGINEERING/comments/1bcx3h0/cablecast_vs_telvue_channel_playback_systems/#:~:text=Telvue%20in%20my%20opinion%20was,you%20directly%20on%20our)). The market clearly needs a **modernized content management and playout system** that is both robust and user-friendly. Importantly, it must be designed for the hybrid world of cable *and* internet distribution. The fact that Cablecast’s customers “praised” its ease for scheduling and multi-platform publishing ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Customers%20who%20switched%20to%20Cablecast,anywhere%3B%20and%20many%20more%20benefits)) indicates that competitors were failing to meet those needs. A solution that significantly streamlines scheduling (perhaps through automation or smarter UX) and natively handles OTT streaming could hit a sweet spot. The pain point here is inefficiency and fragmentation – solving that with an integrated, easy workflow would address a pressing frustration of staff and volunteers alike."
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Skills Gap and Labor Constraints:** With minimal staff on hand ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Three%20quarters%20of%20PEG%20operations,one%20organization%20or%20municipal%20department)), community media orgs need solutions that **minimize training and maintenance**. The prevalent pain point is that current options either require too much technical expertise (open source solutions, or even enterprise systems that need IT support) or are too locked-down and obscure (appliances with cryptic interfaces). This is where Docket can differentiate: by being designed for *simplicity and remote access*, it can relieve overburdened staff. The ability to manage a channel “from anywhere” ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Customers%20who%20switched%20to%20Cablecast,anywhere%3B%20and%20many%20more%20benefits)) is not just a nice-to-have – in this sector it’s becoming essential (think of a one-person station manager who might need to fix a schedule from home at 10pm). If Docket’s problem statement centers on **eliminating tedious tasks and enabling lightweight operations**, it directly speaks to this manpower crunch. Adoption becomes likely when the users see that a new tool will actually *make their life easier* immediately, not harder."
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Audience Reach and Digital Transition:** There is an implied pain that many stations are losing relevance as audiences move online. While some have started streaming, it’s often not integrated (e.g., they may livestream meetings to Facebook but that’s entirely separate from the cable scheduling system). This fragmentation means extra work and inconsistent audience experiences. The recurring need is for a **unified platform** that can publish content on cable, web, and OTT in one go. Stations want to ensure their content *finds the audience* regardless of platform, because their mission (and future funding) depends on community impact. Docket should validate that bridging this gap is a core value proposition: helping traditional broadcasters seamlessly become multi-platform publishers. This not only solves a tech pain but a strategic one – maintaining audience in the cord-cutting era. Evidence shows some stations are indeed trying to “go where the viewers are” by getting on Roku, Apple TV, etc. (often via third-party apps) ([How To Use ROKU - JAM – Junction Arts & Media](https://uvjam.org/how-to-use-roku/#:~:text=How%20To%20Use%20ROKU%20,public%20access%20media%20channels%20easily)). A product that makes OTT and online distribution as simple as scheduling a cable broadcast would address a **pressing need** expressed across many industry discussions."
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Cost and Sustainability:** Finally, a recurring theme is the need for **sustainable solutions** – not just in funding, but in not being left stranded by vendor decisions. The abrupt end-of-life of Leightronix hardware forced many to scramble ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Many%20of%20that%20company%E2%80%99s%20customers,to%20plan%20their%20next%20steps)). Stations fear investing in a system and having it become obsolete or too costly to upkeep (as happened with some who chose the wrong vendor and got hit with high annual fees). Therefore, there’s a market desire for platforms that use **standard, future-proof tech and don’t lock users in**. Docket could address this by emphasizing interoperability (e.g., not proprietary hardware-dependent) and a transparent cost structure. In essence, community media orgs want a solution that will grow with them and with technological changes, so they’re not left in the dust again. The more Docket can alleviate the fear of “what if this company shuts down or changes terms”, the more likely cautious boards will approve its adoption."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Validating Docket’s Problem Statement:** All the evidence points to a convergence of crises – financial, technological, and operational – for community broadcasters. The pain is real, and growing, and current remedies are either too expensive or incomplete. This means there is indeed a *pressing market need* for an innovative approach. If Docket’s problem statement zeroes in on “helping community media survive and thrive in the digital age by solving their scheduling, distribution, and resource challenges,” the research strongly validates that such a problem is worth solving. The key is to frame Docket not as just another piece of software, but as an **inevitable upgrade** for stations to continue fulfilling their public mission. By directly addressing the pain points highlighted – e.g., *“Our solution eliminates the manual steps and silos in legacy scheduling systems, cuts costs, and expands your reach to streaming audiences effortlessly”* – Docket can make a compelling case that aligns with what station managers are actively worrying about."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In conclusion, community-driven media organizations face **significant pain points** around outdated workflows, shrinking funds, and the struggle to modernize. These pain points are well-documented in user forums, industry reports, and the evident shifts in the media landscape. A solution that genuinely tackles these issues will not only find a receptive market; it could be a lifeline that makes adoption by stations almost inevitable. Docket’s strategy should be refined to directly alleviate these pains – if it succeeds, it will not just offer a product, but rather fulfill an urgent need at a critical time for local media."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Sources:**"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reddit user feedback on Cablecast vs TelVue vs Castus ([Cablecast vs. TelVue Channel Playback Systems - Reddit](https://www.reddit.com/r/VIDEOENGINEERING/comments/1bcx3h0/cablecast_vs_telvue_channel_playback_systems/#:~:text=Telvue%20in%20my%20opinion%20was,you%20directly%20on%20our)) ([ระบบเล่นช่อง Cablecast เทียบกับ TelVue : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/1bcx3h0/cablecast_vs_telvue_channel_playback_systems/?tl=th#:~:text=%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%99%E0%B8%8A%E0%B9%88%E0%B8%AD%E0%B8%87%20Cablecast%20%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B8%A2%E0%B8%9A%E0%B8%81%E0%B8%B1%E0%B8%9A%20TelVue%20%3A,opinion%20was%20stable%20but)) (pain points: UI intuitiveness, cost/value)"
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cablecast industry blog ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Changing%20such%20a%20critical%20system,including%20Castus%2C%20Leightronix%2C%20and%20TelVue)) ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Customers%20who%20switched%20to%20Cablecast,anywhere%3B%20and%20many%20more%20benefits)) (notes on customers switching from legacy systems, citing scheduling speed, multi-platform integration)"
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "PublicAccessTV.us complaints summary ([Public Access TV](https://publicaccesstv.us/publicaccess.html#:~:text=supported%2C%20and%20give%20rise%20to,viewers%27%20general%20disagreement%20with%20other)) (common station and studio issues: playback reliability, equipment, staff)"
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "*Government Technology* report on cord-cutting impact ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=The%20rise%20in%20so,fund%20their%20stations%2C%20operators%20said)) ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=Without%20an%20expansion%20of%20those,forced%20to%20shut%20their%20doors)) (PEG revenue “decimated” by streaming shift)"
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "*The Commons* (VT) on FCC franchise fee changes ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=But%20the%20new%20FCC%20interpretation,a%20cut%20of%20those%20fees)) ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=The%20change%20in%20franchise%20fees,fees%20has%20also%20declined%20proportionally)) (policy threat to funding; PEG preparing for decline)"
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "*Community Advocate* (MA) on local station finances ([Streaming services dam up revenue for local cable access - Community Advocate](https://www.communityadvocate.com/2024/06/03/streaming-services-dam-up-revenue-for-local-cable-access/#:~:text=business%20promotions%2C%20among%20other%20programs)) (documented subscriber and revenue drop 2015–2024)"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nieman Lab on PEG’s potential and size of operations ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Three%20quarters%20of%20PEG%20operations,one%20organization%20or%20municipal%20department)) ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Although%20skeptics%20see%20PEG%20channels,Maui%2C%20%2028%20Community%20Media)) (most stations small staff, adapting to stream/OTT)"
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reddit thread on Leightronix Nexus EOL ([What is a good Cable Channel play back system? : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/lxqfse/what_is_a_good_cable_channel_play_back_system/#:~:text=We%20looked%20at%203%20for,put%20them%20in%20the%20mix)) and another on tech preferences ([Leightronix Nexus line EOL? : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/t18j9u/leightronix_nexus_line_eol/#:~:text=%E2%80%A2)) (ease-of-use of old vs complexity of new, desire for turnkey solutions)"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pricing comparison from Millbury PEG commission ([[PDF] MILLBURY CABLE TELEVISION COMMISSION MINUTES ED](https://www.millburyma.gov/public-access-department/minutes/cable-television-commission-minutes-3#:~:text=,an%20annual%20subscription%20fee)) (TelVue vs Castus vs Tightrope costs and fee structures)"
+            }
+          ]
+        },
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reddit user testimonials ([Cablecast for Local Government : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/13fjuza/cablecast_for_local_government/#:~:text=Check%20out%20Castus,Like%20actually%20so%20good)) ([Cablecast for Local Government : r/VIDEOENGINEERING](https://www.reddit.com/r/VIDEOENGINEERING/comments/13fjuza/cablecast_for_local_government/#:~:text=We%20had%20to%20replace%20our,it%2C%20tech%20support%20is%20excellent)) (Castus support quality; TelVue support and selection factors)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

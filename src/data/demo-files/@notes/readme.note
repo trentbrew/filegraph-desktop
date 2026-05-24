@@ -1,0 +1,1755 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-369",
+  "title": "README",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "README"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Autumn Components is a Nuxt 3 application for building, previewing, and documenting reusable page blocks. It is governed by the Autumn Components Constitution, which defines standards for architecture, design system integration, configuration, developer experience, and workflow."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Principles"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Component-First Architecture**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Every feature starts as a reusable Vue component in `app/components/blocks/[ComponentName]/`"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Components are self-contained, independently testable, and documented with fixtures"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No organizational-only components; clear purpose required"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standardized structure: `Component.vue`, `form.yaml`, `fixture.ts`, `theme.ts`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Design System Integration**"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Token-driven design system (Style Dictionary → CSS variables)"
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Live token editing with localStorage persistence"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tailwind-variants for theme composition"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Visual color swatches and accessibility checks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Form-Driven Configuration**"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "YAML form schemas for component configuration"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conditional field visibility (`when` conditions)"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Repeater fields with drag-and-drop reordering"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flat-to-nested prop mapping for complex data"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Local persistence of form state and repeater order"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Live Preview & Testing**"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Device frame simulation: Laptop/Tablet/Phone"
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Real-time prop updates and instant visual feedback"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design token changes apply instantly"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Skeleton loaders for loading states"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Developer Experience**"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Comprehensive documentation and examples for each component"
+            }
+          ]
+        },
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Block registry auto-discovers components"
+            }
+          ]
+        },
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Storybook-like viewer at `/blocks` for exploration"
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hot reloading for rapid iteration"
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "TypeScript throughout for type safety"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Technology Stack"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Frontend**: Nuxt 3, Vue 3 Composition API"
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**UI**: Nuxt UI, Tailwind CSS"
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**State**: Vue refs, localStorage"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Build**: Vite, TypeScript"
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Design Tokens**: Style Dictionary"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Theming**: tailwind-variants"
+            }
+          ]
+        },
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Icons**: Iconify (Lucide, Simple Icons)"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Linting**: ESLint (Nuxt config)"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Type Checking**: TypeScript strict mode"
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Package Manager**: pnpm"
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Version Control**: Git (conventional commits)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Component Creation Workflow"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Create component directory in `app/components/blocks/[ComponentName]/`"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Implement `[ComponentName].vue` with TypeScript"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Define `form.yaml` schema for configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Create `fixture.ts` with sample data"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Implement `theme.ts` with tailwind-variants"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Test in block viewer at `/blocks/[component-slug]`"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Quality Gates"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All components must pass TypeScript compilation"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ESLint must pass without errors"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Components must render correctly in all device preview modes"
+            }
+          ]
+        },
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Form schemas must validate without errors"
+            }
+          ]
+        },
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design tokens must apply correctly to components"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Review Process"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All PRs must include component documentation updates"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "New components must be tested in block viewer"
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design token changes validated across all components"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Performance impact assessed for new features"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Governance"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Constitution supersedes all other practices. Amendments require documentation, approval, and migration plan. All PRs/reviews must verify compliance. Complexity must be justified with clear use cases. Use component documentation for runtime development guidance."
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Setup"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Setup"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Install dependencies:"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm install"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Development"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Start the dev server:"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm run dev"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Production"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Build for production:"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm run build"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Locally preview production build:"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "npm run preview"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm run preview"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "yarn preview"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "bun run preview"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information."
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Features"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🧱 Dynamic Block Discovery"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Auto-discovers components from `app/components/blocks/` directory"
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each block follows standardized structure: `Component.vue`, `form.yaml`, `fixture.ts`, `theme.ts`"
+            }
+          ]
+        },
+        {
+          "id": "b-99",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generates kebab-case slugs and human-readable names automatically"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "📝 Form-Driven Configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "YAML schema-driven form generation"
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Support for various field types: text, textarea, select, color-select, number, toggle"
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conditional field visibility via `when` conditions"
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Repeater fields with drag-and-drop reordering"
+            }
+          ]
+        },
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Local persistence of form state and repeater order"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🎨 Live Design Token Editing"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Real-time editing of design tokens with color pickers"
+            }
+          ]
+        },
+        {
+          "id": "b-110",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Visual color swatches in form selects"
+            }
+          ]
+        },
+        {
+          "id": "b-111",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "CSS custom properties updated instantly"
+            }
+          ]
+        },
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "localStorage persistence across page reloads"
+            }
+          ]
+        },
+        {
+          "id": "b-113",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reset functionality to restore defaults"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "📱 Device Preview"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Responsive preview modes: Laptop, Tablet, Phone"
+            }
+          ]
+        },
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Live component rendering with current props"
+            }
+          ]
+        },
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Device frame simulation for accurate testing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "🔧 Developer Experience"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-121",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "TypeScript throughout for type safety"
+            }
+          ]
+        },
+        {
+          "id": "b-122",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hot reloading for rapid development"
+            }
+          ]
+        },
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Comprehensive component documentation"
+            }
+          ]
+        },
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Storybook-like viewer interface"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Block Component Viewer"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The main feature is available at `/blocks`. This viewer provides:"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Block Gallery**: Browse all available block components in a grid layout"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Component Detail**: View individual components with their fixture data"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Live Editor**: Three-tab interface (Form, Tokens, Settings)"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Device Preview**: Toggle between Laptop/Tablet/Phone views"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Props Inspector**: View raw JSON data for each component"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Using the Block Viewer"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Start the development server:"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```bash"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm run dev"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Navigate to `http://localhost:PORT/blocks` to see the list of available blocks"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Click on a block to view its detail page at `/blocks/[slug]`"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Use the editor tabs:"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Form**: Edit component props via schema-driven forms"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tokens**: Modify design tokens with color pickers"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Settings**: Configure design system settings (coming soon)"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Toggle device preview modes to test responsive behavior"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. View raw props data in the Structure drawer"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Design Token System"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The system supports live editing of:"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-148",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Colors**: Primary, secondary, tertiary, quaternary palettes with multiple shades"
+            }
+          ]
+        },
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Radius**: Border radius values for consistent rounded corners"
+            }
+          ]
+        },
+        {
+          "id": "b-150",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Space**: Spacing values for margins and padding"
+            }
+          ]
+        },
+        {
+          "id": "b-151",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Effects**: Shadow and other visual effects"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "All changes are persisted in localStorage and applied instantly to the preview."
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Component Structure"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each block component follows this standardized structure:"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app/components/blocks/[ComponentName]/"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── [ComponentName].vue    # Main component implementation"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── form.yaml             # Form schema for configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── fixture.ts            # Sample data for preview"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── theme.ts              # Theme configuration with tailwind-variants"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Creating a New Component"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Create a new directory in `app/components/blocks/[ComponentName]/`"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Implement the component with TypeScript"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Define the form schema in `form.yaml`"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Create sample data in `fixture.ts`"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Implement theming in `theme.ts`"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. The component will be auto-discovered and available in the block viewer"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Technology Stack"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-171",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Framework**: Nuxt 3 with Vue 3 Composition API"
+            }
+          ]
+        },
+        {
+          "id": "b-172",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**UI Library**: Nuxt UI with Tailwind CSS"
+            }
+          ]
+        },
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Design System**: Style Dictionary for token processing"
+            }
+          ]
+        },
+        {
+          "id": "b-174",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Styling**: Tailwind CSS with custom CSS variables"
+            }
+          ]
+        },
+        {
+          "id": "b-175",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Icons**: Iconify with Lucide and Simple Icons"
+            }
+          ]
+        },
+        {
+          "id": "b-176",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**State Management**: Vue reactive refs with localStorage persistence"
+            }
+          ]
+        },
+        {
+          "id": "b-177",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Build Tools**: Vite with TypeScript support"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

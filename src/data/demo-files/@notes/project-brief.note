@@ -1,0 +1,1268 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-382",
+  "title": "Project Brief",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Brief"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1) Positioning & Promise"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**One‑liner:** A private, ad‑free marketplace and community where Black & Brown creators and operators sell services, digital goods, and physical products—backed by transparent profit‑sharing and safety‑first onboarding."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Differentiators:**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Invite‑only, buy‑to‑sell model → real participants, less spam."
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Profit‑sharing + community governance → aligned incentives."
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Services + digital + physical in one stack → fewer context switches."
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ad‑free, privacy‑forward → trust by default."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2) Users & Core Jobs-To-Be-Done (JTBD)"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Vendors**"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "List offerings quickly (services, digital files, shippables) with simple pricing, variants, and fulfillment rules."
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Get paid reliably (instant payouts when possible) and build reputation."
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Collaborate/find gigs through feeds, forums, and job boards."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Buyers**"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Discover quality vendors through curated, community‑led signals."
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Book services (escrow + milestones), purchase digital goods (instant delivery), or buy physical items (live rates + tracking)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Community Members**"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Share knowledge, events, opportunities, and feedback without ads or algorithmic noise."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3) Guardrails & Principles"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Security:** invite‑only + KYC‑lite for sellers; device/session hardening; zero‑trust defaults."
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Transparency:** visible fee splits, platform policies, and dispute outcomes."
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Autonomy:** sellers keep IP; clear licensing options for digital goods."
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Equity:** profit‑sharing model and community funds earmarked for grants."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4) MVP Scope (90 Days)"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Must‑have**"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Auth (PocketBase) with invitation codes & roles (buyer, vendor, moderator, admin)."
+            }
+          ]
+        },
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Vendor onboarding: identity check, buy‑to‑sell verification (first purchase or membership), payout connection (Stripe Connect Express)."
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Listings: services, digital files, physical goods (single‑SKU + simple variants)."
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cart/checkout: Stripe (Card, Apple/Google Pay); live shipping estimates via Shippo; tax basic."
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Order flows: services (escrow + milestones), digital (download/license), physical (label/fulfillment + tracking)."
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Community: lightweight feed (markdown posts), DMs, and event posting."
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Moderation: report content, takedown queue, vendor strike system."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Nice‑to‑have**"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Job board module (post, apply, shortlist)."
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Forums with category subscriptions and reputation badges."
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic analytics for vendors (views, conversion, fulfillment SLA)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5) Revenue & Economics"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Platform fee:** 7–12% take on successful transactions, tiered by membership."
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Memberships:** optional monthly to unlock lower fees, advanced storefront tools, and boosted discovery."
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Profit‑sharing:** fixed % of platform net goes to the Community Fund; quarterly transparent reports."
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Payouts:** Stripe Connect; instant payout option (Stripe Instant Payouts) where available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6) Policies & Compliance (MVP Level)"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**KYC‑lite for sellers:** name, verified email/phone, connected payout; trigger enhanced checks on volume or flags."
+            }
+          ]
+        },
+        {
+          "id": "b-52",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Terms & Licenses:** standard licenses for digital goods; service SOW templates; refund & dispute policy."
+            }
+          ]
+        },
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Taxes:** collect destination sales tax where feasible; provide 1099‑K via Stripe; vendor dashboard reminders."
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Content:** prohibited items & hate content policy; zero‑tolerance list; transparent appeals."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "7) Feature Design Notes"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Services (Escrow + Milestones)**"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Quote types: fixed, hourly (with cap), milestone payments."
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In‑thread contracting: scope, deliverables, timeline, revision policy; e‑sign via Stripe or simple click‑wrap."
+            }
+          ]
+        },
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dispute flow: hold funds, mediator review, evidence upload, binding outcome."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Digital Goods**"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upload to PocketBase storage; virus scan; checksum; versioning."
+            }
+          ]
+        },
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "License picker (Personal, Commercial, Custom); download count and revocation if refund."
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stamping: order ID embedded in file metadata for light deterrence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Physical Goods**"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shippo live rates at checkout; label purchase from vendor dashboard."
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Required fields: weight, dims, HS code (optional at MVP), country of origin."
+            }
+          ]
+        },
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Returns: RMA request flow, return label optionally vendor‑paid."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Community**"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Feeds with tags and moderation actions; DM with request/accept model."
+            }
+          ]
+        },
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Events: date/time, RSVP, virtual link, geotag city‑level (no precise addresses by default)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "8) Trust & Safety System"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Invite graph:** inviter reputation tracked; bad‑actor propagation detection."
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Vendor verification levels:** L1 (light), L2 (docs), L3 (volume‑based upgrade)."
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Strike rules:** content, fulfillment, chargeback, communication; thresholds for suspensions."
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Marketplace health metrics:** order defect rate (ODR), on‑time rate, dispute rate, message response time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "9) Architecture & Tech"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Frontend**: Nuxt 4 + Tailwind + shadcn/ui‑thing; SSR + islands; file uploads w/ resumable."
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Backend**: PocketBase (auth, storage, collections), edge adapters (Hono/Vercel) for webhooks; background workers (Cloud Run) for: shipping rating, label purchase, notification fan‑out, escrow state machine."
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Integrations**: Stripe (Payments + Connect + Webhooks), Shippo (rates, labels, tracking), Email (Postmark), SMS (Twilio), Image proxy/optimization (Vercel)."
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Data model (high‑level)**"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "users, orgs\\vendors, invites, memberships"
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "listings (type: service | digital | physical), variants, media"
+            }
+          ]
+        },
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "carts, orders, order_items, fulfillments, milestones, disputes"
+            }
+          ]
+        },
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "payouts, fees, community_fund_ledger"
+            }
+          ]
+        },
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "posts, comments, messages, events, reports"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "10) Security Model"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Role‑based access control (RBAC) at collection level in PocketBase."
+            }
+          ]
+        },
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Session: httpOnly cookies, short‑lived tokens, device fingerprinting."
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Storage: signed URLs for downloads; per‑file ACLs; download watermarking."
+            }
+          ]
+        },
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webhooks: signed (Stripe/Shippo) + replay protection; HMAC on internal callbacks."
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Audit log: moderation, payouts, policy changes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "11) Operational Runbook (MVP)"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-101",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On‑call rotation (even if solo): pager to Slack; error severity rubric."
+            }
+          ]
+        },
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Incident response: comms templates, status page playbook."
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Backup/restore: nightly PocketBase snapshot; storage versioning."
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SLA targets: Checkout p95 < 400ms; Webhooks ≤ 5s; File download TTFB < 300ms."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "12) Analytics & KPIs"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "GMV, take‑rate, repeat purchase rate, vendor activation rate, time‑to‑first‑listing, time‑to‑first‑sale."
+            }
+          ]
+        },
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Marketplace health: ODR < 2%, dispute rate < 1%, on‑time fulfillment > 95%."
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Community: DAU/WAU, post‑to‑report ratio, DM acceptance rate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "13) Roadmap (Quarter‑by‑Quarter)"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q1 (MVP)**: Core flows above + manual ops."
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q2**: Job board, reputation graph, vendor badges, gift cards, bundles, org accounts."
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q3**: Advanced search/discovery, marketplace curation tools, membership tiers, affiliate links."
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Q4**: Mobile app parity, community grants, local pickup, wholesale catalogs."
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "14) Open Questions (to validate via pilots)"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Buy‑to‑sell threshold: first purchase amount vs. membership fee? Edge cases for service‑only sellers."
+            }
+          ]
+        },
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "KYC depth vs. conversion: where to tier."
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dispute mediation staffing: volunteer moderators vs. paid mediators."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "15) Implementation Checklist (MVP)"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-122",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  PocketBase collections & rules implemented"
+            }
+          ]
+        },
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Stripe Connect + productized checkout (services/digital/physical)"
+            }
+          ]
+        },
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Shippo rating + label creation"
+            }
+          ]
+        },
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Invitations + roles + vendor verification"
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Listing creation flows (3 types)"
+            }
+          ]
+        },
+        {
+          "id": "b-127",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Order state machines (escrow, digital, physical)"
+            }
+          ]
+        },
+        {
+          "id": "b-128",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Community (posts, DMs, events) v0"
+            }
+          ]
+        },
+        {
+          "id": "b-129",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Moderation queue + strikes"
+            }
+          ]
+        },
+        {
+          "id": "b-130",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Admin dashboard (metrics + audits)"
+            }
+          ]
+        },
+        {
+          "id": "b-131",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Legal docs + policy pages + email templates"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

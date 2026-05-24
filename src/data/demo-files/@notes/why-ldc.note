@@ -1,0 +1,1884 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-407",
+  "title": "Why LDC?",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Why LDC?"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "LD-C makes RAG and agents **auditable, reproducible, and safer**. Think of it as a deterministic, unit-aware data+compute layer that sits between the LLM and the world."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Structured retrieval targets.** With JSON-LD context and IRIs, your corpus becomes a typed graph (entities, relations, time). Chunking can follow graph boundaries; queries (`@query`) are graph-native."
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Compute on retrieval.** Retrieved facts can be *normalized* (units, currency, dates) and *aggregated* via `@expr/@view` before the LLM sees them—less prompt-side math, fewer hallucinations."
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Evidence + provenance.** Every derived value carries a provenance trail (`@prov`) and diagnostics. You can show “how we got this number,” not just a citation."
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Deterministic snapshots.** `now`/`asOf` are explicit; “re-run this answer tomorrow” yields identical results (or a controlled delta)."
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Schema-checked outputs.** When the model writes answers, you validate against `@shape/@constraint` and feed back typed errors instead of vague “format wrong”."
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent state as data, not prompts.** Goals, tools, memory, and world model live in an LD-C doc; computed properties act like *reactive beliefs*."
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Rules & constraints as guardrails.** `@rule` and `@constraint` gate actions (“only book flights under $500”, “units must match”). The planner gets *typed* failure modes (`unit_mismatch`, `timeout`, `shape_violation`) it can repair."
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Capability security.** `@caps` is an allowlist for external I/O. Tool calls are explicit; default-deny by design."
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Views as working memory.** `@view` materializes task lists, next actions, and summaries from the evolving graph; invalidation is automatic when facts change."
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Time & currency sane by default.** Units are first-class; `asOf` prevents “stale price” and “time-zone” bugs during multi-step plans."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1) Retrieval → Normalization → Answer"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Retriever returns nodes/edges (JSON-LD)."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. LD-C layer:"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- converts units/currencies, fills gaps,"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- aggregates via `@view` (e.g., “total spend last 30 days”),"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- runs constraints; any `Err` becomes fix-signals to the LLM."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. LLM reads the *computed view* (not raw docs) and drafts the answer."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Output is an LD-C object validated before returning."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@context\": { \"ex\": \"<https://ex/>\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"facts\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@query\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"match\": \"?t a ex:Txn ; ex:amt ?a ; ex:date ?d .\","
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"select\": [\"?t\", { \"amt\": \"?a\" }, { \"date\": \"?d\" }]"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"total30d\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"sum(facts.filter(f => days_between(f.date, asOf) <= 30).map(f => f.amt))\""
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assert\": { \"@expr\": \"total30d >= 0 USD\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"message\": \"Totals must be nonnegative\""
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2) Agent plan as LD-C"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Agent proposes a **typed plan**; runtime checks/derives; rules fire side-effects you can inspect."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"intent\": \"book_flight\","
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"constraints\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"@expr\": \"price <= 500 USD\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"@expr\": \"depart.after(asOf)\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"candidates\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@query\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"match\": \"?f a ex:Flight ; ex:price ?p ; ex:depart ?t .\","
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"select\": [\"?f\", { \"price\": \"?p\" }, { \"depart\": \"?t\" }],"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"orderBy\": [\"asc(?p)\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"limit\": 5"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"choice\": { \"@expr\": \"candidates[0]\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If a later step changes `asOf` or exchange rates, `choice` recomputes. If constraints fail, you get a typed diagnostic the LLM can repair (“relax budget?”)."
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3) Tool calls with `@caps`"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@caps\": { \"fetch\": [\"<https://api.flights.com/*>\"] },"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"prices\": { \"@let\": { \"usdRate\": { \"@fetch\": \"<https://api.fx/latest>\" } } }"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If a tool is disallowed, the engine returns `code: \"cap_denied\"`—agents learn to ask for permission instead of silently failing."
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Provenance graph** shows which retrieved facts and params produced each number."
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Repro notebooks**: LD-C doc + params = a single artifact for audits or bug reports."
+            }
+          ]
+        },
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Cache keys**: `hash(doc) + hash(params)` makes server-side answers cacheable and replayable."
+            }
+          ]
+        },
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Hybrid retrieval**: dense (vector) gets candidate nodes; sparse/graph `@query` refines and joins."
+            }
+          ]
+        },
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entity-centric chunking**: JSON-LD IDs → consistent embeddings per entity; computed views emit *embedding-ready* text."
+            }
+          ]
+        },
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**LLM can’t fix format** → return diagnostics + a *repair prompt* seeded with failing paths and constraints."
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Slow/expensive compute** → set `timeoutMs`, show partials with `runtime_timeout`, or pre-materialize hot `@view`s."
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Unit/temporal drift** → make `asOf` mandatory for financial/temporal views; keep a tiny unit-conversion registry under `@units`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// retrieve → normalize"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const graph = await retriever(query); // JSON-LD nodes/edges"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const doc = composeLdC(graph, question, params); // add @view/@expr/@constraint"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { value, diagnostics } = await evaluate(doc, { now, asOf, caps });"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// if bad, ask model to repair doc (include diagnostics)"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// else, give model only `value` (computed view) + provenance for citations"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const answer = await llm.answer(value.view, provenance_to_citations(value));"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return { answer, provenance, value, diagnostics };"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Client**: quick previews; interactive agents."
+            }
+          ]
+        },
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Server/Edge**: authoritative evaluation for answers you publish; deterministic caching; secret `@caps`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Bottom line:** LD-C turns fuzzy agent/RAG pipelines into **typed, deterministic dataflows** with units, time, rules, and provenance. You’ll ship fewer “best-effort” answers and more **verifiable results**—and when things go wrong, you’ll know exactly where and why."
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "JSON-LD is a superset of JSON; LD-C is a superset of JSON-LD."
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "LD-C makes RAG and agents **auditable, reproducible, and safer**. Think of it as a deterministic, unit-aware data+compute layer that sits between the LLM and the world."
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Structured retrieval targets.** With JSON-LD context and IRIs, your corpus becomes a typed graph (entities, relations, time). Chunking can follow graph boundaries; queries (`@query`) are graph-native."
+            }
+          ]
+        },
+        {
+          "id": "b-99",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Compute on retrieval.** Retrieved facts can be *normalized* (units, currency, dates) and *aggregated* via `@expr/@view` before the LLM sees them—less prompt-side math, fewer hallucinations."
+            }
+          ]
+        },
+        {
+          "id": "b-100",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Evidence + provenance.** Every derived value carries a provenance trail (`@prov`) and diagnostics. You can show “how we got this number,” not just a citation."
+            }
+          ]
+        },
+        {
+          "id": "b-101",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Deterministic snapshots.** `now`/`asOf` are explicit; “re-run this answer tomorrow” yields identical results (or a controlled delta)."
+            }
+          ]
+        },
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Schema-checked outputs.** When the model writes answers, you validate against `@shape/@constraint` and feed back typed errors instead of vague “format wrong”."
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent state as data, not prompts.** Goals, tools, memory, and world model live in an LD-C doc; computed properties act like *reactive beliefs*."
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Rules & constraints as guardrails.** `@rule` and `@constraint` gate actions (“only book flights under $500”, “units must match”). The planner gets *typed* failure modes (`unit_mismatch`, `timeout`, `shape_violation`) it can repair."
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Capability security.** `@caps` is an allowlist for external I/O. Tool calls are explicit; default-deny by design."
+            }
+          ]
+        },
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Views as working memory.** `@view` materializes task lists, next actions, and summaries from the evolving graph; invalidation is automatic when facts change."
+            }
+          ]
+        },
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Time & currency sane by default.** Units are first-class; `asOf` prevents “stale price” and “time-zone” bugs during multi-step plans."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1) Retrieval → Normalization → Answer"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Retriever returns nodes/edges (JSON-LD)."
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. LD-C layer:"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- converts units/currencies, fills gaps,"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- aggregates via `@view` (e.g., “total spend last 30 days”),"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- runs constraints; any `Err` becomes fix-signals to the LLM."
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. LLM reads the *computed view* (not raw docs) and drafts the answer."
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Output is an LD-C object validated before returning."
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@context\": { \"ex\": \"<https://ex/>\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"facts\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@query\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"match\": \"?t a ex:Txn ; ex:amt ?a ; ex:date ?d .\","
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"select\": [\"?t\", { \"amt\": \"?a\" }, { \"date\": \"?d\" }]"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"total30d\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@expr\": \"sum(facts.filter(f => days_between(f.date, asOf) <= 30).map(f => f.amt))\""
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@constraint\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assert\": { \"@expr\": \"total30d >= 0 USD\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"message\": \"Totals must be nonnegative\""
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2) Agent plan as LD-C"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Agent proposes a **typed plan**; runtime checks/derives; rules fire side-effects you can inspect."
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"intent\": \"book_flight\","
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"constraints\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"@expr\": \"price <= 500 USD\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"@expr\": \"depart.after(asOf)\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"candidates\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@query\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"match\": \"?f a ex:Flight ; ex:price ?p ; ex:depart ?t .\","
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"select\": [\"?f\", { \"price\": \"?p\" }, { \"depart\": \"?t\" }],"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"orderBy\": [\"asc(?p)\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"limit\": 5"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"choice\": { \"@expr\": \"candidates[0]\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If a later step changes `asOf` or exchange rates, `choice` recomputes. If constraints fail, you get a typed diagnostic the LLM can repair (“relax budget?”)."
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3) Tool calls with `@caps`"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@caps\": { \"fetch\": [\"<https://api.flights.com/*>\"] },"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"prices\": { \"@let\": { \"usdRate\": { \"@fetch\": \"<https://api.fx/latest>\" } } }"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If a tool is disallowed, the engine returns `code: \"cap_denied\"`—agents learn to ask for permission instead of silently failing."
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-166",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Provenance graph** shows which retrieved facts and params produced each number."
+            }
+          ]
+        },
+        {
+          "id": "b-167",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Repro notebooks**: LD-C doc + params = a single artifact for audits or bug reports."
+            }
+          ]
+        },
+        {
+          "id": "b-168",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Cache keys**: `hash(doc) + hash(params)` makes server-side answers cacheable and replayable."
+            }
+          ]
+        },
+        {
+          "id": "b-169",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Hybrid retrieval**: dense (vector) gets candidate nodes; sparse/graph `@query` refines and joins."
+            }
+          ]
+        },
+        {
+          "id": "b-170",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entity-centric chunking**: JSON-LD IDs → consistent embeddings per entity; computed views emit *embedding-ready* text."
+            }
+          ]
+        },
+        {
+          "id": "b-171",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**LLM can’t fix format** → return diagnostics + a *repair prompt* seeded with failing paths and constraints."
+            }
+          ]
+        },
+        {
+          "id": "b-172",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Slow/expensive compute** → set `timeoutMs`, show partials with `runtime_timeout`, or pre-materialize hot `@view`s."
+            }
+          ]
+        },
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Unit/temporal drift** → make `asOf` mandatory for financial/temporal views; keep a tiny unit-conversion registry under `@units`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// retrieve → normalize"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const graph = await retriever(query); // JSON-LD nodes/edges"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const doc = composeLdC(graph, question, params); // add @view/@expr/@constraint"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { value, diagnostics } = await evaluate(doc, { now, asOf, caps });"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// if bad, ask model to repair doc (include diagnostics)"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// else, give model only `value` (computed view) + provenance for citations"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const answer = await llm.answer(value.view, provenance_to_citations(value));"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return { answer, provenance, value, diagnostics };"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-185",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Client**: quick previews; interactive agents."
+            }
+          ]
+        },
+        {
+          "id": "b-186",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Server/Edge**: authoritative evaluation for answers you publish; deterministic caching; secret `@caps`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Bottom line:** LD-C turns fuzzy agent/RAG pipelines into **typed, deterministic dataflows** with units, time, rules, and provenance. You’ll ship fewer “best-effort” answers and more **verifiable results**—and when things go wrong, you’ll know exactly where and why."
+        }
+      ]
+    }
+  ]
+}

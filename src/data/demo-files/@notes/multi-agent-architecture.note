@@ -1,0 +1,3204 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-212",
+  "title": "Multi-agent architecture",
+  "author": "person:jane-brew:001",
+  "status": "500,",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Multi-agent architecture"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Background"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's an excellent and forward-thinking approach! You're essentially describing a **multi-agent system** or an **agent orchestration** pattern. It's a very common and effective way to handle increasing complexity and toolsets in AI applications."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Your Reasoning is Spot On:**"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scalability:** As you add more tools for different domains (weather, search, file manipulation, calendar, etc.), a single monolithic system prompt for one \"do-everything\" agent becomes incredibly difficult to manage, optimize, and debug."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Specialization:** Dedicated agents can have highly tailored system prompts and fine-tuned instructions specific to their domain (e.g., the 'writer agent' prompt focuses on tone, style, formatting, while the 'research agent' prompt focuses on citation, accuracy, breadth). This often leads to better results for specialized tasks."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Maintainability:** It's much easier to update the tools or prompts for a specific agent (like updating the Perplexity model for the 'research agent') without affecting other agents."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Modularity:** You can potentially swap out agents or add new ones more easily."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**The \"Manager\" Agent Concept:**"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your idea of a central \"manager\" or \"orchestrator\" agent is key to this pattern. Its primary responsibilities would be:"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Understanding User Intent:** Receiving the initial user request."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Task Decomposition (Optional):** Breaking down complex requests into sub-tasks suitable for different specialists."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Agent Routing/Delegation:** Deciding which specialized agent (or sequence of agents) is best suited to handle the current task or sub-task."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Synthesizing Results (Optional):** Potentially combining results from multiple agents into a single, coherent response for the user."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Potential Challenges/Considerations:**"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Orchestration Logic:** Designing the manager agent's prompt and logic to accurately route requests is crucial and can be complex itself. It needs clear descriptions of what each specialist agent does."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Latency:** Each delegation step potentially adds an extra LLM call, which could increase overall response time."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **State Management:** Ensuring the relevant conversation history or context is passed correctly between the manager and the specialist agents."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Cost:** More LLM calls generally mean higher API costs."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**How We Could Implement It:**"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Refactor the API Route:** The `/api/chat` endpoint would need to change. Instead of directly calling `streamText` with the user message and all tools, it might first call an \"Orchestrator\" LLM/logic."
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Define Agent Profiles:** Create configurations or prompts for each specialized agent (e.g., `researchAgentConfig`, `weatherAgentConfig`) specifying their system prompt and their dedicated `availableTools`."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Implement Routing:**"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The orchestrator could use function calling itself, where the \"tools\" are the specialized agents (e.g., a `delegateToResearchAgent` tool)."
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Alternatively, the orchestrator's prompt could guide it to output structured data (like JSON) indicating which agent to call next with which input."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Execute Specialists:** The API route would then use the orchestrator's output to call the appropriate specialized agent's LLM using `streamText` (or similar) with *only* the tools relevant to that agent."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Moving Forward:**"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is a significant architectural shift, but definitely a good direction for managing complexity. It addresses the \"unwieldy system prompt\" problem directly."
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Would you like to start refactoring towards this multi-agent approach? We could begin by creating the first specialized agent, perhaps formally designating the `searchWeb` and its logic as belonging to a `ResearchAgent`, and then modifying the API route to implement a basic routing step?"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here's a thinking process for generating the testing strategy for the multi-agent system:"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1.    **Understand the Core Request:** The user wants to know how to test the new multi-agent architecture we've built. This involves an orchestrator, specialized agents (like the research agent), and the underlying tools (like Perplexity API calls)."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. 1.  **Understand the Core Request:** The user wants to know how to test the new multi-agent architecture we've built. This involves an orchestrator, specialized agents (like the research agent), and the underlying tools (like Perplexity API calls)."
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Identify Key Components to Test:** Break down the system into testable units:"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Orchestrator Agent:** Does it correctly identify user intent? Does it call the right delegation tool with the correct arguments? Does it respond directly when appropriate?"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Specialized Agents (e.g., Research Agent):** Does it execute its specific tool correctly? Does it handle the tool's output as expected (e.g., formatting JSON)? Does its system prompt guide it appropriately *when called directly* (less critical now, but good for unit testing)?"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tool Execution Logic (e.g., executeSearchWeb):** Does it correctly call the external API (Perplexity)? Does it handle API errors gracefully? Does it parse the response and return the expected structured data?"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **API Route (/api/chat):** Does the overall flow work? Does Stage 1 call the orchestrator? Does it correctly interpret the delegation result? Does Stage 2 call the right agent/prompt/tools? Does it handle errors in either stage? Does it return the correct stream format?"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Frontend (Chat component):** Does it render the final streamed response correctly? (This is more E2E, but worth mentioning)."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Choose Appropriate Testing Levels/Types:**"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Unit Tests:** Best for isolated logic. Good for tool execution functions (executeSearchWeb) and potentially pure utility functions (like schema validation, although Zod handles much of that). Mock external dependencies (like fetch)."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Integration Tests:** Test the interaction *between* components. Crucial for this architecture."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Testing the Orchestrator's decision-making (API route calling orchestrator LLM)."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Testing the full flow from user input -> orchestrator -> specialist -> final response (API route end-to-end). Mock the *LLM responses* to make tests deterministic and fast."
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **End-to-End (E2E) Tests:** Test the complete user flow through the UI. Use tools like Playwright or Cypress. Slower, more brittle, but necessary for verifying the user experience. Can be expensive if hitting real LLMs/APIs frequently."
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1.  **Outline Specific Test Strategies for Each Component:**"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. 1.  **Outline Specific Test Strategies for Each Component:**"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tool Execution (executeSearchWeb):**"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Input:* Mock query argument."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Mocking:* Mock fetch to simulate Perplexity API success and failure responses (valid JSON, error status codes, malformed JSON, empty results). Mock process.env.PERPLEXITY_API_KEY."
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Assertions:* Check if fetch was called with the correct URL, headers, and body. Verify the returned JSON string matches the expected structure ({ searchResult: ..., sources: ... }). Assert that errors are thrown correctly on API failure or missing key."
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Orchestrator Logic (Integration Test - API Route Level):**"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Input:* Test cases with user messages designed to trigger delegation (\"weather in paris\", \"search for X\"), and messages that *shouldn't* trigger delegation (\"hi there\", \"write a poem\")."
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Mocking:* Mock the streamText call for the *orchestrator*. Simulate LLM responses that either:"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Call delegateToResearchAgent with expected args."
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Call delegateToWeatherAgent with expected args."
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Return direct text delta."
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Assertions:* Check if the correct *delegation* object is formed internally *or* if the direct text response is being prepared. Verify console logs for delegation messages. *Don't* need to mock the specialist agent call in *this* specific test."
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Specialist Agent Logic (Integration Test - API Route Level):**"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Input:* A specific set of messages *and* the delegation object ({ agent: 'research', args: { query: 'test' } }) that *forces* Stage 2 execution for that agent."
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Mocking:* Mock the streamText call for the *specialist agent* (the second call in the API route). Simulate LLM responses that:"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Receive the tool result (structured JSON from the mocked executeSearchWeb)."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Format the result according to the finalFormattingSystemPrompt."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Assertions:* Check if streamText was called with the correct finalFormattingSystemPrompt and the specialist's tools (researchAgentTools). Verify the *output stream* content matches the expected formatted text with links."
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Full API Route Flow (Integration Test):**"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Input:* User messages."
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Mocking:* Mock *both* streamText calls (orchestrator and specialist) and the *tool execution* (executeSearchWeb/executeGetWeather). This allows testing the *routing logic* within the API route without external dependencies."
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Assertions:* Verify the sequence of mocks being called. Check the final Response object (status code, headers, stream content)."
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **E2E Tests:**"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Setup:* Run the Next.js app."
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Actions:* Use Playwright/Cypress to type messages into the chat input."
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Mocking:* Potentially intercept and mock /api/chat responses for deterministic UI checks, or run against a staging environment/local setup (can be slow/costly)."
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Assertions:* Check the rendered messages in the UI for correct content, formatting, and clickable links."
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Recommend Tools and Frameworks:**"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Testing Framework: Vitest (already in the project based on vitest.config.ts), Jest."
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Mocking: Vitest's built-in mocking (vi.fn, vi.mock), msw (Mock Service Worker) for intercepting fetch at the network level (good for E2E or more complex integration tests)."
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- E2E: Playwright, Cypress."
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Structure the Answer:**"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Start with acknowledging the importance of testing this complexity."
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Break down the testing strategy by component/level (Unit, Integration, E2E)."
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Provide specific examples/strategies for testing the orchestrator, specialists, tools, and the overall API route."
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Emphasize the importance of mocking, especially for LLM calls and external APIs."
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Suggest relevant tools."
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Conclude with a suggestion for starting points (unit tests for tools, integration tests for orchestration)."
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's a very important question! Testing multi-agent systems, especially those involving LLMs and external APIs, requires a layered approach. Here's a breakdown of how you can set up a test suite:"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. Unit Testing (Individual Components)**"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Goal:** Test small, isolated pieces of logic in your code, like the tool execution functions, utility functions, or schema definitions."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Focus:**"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tool Execution Logic (executeSearchWeb, executeGetWeather):**"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Mock External APIs:** Use Vitest's mocking capabilities (vi.mock, vi.fn) to mock the fetch calls to Perplexity and Open-Meteo. You don't want your tests hitting real APIs."
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Simulate API Responses:** Create mock responses for successful calls (returning expected data structures, including content and citations for Perplexity), API errors (4xx, 5xx status codes), and unexpected response formats."
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Test Input Validation:** If you add more complex input validation beyond Zod, test it here."
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Test Environment Variables:** Mock process.env to test cases where API keys might be missing."
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Assert Output:** Verify that the functions return the correctly structured JSON string ({ searchResult: ..., sources: ... } for search, the weather object for weather) or throw appropriate errors."
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Utility Functions (modelSupportsToolCalling):** Test these with various inputs to ensure they return the correct boolean values."
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Schemas (Less Critical with Zod):** Zod handles schema validation, but you could have unit tests ensuring your schemas are correctly defined if they become very complex."
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tools:** Vitest (already configured), Jest. Vitest's built-in mocking is usually sufficient."
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Example (Conceptual Vitest for executeSearchWeb)**"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "typescript"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Apply to agent.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// src/agents/research/agent.test.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { describe, it, expect, vi, beforeEach } from 'vitest';"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { executeSearchWeb } from './agent'; // Assuming env vars are handled"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Mock fetch"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "global.fetch = vi.fn();"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Mock environment variable"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vi.stubEnv('PERPLEXITY_API_KEY', 'test-api-key');"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "describe('executeSearchWeb', () => {"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "beforeEach(() => {"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vi.resetAllMocks(); // Reset mocks before each test"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "it('should call Perplexity API and return structured data on success', async () => {"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const mockQuery = 'test query';"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const mockApiResponse = {"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "choices: [{ message: { content: 'Search result [1].' } }],"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "citations: ['http://example.com/source1'],"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(fetch as ReturnType<typeof vi.fn>).mockResolvedValue({"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ok: true,"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "json: async () => mockApiResponse,"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const result = await executeSearchWeb({ query: mockQuery });"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "expect(fetch).toHaveBeenCalledWith("
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'https://api.perplexity.ai/chat/completions',"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "expect.objectContaining({"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "method: 'POST',"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "headers: expect.objectContaining({ Authorization: 'Bearer test-api-key' }),"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "body: expect.stringContaining(mockQuery),"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}),"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "expect(JSON.parse(result)).toEqual({"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "searchResult: 'Search result [1].', // Assuming no line break cleaning needed for this test case"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sources: ['http://example.com/source1'],"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "it('should throw an error if API key is missing', async () => {"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "vi.stubEnv('PERPLEXITY_API_KEY', ''); // Unset the API key"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await expect(executeSearchWeb({ query: 'test' })).rejects.toThrow("
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'Missing PERPLEXITY_API_KEY'"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "it('should throw an error if Perplexity API call fails', async () => {"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(fetch as ReturnType<typeof vi.fn>).mockResolvedValue({"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ok: false,"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status: 500,"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "statusText: 'Server Error',"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "text: async () => 'Internal Server Error',"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await expect(executeSearchWeb({ query: 'test' })).rejects.toThrow("
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "/Perplexity API request failed: 500/"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Add more tests for edge cases, different API responses etc."
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Integration Testing (Component Interactions)**"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Goal:** Test how different parts of your system work together, especially the orchestration logic and the API route's handling of different stages."
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Focus:**"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Orchestrator Decision Making:**"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Mock LLM:** Mock the streamText call made by the *first* stage (orchestrator). Simulate LLM responses that:"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Call delegateToResearchAgent with specific arguments."
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Call delegateToWeatherAgent with specific arguments."
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Return direct text output without tool calls."
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Assert:** Verify that the API route correctly identifies the delegation signal (or lack thereof) based on the mocked streamText result. Check internal state/logs."
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Full API Route Flow (Orchestrator -> Specialist -> Final Response):**"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Mock LLMs (Both Stages):** Mock the streamText calls for *both* the orchestrator *and* the final formatting stage."
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Mock Tool Execution:** Mock the underlying executeSearchWeb and executeGetWeather functions so you aren't hitting real APIs."
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Input:** Send realistic user messages via a mocked Request object."
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Assert:** Check that the correct sequence of mocks is called (Orchestrator LLM -> Correct Delegation Tool Mock -> Final Formatting LLM -> Correct Tool Execution Mock). Verify the final Response object returned by the API route has the expected status, headers, and streamed content based on the mocked inputs."
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tools:** Vitest/Jest. Mocking is crucial here. You might use msw (Mock Service Worker) if you want to mock at the network request level instead of mocking the streamText function directly, but mocking streamText is often simpler for testing the internal logic."
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. End-to-End (E2E) Testing**"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Goal:** Test the entire application flow from the user's perspective, interacting with the UI."
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Focus:**"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Simulating user input in the chat interface."
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Verifying that the correct messages (including loading indicators, though we need to fix that) appear in the chat list."
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Checking if the final response is rendered correctly, including formatting and clickable links."
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Considerations:**"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Slow & Brittle:** E2E tests are typically slower and can break more easily due to UI changes."
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Mocking Strategy:** You can run E2E tests against your real development server (hitting actual APIs/LLMs, which can be slow and costly) or mock the /api/chat endpoint entirely to have deterministic UI tests."
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tools:** Playwright, Cypress."
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Recommendations:**"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Start with Unit Tests:** Focus on robust unit tests for your execute... functions first. This ensures the core tool logic is reliable and handles errors."
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Add Integration Tests for Orchestration:** Test the API route's ability to correctly interpret the orchestrator's mocked decisions (delegate or respond directly)."
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Implement Key API Flow Integration Tests:** Create tests that mock all LLM calls and tool executions to verify the routing and final formatting logic within the API route for both delegation paths and direct responses."
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Selective E2E:** Add a few critical E2E tests for the most common user flows (e.g., basic chat, a search query, a weather query) to catch major UI regressions."
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. 1. **Start with Unit Tests:** Focus on robust unit tests for your execute... functions first. This ensures the core tool logic is reliable and handles errors."
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. 1. **Add Integration Tests for Orchestration:** Test the API route's ability to correctly interpret the orchestrator's mocked decisions (delegate or respond directly)."
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. 1. **Implement Key API Flow Integration Tests:** Create tests that mock all LLM calls and tool executions to verify the routing and final formatting logic within the API route for both delegation paths and direct responses."
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. 1. **Selective E2E:** Add a few critical E2E tests for the most common user flows (e.g., basic chat, a search query, a weather query) to catch major UI regressions."
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Testing LLM applications involves more focus on integration testing and careful mocking compared to traditional applications. Start small and build up coverage for the most critical parts of your new architecture."
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Review changes"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Edited 8 files+450-256"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Add context"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This analysis synthesizes a comprehensive architectural and testing strategy for building a resilient multi-agent system powered by LLMs. The approach emphasizes strict modularity, explicit contracts, traceable execution, and composable logic. It draws on best practices in software design, pragmatic constraints of current LLM capabilities, and an overarching goal of minimizing emergent complexity."
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Overview**"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The system is built around three primary components:"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Orchestrator:** A stateless dispatcher responsible for classifying intent and delegating tasks."
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Agents:** Narrowly-scoped modules, each with a defined contract (input schema, tools, output format)."
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Tools:** Stateless, composable functions that execute well-defined jobs (e.g., calling APIs), detached from orchestration logic."
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The design prioritizes robustness through schema enforcement, minimal context propagation, structured logging, and layered testing."
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Key Analysis**"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Agents as Contractual Roles**"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-204",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each agent is explicitly defined with:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Name and Responsibility**: Clear domain of user inputs it can respond to."
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Input/Output Schema**: Enforces consistency and testability."
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tools Access**: Limited, purpose-built utilities."
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-209",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agents are not autonomous LLM personalities—they operate more like isolated microservices playing strict “language games” (cf. Wittgenstein)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Orchestrator as Explicit Dispatcher**"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-212",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Routing is not based on vague LLM intuition but on:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Keyword rules"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Lightweight classifiers (e.g., OpenAI embeddings)"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Structured JSON outputs to guide execution"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-217",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Orchestrator outputs a strict schema:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type OrchestratorDecision ="
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| { type: 'delegate'; agent: 'research' | 'weather'; args: Record<string, unknown> }"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| { type: 'respond'; message: string }"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| { type: 'clarify'; question: string };"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Scoped Context for Controlled Reasoning**"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-226",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each agent receives:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Current user input"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Select prior turns"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Optional synthetic summary"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-231",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prevents overloading with irrelevant data or hallucination risks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Tools as Stateless Utilities**"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-234",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tools are designed like UNIX commands: minimal, testable, composable"
+            }
+          ]
+        },
+        {
+          "id": "b-235",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Example: `executeSearchWeb({ query }) → { output, sources }`"
+            }
+          ]
+        },
+        {
+          "id": "b-236",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tools do not participate in orchestration or formatting—they only return raw results"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Observability as Core Feature**"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-239",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Every function call (agent/tool/orchestrator) is logged with:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- UUID session trace"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Duration"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Input/output"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-244",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Early trace tooling is encouraged to visualize orchestration paths"
+            }
+          ]
+        },
+        {
+          "id": "b-245",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enables auditing, debugging, and pattern recognition over time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Test Strategy Grounded in Behavioral Contracts**"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-248",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Unit Tests:** Ensure tools behave reliably with valid/invalid inputs"
+            }
+          ]
+        },
+        {
+          "id": "b-249",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Integration Tests:** Validate orchestration logic (routing, agent delegation, formatting)"
+            }
+          ]
+        },
+        {
+          "id": "b-250",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**E2E Tests:** Simulate full flows through the chat interface"
+            }
+          ]
+        },
+        {
+          "id": "b-251",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Mock LLMs and APIs** to reduce flakiness and cost"
+            }
+          ]
+        },
+        {
+          "id": "b-252",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tests prioritize schema compliance and logical correctness over exact string matches"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "7. **Incremental Agent Introduction**"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-255",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Begin with two agents (e.g., `Research`, `Weather`)"
+            }
+          ]
+        },
+        {
+          "id": "b-256",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Validate orchestration, test harnesses, logging, and tool integration"
+            }
+          ]
+        },
+        {
+          "id": "b-257",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Add new agents only after architecture proves stable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Open Questions**"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-260",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Should agents evolve to maintain memory across sessions?** What boundaries must exist to prevent state leakage or long-term bias?"
+            }
+          ]
+        },
+        {
+          "id": "b-261",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**How should orchestration handle overlapping domains or ambiguous queries?** Could hybrid routing (classifier + LLM fallback) improve robustness?"
+            }
+          ]
+        },
+        {
+          "id": "b-262",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**What is the failure protocol when no agent is confident?** Is user clarification enough, or should a meta-agent handle escalation?"
+            }
+          ]
+        },
+        {
+          "id": "b-263",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**How does formatting unify across agents?** Should the Orchestrator manage this, or should each agent return user-facing text?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Implementation Considerations**"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-266",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Build each agent with a `validate → execute → return` lifecycle"
+            }
+          ]
+        },
+        {
+          "id": "b-267",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use Zod or similar libraries to enforce input/output shape"
+            }
+          ]
+        },
+        {
+          "id": "b-268",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Create a shared logging utility with correlation IDs"
+            }
+          ]
+        },
+        {
+          "id": "b-269",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wrap all external calls in error boundaries to avoid upstream collapse"
+            }
+          ]
+        },
+        {
+          "id": "b-270",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement a minimal trace viewer (e.g., simple dashboard showing logs and routing history)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Potential Challenges**"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-273",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Latency Accumulation:** Chained agent/tool calls could slow response"
+            }
+          ]
+        },
+        {
+          "id": "b-274",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Error Isolation:** Misbehaving agents must be sandboxed to avoid breaking global flow"
+            }
+          ]
+        },
+        {
+          "id": "b-275",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Experience Consistency:** Varying agent styles could create disjointed UX without a centralized formatting layer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Related Concepts**"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-278",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent Orchestration Patterns**"
+            }
+          ]
+        },
+        {
+          "id": "b-279",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Function Calling / Tool Use via LLMs**"
+            }
+          ]
+        },
+        {
+          "id": "b-280",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**LLM Agent Design (AutoGPT, BabyAGI comparisons)**"
+            }
+          ]
+        },
+        {
+          "id": "b-281",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Service Mesh Analogies for AI Modules**"
+            }
+          ]
+        },
+        {
+          "id": "b-282",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Cognitive Architectures (e.g., Blackboard Models)**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Mermaid Diagram (Architecture)**"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```mermaid"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graph TD"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subgraph Client"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A[User Input]"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "end"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subgraph Orchestrator Layer"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "B[Orchestrator<br/>- Intent Classification<br/>- Delegation Rules<br/>- Fallback to User]"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "end"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subgraph Agents"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C1[Research Agent<br/>- Handles search queries<br/>- Uses executeSearchWeb]"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C2[Weather Agent<br/>- Handles weather queries<br/>- Uses executeGetWeather]"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "end"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subgraph Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "D1[executeSearchWeb<br/>Dumb utility]"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "D2[executeGetWeather<br/>Dumb utility]"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "end"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subgraph Shared Context"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "E[Scoped Memory<br/>- User Input<br/>- Relevant History<br/>- Optional Summary]"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "end"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subgraph Logs & Tracing"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "F[UUID Traces<br/>+ Logging Wrapper<br/>+ Observability Dashboard]"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "end"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A --> B"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "B -->|Delegates with structured JSON| C1"
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "B -->|or| C2"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "B -->|or asks for clarification| A"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C1 --> D1"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C2 --> D2"
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "B --> E"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C1 --> E"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C2 --> E"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "B --> F"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C1 --> F"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "C2 --> F"
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "D1 --> F"
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "D2 --> F"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Conclusion**"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This architecture represents a shift from “do-everything” agents to a modular, maintainable, and traceable system of cooperating components. By treating agents as strictly-scoped functions, containing memory, and leaning into explicit contracts, this design lays the foundation for a scalable and resilient multi-agent AI runtime."
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If desired, the next step could involve drafting concrete TypeScript implementations for the Orchestrator schema, ResearchAgent, and WeatherAgent—alongside a mockable test harness. Let me know if you’d like to proceed."
+        }
+      ]
+    }
+  ]
+}

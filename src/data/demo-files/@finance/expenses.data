@@ -1,0 +1,194 @@
+{
+  "@context": {
+    "fin": "https://finance.local/"
+  },
+  "@id": "fin:expenses",
+  "@type": "ExpenseCollection",
+  "categories": [
+    {
+      "id": "cat:housing:001",
+      "slug": "housing",
+      "name": "Housing",
+      "type": "fixed",
+      "budgeted": 1800,
+      "items": [
+        {
+          "name": "Rent",
+          "amount": 1650,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Renters Insurance",
+          "amount": 25,
+          "frequency": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "cat:utilities:001",
+      "slug": "utilities",
+      "name": "Utilities",
+      "type": "variable",
+      "budgeted": 250,
+      "items": [
+        {
+          "name": "Electric",
+          "amount": 85,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Gas",
+          "amount": 45,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Internet",
+          "amount": 70,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Phone",
+          "amount": 45,
+          "frequency": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "cat:food:001",
+      "slug": "food",
+      "name": "Food",
+      "type": "variable",
+      "budgeted": 600,
+      "items": [
+        {
+          "name": "Groceries",
+          "amount": 400,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Dining Out",
+          "amount": 150,
+          "frequency": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "cat:transport:001",
+      "slug": "transport",
+      "name": "Transportation",
+      "type": "variable",
+      "budgeted": 350,
+      "items": [
+        {
+          "name": "Gas",
+          "amount": 120,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Car Insurance",
+          "amount": 125,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Maintenance",
+          "amount": 50,
+          "frequency": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "cat:health:001",
+      "slug": "health",
+      "name": "Health",
+      "type": "fixed",
+      "budgeted": 200,
+      "items": [
+        {
+          "name": "Health Insurance",
+          "amount": 150,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Gym",
+          "amount": 40,
+          "frequency": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "cat:savings:001",
+      "slug": "savings",
+      "name": "Savings & Investments",
+      "type": "fixed",
+      "budgeted": 500,
+      "items": [
+        {
+          "name": "Emergency Fund",
+          "amount": 200,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Brokerage",
+          "amount": 300,
+          "frequency": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "cat:personal:001",
+      "slug": "personal",
+      "name": "Personal",
+      "type": "variable",
+      "budgeted": 200,
+      "items": [
+        {
+          "name": "Clothing",
+          "amount": 75,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Personal Care",
+          "amount": 50,
+          "frequency": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "cat:entertainment:001",
+      "slug": "entertainment",
+      "name": "Entertainment",
+      "type": "discretionary",
+      "budgeted": 150,
+      "items": [
+        {
+          "name": "Hobbies",
+          "amount": 100,
+          "frequency": "monthly"
+        },
+        {
+          "name": "Events",
+          "amount": 50,
+          "frequency": "monthly"
+        }
+      ]
+    }
+  ],
+  "totalBudgeted": {
+    "@expr": "categories.map(c => c.budgeted).reduce((a, b) => a + b, 0)"
+  },
+  "totalBudgetedFormatted": {
+    "@expr": "$currency(totalBudgeted)"
+  },
+  "fixedExpenses": {
+    "@expr": "categories.filter(c => c.type == 'fixed').map(c => c.budgeted).reduce((a, b) => a + b, 0)"
+  },
+  "variableExpenses": {
+    "@expr": "categories.filter(c => c.type == 'variable').map(c => c.budgeted).reduce((a, b) => a + b, 0)"
+  },
+  "discretionaryExpenses": {
+    "@expr": "categories.filter(c => c.type == 'discretionary').map(c => c.budgeted).reduce((a, b) => a + b, 0)"
+  },
+  "categoryCount": {
+    "@expr": "categories.length"
+  }
+}

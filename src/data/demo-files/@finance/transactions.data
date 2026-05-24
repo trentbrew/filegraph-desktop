@@ -1,0 +1,227 @@
+[
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-01:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-01:001",
+    "slug": "txn-01",
+    "date": "2024-03-01",
+    "description": "Paycheck",
+    "amount": 3200,
+    "category": "income",
+    "account": "acc:checking:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-02:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-02:001",
+    "slug": "txn-02",
+    "date": "2024-03-01",
+    "description": "Rent",
+    "amount": -1650,
+    "category": "housing",
+    "account": "acc:checking:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-03:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-03:001",
+    "slug": "txn-03",
+    "date": "2024-03-02",
+    "description": "Grocery Store",
+    "amount": -127.43,
+    "category": "food",
+    "account": "acc:credit:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-04:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-04:001",
+    "slug": "txn-04",
+    "date": "2024-03-03",
+    "description": "Gas Station",
+    "amount": -45,
+    "category": "transport",
+    "account": "acc:credit:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-05:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-05:001",
+    "slug": "txn-05",
+    "date": "2024-03-04",
+    "description": "Electric Bill",
+    "amount": -85,
+    "category": "utilities",
+    "account": "acc:checking:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-06:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-06:001",
+    "slug": "txn-06",
+    "date": "2024-03-05",
+    "description": "Netflix",
+    "amount": -15.99,
+    "category": "subscriptions",
+    "account": "acc:credit:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-07:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-07:001",
+    "slug": "txn-07",
+    "date": "2024-03-06",
+    "description": "Restaurant",
+    "amount": -52.3,
+    "category": "food",
+    "account": "acc:credit:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-08:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-08:001",
+    "slug": "txn-08",
+    "date": "2024-03-07",
+    "description": "Freelance Payment",
+    "amount": 1200,
+    "category": "income",
+    "account": "acc:checking:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-09:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-09:001",
+    "slug": "txn-09",
+    "date": "2024-03-08",
+    "description": "Transfer to Savings",
+    "amount": -500,
+    "category": "transfer",
+    "account": "acc:checking:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-10:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-10:001",
+    "slug": "txn-10",
+    "date": "2024-03-08",
+    "description": "Transfer from Checking",
+    "amount": 500,
+    "category": "transfer",
+    "account": "acc:savings:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-11:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-11:001",
+    "slug": "txn-11",
+    "date": "2024-03-10",
+    "description": "Gym Membership",
+    "amount": -40,
+    "category": "health",
+    "account": "acc:checking:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-12:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-12:001",
+    "slug": "txn-12",
+    "date": "2024-03-11",
+    "description": "Coffee Shop",
+    "amount": -6.5,
+    "category": "food",
+    "account": "acc:credit:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-13:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-13:001",
+    "slug": "txn-13",
+    "date": "2024-03-12",
+    "description": "Amazon Purchase",
+    "amount": -89.99,
+    "category": "personal",
+    "account": "acc:credit:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-14:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-14:001",
+    "slug": "txn-14",
+    "date": "2024-03-14",
+    "description": "Interest Earned",
+    "amount": 56.25,
+    "category": "income",
+    "account": "acc:savings:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:tx:txn-15:001",
+    "@type": [
+      "Entity",
+      "Transaction"
+    ],
+    "id": "tx:txn-15:001",
+    "slug": "txn-15",
+    "date": "2024-03-15",
+    "description": "Paycheck",
+    "amount": 3200,
+    "category": "income",
+    "account": "acc:checking:001"
+  }
+]

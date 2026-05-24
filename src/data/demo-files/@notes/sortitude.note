@@ -1,0 +1,550 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-230",
+  "title": "Sortitude",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Sortitude"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is a great point to define a clear and effective schema for your lessons and resources, especially since it's heading into Webflow's CMS. Having a well-thought-out structure now will save a lot of headaches later."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's break down how we can approach this. The goal is to create a schema that's:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Comprehensive**: Captures all necessary information."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Flexible**: Can accommodate future needs."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **CMS-friendly**: Works well with Webflow's collection system for filtering and display."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here's a thinking process and a proposed starting point:"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Identifying Core Information"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Based on what we've processed and downloaded, we have:"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Resource Title**: The specific name of the PDF (e.g., \"G9 U1 L1 Who Are You\")."
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Resource URL**: The direct link to the PDF."
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Filename**: The actual name of the downloaded file (e.g., `G9_U1_L1_Who-Are-You.pdf`)."
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Source HTML Page**: The original HTML file from which the resource was extracted (e.g., `seminar-curriculum-9th-grade.html`). This tells us the broader context, like the grade level and main curriculum."
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Extracted Category**: The title of the toggle section in the HTML (e.g., \"Unit 1: Our Stories\", \"Academic Support\"). This often gives us the unit or a specific topic."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Structuring for Webflow CMS"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Webflow CMS uses \"Collections,\" which are like database tables. We want fields that allow for easy filtering and organization. A common approach is to have a main collection for your resources and potentially link to other collections for taxonomies (like Grades, Units, Topics), but let's start by defining fields for a primary \"Resources\" collection."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Proposed Schema for a \"Resources\" Collection"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here's a suggestion for the fields. We can refine this based on your priorities:"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Field Name | Data Type (Webflow) | Example Value / Source | Purpose & Notes |"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Name`** (Required) | Plain Text | \"G9 U1 L1 Who Are You\" (from `resource.title`) | The primary display name for the resource. |"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Resource URL`** | Link | `https://newroot.org/.../G9_U1_L1_Who-Are-You.pdf` (from `resource.url`) | Direct link to the PDF. Could also be used to link to an internally hosted file if you upload PDFs to Webflow. |"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Filename`** | Plain Text | `G9_U1_L1_Who-Are-You.pdf` | The actual filename. Useful for reference. |"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Resource Type`** | Single-Select | \"PDF\" (default) | Allows categorization by type (e.g., PDF, Video, Worksheet, External Link). We can start with just \"PDF\". |"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Grade Level`** | Single-Select | \"9th Grade\", \"10th Grade\", \"All Grades\" | Derived from the source HTML filename (e.g., `seminar-curriculum-**9th-grade**.html`). Essential for filtering. |"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Curriculum Source`** | Single-Select | \"9th Grade Seminar\", \"Supplementary Resources\", \"Restorative Practices Toolkit\" | Derived from the source HTML filename (e.g., \"**seminar-curriculum**-9th-grade.html\" -> \"9th Grade Seminar\"). Provides high-level grouping. |"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Unit / Main Topic`** | Plain Text | \"Unit 1: Our Stories\", \"Academic Support\" (from `resource.category`) | The specific unit or topic the resource belongs to, extracted from the HTML toggle title. |"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Lesson Number`** | Number (Optional) | 1, 2, 10 | Extracted from the filename or title if a pattern like \"L1\", \"L02\" exists. Helps with ordering. |"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Original HTML File`** | Plain Text | `seminar-curriculum-9th-grade.html` | For traceability, knowing where the resource originated. |"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Raw Category Text`** | Plain Text | The full text from the HTML toggle (e.g., \"Unit 1: Our Stories - Exploring Identity\") | Stores the exact category string we extracted for reference or further parsing if needed. |"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Description / Notes`** | Rich Text (Optional) | *Manually entered or future enhancement* | For providing more context or a summary of the resource. |"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **`Downloadable File`** | File (Optional) | *The actual PDF uploaded to Webflow* | If you plan to host the PDFs directly in Webflow's assets rather than linking externally. |"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Data Derivation Strategy (How we'd populate this from current data)"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Name`, `Resource URL`, `Filename`, `Raw Category Text`**: Directly from our current JSON data and download process."
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Resource Type`**: Default to \"PDF\"."
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Grade Level`**: Parse from the source HTML filename (e.g., `seminar-curriculum-9th-grade.html` -> \"9th Grade\"). For general files like `supplementary-resources.html`, it might be \"All Grades\" or we might try to infer from `Raw Category Text` if it contains grade info."
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Curriculum Source`**: Parse from the source HTML filename (e.g., `seminar-curriculum-10th-grade.html` -> \"10th Grade Seminar\", `restorative-practices-toolkit.html` -> \"Restorative Practices Toolkit\")."
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Unit / Main Topic`**: Use the `resource.category` value."
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Lesson Number`**: Attempt to parse from patterns like \"L1\", \"L01\", \"Lesson 1\" in the `Filename` or `Name`."
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Original HTML File`**: The filename of the JSON (which matches the HTML filename)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Key Questions for You:"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To tailor this perfectly, consider these points:"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Essential Fields**: Does the proposed list cover the critical information you need to display and filter in Webflow? Are there any must-haves missing or any that seem unnecessary?"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Filtering Needs**: How do you envision users filtering or searching for these resources in Webflow? This will heavily influence which fields should be distinct and well-structured (e.g., `Grade Level` and `Curriculum Source` as select/dropdowns)."
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Future Resource Types**: Do you anticipate adding other types of resources soon (e.g., videos, external web links, interactive modules)? If so, the `Resource Type` field becomes more important."
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Order & Sequence**: Is the order of lessons within a unit important? If so, the `Lesson Number` field (and potentially a \"Unit Sequence\" if units have an order) will be valuable."
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Webflow Structure (Simplicity vs. Power)**:"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Option A (Simpler Start)**: One large \"Resources\" collection with fields as described above. Many fields would be Single-Select or Plain Text."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Option B (More Structured)**: Create separate Webflow Collections for \"Grades\" (e.g., items: 9th, 10th), \"Curriculum Sources\" (items: Seminar, Toolkit), and \"Units\". Then, in the \"Resources\" collection, use \"Reference\" or \"Multi-Reference\" fields to link to these. This is more powerful for managing your taxonomy and creating relationships but is more complex to set up and import into."
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *My recommendation is often to start with Option A if the taxonomy isn't too complex or is still evolving, and then consider Option B as a later refinement if needed.*"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Content Source**: The current \"category\" string from the HTML sometimes has rich detail (e.g., \"Unit 1: Our Stories - Exploring Identity\"). Do we want to try and parse this further, or is capturing it in `Unit / Main Topic` and `Raw Category Text` sufficient for now?"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's discuss these points. Your input on how you intend to use this data in Webflow will be key to designing the most effective schema. We can then think about modifying the script to output a new set of JSON files (or a CSV) that matches this schema, ready for import."
+        }
+      ]
+    }
+  ]
+}

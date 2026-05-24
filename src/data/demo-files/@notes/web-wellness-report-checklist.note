@@ -1,0 +1,609 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-146",
+  "title": "Web Wellness Report Checklist",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Web Wellness Report Checklist"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Page Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This template provides a high-level summary of the website health, performance, and maintenance actions for the NewRoot website. The structure is designed to flow logically from general information at the top to specific metrics and visual data in the middle, ending with contact details and relevant acknowledgments at the bottom."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Cell Breakdown"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Header Area"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Date (Top Right, Outside Grid)**: Clearly indicate the report's month and year for quick identification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Grid Cells"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Cell 1**: **Summary**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: This section introduces the main purpose of the report. Include a short paragraph summarizing the month’s focus areas, major updates, and any notable changes."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: Plain text for readability."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Gather data from monthly team meetings and project updates."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Cell 2**: **System Integrity & Security Overview**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: Key actions taken this month regarding system integrity (plugin updates, error log checks, unauthorized access reviews)."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: Bullet points or a concise checklist for ease of reading."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Review system logs and security reports from the IT team."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Cell 3**: **Website Performance**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: A summary of performance metrics such as load times, server uptime, and average response times."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: Horizontal bar or line chart showing load times and response times, with key performance indicators highlighted."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Extract data from Google Analytics and server monitoring tools."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Cell 4**: **Server Status**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: Key status reports from Opalstack or hosting provider with any incidents, downtimes, or critical support actions taken."
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: Icons or small colored indicators (green, yellow, red) to quickly communicate server health status."
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Obtain status reports from Opalstack or hosting provider's dashboard."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Cell 5**: **Traffic and User Behavior**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: Top-line stats from Google Analytics (e.g., page views, unique users, bounce rate)."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: Pie chart or doughnut chart summarizing user behavior metrics."
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Pull data from Google Analytics dashboard."
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Cell 6**: **Backup Status**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: Information on the status of backups (date of last backup, verification checks, frequency)."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: Status icon with date (green for successful backup, red if issues encountered)."
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Check backup logs and verification reports."
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Cell 7**: **Security & Compliance**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: Overview of any security incidents, compliance checks, or vulnerabilities addressed."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: Checklist with icons to indicate successful or pending actions."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Review security incident reports and compliance audit results."
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Cell 8**: **Performance and Accessibility Enhancements**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: Results from the Lighthouse report, with scores for performance, accessibility, best practices, and SEO."
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: A bar chart or scorecard with color-coded bars or ratings for each Lighthouse metric."
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Generate Lighthouse report and extract relevant scores."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Footer Area"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Left Section (Gumbo Media Logo)**: Brand logo for Gumbo Media to establish authorship."
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Right Section**: **Contact Information**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Content**: Contact details for Sample User and Gumbo Media. This includes email and phone number for any follow-up queries or clarifications."
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Visual**: Plain text, right-aligned for a clean look."
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source**: Use the latest contact information from the company directory."
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Next Steps"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Optimize Image and Asset Loading**: Review and compress large images, defer off-screen images, and consider using modern formats like WebP to reduce load times."
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Minify and Compress Scripts**: Minimize JavaScript and CSS files, implement lazy loading, and remove unused code to boost performance."
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Enhance Security Protocols**: Address best practice gaps by reviewing content security policies and ensuring HTTPS is enforced across all pages."
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **SEO Fine-tuning**: Optimize metadata, refine internal link structure, and check for mobile-friendly adjustments to improve SEO visibility."
+        }
+      ]
+    }
+  ]
+}

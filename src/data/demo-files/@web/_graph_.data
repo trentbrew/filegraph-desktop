@@ -1,0 +1,35 @@
+{
+  "@context": {
+    "name": "http://schema.org/name",
+    "email": "http://schema.org/email",
+    "phone": "http://schema.org/telephone",
+    "company": "http://schema.org/worksFor",
+    "note": "http://schema.org/description"
+  },
+  "@graph": [
+    {
+      "@id": "person:1",
+      "@type": "Person",
+      "name": "Ada Lovelace",
+      "email": "ada@example.com",
+      "phone": "+1 (555) 010-1010",
+      "company": "org:1",
+      "note": "Example record with a relation to an organization."
+    },
+    {
+      "@id": "person:2",
+      "@type": "Person",
+      "name": "Grace Hopper",
+      "email": "grace@example.com",
+      "phone": "+1 (555) 010-2020",
+      "company": "org:1",
+      "note": "Another linked record."
+    },
+    {
+      "@id": "org:1",
+      "@type": "Organization",
+      "name": "Analytical Engine Society",
+      "note": "Referenced by people via \"company\"."
+    }
+  ]
+}

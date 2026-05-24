@@ -1,0 +1,190 @@
+{
+  "@context": { "schema": "https://schema.org/" },
+  "@type": "Note",
+  "@id": "note:ideas",
+  "title": "Feature Ideas & Brainstorm",
+  "author": "person:james:001",
+  "status": "draft",
+  "created_at": "2024-01-12T16:00:00Z",
+  "updated_at": "2024-01-14T11:20:00Z",
+  "blocks": [
+    {
+      "id": "b-h1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        { "type": "text", "text": "Feature Ideas" }
+      ]
+    },
+    {
+      "id": "b-intro",
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "A collection of ideas for " },
+        { "type": "mention", "entityId": "proj:filegraph:001" },
+        { "type": "text", "text": " that came up during our brainstorming sessions." }
+      ]
+    },
+    {
+      "id": "b-h2-1",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        { "type": "text", "text": "🎨 Design System Integration" }
+      ]
+    },
+    {
+      "id": "b-design",
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "Support for design tokens and brand assets. Reference palettes and fonts directly in data properties. Suggested by " },
+        { "type": "mention", "entityId": "person:maria:001" },
+        { "type": "text", "text": "." }
+      ]
+    },
+    {
+      "id": "b-design-code",
+      "type": "codeBlock",
+      "language": "json",
+      "content": [
+        { "type": "text", "text": "{\n  \"primaryColor\": { \"@ref\": \"brand:primary:001\" },\n  \"font\": { \"@ref\": \"brand:inter:001\" }\n}" }
+      ]
+    },
+    {
+      "id": "b-h2-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        { "type": "text", "text": "📝 Rich Text Notes" }
+      ]
+    },
+    {
+      "id": "b-notes",
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "Implement " },
+        { "type": "text", "text": ".note", "marks": ["code"] },
+        { "type": "text", "text": " file format with:" }
+      ]
+    },
+    {
+      "id": "b-notes-list",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-n1",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Block-based editing (like Notion)" }
+          ]
+        },
+        {
+          "id": "b-n2",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Entity mentions with " },
+            { "type": "text", "text": "@", "marks": ["code"] },
+            { "type": "text", "text": " trigger" }
+          ]
+        },
+        {
+          "id": "b-n3",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Wikilinks with " },
+            { "type": "text", "text": "[[", "marks": ["code"] },
+            { "type": "text", "text": " trigger" }
+          ]
+        },
+        {
+          "id": "b-n4",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Slash commands for block insertion" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-h2-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        { "type": "text", "text": "🔗 Backlinks Panel" }
+      ]
+    },
+    {
+      "id": "b-backlinks",
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "Show all documents that reference the current entity. Already have the link parser from RFC-001, just need the UI." }
+      ]
+    },
+    {
+      "id": "b-quote",
+      "type": "blockquote",
+      "children": [
+        {
+          "id": "b-q1",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Knowledge is only useful when it's connected.", "marks": ["italic"] },
+            { "type": "text", "text": " — " },
+            { "type": "mention", "entityId": "person:sarah:001" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-h2-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        { "type": "text", "text": "Priority" }
+      ]
+    },
+    {
+      "id": "b-priority",
+      "type": "orderedList",
+      "children": [
+        {
+          "id": "b-p1",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Rich text notes", "marks": ["bold"] },
+            { "type": "text", "text": " — ", "marks": ["highlight"] },
+            { "type": "text", "text": "In Progress" }
+          ]
+        },
+        {
+          "id": "b-p2",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Design system integration" }
+          ]
+        },
+        {
+          "id": "b-p3",
+          "type": "paragraph",
+          "content": [
+            { "type": "text", "text": "Backlinks panel" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-hr",
+      "type": "horizontalRule"
+    },
+    {
+      "id": "b-footer",
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "See also: " },
+        { "type": "mention", "entityId": "note:project-kickoff" },
+        { "type": "text", "text": " • " },
+        { "type": "mention", "entityId": "note:welcome" }
+      ]
+    }
+  ]
+}

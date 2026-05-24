@@ -1,0 +1,225 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-280",
+  "title": "prolog",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "prolog"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "a developer *could* use prolog to resolve graphql queries. it's not the most common approach, given the prevalence of javascript/typescript, python, or java for graphql backends, but it's entirely feasible and, in some ways, even quite natural."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "here's how it could work:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **prolog as the data layer (knowledge base):** instead of your data being in a relational database or a nosql store, it could be represented as facts and rules in a prolog knowledge base."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `user(id: '123', name: 'daria', email: 'daria@example.com').`"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `post(id: 'p1', author_id: '123', title: 'on the existential angst of teenagers').`"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `has_post(user_id, post_id) :- user(id: user_id, ...), post(author_id: user_id, id: post_id).`"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **prolog as the resolver logic:** each graphql resolver function, instead of making a call to a database library, would construct and execute a prolog query."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **`user` resolver:** when the graphql server gets a query for `user(id: \"123\")`, the prolog-based resolver for `user` would formulate a prolog query like `user(id: '123', Name, Email)`. prolog would then find the matching fact and return `Name` and `Email`."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **`posts` resolver (nested):** if the query then asks for `posts` on that user, the `posts` resolver would get the `user_id` (from the parent resolver's result) and construct a prolog query like `has_post('123', PostId), post(id: PostId, Title, Likes)`. prolog would then deduce all posts associated with that user."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **schema mapping:** you'd need a way to map your graphql schema types and fields to prolog predicates and arguments. some prolog libraries exist (like the `graphql` pack for swi-prolog) that help with this by providing tools to parse graphql queries and introspection results directly into prolog terms."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**why it's natural in some ways:**"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**declarative:** both prolog and graphql thrive on declarative descriptions. graphql declares the *shape* of the data you want, and prolog declares *what is true* or *what relationships exist*. this aligns well."
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**graph-like:** prolog excels at traversing relationships defined in its knowledge base, which maps well to graphql's inherent graph structure."
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**complex logic:** for resolvers that require complex business logic, rule-based systems like prolog can be very powerful for expressing those rules clearly and concisely. think about authorization rules, data validation, or inferring new facts from existing ones."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**challenges:**"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**performance:** for very large datasets or high-throughput systems, the performance characteristics of prolog for data retrieval might need careful consideration. traditional databases are highly optimized for these scenarios. however, prolog can interface with traditional databases (e.g., via odbc), acting as a logic layer on top."
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**ecosystem and tooling:** the graphql ecosystem is heavily weighted towards javascript, python, etc. you'd find fewer pre-built libraries, tooling, and community support for a prolog-based graphql server compared to more mainstream languages."
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**developer familiarity:** many developers aren't familiar with prolog, which could be a barrier to adoption."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**in summary:** it's definitely possible and conceptually elegant. if your data is inherently rule-based, or if you have complex inferential logic that benefits from prolog's strengths, it could be a very powerful, albeit niche, choice for a graphql backend. it's less about raw data fetching speed (which is where a direct database connection might win), and more about leveraging prolog's unique capabilities for logical deduction."
+        }
+      ]
+    }
+  ]
+}

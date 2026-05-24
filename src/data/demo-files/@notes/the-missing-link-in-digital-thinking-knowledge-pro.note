@@ -1,0 +1,3281 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-252",
+  "title": "The Missing Link in Digital Thinking: Knowledge Processing",
+  "author": "person:jane-brew:001",
+  "status": "reviewing",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Missing Link in Digital Thinking: Knowledge Processing"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "We are drowning in tools for managing data and documents, yet starving for tools that help us think. Spreadsheets crunch numbers. `Notion` organizes notes. AI summarizers regurgitate fragments. But where do we go when we want to connect, synthesize, and evolve ideas—when we want our tools not just to store knowledge, but to process it?"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is not a question of productivity. It’s a question of cognition. How do we shape tools that mirror and magnify the very process of understanding—tools that don’t just remember what we thought yesterday, but help us think better today?"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In this post, we’ll explore the conceptual gap between data-processing tools like `Excel`, knowledge storage platforms like `Notion`, and what might be called *knowledge processing tools*—a still-emerging category of software that aims to bridge the two. We’ll map the distinctions, articulate the design principles, and imagine what such a tool could enable—not just for individuals, but for collective intelligence."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Foundational Distinctions"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Data** is raw, uncontextualized input—numbers, strings, symbols."
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Information** is structured data—organized, categorized, maybe visualized."
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Knowledge** is actionable understanding—data and information situated within a framework of meaning, intent, and relevance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Building on these definitions:"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Data-processing tools (like spreadsheets) manipulate numerical or symbolic data to produce new information or results."
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knowledge tools (like `Notion`, `Roam`, `Obsidian`) are more about storing, linking, and retrieving context-rich information, often with minimal transformation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "So what is knowledge processing?"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Defining a Knowledge Processing Tool"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A knowledge processing tool would be one that doesn't just store or display knowledge, but actively helps a user:"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Synthesize diverse inputs into coherent understanding"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Infer implications, connections, and hypotheses"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Evolve mental models over time through iteration and reflection"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Translate understanding into action—be it planning, communication, or decision-making"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Track the epistemic lineage of ideas—where they came from, how they changed, why they matter"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Characteristics of a True Knowledge Processing Tool"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Capability | Description |"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Contextual Recall | Understands not just what you know but why you saved it |"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Semantic Linking | Goes beyond manual back-linking to surface meaningful relationships |"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Insight Generation | Suggests patterns, contradictions, or missing links in your thinking |"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Temporal Layering | Tracks evolution of ideas over time |"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Decision Support | Helps simulate or test consequences of choices based on accumulated knowledge |"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Modular Abstraction | Allows compressing complex thoughts into reusable, extensible modules |"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Meta-Cognition Support | Promotes awareness of cognitive biases, blind spots, or overconfidence |"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "What Might It Look Like?"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Imagine a system that:"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lets you write an idea, then automatically surfaces relevant prior entries, counterpoints, and related fields of knowledge."
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Can map the shape of your thinking (dense vs. sparse, circular vs. hierarchical)."
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Suggests new areas of inquiry based on observed gaps in your understanding."
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integrates both structured (tables, models) and unstructured (essays, notes) knowledge seamlessly."
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Allows for both free-form exploration and rigorous modeling—blending creativity with logic."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Current Tools Approaching This Space"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Some tools nibble at the edges of knowledge processing:"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-43",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Roam Research` / `Logseq`**: Networked thought + time-based exploration"
+            }
+          ]
+        },
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Obsidian` with plugins**: Visual graph + data-linked markdown"
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Tana` / `Capacities`**: Structured knowledge + dynamic views"
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Reflect` / `Mem`**: Context-aware recall + AI summarization"
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**`Coda` / `Notion` with AI**: Integrating data, documents, and logic with assistance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> 💡 While these tools offer valuable features, none yet form a cohesive knowledge engine that can truly process knowledge as an epistemic system."
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Philosophical Implications"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A true knowledge processing tool would be an extension of the mind, not just a memory vault. It would:"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Respect and mirror the non-linear, recursive, and uncertain nature of real thinking."
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Help transform uncertainty into insight, not just data into charts."
+            }
+          ]
+        },
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Be less about automation, and more about amplification of meaning and understanding."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"We shape our tools and then our tools shape us.\""
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> — Marshall McLuhan"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Landscape of Thinking Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In the past two decades, our digital toolkits have exploded with options for capturing thoughts, organizing tasks, analyzing data, and documenting processes. We’ve seen the rise of everything from `Excel` to `Notion`, from `Evernote` to `Obsidian`, and now a wave of AI-enhanced assistants. But amid this abundance, something strange has happened: our capacity to think deeply and clearly has not scaled in tandem."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> The problem is not lack of access. It’s lack of alignment between our tools and our cognitive architecture."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "As thinkers and creators, we need more than just data storage or computation—we need environments that support the processing of ideas into insight."
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Three Categories of Digital Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Data-processing tools**"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Examples: `Excel`, `Google Sheets`, `SQL`"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: Structure, computation, quantification"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Answers: \"How much?\" or \"What happened?\""
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Strength: Precision with structured data"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Knowledge-storage tools**"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Examples: `Notion`, `Obsidian`, `Roam`"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: Capturing, organizing, and linking information"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Answers: \"What do I know?\" and \"Where did I save that?\""
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Strength: Contextual organization"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Knowledge-processing tools** (emerging)"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: Synthesizing, evolving, and applying understanding"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Answers: \"What does this mean?\" and \"What should I do next?\""
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Potential: Transform information into insight and action"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "While the first two categories are well-populated, the third remains largely aspirational. The notion of \"tools for thought\" has been circulating since at least the 1960s, popularized by pioneers like Douglas Engelbart, whose 1962 paper *Augmenting Human Intellect* [1] laid the philosophical groundwork for thinking tools that do more than automate—they amplify."
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In recent years, thinkers like Andy Matuschak and Maggie Appleton have revived this conversation, arguing that most modern tools for thought are still too passive—designed to hold our knowledge, but not to interrogate or transform it [2][3]."
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"If we're going to augment human intellect, we need to build tools that don't just remember for us, but help us think better.\""
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> — Andy Matuschak, [*Evergreen Notes*](https://notes.andymatuschak.org/About_these_notes)"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The question we now face is not how to store more, but how to process better. This shift—from accumulation to transformation—is the threshold at which our current tools fall short, and where a new paradigm is needed."
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Understanding Data Processing"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Side-by-side comparison of raw data vs. processed information - left side showing a jumble of numbers, right side showing a clean bar chart with insights highlighted]*"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Nature of Data Processing"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Data processing transforms raw input—numbers, text, signals—into structured outputs through computation. In digital tools, this manifests as calculations, transformations, and visualizations that enable analysis, comparison, and reporting."
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Spreadsheet Paradigm"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Annotated screenshot of a well-structured spreadsheet showing formulas, data validation, and conditional formatting]*"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Spreadsheets (`Excel`, `Google Sheets`) dominate data processing, offering:"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Computational Power**: Complex calculations through formulas and functions"
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Visual Structure**: Grid-based organization of data"
+            }
+          ]
+        },
+        {
+          "id": "b-99",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Flexibility**: Adaptable to diverse use cases from finance to project management"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Limits of Spreadsheets"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"Spreadsheets are not databases, not programming languages, and not documents—but they act like all three, badly.\""
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> — Felienne Hermans, [*The Psychology of Spreadsheets*](https://www.felienne.com/archives/5467)"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Key limitations include:"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Brittleness**: Complex models become fragile and hard to maintain"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Opaqueness**: Logic gets buried in cell formulas"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Scalability Issues**: Performance degrades with size and complexity"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Versioning Challenges**: Tracking changes is cumbersome"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Deeper Problem"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Data-processing tools excel at answering \"how much?\" but falter at \"why?\" or \"what if?\" They provide mechanical clarity but lack the capacity for:"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-114",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Contextual understanding"
+            }
+          ]
+        },
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hypothesis generation"
+            }
+          ]
+        },
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Epistemic reflection"
+            }
+          ]
+        },
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Meaning-making"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "As our challenges grow more complex, we need tools that bridge the gap between calculation and comprehension."
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Nature of Knowledge Storage"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Network graph showing interconnected notes in a knowledge base, with different node colors representing categories and line thickness indicating connection strength]*"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Modern Knowledge Tools"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Tools like `Notion`, `Obsidian`, and `Roam Research` focus on storing, organizing, and connecting information—what we might call knowledge artifacts. These platforms have become essential for researchers, writers, and thinkers building personal knowledge systems."
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Capabilities"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Note-taking**: Capture thoughts, quotes, and insights"
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Linking**: Create references between ideas"
+            }
+          ]
+        },
+        {
+          "id": "b-127",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Categorization**: Tag and structure content"
+            }
+          ]
+        },
+        {
+          "id": "b-128",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Documentation**: Build living systems of record"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Promise and Limits"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"These tools remember everything, but understand nothing.\""
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> — Maggie Appleton, [*A Brief History & Ethos of the Digital Garden*](https://maggieappleton.com/history-digital-garden)"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Strengths"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-137",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Externalizes thinking (as championed by Tiago Forte's [*Building a Second Brain*](https://fortelabs.com/blog/basboverview/))"
+            }
+          ]
+        },
+        {
+          "id": "b-138",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reduces cognitive load"
+            }
+          ]
+        },
+        {
+          "id": "b-139",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Creates a \"second brain\" for reference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Weaknesses"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-142",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Passive Storage**: Tools don't process or challenge content"
+            }
+          ]
+        },
+        {
+          "id": "b-143",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Flat Hierarchy**: All content is treated equally"
+            }
+          ]
+        },
+        {
+          "id": "b-144",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Reactive Retrieval**: Requires user-initiated search"
+            }
+          ]
+        },
+        {
+          "id": "b-145",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**No Synthesis**: Doesn't connect ideas automatically"
+            }
+          ]
+        },
+        {
+          "id": "b-146",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**No Critical Thinking**: Fails to identify contradictions or gaps"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "As Anne-Laure Le Cunff notes, \"networked note-taking can create the illusion of understanding without the substance\" [7]. While these tools organize the past, they don't help us synthesize for the future."
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Missing Middle: Knowledge Processing"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Between the mechanical precision of spreadsheets and the contextual sprawl of note-taking tools lies a neglected domain—knowledge processing."
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "What Makes Knowledge Different?"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Concept | Nature | Example |"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Data** | Raw, unprocessed | Temperature readings: 72°F, 68°F, 75°F |"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Information** | Organized data | Average temperature: 71.7°F ± 3.5°F |"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Knowledge** | Contextual understanding | \"These temperature patterns suggest the need for better climate control\" |"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "What Knowledge Processing Entails"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Flow diagram showing the knowledge processing pipeline: Input → Synthesis → Inference → Evolution → Output, with icons representing each stage]*"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Functions"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Synthesis**"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Combine multiple sources"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Identify patterns and themes"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Create coherent narratives"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Example of synthesis in action - multiple documents feeding into a single, cohesive summary]*"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Inference**"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Surface implications"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Identify contradictions"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Highlight missing connections"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Before/After comparison showing raw notes on the left and inferred connections/contradictions highlighted on the right]*"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Evolution**"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Track idea development"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Update beliefs with new evidence"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Maintain versioned understanding"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Interactive timeline showing the evolution of an idea, with branches representing different thought paths and annotations showing key influences]*"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This includes tracking:"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Versioned understanding (how your thinking changes)"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Historical context (why it changed)"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Decision trails (what led to key insights)"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Side-by-side comparison of different versions of a note, with highlighted changes and annotations explaining the evolution]*"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Translation**"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Convert insights into actions"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Adapt knowledge for different contexts"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Support decision-making"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Flowchart showing how insights move from knowledge base to actionable items, with decision nodes and outcomes]*"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Vision"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> A true knowledge processing tool would be a cognitive partner that helps us work not just with what we know, but with what we don't yet understand—the uncertainties, partial ideas, and emerging patterns that represent the frontier of our thinking."
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Unlike current tools that focus on storage or computation, a knowledge processor would engage in the active work of meaning-making, helping us navigate the space between information and wisdom."
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "So far, this vision remains mostly unrealized. Our current tools either assume:"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-190",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We already know what we’re trying to calculate (spreadsheets)"
+            }
+          ]
+        },
+        {
+          "id": "b-191",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll eventually figure it out if we take enough notes (`Notion`, `Roam`)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "“The current generation of tools for thought helps us remember and organize,” writes Michael Nielsen, a physicist and cognitive tech researcher. “But they don’t yet help us reason, learn, or rethink” [8]."
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "What’s missing is the ability to surface epistemic tension—to identify when our ideas conflict, when a gap in our reasoning appears, or when a buried note becomes newly relevant. Tools should help us think in systems, not silos; to ask better questions, not just store better answers."
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The result would be something like a “thinking environment”—part memory, part mirror, part simulator. Not automation for its own sake, but a cognitive amplifier: one that makes reflection sharper, synthesis faster, and insight more fluid."
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is what we mean by knowledge processing. And it is the bridge we now need to build."
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Traits of a True Knowledge Processing Tool"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If we take knowledge seriously—not just as information, but as a living system of meaning—then our tools must evolve accordingly. A genuine knowledge processing tool would not simply reflect our thoughts back to us. It would interact with them, shape them, test them, and help us see what we cannot yet articulate."
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here are the core traits such a tool must possess:"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Semantic Awareness"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Mind map showing semantic relationships between concepts, with different colors and connection types representing different relationship categories]*"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Feature | Description | Example |"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Context Understanding | Grasps meaning beyond keywords | Recognizes that \"ML\" and \"machine learning\" refer to the same concept |"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Pattern Recognition | Identifies related ideas across notes | \"Your note on X connects to your earlier work on Y\" |"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Conceptual Mapping | Builds relationships between ideas | Creates a visual map of how concepts interrelate |"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Reflective Feedback"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Rather than passively waiting for queries, a knowledge processor should proactively surface tensions, gaps, and contradictions. For example:"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-209",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"This idea conflicts with something you wrote last month.\""
+            }
+          ]
+        },
+        {
+          "id": "b-210",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"You've explored this topic deeply but never defined its core terms.\""
+            }
+          ]
+        },
+        {
+          "id": "b-211",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"This pattern appears across unrelated domains you've studied.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This mirrors the behavior of a good collaborator or mentor: not just supportive, but challenging in constructive ways."
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Temporal Layering"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Good thinking often fails not through ignorance, but through unexamined assumptions, confirmation bias, or emotional shortcuts. A truly advanced knowledge processor could prompt reflection:"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-216",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"You've only cited sources that support this position.\""
+            }
+          ]
+        },
+        {
+          "id": "b-217",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"You haven't updated this belief in two years—does it still hold?\""
+            }
+          ]
+        },
+        {
+          "id": "b-218",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"This conclusion assumes X, but your previous notes question X.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is not about AI as arbiter of truth—but AI as a mirror of your reasoning process, highlighting where clarity may be lacking."
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "“What we need,” writes Bret Victor, a designer of advanced interactive systems, “are environments that don’t just record our thoughts, but challenge them, grow them, and let them interact dynamically” [9]."
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In short, knowledge processing tools should not aim to be invisible assistants, but visible partners—co-thinkers that push us to higher forms of rigor, synthesis, and imagination."
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Prototypes in the Wild (and why they don’t go far enough)"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The hunger for better thinking environments is not new, and recent years have seen a proliferation of ambitious tools that gesture toward knowledge processing. While none fully realize the vision, several offer glimpses of what’s possible—and also of what’s missing."
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "`Obsidian` (with Plugins): Power Without Guidance"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`Obsidian` combines markdown editing with graph-based linking, encouraging users to build “second brains” through networked thought. With plugins, it can support spaced repetition, dataview queries, and rudimentary task management. It’s a favorite among digital gardeners."
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yet, `Obsidian` is fundamentally manual. The user must define structure, maintain link hygiene, and create meaning from a sea of text. There’s little semantic awareness or feedback loop—just infinite possibility. As a result, it often becomes a knowledge warehouse, not a knowledge engine."
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "“You can build anything in `Obsidian`,” writes developer Nick Milo. “But that’s the problem—most people don’t know what to build” [10]."
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "`Tana` / `Capacities`: Structure Without Semantics"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`Tana` and `Capacities` introduce dynamic objects and properties into personal knowledge systems—mixing the flexibility of notes with the discipline of databases. They represent a leap forward in structured thinking."
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "However, they still operate on a syntactic level: tagging, typing, and templating. There’s no deep inference, contradiction detection, or concept evolution over time. You can model your world, but the tool doesn’t engage with that model. It classifies, but does not converse."
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "`Roam Research`: Networked Notes Without Synthesis"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "`Roam` popularized bi-directional linking and daily notes as atomic units of thought. It encouraged emergent structure—letting connections grow organically, like a mycelial network."
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Yet `Roam`, too, is agnostic to meaning. Its interface promotes accumulation but not evaluation. There's no guidance on how to refine ideas, no system for challenging beliefs, no tooling for higher-order synthesis. It creates the illusion of insight, while leaving the burden of integration to the user."
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "As Ness Labs founder Anne-Laure Le Cunff notes, “`Roam` is a powerful map—but it doesn’t help you find your destination” [11]."
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "AI Assistants: Reactive, Not Integrative"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Newer entrants—like `Mem`, `Reflect`, and `Notion`’s AI features—offer smart search, summarization, and writing support. These are helpful, but they tend to be reactive utilities: they answer prompts, rephrase notes, or autocomplete summaries."
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "What they lack is model continuity—an enduring sense of what you’re working on, why it matters, and how it connects to the rest of your system. They are chatbots embedded in workflows, not co-thinkers embedded in epistemologies."
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The lesson across these tools is clear: the frontier is not more features, but deeper engagement with thought itself. Until our systems begin to reflect, challenge, and evolve our thinking, they will remain external memory aids—not true extensions of the mind."
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Designing for Epistemic Amplification"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If the ultimate goal of a knowledge processing tool is to enhance our thinking—not just preserve or display it—then the design imperative becomes clear: we must build environments that support *epistemic amplification*."
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This term—*epistemic* referring to knowledge, and *amplification* to the intensification of capacity—suggests a profound shift. Instead of tools that merely help us do more, we need tools that help us *know better*."
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Thinking with the Tool, Not Just in It"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Most digital systems today are containers: they hold your notes, your files, your to-dos. But a truly epistemic interface would function more like a lens or mirror:"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-245",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A lens that lets you see patterns otherwise invisible"
+            }
+          ]
+        },
+        {
+          "id": "b-246",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A mirror that reveals contradictions, blind spots, and assumptions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "These metaphors suggest interaction, not storage. They evoke reflection and re-seeing. The goal is not speed, but clarity."
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "As interface designer Bret Victor emphasizes, tools should create “representational environments” that reflect the structure of ideas—not just the sequence of text [12]."
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Friction is Not the Enemy"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Much of modern UX is obsessed with removing friction. But when it comes to thinking, well-placed friction can be a feature, not a bug. Consider:"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-252",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A prompt that asks, “What does this assumption depend on?”"
+            }
+          ]
+        },
+        {
+          "id": "b-253",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A model that requires you to specify causes, not just effects"
+            }
+          ]
+        },
+        {
+          "id": "b-254",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A timeline that makes the evolution of your beliefs visible and traceable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "These are cognitive nudges. They slow you down just enough to engage more deeply—to prevent shallow note-taking from masquerading as insight."
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In the words of Alan Kay, “Simple things should be simple. Complex things should be possible” [13]. Epistemic amplification is about making depth accessible, not automatic."
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Design Patterns for Cognitive Growth"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "What kinds of features or interfaces would this require? Consider:"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-260",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Modules**: Units of thought that can be re-used, nested, and extended across contexts—like functions for ideas."
+            }
+          ]
+        },
+        {
+          "id": "b-261",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Mirrors**: Views that show how an idea has changed over time, or how it diverges from related concepts."
+            }
+          ]
+        },
+        {
+          "id": "b-262",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Lenses**: Filters that reveal patterns across domains—where a recurring theme appears in strategy, science, or ethics."
+            }
+          ]
+        },
+        {
+          "id": "b-263",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Simulations**: Lightweight environments where you can test a model, decision, or belief and watch hypothetical outcomes unfold."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "These are not just features. They are epistemic scaffolds—structures that support deeper thinking without replacing it."
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Risk of Over-Automation"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Crucially, we must resist the temptation to automate too much. The power of a knowledge processing tool is not in providing answers, but in helping us ask better questions. It is not about replacing the thinker—it is about amplifying the thinker’s capacity to reason, reflect, and revise."
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "“Amplification is not automation,” notes toolmaker and theorist Michael Nielsen. “It’s helping humans do what they do best, at a higher level of abstraction and quality” [14]."
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This distinction is vital. We don’t need faster note-takers. We need stronger thinkers."
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Future of Tools for Thought"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If we take seriously the idea that tools shape thought, then the emergence of knowledge processing environments is not merely a technical development—it is a philosophical and civilizational one."
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The tools we build determine the questions we can ask, the problems we can solve, and even the ways we define progress. Just as spreadsheets revolutionized accounting and databases transformed logistics, a mature class of knowledge processing tools could reshape how we reason, learn, and collaborate."
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For Individuals: Crafting Thinking Environments"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Imagine a personal workspace that grows with you:"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-275",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It knows not just what you’ve read, but how your ideas have changed."
+            }
+          ]
+        },
+        {
+          "id": "b-276",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It surfaces forgotten insights precisely when they become relevant again."
+            }
+          ]
+        },
+        {
+          "id": "b-277",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It notices contradictions in your worldview and asks you if you still believe them."
+            }
+          ]
+        },
+        {
+          "id": "b-278",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It allows you to model choices before you commit to them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Such a tool wouldn’t merely hold your thoughts—it would co-evolve with them, helping you become not just more productive, but more principled, more perceptive, more precise."
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For Teams and Institutions: Shared Epistemic Infrastructure"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The implications extend far beyond personal use. Knowledge processing tools could become the epistemic scaffolding of organizations:"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-283",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Helping teams align around assumptions, not just goals."
+            }
+          ]
+        },
+        {
+          "id": "b-284",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Making implicit reasoning explicit."
+            }
+          ]
+        },
+        {
+          "id": "b-285",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tracing the lineage of key decisions and how they were formed."
+            }
+          ]
+        },
+        {
+          "id": "b-286",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Supporting long-range thinking in the face of short-term pressure."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In fields like policy, science, ethics, and education, the ability to track and refine shared mental models could change how collaboration happens—and what it produces."
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Collaborative knowledge graph showing multiple users contributing to a shared concept map, with different colors representing different contributors]*"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For Civilization: A New Epistemic Ethic"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Split-screen comparison showing \"Current Tools\" (fragmented, siloed) vs. \"Future Vision\" (connected, coherent) with icons representing different knowledge domains]*"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Ultimately, this is not about features. It's about values."
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> The Choice Before Us"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> | Speed & Convenience | vs. | Depth & Reflection |"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> | --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> | Quick answers |  | Better questions |"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> | Information overload |  | Knowledge synthesis |"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> | Surface engagement |  | Deep understanding |"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> | Individual efficiency |  | Collective wisdom |"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The former is easy to scale. The latter is harder to build—but infinitely more essential."
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> \"The real crisis is not that we are overwhelmed by information. It is that we are losing the conditions under which it becomes knowledge.\""
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> — Matthew B. Crawford, *The World Beyond Your Head* [15]"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This essay is a call to reclaim those conditions. To imagine and build tools that do more than organize our thoughts—they shape our thinking toward coherence, truth, and insight."
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Visual metaphor of a bridge being built between \"Current Tools\" (one side) and \"Human Potential\" (other side), with knowledge processing as the connecting structure]*"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Future of Thinking"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The future of tools for thought is not about what we can remember. It's about who we can become."
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*[VISUAL: Abstract representation of a human figure with a glowing brain, surrounded by interconnected nodes of knowledge and ideas, symbolizing augmented cognition]*"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "References"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Engelbart, D. C. (1962). *Augmenting Human Intellect: A Conceptual Framework*."
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Matuschak, A. [*Evergreen Notes*](https://notes.andymatuschak.org/)."
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Appleton, M. [*Tools for Thought: A New Era of Cognitive Software*](https://maggieappleton.com/tools-for-thought)."
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Hermans, F. (2017). [*Spreadsheets are code*](https://www.felienne.com/archives/6022)."
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Forte, T. (2022). [*Building a Second Brain*](https://fortelabs.com/blog/basboverview/). Atria Books."
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Appleton, M. (2021). [*The Problems with Personal Knowledge Graphs*](https://maggieappleton.com/knowledge-graphs)."
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. Le Cunff, A. (2020). *The Collector's Fallacy*. Ness Labs. [https://nesslabs.com/collectors-fallacy](https://nesslabs.com/collectors-fallacy)."
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "8. Nielsen, M. (2020). [*Thoughts on Tools for Thought*](https://michaelnielsen.org/)."
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "9. Victor, B. (2013). [*The Humane Representation of Thought*](http://worrydream.com/#!/HumaneRepresentationOfThought)."
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "10. Milo, N. (2021). *The Problem With Infinite Possibility in `Obsidian`*. [https://www.linkingyourthinking.com](https://www.linkingyourthinking.com/)."
+        }
+      ]
+    },
+    {
+      "id": "b-326",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "11. Le Cunff, A. (2021). `*Roam Research`: The Power and the Pitfalls*. [https://nesslabs.com/roam-research](https://nesslabs.com/roam-research)."
+        }
+      ]
+    },
+    {
+      "id": "b-327",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "12. Victor, B. (2011). [*Explorable Explanations*](http://worrydream.com/ExplorableExplanations)."
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "13. Kay, A. (1984). *Computer Software*. Scientific American."
+        }
+      ]
+    },
+    {
+      "id": "b-329",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "14. Nielsen, M. (2021). [*Augmenting Long-term Thinking*](https://michaelnielsen.org/)."
+        }
+      ]
+    },
+    {
+      "id": "b-330",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "15. Crawford, M. B. (2015). *The World Beyond Your Head: On Becoming an Individual in an Age of Distraction*. Farrar, Straus and Giroux."
+        }
+      ]
+    }
+  ]
+}

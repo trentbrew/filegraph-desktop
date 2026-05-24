@@ -1,0 +1,3797 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-346",
+  "title": "Spec",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Spec"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One **real PocketBase** (“host PB”) that stores: tenants/apps, virtual schemas, records, auth, API keys, audits, limits."
+            }
+          ]
+        },
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Many **virtual PB instances** (logical only): enforced by `app` scoping, RLS-style rules, and namespaced realtime topics."
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A **Gateway** (Hono/Node) that exposes the Virtual PB API (`/api/vpb/:appId/...`), compiles schema rules, and rate-limits per app."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> Minimal set + safe defaults. Add more fields later without breaking isolation."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```jsx"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "/// 000_init.js"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "migrate((db) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const dao = new Dao(db)"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// apps"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const apps = new Collection({"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"apps\","
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: \"base\","
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "system: false,"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema: ["
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"owner\", type: \"relation\", options: { collectionId: \"_pb_users_auth_\", maxSelect: 1, cascadeDelete: false }},"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"name\", type: \"text\", options: { min: 2, max: 64, pattern: \"\" }},"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"slug\", type: \"text\", options: { min: 2, max: 64, pattern: \"^[a-z0-9-]+$\" }},"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"metadata\", type: \"json\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"status\", type: \"select\", options: { values: [\"draft\",\"active\",\"archived\"] }},"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"limits\", type: \"json\" } // {records, filesMB, rps}"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "indexes: ["
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"CREATE UNIQUE INDEX idx_apps_slug ON apps (slug)\""
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "listRule: \"@request.auth.userType = 'super_admin' || owner = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "viewRule: \"@request.auth.userType = 'super_admin' || owner = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "createRule: \"@request.auth.userType != null\", // any authed can create an app they own"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updateRule: \"@request.auth.userType = 'super_admin' || owner = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "deleteRule: \"@request.auth.userType = 'super_admin' || owner = @request.auth.id\""
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dao.saveCollection(apps)"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// schemas (virtual tables)"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const schemas = new Collection({"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"schemas\","
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: \"base\","
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "system: false,"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema: ["
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"app\", type: \"relation\", options: { collectionId: apps.id, maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"name\", type: \"text\", options: { pattern: \"^[a-zA-Z_][a-zA-Z0-9_]*$\" }},"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"version\", type: \"text\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"schema\", type: \"json\" }, // {fields[], rules, indexes[]}"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"createdBy\", type: \"relation\", options: { collectionId: \"_pb_users_auth_\", maxSelect: 1 }}"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "indexes: ["
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"CREATE UNIQUE INDEX idx_schema_app_name ON schemas (app, name)\""
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "listRule: \"app.owner = @request.auth.id || @request.auth.userType = 'super_admin' || @request.auth.parentApp = app\","
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "viewRule: \"app.owner = @request.auth.id || @request.auth.userType = 'super_admin' || @request.auth.parentApp = app\","
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "createRule: \"@request.auth.userType in ['tenant','super_admin'] && app.owner = @request.auth.id || @request.auth.userType = 'super_admin'\","
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updateRule: \"@request.auth.userType in ['tenant','super_admin'] && app.owner = @request.auth.id || @request.auth.userType = 'super_admin'\","
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "deleteRule: \"@request.auth.userType = 'super_admin' || (app.owner = @request.auth.id)\""
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dao.saveCollection(schemas)"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// pv_records (row store)"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const pvRecords = new Collection({"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"pv_records\","
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: \"base\","
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "system: false,"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema: ["
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"app\", type: \"relation\", options: { collectionId: apps.id, maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"schema\", type: \"relation\", options: { collectionId: schemas.id, maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"data\", type: \"json\" },   // payload"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"status\", type: \"select\", options: { values: [\"Draft\",\"Active\",\"Syncing\",\"Published\",\"Archived\"] }},"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"createdBy\", type: \"relation\", options: { collectionId: \"_pb_users_auth_\", maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"version\", type: \"number\" } // for optimistic concurrency"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "indexes: ["
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"CREATE INDEX idx_pv_app ON pv_records (app)\","
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"CREATE INDEX idx_pv_schema ON pv_records (schema)\","
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"CREATE INDEX idx_pv_status ON pv_records (status)\""
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "listRule: \"@request.auth.userType = 'super_admin' || @request.auth.parentApp = app || app.owner = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "viewRule: \"@request.auth.userType = 'super_admin' || @request.auth.parentApp = app || app.owner = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "createRule: \"@request.auth.userType in ['tenant','app_user','super_admin'] && (@request.auth.parentApp = app || app.owner = @request.auth.id || @request.auth.userType = 'super_admin')\","
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updateRule: \"@request.auth.userType in ['tenant','app_user','super_admin'] && (@request.auth.parentApp = app || app.owner = @request.auth.id || @request.auth.userType = 'super_admin')\","
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "deleteRule: \"@request.auth.userType in ['tenant','super_admin'] && (@request.auth.parentApp = app || app.owner = @request.auth.id || @request.auth.userType = 'super_admin')\""
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dao.saveCollection(pvRecords)"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// app_memberships (per-app roles)"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const members = new Collection({"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"app_memberships\","
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: \"base\","
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "system: false,"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema: ["
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"app\", type: \"relation\", options: { collectionId: apps.id, maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"user\", type: \"relation\", options: { collectionId: \"_pb_users_auth_\", maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"role\", type: \"select\", options: { values: [\"owner\",\"admin\",\"editor\",\"viewer\"] }}"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "indexes: [\"CREATE UNIQUE INDEX idx_member_unique ON app_memberships (app,user)\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "listRule: \"app.owner = @request.auth.id || @request.auth.userType = 'super_admin' || user = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "viewRule:  \"app.owner = @request.auth.id || @request.auth.userType = 'super_admin' || user = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "createRule: \"@request.auth.userType in ['tenant','super_admin'] && (app.owner = @request.auth.id || @request.auth.userType = 'super_admin')\","
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updateRule: \"@request.auth.userType in ['tenant','super_admin'] && (app.owner = @request.auth.id || @request.auth.userType = 'super_admin')\","
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "deleteRule: \"@request.auth.userType in ['tenant','super_admin'] && (app.owner = @request.auth.id || @request.auth.userType = 'super_admin')\""
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dao.saveCollection(members)"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// api_keys (per app + scopes)"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const apiKeys = new Collection({"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"api_keys\","
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: \"base\","
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "system: false,"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema: ["
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"app\", type: \"relation\", options: { collectionId: apps.id, maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"name\", type: \"text\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"hash\", type: \"text\" }, // store hash, never raw"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"scopes\", type: \"json\" }, // [\"read:*\",\"write:customers\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"expiresAt\", type: \"date\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "indexes: [\"CREATE INDEX idx_keys_app ON api_keys (app)\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "listRule: \"app.owner = @request.auth.id || @request.auth.userType = 'super_admin'\","
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "viewRule:  \"app.owner = @request.auth.id || @request.auth.userType = 'super_admin'\","
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "createRule:\"app.owner = @request.auth.id || @request.auth.userType = 'super_admin'\","
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updateRule:\"app.owner = @request.auth.id || @request.auth.userType = 'super_admin'\","
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "deleteRule:\"app.owner = @request.auth.id || @request.auth.userType = 'super_admin'\""
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dao.saveCollection(apiKeys)"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// audits"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const audits = new Collection({"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: \"pv_audits\","
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: \"base\","
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "system: false,"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema: ["
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"app\", type: \"relation\", options: { collectionId: apps.id, maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"schema\", type: \"relation\", options: { collectionId: schemas.id, maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"recordId\", type: \"text\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"action\", type: \"select\", options: { values: [\"create\",\"update\",\"delete\",\"import\",\"export\",\"rule_change\"] }},"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"actor\", type: \"relation\", options: { collectionId: \"_pb_users_auth_\", maxSelect: 1 }},"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"diff\", type: \"json\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ name: \"at\", type: \"date\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "indexes: [\"CREATE INDEX idx_audit_app_time ON pv_audits (app, at)\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "listRule: \"@request.auth.userType = 'super_admin' || @request.auth.parentApp = app || app.owner = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "viewRule:  \"@request.auth.userType = 'super_admin' || @request.auth.parentApp = app || app.owner = @request.auth.id\","
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "createRule: \"@request.auth.id != null\","
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "updateRule: \"false\","
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "deleteRule: \"@request.auth.userType = 'super_admin'\""
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dao.saveCollection(audits)"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// extend users (no migration needed if using profile fields; else add via settings)"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}, (db) => {})"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Users: role tagging"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-147",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`userType` in auth `users` collection: `\"super_admin\" | \"tenant\" | \"app_user\"`."
+            }
+          ]
+        },
+        {
+          "id": "b-148",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`parentApp` (relation → apps) for app_users."
+            }
+          ]
+        },
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enforce in auth hooks to prevent illegal combos (e.g., app_user with null parentApp)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**schemas.schema** (example):"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```json"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"fields\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"email\", \"type\": \"text\", \"required\": true, \"unique\": true, \"pattern\": \".+@.+\" },"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"avatar\", \"type\": \"file\", \"required\": false, \"maxSizeMB\": 5 },"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"tags\", \"type\": \"json\", \"required\": false },"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ \"name\": \"org\", \"type\": \"relation\", \"target\": \"organizations\", \"onDelete\": \"restrict\" }"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"rules\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"create\": \"role in ['owner','admin','editor']\","
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"update\": \"role in ['owner','admin','editor']\","
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"delete\": \"role in ['owner','admin']\","
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"read\":   \"true\""
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"indexes\": ["
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"email UNIQUE\","
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"org\""
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> The Gateway compiles this to server-side checks + secondary indexes inside pv_records (by projection keys) or SQLite virtual indexes where pragmatic."
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { Hono } from 'hono'"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { bearerAuth } from 'hono/bearer-auth'"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { z } from 'zod'"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const app = new Hono()"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Per-app auth: user session or API key"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.use('/api/vpb/:appId/*', async (c, next) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// prefer PocketBase auth cookie; else API key"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const apiKey = c.req.header('x-tb-key') || c.req.query('key') || null"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const session = await getPBSession(c) // tenant/app_user/super_admin"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "c.set('auth', { session, apiKey })"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "await next()"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.get('/api/vpb/:appId/collections/:table', listRecords)"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.post('/api/vpb/:appId/collections/:table', createRecord)"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.get('/api/vpb/:appId/collections/:table/:id', getRecord)"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.put('/api/vpb/:appId/collections/:table/:id', updateRecord)"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.delete('/api/vpb/:appId/collections/:table/:id', deleteRecord)"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.post('/api/vpb/:appId/auth/login', appLogin)"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "app.post('/api/vpb/:appId/files', uploadFile)"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// websocket (upgrade), topic: vpb.{appId}.{table}"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Route guards (core rules):**"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-199",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Resolve `appId → apps` record; enforce `apps.status != 'archived'`."
+            }
+          ]
+        },
+        {
+          "id": "b-200",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If `auth.userType==='super_admin'` → allow, else must be:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `tenant` and `apps.owner == auth.id`, or"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `app_user` and `auth.parentApp == apps.id`."
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-204",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Load virtual schema (`schemas`), compile field validation, permission DSL (`role in [...]`) using membership from `app_memberships`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Rate limiting (per app):**"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-207",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Token bucket keyed by `appId` + `apiKey` with defaults from `apps.limits` (e.g., `rps=50`)."
+            }
+          ]
+        },
+        {
+          "id": "b-208",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Return `429` with `X-RateLimit-*` headers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-211",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Topic naming: `vpb.{appId}.{table}` for CRUD, `vpb.{appId}.schema` for schema bumps, `vpb.{appId}.presence` for user presence, `platform.system` for super-admin."
+            }
+          ]
+        },
+        {
+          "id": "b-212",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Broadcast on:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- create/update/delete in `pv_records`"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- schema upsert in `schemas`"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- presence pings (interval 20s; mark stale after 60s)"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-218",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`pv_records.status ∈ {Draft, Active, Syncing, Published, Archived}`."
+            }
+          ]
+        },
+        {
+          "id": "b-219",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drag-drop updates `status` with server-side transitions:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `Draft→Active`: validate record vs schema."
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `Active→Syncing`: server sets while performing side-effects (webhooks, indexes)."
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `Syncing→Published`: on success; emit realtime."
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `→Archived`: soft-hide from default queries."
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-226",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Platform** (super-admin): full."
+            }
+          ]
+        },
+        {
+          "id": "b-227",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Tenant**: owner of their `apps.*`; manager of their `schemas`, `pv_records`, `app_memberships`, `api_keys`."
+            }
+          ]
+        },
+        {
+          "id": "b-228",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**App-user**: permissions via `app_memberships.role` + schema rules."
+            }
+          ]
+        },
+        {
+          "id": "b-229",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Row-level**: enforced by app scoping + schema `rules` + membership role."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export class TurtleBase {"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "constructor(private cfg: { appId: string; key?: string; realtime?: boolean }) {}"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "collection<T = any>(table: string) {"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const base = `/api/vpb/${this.cfg.appId}/collections/${table}`"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return {"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "list: (q?: any) => fetchJSON(`${base}?${new URLSearchParams(q||{})}`, { headers: keyHdr(this.cfg.key) }),"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "get:  (id: string) => fetchJSON(`${base}/${id}`, { headers: keyHdr(this.cfg.key) }),"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "create: (data: T) => fetchJSON(base, { method: 'POST', headers: keyHdr(this.cfg.key), body: JSON.stringify(data) }),"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "update: (id: string, data: Partial<T>) => fetchJSON(`${base}/${id}`, { method: 'PUT', headers: keyHdr(this.cfg.key), body: JSON.stringify(data) }),"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "delete: (id: string) => fetchJSON(`${base}/${id}`, { method: 'DELETE', headers: keyHdr(this.cfg.key) }),"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subscribe: (fn: (evt:any)=>void) => wsSub(`vpb.${this.cfg.appId}.${table}`, fn)"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> One just seed-app <slug> creates app, schemas, sample data, and memberships."
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **crm**"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-252",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tables: `customers`, `leads`, `interactions`"
+            }
+          ]
+        },
+        {
+          "id": "b-253",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "indexes: `customers.email UNIQUE`"
+            }
+          ]
+        },
+        {
+          "id": "b-254",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "roles: owner(tenant), editor(app_user), viewer(app_user)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **inventory**"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-257",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tables: `products`, `stockMoves`, `suppliers`"
+            }
+          ]
+        },
+        {
+          "id": "b-258",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "computed fields in Gateway (e.g., `products.stockOnHand`)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **tasks**"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-261",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tables: `projects`, `tasks`, `assignees`"
+            }
+          ]
+        },
+        {
+          "id": "b-262",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "status flow aligns with board columns"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **cms**"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-265",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tables: `posts`, `pages`, `media`"
+            }
+          ]
+        },
+        {
+          "id": "b-266",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "file fields; webhook on `Published`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **analytics**"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-269",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tables: `events`, `dashboards`, `widgets`"
+            }
+          ]
+        },
+        {
+          "id": "b-270",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "read-heavy; limit writes; API keys with read:* only"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-273",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Export: newline-delimited JSON with embedded schema version header."
+            }
+          ]
+        },
+        {
+          "id": "b-274",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Import: validate version compatibility, run in `Syncing`, emit diffs to `pv_audits`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-277",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Store via host PB file storage; link file handles inside `pv_records.data.avatar` etc."
+            }
+          ]
+        },
+        {
+          "id": "b-278",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enforce per-app quotas via `apps.limits.filesMB`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-281",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`pv_records.version` increments on write."
+            }
+          ]
+        },
+        {
+          "id": "b-282",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gateway rejects `PUT` if `If-Match: <version>` mismatches."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-285",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Every write appends to `pv_audits` with computed diff:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `diff = jsondiffpatch(old.data, new.data)`"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-288",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Viewable by tenant + app users of same app; immutable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "set shell := [\"bash\", \"-uc\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dev:        # run PB + Gateway + Admin UI"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm -C apps/gateway dev & pnpm -C apps/admin dev & pnpm -C infra/pb run"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dev-admin:"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm -C apps/admin dev"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dev-tenant:"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm -C apps/tenant dev"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dev-vpb:"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm -C apps/gateway dev"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "new-app name desc:"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "node scripts/new-app.mjs \"{{name}}\" \"{{desc}}\""
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "list-apps:"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "node scripts/list-apps.mjs"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "seed-app appId:"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "node scripts/seed-app.mjs \"{{appId}}\""
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "backup-app appId:"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "node scripts/backup-app.mjs \"{{appId}}\""
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "test:"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm -r test"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "test-vpb:"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pnpm -C apps/gateway test"
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "test-realtime:"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "node scripts/test-realtime.mjs"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "validate-schemas:"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "node scripts/validate-schemas.mjs"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status:"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "node scripts/status.mjs"
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Platform:"
+        }
+      ]
+    },
+    {
+      "id": "b-327",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-323",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "PocketBase: healthy"
+            }
+          ]
+        },
+        {
+          "id": "b-324",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "WebSocket: listening :48792"
+            }
+          ]
+        },
+        {
+          "id": "b-325",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "VPB API: 200 ok"
+            }
+          ]
+        },
+        {
+          "id": "b-326",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Realtime: ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Apps:"
+        }
+      ]
+    },
+    {
+      "id": "b-332",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-329",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "active: 5 (2 near storage cap)"
+            }
+          ]
+        },
+        {
+          "id": "b-330",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "schema validity: ok"
+            }
+          ]
+        },
+        {
+          "id": "b-331",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "validation errors: 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-333",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Dev:"
+        }
+      ]
+    },
+    {
+      "id": "b-337",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-334",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "tests: pass"
+            }
+          ]
+        },
+        {
+          "id": "b-335",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "types: clean"
+            }
+          ]
+        },
+        {
+          "id": "b-336",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "docs: stale"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-338",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-339",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-346",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-340",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Store **API keys as hashes** (Argon2)."
+            }
+          ]
+        },
+        {
+          "id": "b-341",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enforce **per-app rate limits** & **burst caps**."
+            }
+          ]
+        },
+        {
+          "id": "b-342",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Validate `schemas.schema.rules` with a small DSL (only `role in [...]`, `true/false`)—no user-supplied JS."
+            }
+          ]
+        },
+        {
+          "id": "b-343",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Disallow cross-app relations; `relation.target` is virtual within same app."
+            }
+          ]
+        },
+        {
+          "id": "b-344",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "File uploads scanned by size/type; enforce `filesMB` quota per app."
+            }
+          ]
+        },
+        {
+          "id": "b-345",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Admin actions audited; **schema changes require tenant owner or super-admin**."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-347",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-348",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```mermaid"
+        }
+      ]
+    },
+    {
+      "id": "b-349",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "erDiagram"
+        }
+      ]
+    },
+    {
+      "id": "b-350",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "users ||--o{ app_memberships : member"
+        }
+      ]
+    },
+    {
+      "id": "b-351",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "apps  ||--o{ app_memberships : has"
+        }
+      ]
+    },
+    {
+      "id": "b-352",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "apps  ||--o{ schemas : has"
+        }
+      ]
+    },
+    {
+      "id": "b-353",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schemas ||--o{ pv_records : shapes"
+        }
+      ]
+    },
+    {
+      "id": "b-354",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "apps  ||--o{ pv_records : owns"
+        }
+      ]
+    },
+    {
+      "id": "b-355",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "apps  ||--o{ api_keys : has"
+        }
+      ]
+    },
+    {
+      "id": "b-356",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "apps  ||--o{ pv_audits : logs"
+        }
+      ]
+    },
+    {
+      "id": "b-357",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-358",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-359",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 1 (2–3 wks)**"
+        }
+      ]
+    },
+    {
+      "id": "b-363",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-360",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Migrations above, auth tagging, `apps/schemas` CRUD in Admin UI."
+            }
+          ]
+        },
+        {
+          "id": "b-361",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gateway skeleton with guards + list/create for 1 table."
+            }
+          ]
+        },
+        {
+          "id": "b-362",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`validate-schemas` and `status` scripts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-364",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 2 (3–4 wks)**"
+        }
+      ]
+    },
+    {
+      "id": "b-367",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-365",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Full `pv_records` CRUD, validation/compiler, board flows."
+            }
+          ]
+        },
+        {
+          "id": "b-366",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Realtime topics & presence, basic rate limiting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-368",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 3 (2–3 wks)**"
+        }
+      ]
+    },
+    {
+      "id": "b-371",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-369",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tenant/App-user UIs (tables, forms, files), audit viewer."
+            }
+          ]
+        },
+        {
+          "id": "b-370",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Membership invites and role management."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-372",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 4 (3–4 wks)**"
+        }
+      ]
+    },
+    {
+      "id": "b-375",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-373",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "External REST, webhooks, optimistic concurrency, indexing hints."
+            }
+          ]
+        },
+        {
+          "id": "b-374",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analytics & per-app metrics; API key scopes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-376",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 5 (2–3 wks)**"
+        }
+      ]
+    },
+    {
+      "id": "b-378",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-377",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pen-test pass, backup/restore, migration docs, beta cohort."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-379",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-383",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-380",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-app joins (for sanity, don’t)."
+            }
+          ]
+        },
+        {
+          "id": "b-381",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User-defined code execution (no lambdas yet; use webhooks to your own infra)."
+            }
+          ]
+        },
+        {
+          "id": "b-382",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rich query language (start with filters; add compiled indexes if needed)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-384",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-389",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-385",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t overfit to “real PocketBase clone.” Your **win** is *tenant isolation + DX*, not 1:1 parity."
+            }
+          ]
+        },
+        {
+          "id": "b-386",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Keep the schema rule DSL tiny; that’s your blast-radius control."
+            }
+          ]
+        },
+        {
+          "id": "b-387",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Make `status` authoritative—treat “Syncing” as a lock to serialize side-effects."
+            }
+          ]
+        },
+        {
+          "id": "b-388",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ship seeds early; they’ll expose quota, perf, and rule gaps immediately."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-390",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If you want, I can turn this into a runnable starter (gateway scaffolding + migrations + seed scripts) next."
+        }
+      ]
+    }
+  ]
+}

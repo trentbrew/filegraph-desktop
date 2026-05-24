@@ -1,0 +1,242 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:welcome",
+  "title": "Welcome to FileGraph Notes",
+  "author": "person:sarah:001",
+  "status": "published",
+  "created_at": "2024-01-15T10:00:00Z",
+  "updated_at": "2025-12-13T11:10:57.139Z",
+  "blocks": [
+    {
+      "id": "b-cfsqh8g",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is a "
+        },
+        {
+          "type": "text",
+          "text": "rich text note",
+          "marks": [
+            "bold"
+          ]
+        },
+        {
+          "type": "text",
+          "text": " powered by "
+        },
+        {
+          "type": "text",
+          "text": "TipTap",
+          "marks": [
+            "italic"
+          ]
+        },
+        {
+          "type": "text",
+          "text": ". It supports Notion-style block editing with full formatting capabilities."
+        }
+      ]
+    },
+    {
+      "id": "b-4g7nkpd",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Features"
+        }
+      ]
+    },
+    {
+      "id": "b-fj9aiq0",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-8tpivib",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bold",
+              "marks": [
+                "bold"
+              ]
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "text",
+              "text": "italic",
+              "marks": [
+                "italic"
+              ]
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "text",
+              "text": "underline",
+              "marks": [
+                "underline"
+              ]
+            },
+            {
+              "type": "text",
+              "text": ", and "
+            },
+            {
+              "type": "text",
+              "text": "strikethrough",
+              "marks": [
+                "strike"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b-4m3tp19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Highlighted text",
+              "marks": [
+                "highlight"
+              ],
+              "highlightColor": null
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "text",
+              "text": "inline code",
+              "marks": [
+                "code"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b-9qxf41a",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Headings, lists, and blockquotes"
+            }
+          ]
+        },
+        {
+          "id": "b-m55oldw",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Code blocks with syntax highlighting"
+            }
+          ]
+        },
+        {
+          "id": "b-le8m27w",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Entity mentions with "
+            },
+            {
+              "type": "mention",
+              "entityId": "brand:color-indigo:001"
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-5amzgsd",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Code Example"
+        }
+      ]
+    },
+    {
+      "id": "b-pc99ufc",
+      "type": "codeBlock",
+      "language": "typescript",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Entity reference example\nconst author = 'person:sarah:001'\nconst project = 'proj:filegraph:001'"
+        }
+      ]
+    },
+    {
+      "id": "b-ggbzfgu",
+      "type": "blockquote",
+      "children": [
+        {
+          "id": "b-vipm5r7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The best way to predict the future is to invent it.",
+              "marks": [
+                "italic"
+              ]
+            },
+            {
+              "type": "text",
+              "text": " — Alan Kay"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-emnss3i",
+      "type": "horizontalRule"
+    },
+    {
+      "id": "b-m90c7fj",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Start editing to see the magic! Use "
+        },
+        {
+          "type": "text",
+          "text": "Cmd+S",
+          "marks": [
+            "code"
+          ]
+        },
+        {
+          "type": "text",
+          "text": " to save."
+        }
+      ]
+    }
+  ]
+}

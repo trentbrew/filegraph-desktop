@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-421",
+  "title": "About me",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "About me"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'm a full-stack software engineer and product designer with over six years of experience building intuitive, customer-facing applications. My focus area is NextJS, Node.js, modern front-end frameworks, UX, and accessibility. I approach everything with design thinking, from UI & branding to systems architecture."
+        }
+      ]
+    }
+  ]
+}

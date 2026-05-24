@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-110",
+  "title": "Tiny Specialized Browsers",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Tiny Specialized Browsers"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "There's a tricky thing about AOK that I think will start to reveal itself in 2025... while integration between apps powered by things like zapier & make are awesome, I think we will eventually start to see apps hit the market that are essentially tiny specialized web browsers disquised as apps. This way, instead of the browser being a boat floating atop an ocean of tools & services, a new prooduct category will emerge that will behave more like swimming in the creek in your backyard. Tabs will be curated \"pages\" allowing users to interact with existing tools like slack, n8n, github, google docs, email etc all in the same application without having to reinvent a new client for interacting with APIs. It essentially would be a browser with (mostly) static preconfigured tabs and special functionality for easier interop between those services. I think we'll start to see productivity tools, and especialkly IDEs adopt this kind of architecture, and I'm envisioning AOK as the first of this new wave of browser-esque / webview-powered applications."
+        }
+      ]
+    }
+  ]
+}

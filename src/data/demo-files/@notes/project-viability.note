@@ -1,0 +1,1785 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-399",
+  "title": "Project Viability",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Project Viability"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Q"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# 1. Raster.tv"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What it is**: A modern, cloud‑hosted platform for community and public‑access TV stations to manage programming, member submissions, and streaming across web, mobile, and OTT in one place."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What problem it solves**: Replaces fragmented, outdated workflows (Cablecast backends, manual submission portals, ad‑hoc captioning, scattered links) with a unified system that reduces admin time, improves accessibility, and makes content discovery effortless."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Who needs it**: Station managers and programming coordinators at community media centers and municipal TV channels, plus membership/community coordinators responsible for creator onboarding and compliance."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What you've built**: A working beta with core station hub, member submission flow, early Cablecast and Nexudus integration points, AI captioning pipeline exploration, and a Framer/Nuxt front end deployed to staging for partner feedback."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Why now**: Stations face cord‑cutting, accessibility and compliance pressure, aging infrastructure, and new funding windows; modern tools and AI captioning make it feasible to upgrade workflows and audience reach today."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# 2. Amorphous"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What it is**: A local-first, AI-assisted spatial canvas that pulls files, links, and live web into zoomable boards."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Problem it solves**: Creative reference sprawl and sluggish browser boards; arranging thousands of assets by hand; brittle embeds; offline gaps."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Who needs it**: Art directors, illustrators, concept artists (primary). PMs/researchers are secondary—not your wedge."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What you’ve built**: Solid core: layers/depth, culling, drag-drop, file explorer, node types, webview shim, Tauri shell. Missing wedge-makers: native webviews, directory watchers, global quick-capture, export/share, hardened CSP/creds."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Why now**: Tauri 2 is stable, on-device embeddings are cheap, and Milanote/Miro hit browser ceilings. Offline/local-first is back in fashion."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# 3. Pocketflow"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What it is:** Opinionated ecommerce ops hub that plugs **Webflow + Stripe + Shippo** to handle inventory, labels, tracking write-backs, and digital delivery."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Problem it solves:** Merchants duct-taping zaps and manual Shippo steps; no single source of truth or reliable tracking back to Webflow (other forntend providers coming soon)."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Who needs it:** Small, single-warehouse Webflow stores that want a 10-minute setup, not plugins + scripts."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What you’ve built:** Clear PB data model, Hono API/webhooks, admin UI scaffold, job runners; a 4-week v0 plan (read-only) with definition of done and client E2E checklist."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Why now:** Webflow stores are growing but under-tooled; your opinionated stack replaces fragile automations. (Your own kill-rules + pricing show clarity on execution risk.)"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# 4. Nodebook"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What it is:** Agent-native, local-first workspace that unifies email, calendar, notes, and tasks into a programmable graph for persistent, context-aware agents."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Problem it solves:** “Goldfish memory” + copy-paste hell across tools; AI assistants don’t retain/act on long-term personal context."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Who needs it:** Solo operators/power users (founders, researchers, execs) already hacking Notion/Obsidian/ChatGPT and craving a real agentic OS."
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What you’ve built:** Concept, pitch, market analysis, strategy; prototypes and integrations are described but traction is pre-product (founder-used, waitlist/comms plan)."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Why now:** Shift to agent-native computing; incumbents tease it (e.g., Apple Intelligence) but don’t deliver persistent context—clear timing wedge."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# 5. TurtleBase"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What it is (one sentence):** A “virtual PocketBase” platform: multi-tenant PB + gateway + CLI that spins up **realtime pocket-sized DBs** for mini-apps, with schema diff/typegen and admin tooling."
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What problem it solves (specific pain):** Shipping many tiny apps on PocketBase is brittle—tenancy, schema migrations, type safety, and realtime coordination are ad-hoc; TurtleBase standardizes **app scoping, schema/rules, and live updates** so you stop rebuilding glue each time."
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Who needs it (specific persona):** **Agency tech lead** (or indie founder-engineer) managing multiple client minis/services who wants safe multi-tenant PB, quick schema iteration, and a unified admin/runbook."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What you’ve built (how far along):** Clear architecture + gateway (Hono/Next runtime), core package (schema diff, migrations, PB wrappers, typegen, realtime), admin CLI, collections layout; recent fixes on ports/headers and members schema. Status: **Development Phase**—no public GA yet."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Why now (timing/catalyst):** PB is surging for MVPs, teams need faster multi-tenant scaffolding; parallel trend toward **local-first/offline** (your “TurtleDB” vision) strengthens the wedge if/when you push client-side runtime later."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "# 6. CursiveCode"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What it is (one sentence):** A VS Code extension that lets you compose programs visually (node/edge graphs) and generates executable TypeScript/JavaScript from the flow."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What problem it solves (specific pain):** Rapid prototyping and teaching complex data/logic flows is slow and error-prone in pure text; teams reinvent boilerplate, struggle to “see” control/data flow, and can’t easily reuse/share patterns."
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Who needs it (specific person/role):** A **staff-level front-end/platform engineer** who prototypes data transforms and UI logic in VS Code and must hand off reusable patterns to less code-heavy teammates (design technologists, QA, educators)."
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What you’ve built (how far along):** Working prototype: custom editor for `.cursive`, ReactFlow canvas, basic node types, library system (`.cursivelib`), theme sync, commands, and baseline TS/JS codegen with example files."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Why now (timing/catalyst):** VS Code has become the universal IDE; ReactFlow and webview APIs are mature; growing appetite for visual/AI-assisted authoring (Node-RED/Blueprints wave) and for artifacts that both **explain and execute**."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Okay, let me hit each one with YC scoring and brutal honesty.**"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## 1. Raster.tv"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC Viability: 3/10**"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Biggest Strength:** Clear, underserved niche with real budget (public access TV stations have funding)"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Fatal Flaw:** Tiny market. There are ~3,000 public access stations in the US. Even if you capture 50%, that's $1.5M ARR at $1K/month—not a $1B outcome."
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What it would take:**"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Pivot to broader \"community video platforms\"** (churches, schools, local governments)"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Show that public access is just the wedge into a $10B+ market"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Get 50+ stations signed up (prove you can capture the niche fast)"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC's concern:** \"This is a nice business, but is it venture-scale?\""
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**My take:** This is a **great lifestyle business** ($500K-$2M ARR), not a YC company. Unless you can show it's a Trojan horse into a much bigger market."
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## 2. Amorphous"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC Viability: 6/10**"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Biggest Strength:** Clear wedge (art directors), timely (Tauri 2, local-first hype), and you're building for a real workflow pain."
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Fatal Flaw:** Competitive moat is unclear. What stops Miro/Milanote from adding offline mode? What stops Figma from adding this?"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What it would take:**"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Get 100 paying art directors using it** (prove willingness to pay)"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Show **10x better performance** for large canvases (technical moat)"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Demonstrate **network effects** (shared asset libraries? template marketplace?)"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC's concern:** \"Cool tool, but is this a feature or a platform?\""
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**My take:** This is **borderline**. If you can show strong early adoption + clear moat (e.g., \"only tool that handles 10K+ assets smoothly\"), it's fundable. But you need **traction proof** before applying."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## 3. Pocketflow"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC Viability: 5/10**"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Biggest Strength:** Clear pain (Webflow ecommerce ops are janky), paying customers exist, you've scoped MVP well."
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Fatal Flaw:** Small TAM and commoditizing fast. How many Webflow stores are there? And once Webflow itself adds this, you're done."
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What it would take:**"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **10+ paying customers at $100+/month** before applying"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Expand beyond Webflow (Shopify? Wix? Make it platform-agnostic)"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Show you're building **infrastructure**, not a Webflow plugin"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC's concern:** \"This is a nice Webflow plugin. Why won't Webflow just build this themselves?\""
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**My take:** **Bootstrap this, don't VC-fund it.** Get to $50K MRR, then maybe apply to YC as \"ecommerce ops infrastructure\" (broader positioning)."
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## 4. Nodebook"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC Viability: 7/10**"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Biggest Strength:** PERFECT TIMING. Agent-native computing is the hottest thing in AI right now. YC is funding multiple agent startups per batch."
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Fatal Flaw:** No product yet. YC funds ideas, but you need SOMETHING working—even if it's hacky."
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What it would take:**"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Build a working prototype in 2 weeks** (ugly is fine)"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Use it yourself daily** for 30 days (dogfooding is critical)"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Get **10 people in your network using it** (waitlist doesn't count)"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Frame as **\"the operating system for AI agents\"** (infrastructure play)"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC's concern:** \"Love the vision, but do you have anything working?\""
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**My take:** **This is your best YC shot**, but you need to ship FAST. Build the ugliest possible MVP that works for YOU, then apply. This market is hot RIGHT NOW—don't wait 6 months."
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## 5. TurtleBase"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC Viability: 4/10**"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Biggest Strength:** Clear technical execution, real problem (multi-tenant PocketBase is painful)."
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Fatal Flaw:** Developer infrastructure is a HARD sell. Your market is \"people who already chose PocketBase\" (niche within a niche)."
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What it would take:**"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **50+ agencies/teams using it** (prove demand at scale)"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Position as **\"Vercel for PocketBase\"** (make it about deployment/hosting, not just tooling)"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Add revenue model (hosting/managed instances, not just open source)"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC's concern:** \"Why not just contribute this to PocketBase core?\""
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**My take:** Open source this, build community, monetize with hosting. Not YC-scale unless you pivot to broader \"local-first backend infrastructure.\""
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## 6. CursiveCode"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC Viability: 4/10**"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Biggest Strength:** Visual programming is having a moment (Retool, n8n, etc.). Good execution."
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Fatal Flaw:** VS Code extensions don't become $1B companies. This is a feature, not a platform."
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What it would take:**"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Pivot to standalone platform** (not just VS Code extension)"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Target **non-developers** (make it accessible to PMs, designers, analysts)"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Show it generates **real production code** that companies ship"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC's concern:** \"Cool demo, but is this a toy or a product?\""
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**My take:** This is a **great GitHub side project** that could get acquired by GitHub/Cursor/Replit, but not a standalone company."
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## The Ranking (YC Viability)"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Nodebook (7/10)** ← Your best shot, but needs working prototype NOW"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Amorphous (6/10)** ← Needs 100 paying users to be credible"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Pocketflow (5/10)** ← Bootstrap first, maybe YC later"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **TurtleBase (4/10)** ← Open source + community, not VC"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **CursiveCode (4/10)** ← Side project or acqui-hire target"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Raster.tv (3/10)** ← Lifestyle business, not venture scale"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## My Brutally Honest Recommendation"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **If you want to get into YC this batch:**"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Go all-in on Nodebook for the next 30 days.**"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here's why:"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- ✅ **Perfect timing** (agent-native computing is THE hot trend)"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- ✅ **Clear $1B+ vision** (\"OS for AI agents\")"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- ✅ **You can build fast** (you have the skills)"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- ✅ **Dogfoodable** (you can use it yourself immediately)"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**The 30-day plan:**"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 1-2:** Build the ugliest working prototype"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Email/calendar/notes sync (even if manual)"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Basic agent that can read your context"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- One useful workflow (e.g., \"draft email reply based on my calendar and recent notes\")"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 3:** Dogfood it yourself"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Use it for ALL your work"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Document every frustration"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Fix the top 5 blockers"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 4:** Get 5-10 people using it"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Friends, former colleagues, anyone"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Doesn't need to be polished"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Just needs to work well enough they keep using it"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Then apply to YC with:**"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"We have 10 daily active users (including ourselves)\""
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Agent-native OS that maintains persistent context\""
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Targeting solo operators → expanding to teams\""
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Clear demo video showing the magic"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Odds of acceptance: 60-70%** (timing + early traction)"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **If you're not willing to bet everything on Nodebook:**"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Build Amorphous to $10K MRR, then apply next batch.**"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here's why:"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- ✅ Clear wedge (art directors)"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- ✅ You can validate willingness to pay quickly"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- ✅ Defensible if you nail performance"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**The 6-month plan:**"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Month 1-2:** Ship to 20 art directors (free beta)"
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Month 3-4:** Convert 10 to paid ($50-100/mo)"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Month 5-6:** Get to $5K MRR, apply to YC"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Odds of acceptance: 50%** (proven traction trumps perfect timing)"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## The Harsh Reality"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**You have too many projects going.**"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I know you said they're all happening in parallel, but here's the truth: **YC will see \"lack of focus\" as a red flag.**"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When they ask \"What are you working on?\" and you say \"Well, I have 6 projects and...\" they'll think:"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"This person doesn't know what to build\""
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"They'll pivot 5 times in the batch\""
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Not coachable—too attached to their ideas\""
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**YC wants founders who are OBSESSED with one problem.**"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "So if you're serious about YC, you need to:"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Pick ONE project** (my vote: Nodebook)"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Kill or pause the rest** (hard, but necessary)"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Go all-in for 30 days**"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Apply with real traction**"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If you're not willing to do that, **skip YC this batch** and keep building in parallel. Apply in 6-12 months when one project has undeniable traction."
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## Final Question"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Are you willing to bet 30 days on Nodebook and ignore everything else?**"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If yes → I'll help you scope the MVP and plan the sprint."
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If no → We should talk about which project to bootstrap to profitability first."
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What's it gonna be?**"
+        }
+      ]
+    }
+  ]
+}

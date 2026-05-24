@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "filegraph": "https://filegraph.app/ns/"
+  },
+  "@type": "NoteCollection",
+  "@id": "notes",
+  "name": "Notes",
+  "description": "Rich text notes with block-based editing",
+  "files": [
+    "welcome.note",
+    "project-kickoff.note",
+    "ideas.note"
+  ]
+}

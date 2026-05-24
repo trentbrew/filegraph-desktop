@@ -1,0 +1,53 @@
+{
+  "@context": {
+    "brand": "https://schema.local/brand/"
+  },
+  "@id": "brand:palettes",
+  "@type": "PaletteCollection",
+  "description": "Color palettes composed from brand colors",
+  "items": [
+    {
+      "id": "brand:palette-core:001",
+      "slug": "core",
+      "name": "Core Brand",
+      "description": "Primary brand identity colors",
+      "colors": [
+        "brand:color-indigo:001",
+        "brand:color-violet:001"
+      ]
+    },
+    {
+      "id": "brand:palette-dark:001",
+      "slug": "dark-mode",
+      "name": "Dark Mode",
+      "description": "Dark theme surface colors",
+      "colors": [
+        "brand:color-midnight:001",
+        "brand:color-charcoal:001",
+        "brand:color-snow:001"
+      ]
+    },
+    {
+      "id": "brand:palette-semantic:001",
+      "slug": "semantic",
+      "name": "Semantic States",
+      "description": "Colors for feedback and status",
+      "colors": [
+        "brand:color-emerald:001",
+        "brand:color-amber:001",
+        "brand:color-rose:001"
+      ]
+    },
+    {
+      "id": "brand:palette-gradient:001",
+      "slug": "gradient",
+      "name": "Brand Gradient",
+      "description": "Primary to secondary gradient",
+      "colors": [
+        "brand:color-indigo:001",
+        "brand:color-violet:001"
+      ],
+      "css": "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)"
+    }
+  ]
+}

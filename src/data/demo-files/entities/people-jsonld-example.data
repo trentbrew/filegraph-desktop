@@ -1,0 +1,30 @@
+[
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:person:sarah-chen:001",
+    "@type": ["Entity", "Person"],
+    "id": "person:sarah-chen:001",
+    "slug": "sarah-chen",
+    "name": "Sarah Chen",
+    "email": "sarah.chen@techcorp.com",
+    "telephone": "+1-555-0123",
+    "worksFor": "fg:org:techcorp:001",
+    "assignedTo": ["fg:task:website-redesign:001", "fg:task:api-integration:002"],
+    "tags": ["developer", "frontend", "team-lead"],
+    "created": "2024-01-15T10:00:00Z",
+    "modified": "2024-12-20T08:00:00Z"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:person:john-doe:002",
+    "@type": ["Entity", "Person"],
+    "id": "person:john-doe:002",
+    "slug": "john-doe",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "worksFor": "fg:org:acme:001",
+    "tags": ["designer", "ux"],
+    "created": "2024-02-01T14:30:00Z",
+    "modified": "2024-12-20T08:00:00Z"
+  }
+]

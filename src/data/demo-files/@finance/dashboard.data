@@ -1,0 +1,162 @@
+{
+  "@context": {
+    "fin": "https://finance.local/"
+  },
+  "@id": "fin:dashboard",
+  "@type": "FinanceDashboard",
+  "@relations": {
+    "accounts": "./accounts.data",
+    "income": "./income.data",
+    "expenses": "./expenses.data",
+    "goals": "./goals.data",
+    "transactions": "./transactions.data",
+    "bills": "./bills.data",
+    "insurance": "./insurance.data",
+    "taxes": "./taxes.data"
+  },
+  "netWorth": {
+    "@rollup": "accounts.items.balance:sum"
+  },
+  "netWorthFormatted": {
+    "@expr": "$currency(netWorth)"
+  },
+  "totalAssets": {
+    "@rollup": {
+      "relation": "accounts",
+      "property": "items",
+      "filter": "balance > 0",
+      "select": "balance",
+      "aggregate": "sum"
+    }
+  },
+  "totalAssetsFormatted": {
+    "@expr": "$currency(totalAssets)"
+  },
+  "totalLiabilities": {
+    "@rollup": {
+      "relation": "accounts",
+      "property": "items",
+      "filter": "balance < 0",
+      "select": "balance",
+      "aggregate": "sum"
+    }
+  },
+  "totalLiabilitiesFormatted": {
+    "@expr": "$currency($abs(totalLiabilities))"
+  },
+  "monthlyIncome": {
+    "@rollup": "income.sources.netAmount:sum"
+  },
+  "monthlyIncomeFormatted": {
+    "@expr": "$currency(monthlyIncome)"
+  },
+  "monthlyBudget": {
+    "@rollup": "expenses.categories.budgeted:sum"
+  },
+  "monthlyBudgetFormatted": {
+    "@expr": "$currency(monthlyBudget)"
+  },
+  "monthlyRecurring": {
+    "@rollup": "bills.recurring.amount:sum"
+  },
+  "monthlySubscriptions": {
+    "@rollup": "bills.subscriptions.amount:avg"
+  },
+  "monthlyInsurance": {
+    "@rollup": "insurance.policies.premium:sum"
+  },
+  "monthlyTaxWithholding": {
+    "@ref": "taxes.monthlyWithholdings"
+  },
+  "totalMonthlyObligations": {
+    "@expr": "monthlyBudget + monthlyInsurance"
+  },
+  "totalMonthlyObligationsFormatted": {
+    "@expr": "$currency(totalMonthlyObligations)"
+  },
+  "monthlySurplus": {
+    "@expr": "monthlyIncome - totalMonthlyObligations"
+  },
+  "monthlySurplusFormatted": {
+    "@expr": "$currency(monthlySurplus)"
+  },
+  "savingsRate": {
+    "@expr": "monthlyIncome > 0 ? monthlySurplus / monthlyIncome : 0"
+  },
+  "savingsRateFormatted": {
+    "@expr": "$percent(savingsRate)"
+  },
+  "activeGoals": {
+    "@rollup": "goals.items:count"
+  },
+  "highPriorityGoals": {
+    "@rollup": {
+      "relation": "goals",
+      "property": "items",
+      "filter": "priority == 'high'",
+      "aggregate": "count"
+    }
+  },
+  "goalProgress": {
+    "@rollup": {
+      "relation": "goals",
+      "property": "items",
+      "filter": "type == 'savings'",
+      "select": "currentAmount",
+      "aggregate": "sum"
+    }
+  },
+  "goalTarget": {
+    "@rollup": {
+      "relation": "goals",
+      "property": "items",
+      "filter": "type == 'savings'",
+      "select": "targetAmount",
+      "aggregate": "sum"
+    }
+  },
+  "goalProgressPercent": {
+    "@expr": "goalTarget > 0 ? goalProgress / goalTarget : 0"
+  },
+  "goalProgressFormatted": {
+    "@expr": "$percent(goalProgressPercent)"
+  },
+  "recentTransactions": {
+    "@rollup": "transactions.items:count"
+  },
+  "accountCount": {
+    "@rollup": "accounts.items:count"
+  },
+  "subscriptionCount": {
+    "@rollup": "bills.subscriptions:count"
+  },
+  "insurancePolicies": {
+    "@rollup": "insurance.policies:count"
+  },
+  "unpaidTaxEstimates": {
+    "@rollup": {
+      "relation": "taxes",
+      "property": "estimatedPayments",
+      "filter": "paid == false",
+      "aggregate": "count"
+    }
+  },
+  "financialHealth": {
+    "@expr": "savingsRate >= 0.20 ? 'excellent' : (savingsRate >= 0.10 ? 'good' : (savingsRate >= 0 ? 'fair' : 'needs-attention'))"
+  },
+  "emergencyFundMonths": {
+    "@expr": "$round(totalAssets / monthlyBudget, 1)"
+  },
+  "emergencyFundStatus": {
+    "@expr": "emergencyFundMonths >= 6 ? 'fully-funded' : (emergencyFundMonths >= 3 ? 'on-track' : 'underfunded')"
+  },
+  "summary": {
+    "@expr": "{ netWorth: $currency(netWorth), monthlyIncome: $currency(monthlyIncome), savingsRate: $percent(savingsRate), health: financialHealth }"
+  },
+  "debtFreeDate": {
+    "@expr": "totalLiabilities < 0 ? $addMonths($today(), $ceil($abs(totalLiabilities) / 500)) : 'debt-free'"
+  },
+  "healthyBudget": {
+    "@constraint": "savingsRate >= 0.10"
+  }
+}

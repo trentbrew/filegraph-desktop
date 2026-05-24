@@ -1,0 +1,2859 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-15",
+  "title": "Discovery Notes",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Discovery Notes"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Responses"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **TIMELINE**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is a **high-level timeline** broken into weekly sprints, plus a summary of **potential blockers** that might slow progress if not addressed. The **discovery** and **website** phases have defined timelines (totaling about 5–7 weeks), while **social media & ongoing support** remains flexible."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## **Phase 1: Discovery (1 week total)**"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Week 1**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Goals & Content Gathering**"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Collect reels, video assets, brand references (if any), and IMDb credits"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Discuss creative direction, style preferences, and site objectives"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Validate domain access (Namecheap) & initial SEO considerations"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Blockers**"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Delays in receiving brand assets or reel footage"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Unclear scope or incomplete answers to strategy questions"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## **Phase 2: Website Design & Development (4–6 weeks)**"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **Week 2**"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Initial Wireframes & Site Architecture**"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Map out site structure (Home, Portfolio/Reel page, Credits, About, Contact)"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Create low-fidelity wireframes in Framer"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Draft basic copy strategy (headlines, placeholders for reel sections, etc.)"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Blockers**"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Missing final brand/design direction from Week 1"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Uncertain site hierarchy if we don’t have a clear plan for credit listings or reels"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **Week 3**"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **High-Fidelity Mockups & Feedback**"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Turn wireframes into refined UI with color, typography, and layout details"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Integrate any final decisions about the “lo-fi/old-school” vibe"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Gather client feedback and iterate quickly"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Blockers**"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Late or minimal feedback from client"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Additional or changing requirements (scope creep)"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **Week 4**"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Front-End Build & SEO Setup**"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Implement designs in Framer, ensuring responsiveness and basic SEO (meta tags, page titles, alt text)"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Insert short reel or teaser background footage on landing page"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Prepare placeholders or final sections for the full reel"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Blockers**"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Delays in receiving final video cuts or brand imagery"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Client not finalizing copy or domain details"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **Week 5**"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **A/B Testing & Refinements**"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Run small tests on layout variations, color schemes, or CTA placements"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Update SEO tags (keywords, meta descriptions) based on early insights"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Begin implementing analytics (Google Analytics/GA4, etc.) to track user behavior"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Blockers**"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Client delays in approving changes or providing additional assets"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- DNS / domain issues preventing staging environment checks"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **Week 6 (extend to Week 7 if needed)**"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **QA, Launch Prep & Final Tweaks**"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Thoroughly test site performance, fix last-minute bugs, finalize content"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Confirm domain connection (Namecheap → Framer)"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Launch** the site mid-Feb (or whenever the 4–6-week window concludes)"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Blockers**"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Slow responses regarding final sign-off"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Domain or hosting complications"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## **Phase 3: Social Media Management & Ongoing Support (Retainer)**"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*(Begins anytime after the site is live, or in parallel if desired.)*"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Kickoff**:"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Create/optimize social profiles (Instagram, Vimeo, LinkedIn)"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Plan monthly/weekly content calendar featuring reel snippets, set stories, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Integrate analytics reporting to see how social posts drive traffic to the new site"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Continuity**:"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Regularly post and engage with followers, track performance, refine strategy"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Minor site updates (adding new credits, reel versions) as needed"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Blockers**"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No clear goals for social channels (follower count, industry engagement, etc.)"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Client’s hesitance to approve posts or share behind-the-scenes content"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **Final Thoughts**"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The **only hard deadline** is delivering the website by *mid-February* (4–6 weeks from discovery)."
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Discovery** and **Web Dev** are your short-term sprints, while **Social Media** remains an **ongoing** or **as-needed** effort."
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Prompt feedback and asset hand-offs are **critical** to avoid timeline slips."
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "With this plan, we can **streamline** the launch of a polished cinematography site while setting a **foundation** for SEO, analytics, and potential social growth."
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **CV / NEEDS FROM CLIENT**"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A **cinematographer’s CV** is more specialized than a traditional resume. It typically highlights **major credits, skills, awards, and visual examples** of their work (show reels, stills, etc.). Below is a quick breakdown of what that might include—along with additional deliverables you could request to build a **comprehensive but highly visual site**."
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## 1. Typical Cinematographer CV Contents"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Name & Contact Info**"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Full name, professional title (e.g., “Director of Photography”), phone/email, maybe a website or social handle."
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Short Bio / Professional Summary**"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A brief statement about their background, specialties (commercial, narrative film, documentary), notable collaborators, or approach to cinematography."
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Key Credits & Roles**"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- List of productions: feature films, short films, commercials, music videos."
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Clearly label the role (e.g., Director of Photography, Camera Operator)."
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Include the year released, director/production company, any high-profile distribution or festivals."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Awards & Accolades**"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Festival wins, nominations, guild recognitions, press mentions."
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Keep them concise and link out if relevant."
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Technical Skills & Equipment**"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cameras (RED, ARRI, Sony, etc.), lenses, lighting setups, post-production knowledge."
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- This might be more relevant for certain types of gigs."
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Education & Training** (Optional)"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Film school or workshops, relevant certifications (e.g., Steadicam), or master classes."
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. **References** (Sometimes)"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Directors or producers who can vouch for the cinematographer’s work. Often “Available on request.”"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## 2. Website Deliverables to Request"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Show Reel**"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A highlight video or multiple short reels segmented by genre (commercial, narrative, etc.) for the landing page."
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- High-quality stills or behind-the-scenes captures that represent cinematography style."
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Credits / Portfolio**"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A definitive list of credits or selected filmography (title, role, director, year, link or trailer if applicable)."
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Separate by category (features, shorts, music videos, etc.) if extensive."
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Awards & Accolades**"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Specific laurels, festival selections, or press coverage to highlight."
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Any official laurels graphics or high-res images if they want them displayed."
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Domain & Hosting Access**"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Admin access to Namecheap (or other domain registrar)."
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Access to the hosting platform or Framer project so you can fully configure DNS, custom email, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Contact & Bio**"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A short, well-written personal statement or extended “About” section."
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Up-to-date contact info or representation details (agent, manager, etc.)."
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Visual Assets**"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- High-quality still frames from major projects."
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Behind-the-scenes photos that capture lighting or camera setups."
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Logos or poster art for recognized titles."
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. **Additional Press Kits or Interviews** (Optional)"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Links to interviews, articles, or behind-the-scenes features that might add credibility or narrative to the site."
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### Putting It All Together"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A **cinematographer’s CV** alone usually takes the form of a **credit list + awards + short bio**."
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- For a **website**, you’ll likely want that data **plus** a visually engaging **portfolio/reel** and **stills** that show off the cinematographer’s style."
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Make sure you gather **admin/domain access** and brand assets early on, so you can connect everything smoothly."
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "By combining a succinct, professionally formatted CV with **visually compelling** reels, project stills, and awards, you’ll be able to **showcase** his work in a way that’s both **comprehensive** and **appealing** to prospective collaborators."
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **REQUEST FOR DELIVERABLES**"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is a **concise, modular set of deliverables** you can send to your client prior to kickoff. Feel free to shuffle or piece these sections together in your final SOW."
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## **I. Required Assets & Access**"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Show Reel Assets**"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Short Teaser Reel** for the landing page (fast-paced, ~30 seconds of strongest shots)."
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Full-Length Reel** to embed or link to after button click."
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *Note*: If any footage is missing, let me know—we can **scrape MP4s from YouTube** (with your permission) to fill gaps."
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Credits & Accolades**"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A **comprehensive list** of relevant films, commercials, or other key projects (include any awards, festival laurels, or special recognition)."
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- High-res images or posters you want showcased."
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Domain & Hosting**"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Admin or collaborator **access to Namecheap** (for faires.film) so I can connect it to Framer."
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Credentials or info for setting up your **custom email address** (if desired)."
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## **II. Illustrating Your Value & Differentiators**"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Professional Background**"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A short write-up of your **20+ years** in the industry: major milestones, interesting anecdotes, or marquee projects that highlight experience."
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Any quick blurbs or personal philosophies that show how your approach differs from trend-chasing newcomers."
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Breadth of Skills / Knowledge**"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A bullet-point list of your technical proficiencies and unique skills: cameras, lighting rigs, specialized setups, or advanced post-workflow knowledge."
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Mention if you do location scouting, creative direction, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Process & Approach**"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A high-level view of how you work on set: from pre-production planning to on-the-fly problem-solving."
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Any key values or principles you follow that underscore professionalism and reliability (e.g., “Never miss a deadline,” “Collaborative spirit with directors,” etc.)."
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Positioning Against the ‘New Wave’**"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If you want to emphasize a **lo-fi or old-school aesthetic** that subtly conveys deep expertise, gather references or style inspirations."
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Input on how you see yourself standing out from younger, more experimental peers."
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Possible stories about times you used tried-and-true techniques to solve on-set challenges where modern gear failed."
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## **III. Additional Materials (Optional)**"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Behind-The-Scenes Content**"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Any **BTS videos** or stills that capture your on-set process—great for blog posts or a special “Process” page."
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Testimonials or References**"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Quotes from directors, producers, or colleagues who can vouch for your reliability and creativity."
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Press / Interviews**"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Links to articles, interviews, or podcast appearances that further build credibility."
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Vision or Mood Boards**"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If you already have references or mood boards for the lo-fi vibe, send them over to guide the design direction."
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## **IV. Quick Thoughts on Reel Strategy**"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Landing Page Teaser**"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A short, attention-grabbing cut (fast-paced, 20–30 seconds)."
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Autoplay as a full-screen background or hero element for a strong first impression."
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A **“Watch Full Reel”** button to lead viewers to the in-depth version."
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Full Reel**"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Let the cinematic work breathe—include longer scenes or transitions that show range and versatility."
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Could be embedded on a dedicated page or displayed in a modal pop-up."
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*(We don’t have to finalize the reel approach right now—just gather enough footage so we can experiment.)*"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **Next Steps**"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Please gather these materials in a shared folder or send them my way."
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- We’ll schedule a mini-strategy session (optional) to clarify how to weave your 20-year story into a compelling, cohesive website narrative."
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Once I have the assets, we can finalize layout ideas, brand style, and how best to spotlight your experience among a younger, more tech-centric filmmaking crowd."
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Feel free to edit any part of this list to fit your tone or preferences. We’ll puzzle-piece the final details into the SOW for a smooth, jazz-like flow of creativity and efficiency."
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **SEO / SOCIAL MEDIA**"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Below is a **draft section** you can include in your proposal or SOW, explaining the **value and structure** of a fully managed social media service—tailored to a cinematographer with 20+ years of experience and minimal online presence."
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "## **Social Media Management (Optional Add-On)**"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **1. Why Social Media Matters for a Veteran Cinematographer**"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Build Credibility & Reach**"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Even a simple Instagram feed or LinkedIn profile can become a quick “lookbook” for potential collaborators. It reinforces your online presence beyond just a standalone site or IMDb page."
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Strengthen SEO**"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Search engines give credence to cross-linked, active social profiles. Sharing new reels or behind-the-scenes posts can drive traffic back to your site, improving search visibility."
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Showcase Personality & Experience**"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "After two decades in the industry, your behind-the-scenes stories, set photos, or quick insights can spark interest. Social media offers a channel to reveal the “real person” behind the camera."
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **2. Fully-Managed Approach**"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Profile Setup & Branding**"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- We’ll create or optimize your accounts (e.g., Instagram, LinkedIn, Vimeo/YouTube) with a consistent visual brand, bio, and contact info."
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- All credentials and ownership stay with you—our role is to maintain and update them."
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Content Calendar & Strategy**"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- We’ll plan monthly or weekly posts highlighting key credits, short reel snippets, and on-set anecdotes."
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- This calendar is shared with you for approvals or edits, so you’re always comfortable with what’s being published."
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Content Creation & Curation**"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- We pull from your existing footage, stills, or new “quick tips” to craft engaging posts."
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Where needed, we’ll design graphics or create short, social-friendly teasers from your reel footage."
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Engagement & Audience Growth**"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- We respond to basic inquiries or DMs, keeping you in the loop if deeper conversations arise."
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- We can strategically follow or interact with relevant film accounts, festivals, or production studios to grow your network."
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Analytics & Reporting**"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Track followers, engagement rates, and clicks back to your website."
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Provide monthly recaps so you can see which content resonates and refine strategies accordingly."
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **3. Tailored to 20+ Years of Industry Experience**"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Highlight Classic Techniques**"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Share short posts or reels that demonstrate “tried-and-true” cinematography methods versus newer experimental trends."
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- E.g., a mini-breakdown of how you overcame a challenging lighting setup using time-tested approaches."
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Behind-the-Scenes Nuggets**"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "With such a lengthy career, you have anecdotes from set mishaps to surprising improvisations—these can be turned into quick, impactful posts that illustrate your reliability and depth of knowledge."
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Selective Engagement**"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If you prefer minimal interaction, we can keep it purely as a professional portfolio feed rather than a day-to-day personal presence. You can set the tone and level of direct interaction."
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **4. Proposed Deliverables**"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Account Creation/Optimization** (Instagram, LinkedIn, Vimeo/YouTube, etc.)"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Monthly Content Calendar** (2–4 posts/week, depending on your preference)"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Content Design & Scheduling** (carousels, short videos, still frames)"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Community Management** (light engagement, DM triage, comment monitoring)"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Monthly Analytics Report** (growth, top-performing posts, next steps)"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "### **5. Next Steps If Interested**"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- We’ll hold a brief “Social Brainstorm” call to define your comfort level, content themes, and brand voice."
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Decide which platforms align best with your goals (Instagram for visuals, LinkedIn for networking, Vimeo/YouTube for reel hosting)."
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Once approved, we’ll integrate this service into your monthly subscription or retainer for ongoing management."
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**In short**, a managed social media presence complements your site’s SEO efforts and showcases the depth of your experience—without adding to your workload. It’s an effective way to stay on the radar of directors, producers, and industry peers who might otherwise never stumble upon your website."
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-231",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Braindump"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "We must povide a list of these deliverables in a concise comprehensive format that I can send to him prior to kickoff. It will be included in the SOW"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Please note in the list that I can scrape together any missing video assets by downloading mp4s from youtube if neccessary. Also, please include the reel that will be housed on the landing page."
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "We discussed quite a bit about what the reel should include... we want it to be a strong first impression showcasing the most valuable content up front with fast cuts to retain attention, and a button to view the full reel. Maybe we show a shorter version of the reel as a fullcsreen background element, then embed the full length reel on button click? This doesn't have to be figured out just yet, I'm only thinking out loud."
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "We also discussed the best ways we can illustrate his key differentiators (experience, breadth of skills/knowledge, and process <will add more>)–What do you reckon I will need from him in order to best approach this open question? What kinds of things will I need to know from him in order to have the information I need to properly discern the best way to illustrate his value? Based on our discussion, his 20 years of experience in the industry and impressive resume are the meat & potatoes. We were considering desining his site with somewhat of a lo-fi old-school type vibe in order to subtley illustrate his tenure, especially in comparison to younger folks in the same field. He mentioned that the younger folks tend to get turned away because they are too experimental or rely on un-tried tech like AI and other things. This is an interesting problem to me cuz he's really competing against this new wave of filmmakers who (in my opinion) aren't bringing the same level of live blood to the art. Some language and strategy around this complex issue would be most helpful."
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Questions to Ask:"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-239",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Goals & Scope:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"What are you hoping to achieve with your website?\""
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> Appeal to agents, collabortors (short films, commercials, etc), and"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Are there specific features or functionalities you're looking for?\""
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-245",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Current State:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Do you currently have a website or materials you want to update or use as a reference?\""
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- “What platform did you use to build your previous website?”"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- “Do you currently own a domain for your website? If so, would it be possible for me to be added as an administrator?”"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Are there any inspirations or examples of websites you admire?\""
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-251",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Audience:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Who is the primary audience for the site?\""
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Are you looking for certain kinds of engagement (e.g., contact forms, e-commerce, portfolio showcase)?\""
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-255",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintenance:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Will you need ongoing support after the site is live?\""
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"Would you prefer to manage updates yourself or have a professional maintain it?\""
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-259",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Logistics:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- \"What is your timeline for this project?\""
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Budgets"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Monthly retainer model"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Transparency: [https://membership.turtle.tech/](https://membership.turtle.tech/)"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Friends & Family Discount (25%)"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-266",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Next steps"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- SOW / Proposal"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Document + Side Deck"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Terms of Service"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Kick-off"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-273",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reel available?"
+            }
+          ]
+        },
+        {
+          "id": "b-274",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "How can we best illustrate the defferentiators (experience, breadth, process) from the rest of the competition?"
+            }
+          ]
+        },
+        {
+          "id": "b-275",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "How can we best illustrate the"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-278",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Security"
+            }
+          ]
+        },
+        {
+          "id": "b-279",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Modern / timeless aesthetic"
+            }
+          ]
+        },
+        {
+          "id": "b-280",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Quick turnaround (4-6 weeks)"
+            }
+          ]
+        },
+        {
+          "id": "b-281",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO (keywords, SSR, backlinks, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-282",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mobile friendly"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-285",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Reel for landing page"
+            }
+          ]
+        },
+        {
+          "id": "b-286",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  List of the credits, video files, awards, and accolades he would like to include on the site."
+            }
+          ]
+        },
+        {
+          "id": "b-287",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Admin access to the namecheap account which owns his domani (faires.film) so I can connect it to Framer and setup his custom email address."
+            }
+          ]
+        },
+        {
+          "id": "b-288",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

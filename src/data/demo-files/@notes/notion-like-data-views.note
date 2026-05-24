@@ -1,0 +1,3442 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note._id, // Use Convex ID",
+  "title": "Notion-like Data Views",
+  "status": "'todo',",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Notion-like Data Views"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Welcome back! In [Chapter 4: Convex Backend (Nodes & Edges)](https://www.notion.so/turtlelabs/04_convex_backend__nodes___edges__.md), we learned how our application stores and retrieves data using Convex, organizing information into Nodes and Edges. We saw how to fetch this data using `useQuery`. Now, how do we display this structured data to the user in a flexible and powerful way, much like Notion databases?"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "What's the Big Deal with Different Data Views?"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Imagine you have a list of tasks for a project. Sometimes, you want to see them in a detailed table with columns for status, due date, and assignee. Other times, you might prefer a simple checklist (List view). Or maybe you want a visual overview with cards for each task (Grid view)."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "It's the *same list of tasks*, but you're looking at it through different \"lenses\". Creating separate display components for each view (Table, List, Grid) would be repetitive and hard to maintain. What if you add a new property like \"Priority\"? You'd have to update all those components!"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Our Use Case:** We need a way to display a collection of data (like our \"notes\" or \"tasks\" fetched from Convex) in various formats – Table, List, Grid – using a single, configurable component. This component should also handle common database features like sorting, filtering, and choosing which properties (columns) are visible, just like you can in Notion."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Our application uses a powerful component called `NotionViewEnhanced` to achieve this. It acts like a flexible container that can render the same data in multiple ways based on configuration."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Key Concepts: The Flexible Display System"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's break down the core ideas behind our Notion-like views:"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **`NotionViewEnhanced` Component (`app/components/notion/notion-view-enhanced.tsx`):**"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Role:** This is the main component you'll use. Think of it as the \"View Manager\" or the \"Display Frame\"."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Inputs:** It primarily takes two important props:"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `schema`: Tells the component *what kind* of data to expect (the properties or columns)."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `data`: The actual array of data items to display."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Functionality:** It manages the overall display, allowing users to:"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Switch between different view types (Table, List, Grid)."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Filter the data based on property values (e.g., show only \"High\" priority tasks)."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Sort the data by different properties (e.g., sort by \"Due Date\")."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Control which properties (columns in a table) are visible."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **`schema` (The Blueprint for Your Data):**"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What it is:** An array of objects that defines the structure or \"properties\" of your data items. Each object in the array describes one property, like \"Task Name\", \"Status\", or \"Due Date\"."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Details:** It specifies the property's unique `id`, display `name`, `type` (e.g., 'text', 'select', 'date', 'number', 'checkbox', 'relation'), and potentially other options like default `width` for table columns or available `options` for 'select' types."
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source:** This schema often corresponds to the data structure defined in our backend ([Chapter 4: Convex Backend (Nodes & Edges)](https://www.notion.so/turtlelabs/04_convex_backend__nodes___edges__.md)), specifically fetched from the `schemas` table in Convex using the `api.schemas.getSchema` query."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **`data` (The Actual Information):**"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **What it is:** An array containing the data objects you want to display. Each object in the array represents one item (like a single note, task, or row in a table)."
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Structure:** Each data object should have a unique `id` and a `properties` object. The `properties` object contains the actual values for that item, keyed by the `id` defined in the `schema`."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Source:** This data is typically fetched from our [Chapter 4: Convex Backend (Nodes & Edges)](https://www.notion.so/turtlelabs/04_convex_backend__nodes___edges__.md) using `useQuery`, like `api.nodes.getVisibleNodes`, and then transformed slightly to fit the structure expected by `NotionViewEnhanced`."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **View Types (Table, List, Grid):**"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Concept:** These are the different visual \"lenses\" `NotionViewEnhanced` can use to display the `data`."
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Implementation:** `NotionViewEnhanced` contains logic to switch between these views. It uses specialized sub-components for the actual rendering of each view:"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `GenericBlockTable`: Renders the data in a `<table>`."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `GenericBlockCard`: Renders each data item as a card in a grid layout."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `GenericBlockListItem`: Renders each data item as a row in a list layout."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Filtering, Sorting, and Visibility:**"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Functionality:** `NotionViewEnhanced` provides built-in UI controls (buttons, dialogs) for users to filter which items are shown, sort the order of items, and choose which properties are displayed (e.g., hide the \"Last Updated\" column in the table)."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **State Management:** It manages the state for the current filters, sorts, and visible properties internally."
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Using `NotionViewEnhanced`: Displaying Tasks"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's imagine we have fetched a list of task \"Nodes\" from Convex and also fetched the schema definition for tasks. How do we use `NotionViewEnhanced` to display them?"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. Prepare the Schema:**"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This defines the \"columns\" or properties of our tasks. This might be fetched from `convex/schemas.ts` or defined directly."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Example Schema definition (could be fetched from Convex)"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const taskSchema: PropertySchema[] = ["
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// The main title property"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ id: 'title', name: 'Task Name', type: 'text', width: 300 },"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Other properties"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: 'status',"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: 'Status',"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: 'select', // Dropdown options"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "options: ['Todo', 'In Progress', 'Done'],"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "width: 120,"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ id: 'dueDate', name: 'Due Date', type: 'datetime', width: 140 },"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ id: 'assignee', name: 'Assignee', type: 'relation', width: 150 }, // Link to a user node"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ id: 'icon', name: 'Icon', type: 'text', width: 50 }, // For an emoji/icon"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "];"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Explanation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This array describes each piece of information we want to potentially show about a task."
+            }
+          ]
+        },
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`id`: A unique key used to find the data in the `properties` object."
+            }
+          ]
+        },
+        {
+          "id": "b-62",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`name`: The user-friendly label shown in headers or menus."
+            }
+          ]
+        },
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`type`: Tells the component how to display and filter the data (text input, dropdown, date picker, etc.)."
+            }
+          ]
+        },
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`options`: Specific choices for 'select' types."
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`width`: Optional hint for table column width."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Prepare the Data:**"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is the list of tasks, fetched from Convex and formatted correctly."
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Example Data (fetched from Convex and formatted)"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const taskData: DataItem[] = ["
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: 'task-1', // Unique ID for the task (e.g., Convex document ID)"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "properties: {"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Implement Notion View',"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status: 'In Progress',"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dueDate: '2024-08-15T10:00:00Z',"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "assignee: 'user-dev-1', // ID of the related user node"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "icon: '🎨',"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: 'task-2',"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "properties: {"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Write Documentation',"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "status: 'Todo',"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dueDate: '2024-08-20T18:00:00Z',"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "assignee: 'user-writer-1',"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "icon: '✍️',"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ... more tasks"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "];"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Explanation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is an array where each object is a task."
+            }
+          ]
+        },
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`id`: The unique identifier for this task."
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`properties`: An object containing the actual data values, keyed by the `id`s defined in `taskSchema`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Use the Component in React:**"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Example: In a React component like app/tasks/page.tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import NotionViewEnhanced from '@/app/components/notion/notion-view-enhanced';"
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Assuming taskSchema and taskData are available (fetched or defined)"
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function TasksPage() {"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ... logic to fetch schema and data ..."
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return ("
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<div style={{ height: '80vh', width: '100%' }}> {/* Container needs size */}"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<NotionViewEnhanced"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema={taskSchema} // Pass the schema definition"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data={taskData} // Pass the actual task data"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "titlePropertyId=\"title\" // Tell it which property is the main title"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "iconPropertyId=\"icon\" // Tell it which property holds the icon"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "defaultViewType=\"table\" // Start with the table view"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Optional: Set initial filters/sorts"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// initialFilters={[{ id: 'f1', propertyId: 'status', operator: 'is_not', value: 'Done' }]}"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "/>"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "</div>"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export default TasksPage;"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Explanation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We import `NotionViewEnhanced`."
+            }
+          ]
+        },
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We render it inside a container that has a defined height and width (important for the table view layout)."
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We pass our `taskSchema` and `taskData`."
+            }
+          ]
+        },
+        {
+          "id": "b-127",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`titlePropertyId=\"title\"`: This is crucial. It tells the component which property from the schema (`title` in this case) should be treated as the main identifier or name for each item. This is often used as the main text in List/Grid views or the first column in Table view."
+            }
+          ]
+        },
+        {
+          "id": "b-128",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`iconPropertyId=\"icon\"`: Optionally tells the component which property holds an icon (like an emoji) to display next to the title."
+            }
+          ]
+        },
+        {
+          "id": "b-129",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`defaultViewType=\"table\"`: Sets the initial view users see when the page loads."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Expected Output:**"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This code will render an interactive UI element that:"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-133",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Displays the `taskData` initially in a Table format, using `taskSchema` to create the columns."
+            }
+          ]
+        },
+        {
+          "id": "b-134",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provides buttons to switch between Table, List, and Grid views."
+            }
+          ]
+        },
+        {
+          "id": "b-135",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Includes buttons/menus for Filtering, Sorting, and managing visible Properties (columns)."
+            }
+          ]
+        },
+        {
+          "id": "b-136",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shows the task \"title\" prominently, potentially with its \"icon\"."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Under the Hood: How `NotionViewEnhanced` Works"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay, using it seems straightforward, but what happens inside the component when it renders?"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Simplified Flow:**"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Props Received:** Your `TasksPage` renders `<NotionViewEnhanced>` passing the `schema` and `data`."
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **State Initialization:** `NotionViewEnhanced` initializes its internal state:"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Current `viewType` (e.g., 'table')."
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Active `filterConditions` (e.g., `status` is not 'Done')."
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Active `sortConfigs` (e.g., sort by `dueDate` ascending)."
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Visible `viewProperties` (which columns/properties to show)."
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Current `searchQuery`."
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Data Processing (Memoized):** The component processes the input `data`:"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Applies the `searchQuery`."
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Applies the active `filterConditions`."
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Applies the active `sortConfigs`."
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- This results in a `processedData` array, ready for display. (Uses `useMemo` hooks for efficiency)."
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **View Selection:** Based on the current `viewType` state ('table', 'list', or 'grid'), it decides which sub-component to render."
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Sub-Component Rendering:** It renders the chosen sub-component (e.g., `<GenericBlockTable>`)."
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Props Passed Down:** It passes the `processedData`, the relevant parts of the `schema` (like visible properties), and necessary callbacks (like `onSortToggle`) to the sub-component."
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. **Final Render:** The sub-component (`GenericBlockTable`) takes the processed data and schema information and renders the actual HTML (e.g., a `<table>` with headers and rows based on the data)."
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "8. **UI Interaction:** When the user clicks \"Filter\", \"Sort\", changes the view type, or toggles property visibility, `NotionViewEnhanced` updates its internal state, triggers a re-render, re-processes the data, and renders the updated view."
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Sequence Diagram:**"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```mermaid"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sequenceDiagram"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "participant Page as React Page (TasksPage)"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "participant NV as NotionViewEnhanced"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "participant State as Internal State (useState)"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "participant DP as Data Processing (useMemo)"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "participant SubComp as View Sub-Component (e.g., GenericBlockTable)"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Page->>NV: Render <NotionViewEnhanced schema={...} data={...} />"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV->>State: Initialize viewType, filters, sorts etc."
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV->>DP: Process data (apply filters, sorts based on State)"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "DP-->>NV: Return processedData"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV->>SubComp: Choose SubComp based on viewType (e.g., 'table')"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV->>SubComp: Render <GenericBlockTable data={processedData} schema={visibleProps} ... />"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "SubComp-->>NV: Table HTML structure"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV-->>Page: Rendered View UI"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "%% User Interaction Example: Change Sort %%"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "User->>NV: Clicks Sort button on 'Status' column header"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV->>State: Update sortConfigs state"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "State-->>NV: State updated, triggers re-render"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV->>DP: Re-process data with new sortConfigs"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "DP-->>NV: Return newly sorted processedData"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV->>SubComp: Render <GenericBlockTable data={sortedData} ... />"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "SubComp-->>NV: Updated Table HTML"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NV-->>Page: Display re-sorted table"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Diving into the Code (`app/components/notion/notion-view-enhanced.tsx`)"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's look at some simplified snippets from the component itself."
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. State Management (`useState`):**"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Simplified state management within NotionViewEnhanced"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export default function DataView({ /* ...props... */ }) {"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// State for the current view type"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const [viewType, setViewType] = useState<ViewType>(defaultViewType);"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// State for search text"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const [searchQuery, setSearchQuery] = useState(initialSearchQuery);"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// State for filter rules"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const [filterConditions, setFilterConditions] = useState<FilterCondition[]>(initialFilters);"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// State for sorting rules"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const [sortConfigs, setSortConfigs] = useState<SortConfig[]>(initialSorts);"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// State for which properties are visible (derived from schema)"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const [viewProperties, setViewProperties] = useState</*...*/>(/* initial logic */);"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ... other states for dialogs, resizing etc. ..."
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Explanation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-203",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard React `useState` hooks are used to manage the component's internal configuration like the selected view, active filters, sorting, etc."
+            }
+          ]
+        },
+        {
+          "id": "b-204",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Changing these states (e.g., via `setViewType('list')`) triggers re-renders."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Data Processing (`useMemo`):**"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Simplified data processing pipeline using useMemo for efficiency"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const searchedData = useMemo(() => {"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Apply searchQuery to the original 'data' prop"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ... filtering logic based on searchQuery ..."
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return data.filter(/*...*/);"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}, [data, searchQuery]);"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const filteredData = useMemo(() => {"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Apply filterConditions to searchedData"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ... logic using applyFilter helper function ..."
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return searchedData.filter(/*...*/);"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}, [searchedData, filterConditions, filterLogic, applyFilter]);"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const processedData = useMemo(() => {"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Apply sortConfigs to filteredData"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ... complex sorting logic based on property types and directions ..."
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return [...filteredData].sort(/*...*/);"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}, [filteredData, sortConfigs, schemaMap]);"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Explanation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-226",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`useMemo` is used to avoid recalculating the filtered and sorted data on every render, unless the dependencies (like `data`, `filterConditions`, `sortConfigs`) change."
+            }
+          ]
+        },
+        {
+          "id": "b-227",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This creates a pipeline: `data` -> `searchedData` -> `filteredData` -> `processedData`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Conditional View Rendering:**"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Simplified view rendering logic"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return ("
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<div /* ...outer container... */ >"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* ... Header with View Controls ... */}"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<div className=\"flex-1 p-2 pt-1 overflow-auto relative\">"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* ... Filter/Sort summary badges ... */}"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* Render the correct sub-component based on viewType */}"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{viewType === 'table' && ("
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<GenericBlockTable"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "items={processedData}"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "titleProperty={titlePropertySchema}"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "visibleProperties={visibleSchemaProperties}"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ... other props like selection, sorting, resizing ..."
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "/>"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ")}"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{viewType === 'list' && ("
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<div className=\"space-y-1\">"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{processedData.map((item) => ("
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<GenericBlockListItem key={item.id} item={item} /* ... */ />"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "))}"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* ... New item placeholder ... */}"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "</div>"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ")}"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{viewType === 'grid' && ("
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<div className=\"grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4\">"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{processedData.map((item) => ("
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<GenericBlockCard key={item.id} item={item} /* ... */ />"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "))}"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* ... New item placeholder ... */}"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "</div>"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ")}"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* ... Placeholders for other views ... */}"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* ... No results message ... */}"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "</div>"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* ... View Options Panel (Sidebar) ... */}"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{/* ... Filter/Sort Dialogs ... */}"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "</div>"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Explanation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-271",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard JavaScript conditional rendering (`&&`) is used."
+            }
+          ]
+        },
+        {
+          "id": "b-272",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If `viewType` is 'table', the `<GenericBlockTable>` component is rendered."
+            }
+          ]
+        },
+        {
+          "id": "b-273",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If `viewType` is 'list', `<GenericBlockListItem>` components are rendered inside a `div`."
+            }
+          ]
+        },
+        {
+          "id": "b-274",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If `viewType` is 'grid', `<GenericBlockCard>` components are rendered inside a grid `div`."
+            }
+          ]
+        },
+        {
+          "id": "b-275",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The `processedData` and relevant schema info are passed down to the active view component."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. Schema Source (Connecting to Chapter 4):**"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Remember the `schema` prop? Where does it come from? In our app, it's designed to be loaded dynamically from the Convex backend."
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// File: app/notes/page.tsx (Simplified Schema Fetching)"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'use client';"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { useQuery } from 'convex/react';"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { api } from '@/convex/_generated/api';"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import NotionViewEnhanced from '@/app/components/notion/notion-view-enhanced';"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "import { useMemo } from 'react';"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export default function NotesPage() {"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const tenantId = 'tenant-1';"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const userId = 'user-abc';"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const nodeType = 'note'; // We want the schema for 'note' nodes"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Fetch actual note data (Nodes)"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const notes = useQuery(api.nodes.getVisibleNodes, { tenantId, userId });"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Fetch the schema definition for 'note' type from Convex"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const schemaQueryResult = useQuery(api.schemas.getSchema, {"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "tenantId,"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "nodeType,"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Extract the properties array from the fetched schema document"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const dynamicSchemaProperties = useMemo("
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "() => schemaQueryResult?.properties ?? [], // Default to empty array if loading/not found"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[schemaQueryResult],"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Transform Convex node data into the format NotionViewEnhanced expects"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const processedData = useMemo(() => {"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (!notes) return [];"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return notes.map((note) => ({"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: note._id, // Use Convex ID"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "properties: {"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Map node fields to schema property IDs"
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: note.genericMetadata?.name ?? 'Untitled',"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: note.genericMetadata?.description ?? '',"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// ... map other properties based on dynamicSchemaProperties ..."
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}));"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}, [notes]);"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (notes === undefined || schemaQueryResult === undefined) {"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return <div>Loading...</div>; // Show loading state"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return ("
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<NotionViewEnhanced"
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema={dynamicSchemaProperties} // Pass the fetched schema"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data={processedData} // Pass the formatted data"
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "titlePropertyId=\"title\" // Assuming 'title' is always the ID for the main name"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "defaultViewType=\"list\""
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "/>"
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "id": "b-326",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-327",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Explanation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-332",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-329",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We use `useQuery` twice: once to get the actual `notes` data (`api.nodes.getVisibleNodes`), and again to get the `schema` definition specifically for the 'note' type (`api.schemas.getSchema`)."
+            }
+          ]
+        },
+        {
+          "id": "b-330",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The `schemaQueryResult.properties` array (fetched from the `schemas` table in Convex) is passed as the `schema` prop to `NotionViewEnhanced`."
+            }
+          ]
+        },
+        {
+          "id": "b-331",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The fetched `notes` data needs to be slightly transformed (using `useMemo` and `.map()`) into the `[{ id: '...', properties: {...} }]` structure that `NotionViewEnhanced` expects."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-333",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This dynamic loading of the schema allows different types of data (notes, tasks, companies) to use the same `NotionViewEnhanced` component, each with its own set of properties and display configurations!"
+        }
+      ]
+    },
+    {
+      "id": "b-334",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Conclusion"
+        }
+      ]
+    },
+    {
+      "id": "b-335",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You've now learned how our application displays structured data in a flexible, Notion-like way!"
+        }
+      ]
+    },
+    {
+      "id": "b-342",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-336",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The goal is to view the same data through different lenses (Table, List, Grid)."
+            }
+          ]
+        },
+        {
+          "id": "b-337",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`NotionViewEnhanced` is the central component that manages these views."
+            }
+          ]
+        },
+        {
+          "id": "b-338",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It takes a `schema` (defining the data structure/properties) and the actual `data` as input."
+            }
+          ]
+        },
+        {
+          "id": "b-339",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The `schema` often comes dynamically from our [Chapter 4: Convex Backend (Nodes & Edges)](https://www.notion.so/turtlelabs/04_convex_backend__nodes___edges__.md) (`schemas` table)."
+            }
+          ]
+        },
+        {
+          "id": "b-340",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The `data` is fetched from Convex (e.g., `nodes` table) and formatted."
+            }
+          ]
+        },
+        {
+          "id": "b-341",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`NotionViewEnhanced` handles view switching, filtering, sorting, and property visibility using internal state and sub-components like `GenericBlockTable`, `GenericBlockCard`, and `GenericBlockListItem`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-343",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "We now have a way to store data (Convex) and display it flexibly (`NotionViewEnhanced`). What about interacting with data in a more conversational way, perhaps using Artificial Intelligence?"
+        }
+      ]
+    },
+    {
+      "id": "b-344",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let's move on to [Chapter 6: AI Chat Interface](https://www.notion.so/turtlelabs/06_ai_chat_interface_.md) to explore how we build a chat experience!"
+        }
+      ]
+    },
+    {
+      "id": "b-345",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-346",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Generated by [AI Codebase Knowledge Builder](https://github.com/The-Pocket/Tutorial-Codebase-Knowledge)"
+        }
+      ]
+    }
+  ]
+}

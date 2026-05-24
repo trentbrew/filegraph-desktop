@@ -1,0 +1,3143 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-139",
+  "title": "NewRoot Web Migration SOW",
+  "author": "person:jane-brew:001",
+  "status": "final",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "NewRoot Web Migration SOW"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Primary Contact Information"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Project Lead (Austin Sellers) | Gumbo Media**"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Email: [asellers@gumbomedia.com](mailto:asellers@gumbomedia.com)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Lead Designer (Sample User) | Gumbo Media**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Email: [user@gumbomedia.com](mailto:user@gumbomedia.com)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Client (Rosa Zamora) | NewRoot Learning Institute**"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Email: [rosa@newroot.org](mailto:rosa@newroot.org)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [Introduction & Summary](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [Project Background](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [Goals & Objectives](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [3.1. Key Deliverables](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [3.2. Target Audience](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. [Project Scope](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [4.1. Projected Timeline](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [4.2. Milestones & Deliverables](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. [Requirements & Dependencies](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [5.1. Migrating WordPress Plugins & Critical Features](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [5.2. Required Access](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [5.3. MemberPress Migration Considerations](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. [Additional Considerations](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [6.1. Content Management During Migration](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [6.2. Quality Assurance](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. [Financials](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "8. [Conclusion](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "9. [Appendix](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [9.1. Communication](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- [9.2. Assumptions & Prerequisites](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "10. [Community Care Clause](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "11. [Signatures](https://www.notion.so/17765995c8be80558771d4df33044957?pvs=21)"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "NewRoot Learning Institute is a national social impact organization focused on transforming education and community spaces. They specialize in building deep social-emotional learning (SEL) skills in educators to change how young people experience school and how schools serve society."
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "For over 20 years, NewRoot has been a partner for high schools, districts, and organizations, ensuring students graduate equipped for college, career, and life success."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Over the past year, NewRoot has faced significant technical challenges with their WordPress website, including outages, slow load times, and critical functionality issues affecting their donation page. As their technical partner, Gumbo Media has provided ongoing support to address these concerns while implementing new features that have enhanced their digital presence. Through this collaboration, we've gained deep insight into NewRoot's technical infrastructure and operational needs. To future-proof their platform and better serve their mission, we propose migrating their website from WordPress to Webflow. This strategic shift will not only resolve their current technical pain points but also deliver a more secure, responsive, and user-friendly experience that properly reflects NewRoot's growth and impact in the education sector. The migration represents a crucial step in modernizing their digital infrastructure to support their continued expansion and better serve their community of educators and partners."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3.1. Key Deliverables"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To address these challenges, **Gumbo Media** aims to deliver a comprehensive website migration and modernization solution that will resolve NewRoot's technical issues while positioning them for sustainable growth. Through careful planning and execution, we will:"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Transition NewRoot's website from WordPress to Webflow, providing a robust, modern platform that enhances security, simplifies content management, and delivers a seamless user experience."
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Migrate NewRoot's existing content, resources, and features to the new platform, ensuring a smooth transition and minimal disruption to their operations."
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Audit NewRoot's existing tech stack and infrastructure to identify areas for improvement, minimize technical debt, remove unnecessary dependencies, reduce operational costs, and future-proof their web presence."
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement new features and functionality to enhance user engagement and support NewRoot's mission, including a modern, responsive design, improved navigation, and enhanced search capabilities."
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provide ongoing support and maintenance to ensure the website remains secure, performant, and aligned with NewRoot's evolving needs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3.2. Target Audience"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Educators & School Staff**"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Seeking professional development and SEL training resources"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Looking for evidence-based tools and frameworks to transform their teaching practice"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Want to connect with a community of like-minded educators"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Need accessible, practical strategies they can implement immediately"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **School Districts & Administrators**"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Searching for whole-school SEL implementation partners"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Require proven methodologies for sustainable adult learning"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Want measurable outcomes and impact data"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Looking for long-term strategic partnerships"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Students & Community Members**"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Benefit from improved educational environments"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Experience transformed learning spaces"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Gain enhanced college and career readiness"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Develop stronger social-emotional skills"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Education Organizations & Partners**"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Seek collaboration opportunities"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Want to leverage NewRoot's expertise and methodologies"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Looking to expand their impact through strategic alliances"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Need evidence-based approaches to SEL implementation"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4.1. Projected Timeline"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "16-18 weeks (January 13th - May 17th, 2025)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4.2. Milestones & Deliverables"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 1: Discovery & Planning (3-4 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Deliverables:**"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technical requirements document"
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integration architecture plan"
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content migration strategy"
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Project timeline and milestones"
+            }
+          ]
+        },
+        {
+          "id": "b-82",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complete WordPress site audit and feature inventory"
+            }
+          ]
+        },
+        {
+          "id": "b-83",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Documented user flows and integrations"
+            }
+          ]
+        },
+        {
+          "id": "b-84",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content structure and URL architecture mapping"
+            }
+          ]
+        },
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Detailed migration plan"
+            }
+          ]
+        },
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Validated third-party tool selections"
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stakeholder approval documentation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 2: Design & Architecture (4-5 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Deliverables:**"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design system documentation"
+            }
+          ]
+        },
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Component library"
+            }
+          ]
+        },
+        {
+          "id": "b-93",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wireframes and prototypes"
+            }
+          ]
+        },
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integration configurations"
+            }
+          ]
+        },
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Configured Webflow workspace and CMS collections"
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "MemberStack membership setup"
+            }
+          ]
+        },
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eventbrite integration architecture"
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Form workflow and automation plans"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 3: Development & Migration (5-6 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Deliverables:**"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Responsive page templates"
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Global elements and master components"
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Membership access controls"
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Form handling integrations"
+            }
+          ]
+        },
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Migrated and optimized media assets"
+            }
+          ]
+        },
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Transferred and formatted content"
+            }
+          ]
+        },
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "URL redirects and SEO elements"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 4: Testing & Optimization (2 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Deliverables:**"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "QA test results"
+            }
+          ]
+        },
+        {
+          "id": "b-113",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Performance metrics"
+            }
+          ]
+        },
+        {
+          "id": "b-114",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bug fixes and optimizations"
+            }
+          ]
+        },
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integration validation reports"
+            }
+          ]
+        },
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-browser/device testing documentation"
+            }
+          ]
+        },
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Accessibility compliance verification"
+            }
+          ]
+        },
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Load testing results"
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Security audit report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 5: Launch Preparation (1 week)"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Deliverables:**"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Training materials and guides"
+            }
+          ]
+        },
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technical documentation"
+            }
+          ]
+        },
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Launch checklist"
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Deployment plan"
+            }
+          ]
+        },
+        {
+          "id": "b-127",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DNS and hosting configurations"
+            }
+          ]
+        },
+        {
+          "id": "b-128",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final stakeholder sign-off"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 6: Post-Launch Support (2 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Deliverables:**"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-132",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Performance reports"
+            }
+          ]
+        },
+        {
+          "id": "b-133",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Issue resolution logs"
+            }
+          ]
+        },
+        {
+          "id": "b-134",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Training recordings"
+            }
+          ]
+        },
+        {
+          "id": "b-135",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maintenance documentation"
+            }
+          ]
+        },
+        {
+          "id": "b-136",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integration fine-tuning records"
+            }
+          ]
+        },
+        {
+          "id": "b-137",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Additional training materials as needed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Total Timeline: 16-18 weeks (January 13th - May 17th, 2025)"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.1. Migrating WordPress Plugins & Critical Features"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Breakdown of Active Plugins & Third Party Services"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Content & Presentation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-144",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[KeyDesign Addon](https://wordpress.org/plugins/keydesign-addon/) & [WPBakery Page Builder](https://wpbakery.com/): Drag & drop layout builder for WordPress"
+            }
+          ]
+        },
+        {
+          "id": "b-145",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Slider Revolution](https://www.sliderrevolution.com/): Slideshow builder for key programs, testimonials, and impact statistics"
+            }
+          ]
+        },
+        {
+          "id": "b-146",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Typing Effect](https://wordpress.org/plugins/animated-typing-effect/): Creates animated text effects"
+            }
+          ]
+        },
+        {
+          "id": "b-147",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ClassyPress PRO by Mittun](https://mittun.com/classypress/): A theme framework specifically designed for nonprofits, helping present NewRoot's mission and programs effectively"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Events & Community Engagement:**"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-150",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Blocks for Eventbrite](https://wordpress.org/plugins/eventbrite-blocks/): Integrates their professional development workshops and training events directly into the website"
+            }
+          ]
+        },
+        {
+          "id": "b-151",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Contact Form 7](https://wordpress.org/plugins/contact-form-7/) & [WP Forms](https://wpforms.com/): Powers various contact forms for program inquiries, partnership requests, and newsletter signups"
+            }
+          ]
+        },
+        {
+          "id": "b-152",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Popup Maker](https://wordpress.org/plugins/popup-maker/): Creates targeted pop-ups for important announcements, workshop registrations, or resource downloads"
+            }
+          ]
+        },
+        {
+          "id": "b-153",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[WP-FormAssembly](https://wordpress.org/plugins/wp-formassembly/): Likely used for more complex forms like program applications or impact assessment surveys"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Membership & E-commerce:**"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[MemberPress Basic](https://memberpress.com/): Manages access to exclusive educational resources and training materials for partner schools"
+            }
+          ]
+        },
+        {
+          "id": "b-157",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[WooCommerce](https://woocommerce.com/): Handles any paid resources, workshop registrations, or training materials"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Media & Content Enhancement:**"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-160",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[EmbedPress](https://wordpress.org/plugins/embedpress/): Seamlessly integrates external content like YouTube videos of classroom demonstrations or testimonials"
+            }
+          ]
+        },
+        {
+          "id": "b-161",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Smush](https://wordpress.org/plugins/wp-smushit/): Optimizes images while maintaining quality, essential for showing impactful photos of their work"
+            }
+          ]
+        },
+        {
+          "id": "b-162",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[WP Extra File Types](https://wordpress.org/plugins/wp-extra-file-types/): Allows uploading of various educational resource file types"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Navigation & Structure:**"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-165",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Breadcrumb NavXT](https://wordpress.org/plugins/breadcrumb-navxt/): Helps educators and partners navigate through different program areas and resources"
+            }
+          ]
+        },
+        {
+          "id": "b-166",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Redux Framework](https://wordpress.org/plugins/redux-framework/): Powers the theme's options panel for consistent branding and user experience"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Performance & Technical:**"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-169",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Redis Object Cache](https://wordpress.org/plugins/redis-cache/) & [WP Super Cache](https://wordpress.org/plugins/wp-super-cache/): Ensures fast loading times for better user experience"
+            }
+          ]
+        },
+        {
+          "id": "b-170",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[WP-Optimize](https://wordpress.org/plugins/wp-optimize/): Maintains site performance while handling numerous educational resources"
+            }
+          ]
+        },
+        {
+          "id": "b-171",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[UpdraftPlus](https://wordpress.org/plugins/updraftplus/): Maintains regular backups of all educational content and user data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Analytics & Marketing:**"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-174",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Google Analytics by MonsterInsights](https://www.monsterinsights.com/): Tracks user engagement and program interest"
+            }
+          ]
+        },
+        {
+          "id": "b-175",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[Envato Market](https://envato.com/market-plugin/): Manages theme and plugin updates to keep the site secure and current"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.2. Required Access"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To ensure a smooth migration from WordPress to Webflow, we require secure access to the following systems and credentials. All credentials will be handled with strict confidentiality and documented in a shared password manager. Services that have not been granted access are marked as unchecked."
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Website Management"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-180",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  **WordPress:** Admin Dashboard & FTP/SFTP credentials"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: Exporting content, media, and files"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Migrates to Webflow CMS"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-184",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  **OpalStack:** Current hosting control panel access"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: Deactivating hosting services pre-launch"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> NOTE: We will need to work with NewRoot to safely disconnect and deactivate hosting services during migration"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Migrates to Webflow hosting"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-190",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  **Network Solutions:** Domain & DNS management access"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: Disconnecting domain from wordpress and connecting to Webflow"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No migration required"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Integrations"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-195",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  **MemberPress:** administrative access"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: member data export, subscription structures, automated communications"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Migrates to Webflow CMS"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> NOTE: Member management is a critical component of the migration. We will need to work closely with NewRoot to ensure that all member data is exported and migrated to Webflow CMS with little to no disruption to their operations or user experience."
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-201",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **Eventbrite:** integration credentials"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: API access & Webflow integration"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No migration required"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-205",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **WooCommerce:** administrative access"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: product catalog export, order history, payment settings"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> NOTE: WooCommerce can be migrated to Webflow CMS, but it is not required for the migration. This will require additional discussion to surface any additional requirements or considerations."
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Potential migration to Webflow ECommerce CMS"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Form Builders"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-212",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  **WP Forms (optional):** administrative access"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: form exports & configuration"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Migrates to Webflow Forms"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-216",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **FormAssembly (optional):** credentials"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: disconnecting and deactivating from WordPress"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No migration required"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> NOTE: Webflow has a built-in form builder that can be used to create and manage forms. This is a more modern and flexible solution than FormAssembly, and it is not required for the migration."
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Analytics & Tracking"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-223",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[x]  **Google Analytics**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: API access & Webflow integration"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No migration required"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-227",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  **MonsterInsights (optional)**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Purpose: configuration details & Webflow integration"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No migration required"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Additional Services"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-232",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any relevant API keys or external service integrations"
+            }
+          ]
+        },
+        {
+          "id": "b-233",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Third-party service credentials used for critical site functionality"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> Note: All credentials should be current and include administrative-level access where applicable. NewRoot Learning Institute will maintain ownership and control of all accounts, with our team requesting specific access permissions as needed during the migration process."
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.3. MemberPress Migration Considerations"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Managing memberships is a critical component of NewRoot's current website functionality, and the migration from WordPress to Webflow presents specific challenges and opportunities in this area. Below are the key considerations and open questions we need to address to ensure a smooth transition with minimal disruption for NewRoot's active members while maintaining robust functionality post-migration."
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Open Questions:"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-240",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Membership Transition**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The current setup in WordPress uses **MemberPress** to manage access to exclusive resources and training materials."
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Webflow has limited native membership functionality, so we’ll need to supplement it with a third-party tool like **MemberStack** or **MemberSpace**."
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-244",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Active Members During Transition**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- How do we handle **active memberships** during the migration?"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- We may need to securely export/import user data and notify members in advance about any potential disruption."
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- In case of disruption, we will need to work with NewRoot to ensure that members are notified and their access is restored as soon as possible. A newsletter service like Brevo or Mailchimp will be most effective for sending out these alerts."
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-249",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**User Experience Post-Migration**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- What level of access control does NewRoot need moving forward? For example, will they need tiered memberships or specific access to content?"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Are there any automated communications (e.g., renewal notices) tied to the current system that we need to replicate in Webflow?"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-253",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Data Integrity**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Ensuring member data (e.g., payment history, subscription details) migrates accurately is critical. What’s our fallback plan if certain data formats don’t transfer seamlessly?"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**6.1. Content Management During Migration**"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-258",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Three-week content freeze during final migration phase to ensure data integrity"
+            }
+          ]
+        },
+        {
+          "id": "b-259",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Emergency content updates handled through staging environment with 24-hour turnaround"
+            }
+          ]
+        },
+        {
+          "id": "b-260",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weekly sync meetings with NewRoot content team to coordinate changes"
+            }
+          ]
+        },
+        {
+          "id": "b-261",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Git-based version control for all content and code changes"
+            }
+          ]
+        },
+        {
+          "id": "b-262",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content audit and cleanup prior to migration"
+            }
+          ]
+        },
+        {
+          "id": "b-263",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Automated content validation post-migration"
+            }
+          ]
+        },
+        {
+          "id": "b-264",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rollback procedures documented and tested"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Training & Documentation**"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Three 2-hour comprehensive training sessions covering:"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Webflow CMS basics and content management"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Membership and e-commerce administration"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Forms, integrations, and analytics"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Recorded video tutorials for all key workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Detailed written documentation including:"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Technical architecture overview"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Content management guidelines"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Integration configuration guides"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Troubleshooting procedures"
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- 30 days of priority email/phone support post-launch"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Monthly check-ins for first 3 months"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Access to Gumbo Media knowledge base"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**6.2. Quality Assurance**"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-281",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-browser testing on latest versions of Chrome, Firefox, Safari, Edge"
+            }
+          ]
+        },
+        {
+          "id": "b-282",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mobile responsiveness testing on iOS and Android devices"
+            }
+          ]
+        },
+        {
+          "id": "b-283",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Performance benchmarking and optimization"
+            }
+          ]
+        },
+        {
+          "id": "b-284",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Security scanning and vulnerability assessment"
+            }
+          ]
+        },
+        {
+          "id": "b-285",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Accessibility compliance verification (WCAG 2.1)"
+            }
+          ]
+        },
+        {
+          "id": "b-286",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Load testing for concurrent users"
+            }
+          ]
+        },
+        {
+          "id": "b-287",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integration testing for all third-party services"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The total fees for services rendered to NewRoot Learning Institute are $X,XXX.00. This breaks down to […]"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Payment Terms"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<!-- TODO: Discuss payment terms with Austin -->"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This Statement of Work outlines a comprehensive website migration and modernization project for NewRoot Learning Institute. By transitioning from WordPress to Webflow, we aim to resolve existing technical challenges while creating a more robust, secure, and user-friendly platform that better serves NewRoot's mission of transforming education through social-emotional learning."
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The proposed solution addresses NewRoot's immediate needs while positioning them for sustainable growth. Through careful planning, systematic execution, and ongoing support, Gumbo Media will deliver a modern digital infrastructure that enhances NewRoot's ability to serve educators, school districts, and communities effectively."
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Our team is committed to ensuring a smooth transition with minimal disruption to NewRoot's operations. We look forward to partnering with NewRoot on this transformative project and supporting their continued impact in the education sector."
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "9.1. Communication"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Cadence:**"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-300",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weekly status meetings every Tuesday at 10am EST via Zoom"
+            }
+          ]
+        },
+        {
+          "id": "b-301",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bi-weekly stakeholder reviews every other Thursday at 2pm EST"
+            }
+          ]
+        },
+        {
+          "id": "b-302",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ad-hoc meetings scheduled with 24-hour notice when needed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "<!-- TODO: Check with Austin on cadence -->"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Channels:**"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-306",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary: Slack channel #newroot-x-gumbo"
+            }
+          ]
+        },
+        {
+          "id": "b-307",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Secondary: Email for formal documentation and approvals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "9.2. Assumptions & Prerequisites"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Assumptions:**"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-311",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client will provide all content assets by agreed milestone dates"
+            }
+          ]
+        },
+        {
+          "id": "b-312",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Current WordPress site remains stable during migration period"
+            }
+          ]
+        },
+        {
+          "id": "b-313",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client has necessary access to domain and hosting credentials"
+            }
+          ]
+        },
+        {
+          "id": "b-314",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Third-party integrations (Eventbrite, WooCommerce) remain compatible"
+            }
+          ]
+        },
+        {
+          "id": "b-315",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content freeze will be strictly observed during final migration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Prerequisites:**"
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-318",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow Enterprise account activation"
+            }
+          ]
+        },
+        {
+          "id": "b-319",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SSL certificate installation"
+            }
+          ]
+        },
+        {
+          "id": "b-320",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DNS access and configuration rights"
+            }
+          ]
+        },
+        {
+          "id": "b-321",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Third-party API keys and credentials"
+            }
+          ]
+        },
+        {
+          "id": "b-322",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content delivery from NewRoot team"
+            }
+          ]
+        },
+        {
+          "id": "b-323",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stakeholder availability for training sessions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-326",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In all projects, Gumbo Media offers an umbrella for either or both teams to hold time as needed (within reason) for grief, sorrow, self-love, joy, and rejuvenation amidst a rapidly changing and often tumultuous world, particularly for a team passionate about the liberation of oppressed populations. In the instance that Gumbo or our partner would want or need to activate the Community Care Clause, Gumbo reserves the right to add up to 2 weeks to the working timeline to account for human moments that necessitate pause or temporary absences from teammates due to illness, mental health, or any of the reasons aforementioned."
+        }
+      ]
+    }
+  ]
+}

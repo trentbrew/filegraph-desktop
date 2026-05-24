@@ -1,0 +1,2569 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-287",
+  "title": "Web Essentials Proposal",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Web Essentials Proposal"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfrtUFmBc3jWpQdkSF2Aqk1Eyrn5YW2D9h6XzMgvvKT_myg1JXTYijtrwD1F9kEKOSVV1pIVjdlC7VY3UWOLmC-6vqR9eyIGKSV2yu-QhzesX7BCF27plaB8jKo2WFPYHIc5n9w?key=r7ssoYFzeUVTekiIvWZjeA)"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Prepared for"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Nan Kohler**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Prepared by"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Sample User**"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This contract outlines the terms and conditions for the website migration project between Grist & Toll (Client) and Acme Corp (Contractor)."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. WORK AND PAYMENT**"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1.1 Project Description**"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client is hiring the Contractor to design, develop, deploy, and support a new e-commerce website for Grist & Toll, migrating from the existing WordPress/WooCommerce platform to Webflow. The primary goal is to address current operational inefficiencies and enhance the customer user experience, thereby increasing sales and improving overall brand perception."
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Core Challenges Being Addressed:**"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Operational inefficiencies preventing creation of critical educational content"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Excessive time consumption from manual order management and inventory updates"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Administrative burden from WooCommerce backend complexities"
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Need for streamlined platform automation to free up strategic time"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The project is divided into three core phases:"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 1: WordPress Backend Optimization (2 weeks - June 23 - July 7)**"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initial Consult (Completed by June 23)"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Backend Cleanup (June 23 - June 30): Remove redundant plugins, unused themes, database cleanup"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "UX Improvements (June 23 - June 30): Checkout flow, shipping information, mobile responsiveness"
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "WooCommerce Updates (June 30 - July 7): Core updates, essential add-ons, conflict resolution"
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Security Audit (July 7): Site security review, plugin configuration, vulnerability scans, backup verification"
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Review (July 7): Present completed work, gather feedback, confirm readiness for migration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 2: Webflow E-commerce Migration & Essential Redesign (12 weeks - July 7 - September 1)**"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Template Selection & Design System Creation (July 7 - July 14)"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Asset Migration & Optimization (July 14 - July 21): Images, videos, media"
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Product Migration & CMS Structure Development (July 21 - July 28)"
+            }
+          ]
+        },
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stripe Integration & Payment Flows Configuration (July 28 - August 4)"
+            }
+          ]
+        },
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content Population & SEO Setup (August 4 - August 11): Meta tags, structured data, sitemaps"
+            }
+          ]
+        },
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "QA & Testing (August 11 - August 18)"
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Launch Preparation (August 18 - August 25): Domain setup, 301 redirects, monitoring tools"
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Deployment & Post-Launch Monitoring (August 25 - September 1)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Phase 3: Optional Maintenance & Ongoing Support (Ongoing, via retainer)**"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Performance Monitoring"
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content Updates"
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Visual Enhancements"
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Feature Integration"
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO Optimization"
+            }
+          ]
+        },
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analytics & Reporting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1.2 Schedule**"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor will begin work on June 23, 2025, with an anticipated launch for the core e-commerce site on September 1, 2025. The work is ongoing for the duration of the retainer outlined in Section 1.3, if applicable. This Contract can be ended by either Client or Contractor at any time, pursuant to the terms of Section 6, Term and Termination."
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1.3 Payment Structure**"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Web Essentials Development (One-time payment):**"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard rate: $1,680 USD total"
+            }
+          ]
+        },
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With FRAM25 discount (25% off): $1,260 USD total"
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Payment is due at project start"
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Important:** If the FRAM25 discount is not applied at the time of payment, the difference will not be refunded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Optional Ongoing Support & Maintenance Retainer (Creative Suite Plan):**"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard rate: $900 USD per month"
+            }
+          ]
+        },
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With FRAM25 discount (25% off): $675 USD per month"
+            }
+          ]
+        },
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Plan details and management: https://payment.turtle.tech"
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client may terminate anytime through payment portal after initial deposit"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No refunds for partial monthly periods"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client retains access to services through the end of the paid period"
+            }
+          ]
+        },
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The FRAM25 discount remains valid as long as service is not interrupted"
+            }
+          ]
+        },
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If the FRAM25 discount is not applied at time of payment, the difference ($225 USD per month) will not be refunded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Creative Suite Retainer Includes:**"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Web Design & Development"
+            }
+          ]
+        },
+        {
+          "id": "b-65",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hosting & Domain Management"
+            }
+          ]
+        },
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Website Maintenance (Performance Monitoring, Content Updates, Minor site updates, Technical troubleshooting)"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Graphic Design & Branding (Graphic design & illustration, Marketing collateral, Digital & physical marketing materials, Brand guidelines & documentation)"
+            }
+          ]
+        },
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Illustration & Animation (Video editing & animation, 3D animation & motion graphics)"
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Strategic Consulting (Art direction & creative strategy, Analytics & Reporting, Content strategy and implementation)"
+            }
+          ]
+        },
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO Optimization (Basic SEO setup, Analytics integration, SEO monitoring)"
+            }
+          ]
+        },
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Feature Integration (Leveraging new tools and features, integrating third-party tools)"
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlimited monthly requests (one task in progress)"
+            }
+          ]
+        },
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client portal access via Notion"
+            }
+          ]
+        },
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Social media management (2-3 posts/week)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1.4 Expenses**"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client will not reimburse expenses associated with scope of work, as this is included with the retainer. Any additional expenses, such as stock assets or third-party services, must be approved by the Client in writing before purchase."
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1.5 Invoices**"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "All payments are processed securely via Stripe at https://payment.turtle.tech."
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initial development: 1 invoice of $1,260 (with FRAM25 discount) or $1,680 (standard rate)"
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monthly retainer: Invoiced monthly at $675 (with FRAM25 discount) or $900 (standard rate) if selected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**1.6 Support**"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor will provide support for any deliverable once the Client accepts it. Support includes:"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic website maintenance and updates"
+            }
+          ]
+        },
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content updates"
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technical troubleshooting"
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO monitoring"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If a service request is outside the same scope of work as the deliverable, the work will begin after a separate proposal document is drafted by the Contractor and approved by the Client. The Contractor reserves the right to determine if a support request requires a separate Statement of Work based on scope, complexity, and resource requirements."
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. OWNERSHIP AND LICENSES**"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2.1 Client Owns All Work Product**"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "As part of this job, the Contractor is creating a \"work product\" for the Client. \"Work product\" includes:"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The website design and codebase (Webflow)"
+            }
+          ]
+        },
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom graphics and visual elements"
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content strategy documents"
+            }
+          ]
+        },
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO implementations"
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analytics configurations"
+            }
+          ]
+        },
+        {
+          "id": "b-99",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Social media templates and strategies"
+            }
+          ]
+        },
+        {
+          "id": "b-100",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Product data and CMS structure"
+            }
+          ]
+        },
+        {
+          "id": "b-101",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Payment gateway configurations"
+            }
+          ]
+        },
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Migration assets and optimization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor hereby gives the Client this work product once the Client pays for it in full. This means the Contractor is giving the Client all rights, titles, and interests in and to the work product (including intellectual property rights), and the Client will be the sole owner of it."
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2.2 Contractor's Use Of Work Product**"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Once the Contractor gives the work product to the Client, the Contractor may only:"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use screenshots or recordings of the public-facing website in their portfolio"
+            }
+          ]
+        },
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reference the project in their client list and marketing materials"
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Share non-confidential technical details about the implementation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor may not:"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reuse custom design elements created specifically for the Client"
+            }
+          ]
+        },
+        {
+          "id": "b-113",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Share or reuse any of the Client's product data, brand assets, or related content"
+            }
+          ]
+        },
+        {
+          "id": "b-114",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Disclose any non-public information about the Client's business or projects"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2.3 Contractor's Help Securing Ownership**"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In the future, the Client may need the Contractor's help to show that the Client owns the work product or to complete the transfer. The Contractor agrees to help with that. If the Client can't find the Contractor after spending reasonable effort trying to do so, the Contractor hereby irrevocably designates and appoints the Client as the Contractor's agent and attorney-in-fact to execute required documents and take legal action to accomplish the purposes of paragraph 2.1."
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2.4 Contractor's IP That Is Not Work Product**"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "During this project, the Contractor might use:"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-120",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Webflow development platform"
+            }
+          ]
+        },
+        {
+          "id": "b-121",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analytics tools and scripts"
+            }
+          ]
+        },
+        {
+          "id": "b-122",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO optimization tools"
+            }
+          ]
+        },
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Social media management tools"
+            }
+          ]
+        },
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard web development frameworks and libraries"
+            }
+          ]
+        },
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design tools and software"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This \"background IP\" remains the property of the Contractor or its respective owners. The Client receives a perpetual, non-exclusive license to use these tools as part of the delivered website."
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**2.5 Contractor's Right To Use Client IP**"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client grants the Contractor limited rights to use:"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-130",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Client's name and business title"
+            }
+          ]
+        },
+        {
+          "id": "b-131",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Public product data, brand assets, and content"
+            }
+          ]
+        },
+        {
+          "id": "b-132",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Publicly available photos and media"
+            }
+          ]
+        },
+        {
+          "id": "b-133",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Business information and credentials"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This use is strictly limited to implementing the website and related marketing materials."
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. COMPETITIVE ENGAGEMENTS**"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor will not work for a direct competitor of Grist & Toll during the term of this contract and for 6 months after completion, specifically in the specialty flour milling and heritage grain industry."
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. NON-SOLICITATION**"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "During the term of this contract and for 12 months after, neither party will solicit the other party's employees or contractors."
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5. REPRESENTATIONS**"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5.1 Authority To Sign**"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each party promises to the other party that it has the authority to enter into this Contract and to perform all of its obligations under this Contract."
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5.2 Contractor Has Right To Give Client Work Product**"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor promises that they own the work product, that the Contractor is able to give the work product to the Client, and that no other party will claim that they own the work product."
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5.3 Contractor Will Comply With Laws**"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor promises that the manner they do this job, its work product, and any background IP it uses comply with applicable U.S. and foreign laws and regulations."
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5.4 Work Product Does Not Infringe**"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor promises that their work product does not and will not infringe on someone else's intellectual property rights."
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5.5 Client Will Review Work**"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client promises to review the work product, to be reasonably available to the Contractor if the Contractor has questions regarding this project, and to provide timely feedback and decisions."
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**5.6 Client-Supplied Material Does Not Infringe**"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If the Client provides the Contractor with material to incorporate into the work product, the Client agrees to:"
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-153",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ensure any original content provided does not infringe on third-party intellectual property rights"
+            }
+          ]
+        },
+        {
+          "id": "b-154",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Follow fair use guidelines and proper attribution protocols when incorporating copyrighted content"
+            }
+          ]
+        },
+        {
+          "id": "b-155",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Obtain necessary licenses or permissions for any copyrighted material where fair use does not apply"
+            }
+          ]
+        },
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Work with the Contractor to implement appropriate captioning and citation practices for third-party content"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**6. TERM AND TERMINATION**"
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This Contract begins on June 17, 2025, and continues until terminated by either party."
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Initial Development Phase (June 23 - September 1, 2025)**"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-161",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client may terminate with 7 days written notice"
+            }
+          ]
+        },
+        {
+          "id": "b-162",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If terminated before launch:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- All work completed to date must be paid in full"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Any remaining balance of the $1,260 payment is non-refundable"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Client must pay all outstanding balances before work product can be delivered"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-167",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upon site launch (September 1st):"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Final delivery of all features outlined in the SOW"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- After launch, Client has the option to engage Contractor's support services under a separate retainer agreement"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Optional Monthly Maintenance Retainer (Creative Suite Plan)**"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-172",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard rate: $900 USD per month (or $675 with FRAM25 discount)"
+            }
+          ]
+        },
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Plan details and management: https://payment.turtle.tech"
+            }
+          ]
+        },
+        {
+          "id": "b-174",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Either party may terminate with 30 days written notice"
+            }
+          ]
+        },
+        {
+          "id": "b-175",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No refunds for partial months"
+            }
+          ]
+        },
+        {
+          "id": "b-176",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client retains access to services through the end of the paid period"
+            }
+          ]
+        },
+        {
+          "id": "b-177",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "FRAM25 discount remains valid as long as service is not interrupted"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**In all cases:**"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-180",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Notice must be delivered via email as specified in section 11.4"
+            }
+          ]
+        },
+        {
+          "id": "b-181",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Contractor must immediately stop work upon receiving notice"
+            }
+          ]
+        },
+        {
+          "id": "b-182",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final invoice for any outstanding work will be issued upon termination"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**7. INDEPENDENT CONTRACTOR**"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client is hiring the Contractor as an independent contractor. The Contractor will use their own equipment, tools, and material to do the work. The Client will not control how the job is performed on a day-to-day basis. The Contractor is responsible for their own taxes and is not entitled to the Client's benefits."
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**8. CONFIDENTIAL INFORMATION**"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**8.1 Overview**"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Both parties understand the importance of protecting:"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-189",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unreleased product information and business strategies"
+            }
+          ]
+        },
+        {
+          "id": "b-190",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client relationships and contacts"
+            }
+          ]
+        },
+        {
+          "id": "b-191",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technical workflows and methodologies"
+            }
+          ]
+        },
+        {
+          "id": "b-192",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Business strategies and pricing"
+            }
+          ]
+        },
+        {
+          "id": "b-193",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analytics and performance data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**8.2 The Client's Confidential Information**"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor agrees to protect:"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-197",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proprietary milling processes and grain sourcing information"
+            }
+          ]
+        },
+        {
+          "id": "b-198",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customer data and order information"
+            }
+          ]
+        },
+        {
+          "id": "b-199",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Business strategies and future plans"
+            }
+          ]
+        },
+        {
+          "id": "b-200",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technical preferences and workflows"
+            }
+          ]
+        },
+        {
+          "id": "b-201",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Website analytics and performance data"
+            }
+          ]
+        },
+        {
+          "id": "b-202",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any other information marked as confidential"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**8.3 Third-Party Confidential Information**"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each party promises that they will not share confidential information that belongs to third parties, unless they are allowed to do so."
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**9. LIMITATION OF LIABILITY**"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Neither party is liable for breach-of-contract damages that the breaching party could not reasonably have foreseen when it entered this Contract."
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**10. INDEMNITY**"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**10.1 Client Indemnity**"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor agrees to indemnify the Client from and against all liabilities, losses, damages, and expenses (including reasonable attorneys' fees) related to a third-party claim arising out of:"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-211",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The work the Contractor has done under this Contract"
+            }
+          ]
+        },
+        {
+          "id": "b-212",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A breach by the Contractor of its obligations under this Contract"
+            }
+          ]
+        },
+        {
+          "id": "b-213",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A breach by the Contractor of the promises in Section 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**10.2 Contractor Indemnity**"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client agrees to indemnify the Contractor from and against liabilities, losses, damages, and expenses (including reasonable attorneys' fees) related to a third-party claim arising out of a breach by the Client of its obligations under this Contract."
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11. GENERAL**"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.1 Assignment**"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor cannot assign their rights or delegate their obligations under this Contract to a third-party without first receiving the Client's written permission. The Client may assign their rights and delegate its obligations under this Contract without the Contractor's permission."
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.2 Arbitration**"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Any dispute arising under this Contract may be resolved by arbitration administered by the American Arbitration Association in accordance with its commercial arbitration rules. Any arbitration proceedings shall be conducted in Missouri, unless both parties agree in writing to a different location."
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.3 Modification; Waiver**"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To change anything in this Contract, both parties must agree to that change in writing and sign a document showing their agreement."
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.4 Notices**"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Notices must be in writing and delivered via:"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-226",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Email to:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Client: [nan@gristandtoll.com](mailto:nan@gristandtoll.com)"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Contractor: [user@example.com](mailto:user@example.com)"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-230",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Physical mail to addresses provided separately"
+            }
+          ]
+        },
+        {
+          "id": "b-231",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Personal delivery to authorized representatives"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.5 Severability**"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If a portion of the Contract is found to be unenforceable, the unenforceable portion will be changed to the minimum extent necessary to make it enforceable. If any portion is disregarded, the rest of the Contract remains enforceable."
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.6 Signatures**"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Both parties can use electronic signatures, which count as originals for all purposes."
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.7 Governing Law**"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The laws of the state of Missouri govern the rights and obligations under this Contract."
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.8 Entire Contract**"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This Contract represents the parties' final and complete understanding of this job and supersedes all other contracts between the parties."
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.9 Force Majeure**"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Neither party will be liable for delays or failures in performance resulting from causes beyond their reasonable control, including but not limited to acts of God, war, strikes, pandemics, supply chain disruptions, or significant vendor/platform outages."
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.10 Client Portal & Third-Party Tools**"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor uses various third-party tools to facilitate project management and communication. Service management and billing is handled through https://payment.turtle.tech. The Contractor is not liable for temporary outages, data loss, or service interruptions caused by third-party platforms."
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.11 Retainer Onboarding Process**"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Clients wishing to transition to the Creative Suite retainer after website launch shall:"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-247",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Notify the Contractor via email of intent to begin retainer services"
+            }
+          ]
+        },
+        {
+          "id": "b-248",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Receive a Stripe payment link for the monthly subscription"
+            }
+          ]
+        },
+        {
+          "id": "b-249",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complete a brief onboarding questionnaire to align on priorities"
+            }
+          ]
+        },
+        {
+          "id": "b-250",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gain access to the client portal within 24 hours of first payment"
+            }
+          ]
+        },
+        {
+          "id": "b-251",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Schedule an optional 1-hour kickoff call to discuss strategy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The FRAM25 discount remains valid if activated within 30 days of website launch."
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.12 Retainer Service Activation & Management**"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor provides structured retainer services to ensure continued success after website launch (anticipated on September 1, 2025). Full service details and current offerings are available at https://payment.turtle.tech."
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*Contact Information:*"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Acme Corp: hello@turtle.tech | +1 636 515 1293 | www.turtle.tech"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Payment Portal: https://payment.turtle.tech"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**11.3 Signatures**"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Overview The parties hereto agree to the foregoing as evidenced by their signatures below:"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfvZkKwzk-eGc3f3FtA8-DsYGC0fXgxBr6x6gIfcnySYxinJJZKdcAM3l3eDezD2CYkRpFDvLoihL_2tJSlBSF_Uhthc4efGz4bZiZO7gXvksFSYcpRuGwim-NxI4cotUQ3wc7PQQ?key=r7ssoYFzeUVTekiIvWZjeA)"
+        }
+      ]
+    }
+  ]
+}

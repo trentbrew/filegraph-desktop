@@ -1,0 +1,2696 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-20",
+  "title": "Contract (v1)",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Contract (v1)"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Contract Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This Contract is between TURTLE LABS LLC, an Illinois limited liability company (the \"Contractor\"), and Faires A. Sekiya (the \"Client\")."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Table of Contents"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [WORK AND PAYMENT](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [Project](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [Schedule](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [Payment](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. [Expenses](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. [Invoices](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. [Support](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [OWNERSHIP AND LICENSES](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [Client Owns All Work Product](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [Contractor's Use Of Work Product](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [Contractor's Help Securing Ownership](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. [Contractor's IP That Is Not Work Product](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. [Contractor's Right To Use Client IP](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [COMPETITIVE ENGAGEMENTS](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. [NON-SOLICITATION](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. [REPRESENTATIONS](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [Overview](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [Authority To Sign](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [Contractor Has Right To Give Client Work Product](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. [Contractor Will Comply With Laws](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. [Work Product Does Not Infringe](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. [Client Will Review Work](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. [Client-Supplied Material Does Not Infringe](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. [TERM AND TERMINATION](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. [INDEPENDENT CONTRACTOR](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "8. [CONFIDENTIAL INFORMATION](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [Overview](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [The Client's Confidential Information](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [Third-Party Confidential Information](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "9. [LIMITATION OF LIABILITY](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "10. [INDEMNITY](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [Overview](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [Client Indemnity](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [Contractor Indemnity](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "11. [GENERAL](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [Assignment](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. [Arbitration](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. [Modification; Waiver](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. [Notices](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. [Severability](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. [Signatures](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "7. [Governing Law](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "8. [Entire Contract](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "12. [SIGNATURES](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. [Overview](Contract%20(v1)%2017cfb245194e8031a2d0f1bdab5d76e4.md)"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. WORK AND PAYMENT"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1.1 Project"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client is hiring the Contractor to do the following: Design, develop, deploy, and maintain a modern, visually engaging portfolio website and supplementary digital assets promoting the Client's cinematography work. The project includes:"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Website Development (5-7 weeks)**"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Discovery phase for content gathering and creative strategy"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Website design and development in Framer"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Basic SEO setup and analytics integration"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Testing and launch support"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Optional Monthly Services**"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Social media management"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Site maintenance and updates"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Analytics monitoring and optimization"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Content strategy and implementation"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1.2 Schedule"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor will begin work on January 17, 2024, with an anticipated launch in mid to late February 2024. The work is ongoing for the duration of the retainer outlined in Section 1.3. This Contract can be ended by either Client or Contractor at any time, pursuant to the terms of Section 6, Term and Termination."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1.3 Payment"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Flat Fee + Optional Retainer**"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initial website development: $2,500 USD total"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- $1,250 due at project start"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- $1,250 due at launch"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optional retainer:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Standard rate: $840 USD per half-month ($1,680 per month)"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- With FRAM25 discount (25% off): $630 USD per half-month ($1,260 per month)"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Plan details and management: [https://services.turtle.tech](https://services.turtle.tech/)"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Client may terminate anytime through payment portal after initial deposit"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No refunds for partial half-month periods"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Client retains access to services through the end of the paid period"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- FRAM25 discount remains valid as long as service is not interrupted"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- If the FRAM25 discount is not applied at time of payment, the difference ($210 per half-month) will not be refunded"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Includes:"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Social media management (2-3 posts/week)"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Minor site updates (new reel versions, credit additions)"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Ongoing SEO monitoring & analytics"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Graphics, video editing, and marketing collateral"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1.4 Expenses"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client will not reimburse expenses associated with scope of work, as this is included with the retainer. Any additional expenses, such as stock assets or third-party services, must be approved by the Client in writing before purchase."
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1.5 Invoices"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initial development: Two invoices of $1,250 each (start and launch)"
+            }
+          ]
+        },
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monthly retainer: Invoiced monthly at $1,260 (with FRAM25 discount) if selected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "All payments are processed securely via Stripe."
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1.6 Support"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor will provide support for any deliverable once the Client accepts it. Support includes:"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basic website maintenance and updates"
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content updates (new reels, credits)"
+            }
+          ]
+        },
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technical troubleshooting"
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO monitoring"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If a service request is outside the same scope of work as the deliverable, the work will begin after a separate proposal document is drafted by the Contractor and approved by the Client."
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. OWNERSHIP AND LICENSES"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2.1 Client Owns All Work Product"
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "As part of this job, the Contractor is creating \"work product\" for the Client. To avoid confusion, \"work product\" includes:"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The website design and codebase"
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom graphics and visual elements"
+            }
+          ]
+        },
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Content strategy documents"
+            }
+          ]
+        },
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO implementations"
+            }
+          ]
+        },
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analytics configurations"
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Social media templates and strategies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor hereby gives the Client this work product once the Client pays for it in full. This means the Contractor is giving the Client all rights, titles, and interests in and to the work product (including intellectual property rights), and the Client will be the sole owner of it. The Client can use the work product however they want or they can decide not to use the work product at all."
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2.2 Contractor's Use Of Work Product"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Once the Contractor gives the work product to the Client, the Contractor may only:"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Use screenshots or recordings of the public-facing website in their portfolio"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Reference the project in their client list and marketing materials"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Share non-confidential technical details about the implementation"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor may not:"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Reuse custom design elements created specifically for the Client"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Share or reuse any of the Client's cinematography work or related assets"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Disclose any non-public information about the Client's business or projects"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2.3 Contractor's Help Securing Ownership"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In the future, the Client may need the Contractor's help to show that the Client owns the work product or to complete the transfer. The Contractor agrees to help with that. For example, the Contractor may have to sign a patent application. The Client will pay any required expenses for this. If the Client can't find the Contractor, the Contractor agrees that the Client can act on the Contractor's behalf to accomplish the same thing. The following language gives the Client that right: if the Client can't find the Contractor after spending reasonable effort trying to do so (see section 11.4 Notices), the Contractor hereby irrevocably designates and appoints the Client as the Contractor's agent and attorney-in-fact, which appointment is coupled with an interest, to act for the Contractor and on the Contractor's behalf to execute, verify, and file the required documents and to take any other legal action to accomplish the purposes of paragraph 2.1 (Client Owns All Work Product)."
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2.4 Contractor's IP That Is Not Work Product"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "During this project, the Contractor might use:"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-125",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Framer development platform"
+            }
+          ]
+        },
+        {
+          "id": "b-126",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analytics tools and scripts"
+            }
+          ]
+        },
+        {
+          "id": "b-127",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO optimization tools"
+            }
+          ]
+        },
+        {
+          "id": "b-128",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Social media management tools"
+            }
+          ]
+        },
+        {
+          "id": "b-129",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard web development frameworks and libraries"
+            }
+          ]
+        },
+        {
+          "id": "b-130",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Design tools and software"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This \"background IP\" remains the property of the Contractor or its respective owners. The Client receives a perpetual, non-exclusive license to use these tools as part of the delivered website, but cannot extract or reuse them separately."
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2.5 Contractor's Right To Use Client IP"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client grants the Contractor limited rights to use:"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-135",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Client's name and professional title"
+            }
+          ]
+        },
+        {
+          "id": "b-136",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Public cinematography reels and credits"
+            }
+          ]
+        },
+        {
+          "id": "b-137",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Publicly available photos and media"
+            }
+          ]
+        },
+        {
+          "id": "b-138",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Professional biography and credentials"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This use is strictly limited to implementing the website and related marketing materials. The Contractor may not use these assets for any other purpose without written permission."
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. COMPETITIVE ENGAGEMENTS"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor won't work for a competitor of the Client until this Contract ends. To avoid confusion, a competitor is any third party that plans to or actively develops, manufactures, promotes, sells, licenses, distributes, or provides products or services whose project scopes are substantially similar to the scope of the Client's products or services. The one exception to this restriction is if the Contractor asks for permission beforehand and the Client agrees to it in writing. If the Contractor uses employees or subcontractors, the Contractor must make sure they follow the obligations in this paragraph, as well."
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. NON-SOLICITATION"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Until this Contract ends, the Contractor won't:"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-145",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "encourage Client employees or service providers to stop working for the Client;"
+            }
+          ]
+        },
+        {
+          "id": "b-146",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "encourage Client customers or clients to stop doing business with the Client"
+            }
+          ]
+        },
+        {
+          "id": "b-147",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "hire anyone who worked for the Client over the 12-month period before the Contract ended."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The one exception is if the Contractor puts out a general ad and someone who happened to work for the Client responds. In that case, the Contractor may hire that candidate. The Contractor promises that it won't do anything in this paragraph on behalf of itself or a third party."
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. REPRESENTATIONS"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.1 Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This section contains important promises between the parties."
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.2 Authority To Sign"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each party promises to the other party that it has the authority to enter into this Contract and to perform all of its obligations under this Contract."
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.3 Contractor Has Right To Give Client Work Product"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor promises that they own the work product, that the Contractor is able to give the work product to the Client, and that no other party will claim that they own the work product. If the Contractor uses employees or subcontractors, the Contractor also promises that these employees and subcontractors have signed contracts with the Contractor giving the Contractor any rights that the employees or subcontractors have related to the Contractor's background IP and work product."
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.4 Contractor Will Comply With Laws"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor promises that the manner they do this job, its work product, and any background IP it uses comply with applicable U.S. and foreign laws and regulations."
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.5 Work Product Does Not Infringe"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor promises that their work product does not and will not infringe on someone else's intellectual property rights, that the Contractor has the right to let the Client use the background IP, and that this Contract does not and will not violate any contract that the Contractor has entered into or will enter into with someone else."
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.6 Client Will Review Work"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client promises to review the work product, to be reasonably available to the Contractor if the Contractor has questions regarding this project, and to provide timely feedback and decisions."
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5.7 Client-Supplied Material Does Not Infringe"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If the Client provides the Contractor with material to incorporate into the work product, the Client promises that this material does not infringe on someone else's intellectual property rights."
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. TERM AND TERMINATION"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This Contract begins on January 13, 2024, and continues until terminated by either party. Termination terms are as follows:"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Initial Development Phase (5-7 weeks)**"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-168",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client may terminate with 7 days written notice"
+            }
+          ]
+        },
+        {
+          "id": "b-169",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If terminated before launch:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- All work completed to date must be paid in full"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Any remaining balance of the first $1,250 payment is non-refundable"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-173",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If terminated after launch: Full $2,500 development fee is due"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Optional Monthly Retainer (Web Essentials)**"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-176",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Standard rate: $1,680 USD per month"
+            }
+          ]
+        },
+        {
+          "id": "b-177",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With FRAM25 discount (25% off): $1,260 USD per month"
+            }
+          ]
+        },
+        {
+          "id": "b-178",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Either party may terminate with 30 days written notice"
+            }
+          ]
+        },
+        {
+          "id": "b-179",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No refunds for partial months"
+            }
+          ]
+        },
+        {
+          "id": "b-180",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client retains access to services through the end of the paid period"
+            }
+          ]
+        },
+        {
+          "id": "b-181",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "FRAM25 discount remains valid as long as service is not interrupted"
+            }
+          ]
+        },
+        {
+          "id": "b-182",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If the FRAM25 discount is not applied at time of payment, the difference ($420) will not be refunded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In all cases:"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Notice must be delivered via email or written letter as specified in section 11.4"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Contractor must immediately stop work upon receiving notice"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Final invoice for any outstanding work will be issued upon termination"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The following sections survive termination:"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-189",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "2 (Ownership and Licenses)"
+            }
+          ]
+        },
+        {
+          "id": "b-190",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "3 (Competitive Engagements)"
+            }
+          ]
+        },
+        {
+          "id": "b-191",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "4 (Non-Solicitation)"
+            }
+          ]
+        },
+        {
+          "id": "b-192",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "5 (Representations)"
+            }
+          ]
+        },
+        {
+          "id": "b-193",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "8 (Confidential Information)"
+            }
+          ]
+        },
+        {
+          "id": "b-194",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "9 (Limitation of Liability)"
+            }
+          ]
+        },
+        {
+          "id": "b-195",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "10 (Indemnity)"
+            }
+          ]
+        },
+        {
+          "id": "b-196",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "11 (General)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "7. INDEPENDENT CONTRACTOR"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client is hiring the Contractor as an independent contractor. The following statements accurately reflect their relationship:"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-200",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Contractor will use their own equipment, tools, and material to do the work."
+            }
+          ]
+        },
+        {
+          "id": "b-201",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Client will not control how the job is performed on a day-to-day basis. Rather, the Contractor is responsible for determining when, where, and how it will carry out the work."
+            }
+          ]
+        },
+        {
+          "id": "b-202",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Client will not provide the Contractor with any training."
+            }
+          ]
+        },
+        {
+          "id": "b-203",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Client and the Contractor do not have a partnership or employer-employee relationship."
+            }
+          ]
+        },
+        {
+          "id": "b-204",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Contractor cannot enter into contracts, make promises, or act on behalf of the Client."
+            }
+          ]
+        },
+        {
+          "id": "b-205",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Contractor is not entitled to the Client's benefits (e.g., group insurance, retirement benefits, retirement plans, vacation days)."
+            }
+          ]
+        },
+        {
+          "id": "b-206",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Contractor is responsible for its own taxes."
+            }
+          ]
+        },
+        {
+          "id": "b-207",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Client will not withhold social security and Medicare taxes or make payments for disability insurance, unemployment insurance, or workers compensation for the Contractor or any of the Contractor's employees or subcontractors."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "8. CONFIDENTIAL INFORMATION"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "8.1 Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Given the nature of cinematography work, both parties understand the importance of protecting:"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-212",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unreleased film projects and credits"
+            }
+          ]
+        },
+        {
+          "id": "b-213",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Client relationships and contacts"
+            }
+          ]
+        },
+        {
+          "id": "b-214",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technical workflows and methodologies"
+            }
+          ]
+        },
+        {
+          "id": "b-215",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Business strategies and pricing"
+            }
+          ]
+        },
+        {
+          "id": "b-216",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Analytics and performance data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "8.2 The Client's Confidential Information"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Contractor agrees to protect:"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Unreleased or private cinematography work"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Client and project relationships"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Business strategies and future plans"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Technical preferences and workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Website analytics and performance data"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "6. Any other information marked as confidential"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "8.3 Third-Party Confidential Information"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "It's possible the Client and the Contractor each have access to confidential information that belongs to third parties. The Client and the Contractor each promise that they will not share with the other party confidential information that belongs to third parties, unless they are allowed to do so. If the Client or the Contractor is allowed to share confidential information with the other party and does so, the sharing party promises to tell the other party in writing of any special restrictions regarding that information."
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "9. LIMITATION OF LIABILITY"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Neither party is liable for breach-of-contract damages that the breaching party could not reasonably have foreseen when it entered this Contract."
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "10. INDEMNITY"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "10.1 Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This section transfers certain risks between the parties if a third party sues or goes after the Client or the Contractor or both. For example, if the Client gets sued for something that the Contractor did, then the Contractor may promise to come to the Client's defense or to reimburse the Client for any losses."
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "10.2 Client Indemnity"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In this Contract, the Contractor agrees to indemnify the Client (and its affiliates and their directors, officers, employees, and agents) from and against all liabilities, losses, damages, and expenses (including reasonable attorneys' fees) related to a third-party claim or proceeding arising out of:"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. The work the Contractor has done under this Contract"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. A breach by the Contractor of its obligations under this Contract"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. A breach by the Contractor of the promises it is making in Section 5(Representations)."
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "10.3 Contractor Indemnity"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In this Contract, the Client agrees to indemnify the Contractor (and their affiliates and their respective directors, officers, employees, and agents) from and against liabilities, losses, damages, and expenses (including reasonable attorneys' fees) related to a third-party claim or proceeding arising out of a breach by the Client of its obligations under this Contract."
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "11. GENERAL"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.1 Assignment"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This Contract applies only to the Client and the Contractor. The Contractor cannot assign their rights or delegate their obligations under this Contract to a third-party (other than by will or intestate), without first receiving the Client's written permission. In contrast, the Client may assign their rights and delegate its obligations under this Contract without the Contractor's permission. This is necessary in case, for example, another Client buys out the Client or if the Client decides to sell the work product that results from this Contract."
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.2 Arbitration"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "As the exclusive means of initiating adversarial proceedings to resolve any dispute arising under this Contract, a party may demand that the dispute be resolved by arbitration administered by the American Arbitration Association in accordance with its commercial arbitration rules."
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.3 Modification; Waiver"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To change anything in this Contract, the Client and the Contractor must agree to that change in writing and sign a document showing their contract. Neither party can waive its rights under this Contract or release the other party from its obligations under this Contract, unless the waiving party acknowledges it is doing so in writing and signs a document that says so."
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.4 Notices"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(a) Notices must be in writing and delivered via:"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-249",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Email to:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Client: [user@example.com](mailto:user@example.com)"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Contractor: [hello@example.com](mailto:hello@example.com)"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-253",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Physical mail to addresses provided separately"
+            }
+          ]
+        },
+        {
+          "id": "b-254",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Personal delivery to authorized representatives"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(b) The timing of when a notice is received can be very important. To avoid confusion, a valid notice is considered received as follows:"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. if delivered personally, it is considered received immediately."
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. if delivered by email, it is considered received upon acknowledgement of receipt."
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. if delivered by registered or certified mail (postage prepaid, return receipt requested), it is considered received upon receipt as indicated by the date on the signed receipt. If a party refuses to accept notice or if notice cannot be delivered because of a change in address for which no notice was given, then it is considered received when the notice is rejected or unable to be delivered. If the notice is received after 5:00pm on a business day at the location specified in the address for that party, or on a day that is not a business day, then the notice is considered received at 9:00am on the next business day."
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.5 Severability"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This section deals with what happens if a portion of the Contract is found to be unenforceable. If that's the case, the unenforceable portion will be changed to the minimum extent necessary to make it enforceable, unless that change is not permitted by law, in which case the portion will be disregarded. If any portion of the Contract is changed or disregarded because it is unenforceable, the rest of the Contract is still enforceable."
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.6 Signatures"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Client and the Contractor can use any electronic tool or service they see fit for signing this document. These electronic signatures count as originals for all purposes."
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.7 Governing Law"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The laws of the state of California govern the rights and obligations of the Client and the Contractor under this Contract, without regard to conflict of law principles of that state."
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "11.8 Entire Contract"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This Contract represents the parties' final and complete understanding of this job and the subject matter discussed in this Contract. This Contract supersedes all other contracts (both written and oral) between the parties."
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "12. SIGNATURES"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "12.1 Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The parties hereto agree to the foregoing as evidenced by their signatures below:"
+        }
+      ]
+    }
+  ]
+}

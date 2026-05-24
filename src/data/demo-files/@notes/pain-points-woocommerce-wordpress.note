@@ -1,0 +1,1493 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-322",
+  "title": "Pain Points (WooCommerce + WordPress)",
+  "status": "reviewing",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Pain Points (WooCommerce + WordPress)"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Even though we won’t be using WooCommerce any longer, and possibly neither of the shipping plugins, I still think it’s useful for you to know what the challenges have been for me."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I’ve tried to attribute the individual problems to the appropriate plugin, but there may be some mistakes there in my thinking or understanding of who does what. Apologies if so."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**WooCommerce**"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cannot control the **order that items appear** on the shop pages."
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "My top selling items come in multiple sizes. I don’t like how you create an item in **WooCommerce**, especially items that are **“Variable”**, meaning more than one size or same item but different colors (like my rolling pins)"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**WooCommerce** reporting capability is **atrocious**."
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I use **Square POS** in my store but initially used PayPal for the online transactions. Eventually, I switched the online shopping transactions to the Square plugin instead of PayPal, hoping to streamline sales reports. However, checking the boxes in Woo to sync Square online sales with in-person sales only worked for about a month, then something changed and in order to control the inventory levels online, I had to uncheck the Square sync boxes. Something about the syncing function wasn’t working with tracking inventory."
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I initiated the Square **loyalty program**, but it only works for in person sales. In order to have online sales accumulating points, Square will only activate that capability if you use their Square website hosting package. It will be very important to figure out a **new loyalty program** that functions at the shop POS level as well as via the web store. We’ll also need to figure out how to t**ransfer the current accumulated loyalty points to the new system.**"
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Every now and then, randomly, items with “0” inventory and where I have checked to not allow back orders, has been successfully ordered by customers. Now I have to physically remove items with “0” pieces available or manually check the “out of stock” box. I never had to do that in the past. So, this falls under unannounced system changes that catch my unaware. Annoying and costly because then I have to refund and explain what happened to disappointed customers."
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Something is up around the email system for orders. Many customers receive the “we’ve received your order and we’re working on it” email, but not the “your order has shipped” or “your order is ready for pick up” emails. Seems like they are being blocked from time to time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "EasyShip"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**EasyShip** was set up to use some calculation of product dimensions to pick the appropriate box size. However, **those product sizes are not real.** I don’t know how the developer came up with his system of data entry for the picking and packing, but what he built has problems that need to be fixed. **Two important box sizes can only be selected by us manually.** I don’t remember why he wanted this to be so, but it isn’t working: either the customer over-pays or I get hit losing money when they have under-paid. I think we may need to revert to telling the shipping label system to **select the box by weight instead of product dimensions.** If so, here are some guidelines:"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Previous dimensions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x9x6** – this box holds up to 5 pounds of flour. *This isn’t currently in the system for EasyShip to automatically select. We have to manually select from a drop down menu of additional box sizes. So, right now, someone who orders one 1.5 pound bag or a single 2.5 pound bag gets thrown into the next box size up, which means they are over-paying for shipping."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x6** – this box holds greater than 5 pounds of flour and up to 10 pounds of flour"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x10** – this box holds greater than 10 pounds of flour and up to 20 pounds of flour"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x12** – this box holds greater than 20 pounds of flour and up to 30 pounds of flour."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **13x13x13** – for gift boxes & pre-packaged class materials; thicker, more expensive"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **22x2 Kraft tube** – this is for the large rolling pins *this is the other box size that needs to be auto selected for the rolling pins. Currently, if someone orders a bag of flour + a rolling pin, EasyShip is selecting one box size, not two and I am losing all the money that covers the rolling pin shipping fee, because I have to manually divide the order onto two boxes and select the tube for the rolling pin. The customer has already checked out and paid, which means I can’t go back in and add the separate shipping fee for the rolling pin to their order."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Latest dimensions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Boxes"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x9x6** – this box holds up to 5 pounds of flour. *This isn’t currently in the system for EasyShip to automatically select. We have to manually select from a drop down menu of additional box sizes. So, right now, someone who orders one 1.5 pound bag or a single 2.5 pound bag gets thrown into the next box size up, which means they are over-paying for shipping."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x6** – this box holds greater than 5 pounds of flour and up to 10 pounds of flour"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x10** – this box holds greater than 10 pounds of flour and up to 20 pounds of flour"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x12** – this box holds greater than 20 pounds of flour and up to 30 pounds of flour."
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **13x13x13** – for gift boxes & pre-packaged class materials; thicker, more expensive"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **22x2 Kraft tube** – this is for the large rolling pins *this is the other box size that needs to be auto selected for the rolling pins. Currently, if someone orders a bag of flour + a rolling pin, EasyShip is selecting one box size, not two and I am losing all the money that covers the rolling pin shipping fee, because I have to manually divide the order onto two boxes and select the tube for the rolling pin. The customer has already checked out and paid, which means I can’t go back in and add the separate shipping fee for the rolling pin to their order."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Exact Dimensions"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x9x6:** 12 3/8 x 9 3/8 x 6 5/8 weight = .5lb,"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x6:** 12 3/8 x 12 3/8 x 6 5/8 weight = .75 lbs"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x10:** 12 3/8 x 12 3/8 x 10 5/8 weight = .90 lbs"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **12x12x12:** 12 3/8 x 12 3/8 x 12 5/8 weight = 1 lb"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "They all say the measurements may be +/- 1/8\" not sure if we need that."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Bags"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1.5lbs bag dimensions:**"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- L = 11.5 inches,"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- W = 7 inches,"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- D = 3.5 inches at the bottom widest"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2.5lbs bag dimensions:**"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- L = 11.5 in"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- W = 8.5 in"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- D = 4.25 in at the bottom widest"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**5lbs bag dimensions:**"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- L= 15.25 in"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- W = 11 in"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- D = 5 in at the bottom widest"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Black Box SKUs"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "EasyShip erroneously sends Baking Class online purchases to the queue for shipping, even though I have checked that **classes are “virtual” items and therefore not being shipped. This is a bug they are not addressing.**"
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "EasyShip has another bug that they are not addressing: **My corporate atm card is the default payment method for purchasing the shipping labels.** However, when taking an order over the phone, we can manually enter the customer details, products purchased and appropriate box size. Then we can enter their credit card details to be charged directly through the system, which is great. BUT, even when we declined saving the card details and we declined making this new credit card the default billing card – guess what their system replaced my card with the customer’s card anyway. This is a huge bug and problem."
+            }
+          ]
+        },
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As far as I’m aware, **EasyShip is the only shipping plugin option that lets me take advantage of rates that are lower than even the USPS flat rate boxes.** We need to seriously consider that the US Government may shut down the post office and I may be forced to go back to horrible UPS and FedEx rates. I guess what I’m saying is that we should be really, really sure EasyShip will still be relevant if USPS rates become extinct."
+            }
+          ]
+        },
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Note:** if we make system changes for the order packing/box selection process, we need to remember to capture the actual physical dimensions of the boxes. They are accurately entered in EasyShip now, just writing this as a place holder: the dimensions aren’t exactly 12x9x6 for example."
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Going back to box sizes and picking and packing: sometimes EasyShip assigns an order of 10 pounds of flour to the 12x12x10 box (should have been the 12x12x6 box) and sometimes it assigns an order totally 15 pounds of flour the 12x12x6 box (should have been the 12x12x10). I don’t know why, but **we’ll need to figure it out at some point.**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Zorem Local Pick Up Plugin – SO MANY PROBLEMS ❗️"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Zorem is supposed to move Mill Pick Up online orders to an additional list that only includes all the pick up orders. It doesn’t always work, which means I have to monitor and switch back and forth between the total online orders list and the Zorem mill pick up list to be sure I don’t miss any pick up orders, and then I have to remember where those orders live so I can check them off once picked up."
+            }
+          ]
+        },
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There is no way to print the customer order – unless I pay for the upcharge. This should absolutely be included in the basic fee."
+            }
+          ]
+        },
+        {
+          "id": "b-62",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When customers receive the notification that their order is ready for pick up, it doesn’t include the order number."
+            }
+          ]
+        },
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Online shoppers need to be forced to make the choice of either pick up or shipping at the very beginning of the ordering process. Now it is at the end and very problematic because customer don’t actually read what is on the screen and if they click just to explore what the shipping cost might be, then shipping is auto selected for them from that point on and they don’t remember to change it."
+            }
+          ]
+        },
+        {
+          "id": "b-64",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If I continue the mill pick up option (I won’t if Zorem is the only choice), they need to be told what the pick up hours are before placing the order."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This document is invaluable because it shows exactly why custom beats plugins and why a custom CMS platform could be a game-changer."
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Key Insights from Grist & Toll's Pain Points"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Complex Product Logic** (Perfect for Custom Solution)"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Variable products (multiple sizes, colors)"
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weight-based shipping calculations"
+            }
+          ]
+        },
+        {
+          "id": "b-73",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Multi-box orders (flour + rolling pin = 2 separate shipments)"
+            }
+          ]
+        },
+        {
+          "id": "b-74",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**This kills plugin-based systems but is exactly what custom logic handles well**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Inventory Sync Nightmare**"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Square POS ↔ Online store sync breaking randomly"
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Zero inventory still allowing orders"
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Classic multi-system integration hell that your SSoT approach solves**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Loyalty Program Gap**"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-82",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Works in-store (Square) but not online"
+            }
+          ]
+        },
+        {
+          "id": "b-83",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Need to migrate existing points"
+            }
+          ]
+        },
+        {
+          "id": "b-84",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Huge opportunity for PocketFlow to bridge physical + digital**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Shipping Intelligence Needed**"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Current: Broken dimension-based box selection"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Needed: Smart weight + product type logic"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flour: 0-5lbs → 12x9x6 box"
+            }
+          ]
+        },
+        {
+          "id": "b-90",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flour: 5-10lbs → 12x12x6 box"
+            }
+          ]
+        },
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rolling pin → Always kraft tube"
+            }
+          ]
+        },
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mixed orders → Multiple boxes with correct pricing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Operational Workflows**"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Local pickup vs shipping choice at checkout start"
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Phone orders with customer credit cards"
+            }
+          ]
+        },
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pickup hour communication"
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reliable email notifications"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "This Validates Our Approach"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Why plugins fail here:**"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "EasyShip: Can't handle multi-box logic"
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "WooCommerce: Terrible at variable products + inventory"
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Zorem: Basic pickup functionality with no customization"
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Square: Loyalty only works with their ecosystem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**Why PocketFlow wins:**"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom shipping logic per product type"
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unified inventory across POS + online"
+            }
+          ]
+        },
+        {
+          "id": "b-110",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Integrated loyalty program"
+            }
+          ]
+        },
+        {
+          "id": "b-111",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Smart pickup/shipping workflows"
+            }
+          ]
+        },
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reliable automation without plugin conflicts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Immediate SaaS Opportunity"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "**This client profile is highly underserved**"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Physical retail + online store"
+            }
+          ]
+        },
+        {
+          "id": "b-117",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complex products (sizes, weights, combinations)"
+            }
+          ]
+        },
+        {
+          "id": "b-118",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Local pickup + shipping options"
+            }
+          ]
+        },
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "POS system integration needs"
+            }
+          ]
+        },
+        {
+          "id": "b-120",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loyalty program requirements"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Market size:** Every specialty food business, artisan maker, local retailer with online presence."
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Technical Requirements This Reveals"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Platform Features Needed:"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Smart Shipping Calculator**"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Custom logic per product type"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (product.type === 'flour' && totalWeight <= 5) {"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return { box: '12x9x6', carrier: 'usps' };"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (product.type === 'rolling_pin') {"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return { box: 'kraft_tube', separateShipment: true };"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **POS Integration Layer**"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Square loyalty point sync"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Inventory reconciliation"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Unified reporting dashboard"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Pickup/Shipping Workflow**"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Force choice at cart start"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pickup hours display"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Separate fulfillment queues"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Phone Order System**"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Manual order entry"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Customer payment processing"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- No card storage bugs"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "This Changes Our Positioning"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-148",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**From:** \"Fulfillment automation platform\""
+            }
+          ]
+        },
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**To:** \"Complete commerce operations for specialty retailers\""
+            }
+          ]
+        },
+        {
+          "id": "b-150",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Value prop:** \"Stop fighting with 6 different plugins. One system that actually understands your business.\""
+            }
+          ]
+        },
+        {
+          "id": "b-151",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This document validates that we're building something people will pay $500-$2000/month for gladly, because the alternative is operational hell."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

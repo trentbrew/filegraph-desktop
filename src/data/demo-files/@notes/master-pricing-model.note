@@ -1,0 +1,519 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-233",
+  "title": "Master Pricing Model",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Master Pricing Model"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The user wants a solid pricing structure for Docket.tv, starting with basic tiers but potentially expanding with custom options. I'll start by refining the three tiers (Free, Basic $49, Pro $199) while considering per-seat, per-channel, or usage-based features for flexibility. I'll also incorporate add-ons, billing models, and possible discounts. I’ll include a plan for revenue projections, assumptions, and a strategy for testing the pricing with pilot customers. Everything should be flexible enough for later adjustments based on real-world feedback."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Okay, I need to reflect the user's preferences: clear, concise, and no fluff. I’ll want to incorporate competitor pricing from companies like Cablecast, Veset, Zype, Boxcast, Wowza, etc., to ensure the pricing is competitive. To gather that info, I’ll search for the latest pricing for each competitor for 2025. I’ll perform several web searches and keep the results actionable so they can help set price points and develop the final structure. Let’s start by running those searches."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "We’ve gathered some competitor pricing like BoxCast ($39-$249), Wowza ($149-$195), and Streann ($19-$99). Based on this, Docket’s pricing could include: a Free tier, Essentials, Pro, and Enterprise options. We might include extras like additional seats, storage, or analytics. Considering broadcasters' budgets, we could offer volume discounts or structure pricing around usage such as channel count, VOD hours, and streaming duration. Add-ons like AI captioning, OTT apps, and overages for transcoding or CC hours could also be incorporated."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Thought for 43 seconds"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Match real broadcaster budgets** while leaving margin for growth."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Scale with usage, not head‑count** – stations vary more by channel hours, storage and live‑to‑VOD volume than by staff size."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Anchor to the value unlocked** (viewer engagement + staff time saved) rather than pure infrastructure cost."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Stay visibly lower‑friction than Cablecast‑style hardware bundles, but premium to “generic” SaaS streamers.**"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Platform | Entry SaaS plan | High‑end self‑serve | Notes |"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **BoxCast** | $39 / mo basic; $169 / mo deluxe, 365‑day storage ([BoxCast](https://www.boxcast.com/pricing?utm_source=chatgpt.com), [G2](https://www.g2.com/products/boxcast/pricing?utm_source=chatgpt.com)) | $249 / mo “Premium” | Live‑stream focus, no guide/CMS |"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Streann Studio** | Free; Paid from $19 → $99 / mo ([Streann Studio®](https://streann.studio/?utm_source=chatgpt.com)) | Lifetime promo $55 / mo | Creator‑centric |"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Wowza Video Cloud** | One‑off event $149; PAYG; monthly server $195+ ([Wowza](https://www.wowza.com/pricing?utm_source=chatgpt.com), [Wowza](https://www.wowza.com/pricing/streaming-engine?utm_source=chatgpt.com)) | Custom | Pure streaming infra |"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Cablecast** | Hardware + quote‑only support; premium “by system I/O” ([cablecast.tv](https://www.cablecast.tv/services/support-packages?utm_source=chatgpt.com)) | — | De‑facto incumbent for PEG |"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket’s TV‑guide CMS plus community features sits **above** generic streamers on value, but **below** Cablecast on total cost of ownership."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> All prices shown annual‑commit, billed monthly; month‑to‑month +15 %."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Tier | Ideal customer | Price | Core limits | Key inclusions |"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Community** *(Free)* | Grass‑roots orgs, schools, pilot creators | $0 | 1 linear channelGuide up to 14‑day window50 GB VOD | • Branded mini‑guide embed• RSS + basic analytics• Community forum support |"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Essentials** | Single‑channel PEG or church station | **$79 / mo** | 1 channel90‑day rolling archive200 GB storage | Community tier +• Cablecast API sync• Email support (24 h SLA)• 100 hrs/mo AI captions |"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Pro** | Mid‑size city or college station | **$249 / mo** | Up to 3 channels1 TB storage1‑year VOD retention | Essentials +• White‑label domain/branding• Interactive widgets (chat, polls)• Role‑based user management• 400 hrs/mo AI captions |"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Network** *(Enterprise)* | State‑wide networks, OTT FAST channels | **$600 / mo starting** | 4+ channels, 4 TB+ storage | Pro +• SLA 99.9 % & phone support• SSO / LDAP• API rate‑limit bump• Custom viewer apps (add‑on) |"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Add‑on | Price |"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Extra storage | $20 / mo per additional TB |"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| AI captioning | $0.80 per hour beyond tier allotment |"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| OTT apps (Roku, Fire, tvOS) | $2 000 one‑time setup + $99/mo maintenance |"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Additional linear channel | $40 / mo each (Network tier only) |"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-32",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Infra cost** (Convex + Vercel + S3 + Cloudflare): ≈ $15 per active channel‑month at launch volumes."
+            }
+          ]
+        },
+        {
+          "id": "b-33",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Gross margin targets**: 70 % Community/Essentials, 80 % Pro/Network after year‑one scale."
+            }
+          ]
+        },
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**AI caption cost** (OpenAI Whisper large‑v3 GPU): ~ $0.09/hr at current market rates; 10× markup funds GPU reserve + support."
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Support load factor**: Essentials: 0.3 h/mo; Pro: 0.6 h; Network: dedicated CSM ~4 h."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Offer | Why |"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Early‑adopter (Speak MPLS)**: 25 % off first 12 mo → grandfathered at 10 % | Locks case‑study, reference station |"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Non‑profit < $250 k budget**: 20 % off Essentials | Mission alignment |"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| **Multi‑year prepay**: 15 % off 24‑mo | Cash‑flow buffer |"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Metering hooks**: track channel‑hours, caption‑hours, storage in Convex."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Stripe catalog**: create products/price IDs for each tier + add‑ons; set up seat‑less usage pricing for captions & storage."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Plan gating** in backend (`tenant.tier` + feature flags)."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **In‑app upgrade path**: upsell banner when nearing limits (e.g., 80 % storage)."
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Legal**: update Terms to reflect overage billing + 30‑day grace."
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Shadow‑price SPEAK MPLS data**: run 60 days of their actual schedule/usage against the matrix to confirm margins."
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Founder interviews** with 5 similar stations: present Essentials vs Pro price cards, capture willingness‑to‑pay."
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Soft‑launch **landing page with pricing** → monitor click‑through to “Request demo”."
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If the numbers work for Speak MPLS and two more pilots at ≥ Pro tier, you have a defendable SaaS revenue line to show investors."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Let me know which parts you’d like to iterate on—or if we should model the shadow‑pricing with real usage stats."
+        }
+      ]
+    }
+  ]
+}

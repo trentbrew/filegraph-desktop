@@ -1,0 +1,41 @@
+{
+  "@context": {
+    "fg": "https://filegraph.local/"
+  },
+  "@id": "fg:system:config",
+  "@type": "SystemConfig",
+  "description": "System-level configuration for the vault",
+  "vault": {
+    "name": "Demo Vault",
+    "version": "1.0.0",
+    "created": "2024-01-01T00:00:00Z",
+    "lastModified": "2024-12-09T00:00:00Z"
+  },
+  "namespaces": {
+    "enabled": [
+      "@system",
+      "@entities",
+      "@finance",
+      "@notes",
+      "@canvases"
+    ],
+    "disabled": [
+      "@calendar",
+      "@inbox",
+      "@ai",
+      "@music"
+    ]
+  },
+  "features": {
+    "bidirectionalLinks": true,
+    "federatedGraphs": true,
+    "autoBacklinks": true,
+    "wikilinkAutocomplete": true
+  },
+  "defaults": {
+    "theme": "system",
+    "viewMode": "table",
+    "showDotfiles": false,
+    "previewEnabled": true
+  }
+}

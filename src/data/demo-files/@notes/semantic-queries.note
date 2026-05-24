@@ -1,0 +1,1012 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-200",
+  "title": "Semantic Queries",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Semantic Queries"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here's a thinking process for analyzing the user's sketch for relevance assessment and semantic queries:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1.  **Understand the Goal:** The user wants to move beyond simple structural queries and implement semantic understanding and contextual relevance, making FileGraph a true \"cognitive extension.\" The sketch provides concrete ideas for how to achieve this."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. 1.  **Understand the Goal:** The user wants to move beyond simple structural queries and implement semantic understanding and contextual relevance, making FileGraph a true \"cognitive extension.\" The sketch provides concrete ideas for how to achieve this."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Deconstruct the Sketch:** Break down the provided code/pseudocode into its main components:"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Contextual Relevance Implementation (SemanticNodeMetadata):**"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Adds a contextualRelevance field to node metadata."
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This field stores a score, reasoning, temporalBoost, and relationshipFactors."
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It's explicitly marked as *dynamic*."
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Contextual Relevance Calculation (UserContext, calculateNodeRelevance):**"
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Defines a UserContext to capture the user's current state (active files, recent activity, task, project, time)."
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Outlines a calculateNodeRelevance function that takes a node, context, and graphIndex."
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This function combines:"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Semantic similarity (using embeddings) between the node and active context."
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Temporal boost based on recency."
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Relationship factors (how the node connects to the active context)."
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It aims to produce the contextualRelevance object, including a score and reasoning."
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Simple Semantic Query Handler (handleSemanticQuery, processSemanticQuery):**"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Adds a new CLI command (semantic-query - implied name)."
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Takes a SemanticQuery JSON object (from stdin or file)."
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loads the graph and index."
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Calls processSemanticQuery."
+            }
+          ]
+        },
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "processSemanticQuery function:"
+            }
+          ]
+        },
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Starts with all nodes."
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Filters based on concepts (using vector similarity or keyword matching - placeholder logic)."
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Filters based on relationships (placeholder logic)."
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Applies constraints (user tags, node types - partially implemented)."
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "*If* context is provided in the query, calculates contextualRelevance for remaining nodes using calculateNodeRelevance."
+            }
+          ]
+        },
+        {
+          "id": "b-29",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Filters by minRelevance."
+            }
+          ]
+        },
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sorts results (defaulting to relevance)."
+            }
+          ]
+        },
+        {
+          "id": "b-31",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Applies output limit and format."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Analyze Strengths:**"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-34",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Clear Vision:** Excellent articulation of the goal (cognitive extension)."
+            }
+          ]
+        },
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Dynamic Relevance:** Capturing relevance as a dynamic, context-dependent score is the right approach."
+            }
+          ]
+        },
+        {
+          "id": "b-36",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Multi-Factor Relevance:** Combining semantic, temporal, and relational factors is comprehensive."
+            }
+          ]
+        },
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Transparency:** Including reasoning is crucial for user trust and understanding."
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Structured Query:** The SemanticQuery interface is well-defined and captures key aspects needed for AI interaction."
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Context Definition:** UserContext provides a good starting point for what context needs tracking."
+            }
+          ]
+        },
+        {
+          "id": "b-40",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Modular Design:** Separating calculation (calculateNodeRelevance) from query processing (processSemanticQuery) is good practice."
+            }
+          ]
+        },
+        {
+          "id": "b-41",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Leverages Existing Components:** Uses graphIndex, embeddings, calculateCosineSimilarity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Identify Potential Challenges & Areas for Refinement:**"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-44",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Where does Relevance Calculation Live?** The sketch places calculateNodeRelevance in src/relevance.ts but acknowledges it might belong in the application layer. This is key. The *graph library* should probably *not* mandate a specific relevance calculation, but the *types* should define the expected input (UserContext) and output (ContextualRelevance). The actual calculation engine needs a host (CLI, editor extension, background service)."
+            }
+          ]
+        },
+        {
+          "id": "b-45",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Context Acquisition:** How will UserContext be populated? This requires an external system (editor integration, OS-level monitoring) to track active files, tasks, etc. The library itself won't know this."
+            }
+          ]
+        },
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Performance:** Calculating relevance for *all* nodes on every query could be slow, especially semantic similarity. Needs optimization (e.g., pre-filtering, approximate nearest neighbor search if using vector DBs)."
+            }
+          ]
+        },
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Semantic Relationship Inference:** The calculateNodeRelevance sketch uses inferred relationships (supports, contradicts) which aren't generated yet. This needs to be implemented (Phase 1 Relationship Inference). The query handler (processSemanticQuery) also has placeholder logic for using these."
+            }
+          ]
+        },
+        {
+          "id": "b-48",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Concept Filtering:** The sketch mentions vector similarity or keyword matching for concepts. This needs implementation. Keyword matching is simpler; vector similarity requires embedding the query concepts or using a vector DB."
+            }
+          ]
+        },
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Complexity:** Implementing the full calculateNodeRelevance and processSemanticQuery is non-trivial. Need to start simple and iterate."
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Reasoning Generation:** generateRelevanceReasoning is a placeholder; generating *good*, human-readable explanations is challenging."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Synthesize Feedback:** Structure the feedback logically."
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Start with strong positive reinforcement (it's a great sketch)."
+            }
+          ]
+        },
+        {
+          "id": "b-54",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acknowledge the core strengths identified in step 3."
+            }
+          ]
+        },
+        {
+          "id": "b-55",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Discuss the key implementation considerations/challenges from step 4, grouping related points (e.g., where calculation lives, context acquisition, performance)."
+            }
+          ]
+        },
+        {
+          "id": "b-56",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Address the dependencies (e.g., need for semantic relationship inference)."
+            }
+          ]
+        },
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Suggest concrete next steps, building iteratively. Focus on foundational pieces first."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Propose Next Steps:** Based on the analysis, suggest actionable next steps that build towards the vision without being overwhelming."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-60",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement the calculateNodeRelevance function structure (perhaps as a stub initially) *within the application layer* (or a dedicated module), using the types defined."
+            }
+          ]
+        },
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement the processSemanticQuery structure in the CLI, starting with *simpler* filters (tags, node types) and the *structure* for calling relevance calculation *if* context is provided."
+            }
+          ]
+        },
+        {
+          "id": "b-62",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Implement the basic vector similarity filtering for concepts in processSemanticQuery."
+            }
+          ]
+        },
+        {
+          "id": "b-63",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Keep the full context acquisition and the more complex relationship/semantic parts for later iterations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1.  **Refine Language:** Ensure the tone is collaborative and appreciative of the user's detailed thinking. Use clear, concise language."
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. 1.  **Refine Language:** Ensure the tone is collaborative and appreciative of the user's detailed thinking. Use clear, concise language."
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is an *excellent* sketch! It clearly bridges the gap between the current graph structure and the ambitious AI-native query system you envision. You've captured the essence of contextual relevance and laid out a very logical structure for both calculating it and using it within a semantic query framework."
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Analysis of the Sketch:**"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **SemanticNodeMetadata & ContextualRelevance:**"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Strength:** Adding the dynamic contextualRelevance object directly to the node metadata *conceptually* is perfect. It makes relevance a first-class property of a node *within a given context*."
+            }
+          ]
+        },
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Strength:** Breaking down relevance into score, reasoning, temporalBoost, and relationshipFactors is comprehensive and provides explainability."
+            }
+          ]
+        },
+        {
+          "id": "b-72",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation Note:** In practice, this contextualRelevance would likely be calculated *on-demand* during querying or by a background process, rather than being persistently stored *in the graph file itself* (as context changes constantly). The type definition correctly reflects its potential presence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **UserContext:**"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Strength:** This provides a solid definition of the inputs needed to determine relevance. activeNodes, recentActivity, inferencedTask, explicitFocus, workingProject, and timeContext are all critical pieces."
+            }
+          ]
+        },
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation Note:** As we discussed, *acquiring* this context is the job of the application layer (editor extension, monitoring agent, etc.), not the graph library itself. The library consumes this context."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **calculateNodeRelevance Function:**"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Strength:** The logic outlined (semantic similarity, temporal boost, relationship factors) is a great starting point for a multi-faceted relevance score. Using the graphIndex is essential for performance."
+            }
+          ]
+        },
+        {
+          "id": "b-80",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Strength:** Including reasoning generation makes the system transparent."
+            }
+          ]
+        },
+        {
+          "id": "b-81",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Refinement:** The weighting and combination logic (combineRelevanceFactors) will require tuning. Starting with simple addition or weighted averages is fine."
+            }
+          ]
+        },
+        {
+          "id": "b-82",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Dependency:** Relies on calculateSemanticSimilarity (which we added) and analyzeRelationshipPaths (which needs implementation, likely involving traversing semantic edges like supports, contradicts, similar_to once they exist)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **SemanticQuery Handler (handleSemanticQuery, processSemanticQuery):**"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Strength:** Provides a clear CLI entry point and parsing logic (reading JSON from file/stdin)."
+            }
+          ]
+        },
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Strength:** processSemanticQuery follows a logical pipeline: fetch all -> filter by concepts -> filter by relationships -> apply constraints -> calculate/filter/sort by relevance -> format output."
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Implementation Note:** The filtering for concepts (vector similarity) and relationships needs concrete implementation. Concept filtering is the most immediate next step enabled by embeddings. Relationship filtering depends on Phase 1's relationship inference."
+            }
+          ]
+        },
+        {
+          "id": "b-88",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Performance:** Calculating relevance for all nodes *after* initial filtering is better, but might still be slow for very large result sets before relevance filtering. Optimization might be needed later (e.g., using vector search to get an initial candidate set)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Overall Thoughts:**"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-91",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Excellent Blueprint:** This sketch provides a robust and well-thought-out blueprint for Phase 2 (Query Language) and touches on Phase 3 (AI Integration via context)."
+            }
+          ]
+        },
+        {
+          "id": "b-92",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Iterative Implementation:** It's structured perfectly for iterative development. We can implement parts of processSemanticQuery (like tag filtering) now, add concept similarity filtering next, then layer on relationship filtering and full relevance calculation as those features become available."
+            }
+          ]
+        },
+        {
+          "id": "b-93",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Separation of Concerns:** It implicitly respects the separation between the graph data/library (defining types, storing data, basic operations) and the application layer (acquiring context, calculating dynamic relevance, hosting the query engine)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Next Steps based on this Sketch:**"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Implement Semantic Concept Filtering:** Update processSemanticQuery to use calculateCosineSimilarity to find nodes whose embeddings are similar to the embeddings of the query concepts. This requires a way to get embeddings for the query concepts themselves (either user provides them, we look up nodes matching concept strings, or generate embeddings for the concept strings via Ollama)."
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Implement Basic Constraint Filters:** Flesh out the filtering logic in processSemanticQuery for the constraints we *can* currently handle (userTags, nodeTypes, modifiedSince)."
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Integrate Relevance Calculation (Stub/Basic):** Add the call to calculateNodeRelevance within processSemanticQuery *if* query.context is provided. Implement a *very basic* version of calculateNodeRelevance (maybe just using semantic similarity for now) to test the flow."
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Add semantic-query command:** Add the new command to cli.ts to call handleSemanticQuery."
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. 1. **Implement Semantic Concept Filtering:** Update processSemanticQuery to use calculateCosineSimilarity to find nodes whose embeddings are similar to the embeddings of the query concepts. This requires a way to get embeddings for the query concepts themselves (either user provides them, we look up nodes matching concept strings, or generate embeddings for the concept strings via Ollama)."
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. 1. **Implement Basic Constraint Filters:** Flesh out the filtering logic in processSemanticQuery for the constraints we *can* currently handle (userTags, nodeTypes, modifiedSince)."
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. 1. **Integrate Relevance Calculation (Stub/Basic):** Add the call to calculateNodeRelevance within processSemanticQuery *if* query.context is provided. Implement a *very basic* version of calculateNodeRelevance (maybe just using semantic similarity for now) to test the flow."
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. 1. **Add semantic-query command:** Add the new command to cli.ts to call handleSemanticQuery."
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This sketch significantly clarifies the path forward. Let's start implementing the semantic query handler and the core concept filtering using embeddings!"
+        }
+      ]
+    }
+  ]
+}

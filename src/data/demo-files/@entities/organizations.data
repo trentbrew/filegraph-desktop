@@ -1,0 +1,61 @@
+[
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:org:techstart:001",
+    "@type": [
+      "Entity",
+      "Organization"
+    ],
+    "id": "org:techstart:001",
+    "slug": "techstart",
+    "name": "TechStart Inc.",
+    "type": "startup",
+    "industry": "Technology",
+    "website": "https://techstart.example.com",
+    "description": "Early-stage startup focused on AI-powered developer tools",
+    "founded": "2023",
+    "size": "11-50",
+    "contact": {
+      "email": "hello@techstart.example.com",
+      "phone": "+1-555-0123"
+    },
+    "address": {
+      "street": "123 Innovation Drive",
+      "city": "San Francisco",
+      "state": "CA",
+      "country": "USA",
+      "zip": "94105"
+    },
+    "logo": "/assets/techstart-logo.png",
+    "primaryContact": "person:alex:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:org:creative-agency:001",
+    "@type": [
+      "Entity",
+      "Organization"
+    ],
+    "id": "org:creative-agency:001",
+    "slug": "creative-agency",
+    "name": "Creative Agency",
+    "type": "agency",
+    "industry": "Design & Development",
+    "website": "https://creativeagency.com",
+    "description": "Premier digital product agency",
+    "founded": "2015",
+    "size": "1-10",
+    "contact": {
+      "email": "hello@creativeagency.com",
+      "phone": "+1-555-0987"
+    },
+    "address": {
+      "street": "456 Design Blvd",
+      "city": "New York",
+      "state": "NY",
+      "country": "USA",
+      "zip": "10001"
+    },
+    "primaryContact": "person:sarah:001"
+  }
+]

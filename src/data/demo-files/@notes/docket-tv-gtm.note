@@ -1,0 +1,1098 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-129",
+  "title": "Docket TV | GTM",
+  "author": "person:jane-brew:001",
+  "status": "reviewing",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Docket TV | GTM"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Market Size & Demand Validation"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Public Access Stations (U.S.)** – There are roughly **1,600–1,700 public access TV “access centers”** operating across the country today ([The Uncertain Future of Public Access Television](https://www.governing.com/now/the-uncertain-future-of-public-access-television#:~:text=in%20those%20early%20days,just%20one%20to%20three%20employees)) ("
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "[About ACM](https://www.allcommunitymedia.org/ACM/About/ACM/About/About_ACM.aspx?hkey=db0da5f6-2dd1-4780-84dd-f8ebf720cf1f#:~:text=Founded%20in%201976%2C%20the%20Alliance,We%20also%20represent)"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "). (This is down from about 2,500 in 1980, reflecting consolidation and closures over time ([The Uncertain Future of Public Access Television](https://www.governing.com/now/the-uncertain-future-of-public-access-television#:~:text=in%20those%20early%20days,just%20one%20to%20three%20employees)).) Most are small operations (often just a few staff) serving local communities. These represent the core market for Docket."
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Independent/Civic Media Organizations** – Broadly, the U.S. has **over 3,000 community media outlets** when including public access TV (PEG channels), community media centers, and other independent local media organizations ([Free Press: How Community Media Can Fill Local News Gaps - Geraldine R. Dodge Foundation](https://www.grdodge.org/news/free-press-how-community-media-can-fill-local-news-gaps/#:~:text=access%2C%20education%20and%20government%20,scale%20at%20which%20they%20operate)). This indicates a substantial pool of potential customers beyond traditional PEG stations – e.g. local non-profit news video producers, community online broadcasters, etc., who could benefit from scheduling/content management tools."
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Municipal/Local Government Channels** – There are **thousands of local government and educational channels** that might use Docket. In fact, estimates suggest **up to ~5,000 PEG channels** in the U.S. (public, education, *and* government access) when accounting for all cities and counties ([Public, Educational, and Governmental (PEG) Access Cable Television Channels: Issues for Congress - EveryCRSReport.com](https://www.everycrsreport.com/reports/RL34649.html#:~:text=community%20organizations%2C%20and%20that%20local,programmers%20produce%2020%2C000%20hours%20of)). Many city governments operate a cable channel for council meetings and civic programming – each is a potential Docket user. (Not all are counted in the 1,600 access centers since one organization often manages multiple channels.)"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Current Tools Used** – Today’s public access and community broadcasters mostly rely on legacy broadcast automation systems:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Common solutions include **Tightrope Media’s Cablecast** platform, **TelVue** playback systems, **Leightronix** servers (e.g. UltraNexus), and newer players like **Castus** ([Polar Design Public Access TV Web Design; PEG Web Design; Community Media Center](https://www.polardesign.com/interactive-services/online-communications/service-area-web-design/public-access-tv-web-design/#:~:text=solution%20polarsite,the%20content%20management%20solution%20such)) ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Changing%20such%20a%20critical%20system,including%20Castus%2C%20Leightronix%2C%20and%20TelVue)). These handle scheduling, playout, and sometimes streaming."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Some smaller ops patch together tools (manual YouTube streaming schedules, or repurposed broadcast software). There are also open-source options like **OpenBroadcaster** used by a few tech-savvy stations."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Example:** A popular legacy server, the Leightronix UltraNexus (SD playback device), costs around **$8,000** upfront ([TV Channel equipment : r/VIDEOENGINEERING - Reddit](https://www.reddit.com/r/VIDEOENGINEERING/comments/bm4jd9/tv_channel_equipment/#:~:text=TV%20Channel%20equipment%20%3A%20r%2FVIDEOENGINEERING,product%20and%20costs%20around%20%248000)) – illustrating the capital-intensive nature of old solutions."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Pain Points with Existing Solutions** – Interviews and industry sources reveal several pain points:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Outdated & End-of-Life Systems** – Many stations are stuck on aging hardware that is no longer supported. (One major vendor recently **discontinued its PEG playout servers**, leaving stations “anxious to plan their next steps” ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=The%20announcement%20earlier%20this%20year,to%20innovate%20faster%20than%20their)).) These older systems often only output standard-definition and lack modern features."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Lack of Remote/Web Access** – Traditional systems often require on-site control or clunky VPN setups. Users praise newer systems for allowing **remote scheduling via web interface** (a feature older tools lack) ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Customers%20who%20switched%20to%20Cablecast,anywhere%3B%20and%20many%20more%20benefits)). The need for remote access grew during the pandemic when staff had to manage channels from home."
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Poor Integration** – Existing workflows can be siloed. Stations frequently **enter program info multiple times** – once into the playout system and again into their website or social media. For example, public access web designers note that without integration, staff must copy schedules into the site manually, which is tedious ([Polar Design Public Access TV Web Design; PEG Web Design; Community Media Center](https://www.polardesign.com/interactive-services/online-communications/service-area-web-design/public-access-tv-web-design/#:~:text=solution%20polarsite,the%20content%20management%20solution%20such)). This duplication is inefficient."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Streaming and VOD Limitations** – Many legacy systems were built for cable only. They struggle to integrate OTT streaming or video-on-demand. Stations want easier ways to publish content online alongside cable. Older solutions often require add-ons or don’t support simulcasting to Roku/Apple TV apps, etc., which frustrates organizations aiming to expand digital reach."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Cost & Maintenance** – Aging equipment can be costly to maintain. Replacement parts or software upgrades may be unavailable, pushing stations toward expensive new hardware sooner than planned ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=The%20announcement%20earlier%20this%20year,to%20innovate%20faster%20than%20their)). Small non-profits with tight budgets find it hard to afford these upgrades. There’s a desire for more cost-effective, software-based solutions (e.g. cloud platforms or SaaS) to reduce hardware overhead."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Annual Spend on Scheduling Software** – Community media orgs typically spend **a few thousand dollars per year** on scheduling/playout software maintenance, if not more:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- For instance, one town pays about **$2,700 annually** for support and updates to its TelVue channel system (). Another city’s PEG channel budget shows roughly **$8,700/year** for TelVue service and warranty ([[XLS] July 2020 - City of Rancho Palos Verdes](https://www.rpvca.gov/DocumentCenter/View/16383/2020-July-to-September-Check-List#:~:text=%5BXLS%5D%20July%202020%20,5201%2C%2082123%2C%208758.75)). These support fees are on top of initial hardware purchase costs."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- All-in, a mid-sized station might invest **$10K–$50K upfront** for a new scheduling/playout system, then **$2K–$10K per year** on support, licenses, and cloud services (depending on size and vendor). This indicates the price point Docket must compete with or improve upon."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Smaller stations with minimal budgets sometimes resort to jury-rigged solutions (e.g. scheduling YouTube premieres) to avoid high software costs – signaling demand for an affordable option."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Market Trends (Growth or Decline)** – **Public access TV is under pressure**, though need for local content persists:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Declining Cable Support** – The number of access centers has **declined from ~2,500 to ~1,600** over the past few decades ([The Uncertain Future of Public Access Television](https://www.governing.com/now/the-uncertain-future-of-public-access-television#:~:text=in%20those%20early%20days,just%20one%20to%20three%20employees)). Cord-cutting is *directly hitting funding*: as households drop cable, the **franchise fees that fund PEG stations are “decimated,”** causing budget crises ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=traditional%20paid%20TV%20plans%20to,fund%20their%20stations%2C%20operators%20said)). In 2022, PEG managers in CT warned that **“we’re done…doors will be locked”** without new funding sources as cable revenue falls ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=The%20rise%20in%20so,fund%20their%20stations%2C%20operators%20said)) ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=Without%20an%20expansion%20of%20those,forced%20to%20shut%20their%20doors))."
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Policy Changes** – An FCC rule change in 2019 allowed cable companies to reduce support, forcing stations to **seek new funding models** and prompting state-level task forces to find solutions ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=The%20Federal%20Communications%20Commission%20,receive%20from%20cable%20companies)) ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=These%20community%20television%20stations%20are,of%20public%20information%20and%20access)). There’s movement to expand funding mechanisms (e.g. proposals to apply cable fees to streaming services in some states ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=,internet%20or%20video%20streaming%20services))), but outcomes are uncertain."
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Shifting to Digital** – Stations are adapting by embracing digital platforms. For example, CCX Media in MN emphasizes OTT apps and streaming because **“cable viewership has been declining everywhere”** ([Cablecast Community Media Platform Helps CCX Media Create Connected Community OTT Experiences | Cablecast](https://www.cablecast.tv/cablecast-blog/ccx-ott-mobile-streaming-with-cablecast-community-media#:~:text=%E2%80%9CCable%20viewership%20has%20been%20declining,on%20Cablecast%20for%20everything%20from)). Many PEG outlets are now simulcasting on Roku/Apple TV apps or social media to reach cord-cutters. This transition suggests a need for **modern scheduling tools that handle multi-platform output** (which Docket offers)."
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Role in Local Content** – Even as traditional public access struggles, there’s a **rising need for local media**. With local newspapers shrinking, PEG channels and community media centers are pivoting to fill info gaps (e.g. Public Media Network in MI added local news reporting to its programming ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=On%20October%2020%2C%20Community%20Media,gun%20violence%20and%20encampment%20evictions))). Foundations see public access as an “untapped resource” for local journalism ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=local%20journalism)). This **renewed mission** could sustain or even grow independent media organizations – *if* they modernize their infrastructure. A tool like Docket that lowers operational burden could be critical to that modernization."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Bottom line:** *The market consists of roughly 1.6k+ access-oriented organizations (managing up to ~5k channels including city government channels). They face strong pressure to modernize due to aging equipment and declining cable funding, but still serve a vital community need. There is validated demand for a more efficient, integrated scheduling solution, as evidenced by the pain points with current tools and the active search for new tech solutions in the PEG community.* ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=The%20announcement%20earlier%20this%20year,to%20innovate%20faster%20than%20their)) ([Polar Design  Public Access TV Web Design; PEG Web Design; Community Media Center](https://www.polardesign.com/interactive-services/online-communications/service-area-web-design/public-access-tv-web-design/#:~:text=solution%20polarsite,the%20content%20management%20solution%20such))"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Early Adopters & Partnerships"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-35",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Likely Early-Adopter Stations** – Early customers will be those *most eager to modernize* and with a track record of innovation in community media. Examples of strong early adopters for Docket:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **PhillyCAM (Philadelphia Community Access Media)** – A major urban media center known for embracing new community media initiatives. PhillyCAM serves a large city audience and runs multi-platform content (cable channels, radio, streaming). They’ve been involved in projects pairing citizen journalists with news coordinators ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=,In%20an)), indicating openness to new tech. A next-gen scheduling system could greatly streamline their operations."
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Grand Rapids Community Media Center (GRCMC)** – A nonprofit media hub in Grand Rapids, MI that supports public access TV, community radio, and digital media. GRCMC is noted for using its infrastructure in innovative ways (engaging residents in local news production, etc. ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=audience%20engagement,used%20their%20infrastructure%20to%20engage))). They likely face the challenge of managing content across TV and web – a unified scheduler like Docket would appeal to their technical leadership."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Community Media Access Collaborative (CMAC)** – Serving Fresno, CA, CMAC operates public and government channels and a media center. They are relatively young (founded 2012) and tech-forward, and have been highlighted as a model for community storytelling and civic engagement ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Access%20Collaborative%20,even%20begun%20experimenting%20with%20virtual)). CMAC’s growth mindset suggests they’d be receptive to piloting Docket to improve their channel scheduling and perhaps offer services to partners."
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Akakū Maui Community Media (Hawaii)** – Akakū runs PEG channels in Maui and has been proactive in community programming (even experimenting with new formats like VR in some cases) ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=audience%20engagement,used%20their%20infrastructure%20to%20engage)) ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Access%20Collaborative%20,even%20begun%20experimenting%20with%20virtual)). Given their remote location, a cloud-based solution to manage content could be very attractive (easing remote management between islands, etc.)."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- *(Other candidates:)* **Brookline Interactive Group (MA)** – pioneers in new media tech (they’ve tried VR programming) ([Public access television channels are an untapped resource for building local journalism | Nieman Journalism Lab](https://www.niemanlab.org/2021/11/public-access-television-channels-are-an-untapped-resource-for-building-local-journalism/#:~:text=Access%20Collaborative%20,even%20begun%20experimenting%20with%20virtual)); **Public Media Network (Kalamazoo, MI)** – an organization already shifting toward local news content and likely in need of modern tools; **Mid-size city stations** like Arlington Independent Media (VA) or Austin Public (TX) that have aging systems and active user-bases. Each of these has the profile of an early adopter: motivated to update legacy systems and serve multiplatform audiences."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**White-Labeling Opportunities (Municipal/Nonprofit)** – Beyond individual stations, Docket could be **licensed or white-labeled by larger entities** to distribute to networks of communities:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Statewide PEG Associations** – Organizations like MassAccess (Massachusetts’ community media association) or Wisconsin Community Media could partner to offer Docket as a **white-labeled scheduling solution for all their member stations**. For example, a state association might brand Docket as “[State] Community Media ScheduleTool” and negotiate bulk pricing, easing adoption for dozens of small stations that lack in-house IT. These associations are always seeking cost-effective services for members."
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Community Media Support Nonprofits** – Groups that develop tech for local media might integrate Docket into their offerings. A good example is the **Open Media Foundation** in Denver, which has built open-source tools for community TV in the past. Such an organization could adopt Docket’s core and offer it to the stations they support (effectively a white-label or open-source distribution). This would rapidly get Docket into the hands of multiple media centers under a trusted nonprofit’s umbrella."
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Municipal Governments or IT Providers** – A tech-savvy city’s IT department or a regional municipal league might white-label Docket for all government channels in their region. For instance, a county government that manages cable channels for several cities could use a branded version of Docket to centralize scheduling across all their local channels. This would appeal to municipalities looking to standardize how they schedule council meetings, event coverage, etc., with their own branding on the interface."
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-47",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Integration Partnerships (Gov Tech Platforms)** – Docket can increase its value through strategic integrations with platforms cities and communities already use. Identifying key **local government and civic engagement platforms** is crucial:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Granicus** – A leading government meeting management and streaming provider. Cities use Granicus to stream council meetings and manage agendas ([Agenda & meeting management | Granicus](https://granicus.com/solution/agenda-meeting-management/#:~:text=Agenda%20%26%20meeting%20management%20,Empower)). Integrating Docket with Granicus could allow automatic import of meeting broadcasts into a channel schedule (e.g., a council meeting on Granicus gets scheduled on the PEG channel via Docket with one click). Granicus might see this as a value-add for clients – potentially a partnership route."
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Swagit** – A service that handles turnkey video coverage for city halls (recording meetings and running city channels). A partnership with Swagit or similar could allow them to **embed Docket’s scheduling engine** into their offering, improving their backend. For Docket, this opens access to municipalities that outsource their channel operations."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **CivicPlus / Municipal CMS platforms** – Many city websites run on CivicPlus or similar content management systems. Integration here could mean Docket automatically updates a city’s website with “What’s Playing Now on Channel gov.” That kind of integration with web platforms (or community engagement portals like **PublicInput** for town halls, etc.) would make Docket attractive to local governments wanting to better promote their content."
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Community Media Archive (Archive.org)** – A number of PEG stations archive shows on the Internet Archive’s Community Media collection ([Community media archive - Access Humboldt](https://cma.accesshumboldt.net/wiki/index.php?title=Community_media_archive#:~:text=Community%20media%20archive%20,programs%20created%20through%20community%20access)). Docket could integrate an “Archive upload” feature, auto-archiving content after broadcast. Partnering with groups like Access Humboldt (who coordinate this archive) could encourage those stations to adopt Docket for the built-in archival integration."
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-53",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Features Critical to Win Early Adopters** – To convert these early customers, Docket must address the pain points head-on with tangible benefits:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Easy, Automated Scheduling** – Early users will respond to how **quickly they can schedule programs** compared to legacy systems. (Cablecast users who switched have “praised how much faster and easier it is for scheduling” ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Customers%20who%20switched%20to%20Cablecast,anywhere%3B%20and%20many%20more%20benefits)) – Docket should offer a similar jump in efficiency, e.g. drag-and-drop calendar, bulk scheduling of repeats, etc.)"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Remote/Web-Based Access** – A must-have. Early adopters, often lean nonprofits, need the ability to manage the channel from home or on the go. Docket being cloud-based with a web login is a major selling point. *“I can schedule our channel from any browser”* is a compelling pitch to a station currently stuck with software on a single PC in their office."
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Multi-Platform Output** – Support for **simultaneous cable playout, web streaming, and OTT publishing** is critical. Early adopter stations are trying to reach audiences on Roku, Apple TV, YouTube, etc., not just cable. Docket should highlight features like one-click publishing to streaming, automatic VOD generation, and an electronic program guide that can feed into OTT apps. This directly addresses the modern reach they seek (as noted, stations want to be “available on OTT” as viewers cut cable ([Cablecast Community Media Platform Helps CCX Media Create Connected Community OTT Experiences | Cablecast](https://www.cablecast.tv/cablecast-blog/ccx-ott-mobile-streaming-with-cablecast-community-media#:~:text=CCX%20Media%20was%20among%20the,audience%20to%20find%20CCX%20Media)))."
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Integration & Open APIs** – The software should not exist in a silo. Early adopters will love features like **website integration** (so schedules and even live streams can embed on their site easily) and open APIs to tie into other tools. For instance, Docket generating a public schedule feed (JSON/XML) that a station’s website or mobile app can consume means no more double entry of data ([Polar Design Public Access TV Web Design; PEG Web Design; Community Media Center](https://www.polardesign.com/interactive-services/online-communications/service-area-web-design/public-access-tv-web-design/#:~:text=solution%20polarsite,the%20content%20management%20solution%20such)). That is a tangible time-saver."
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Reliability & Support** – These organizations have tiny staffs; they need confidence that Docket “just works” and help is available. Emphasizing uptime, cloud backups, and responsive support will win trust. Testimonials or case studies (once a few are using it) citing *zero downtime* or quick issue resolution will alleviate fears of switching from a known incumbent."
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Affordability & Scalability** – Early adopters often have tight budgets, so flexible pricing (see below) will be key. Also, the ability to start small (maybe one channel) and scale up (add more channels or storage as needed) allows them to grow with the platform. This scalability is attractive, especially for those who might consider reselling or sharing the platform with neighboring communities (e.g., a larger station helping manage a smaller town’s channel using Docket)."
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-61",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Targets for Modernization** – Part of early customer discovery is finding stations *in dire need of a tech refresh*. Docket should target those with **outdated scheduling systems**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Stations still using **Leightronix Nexus or older TelVue servers** (some over a decade old) are prime candidates. Many of these systems are now end-of-life – indeed, Cablecast noted “scores of customers” recently migrating off competitors like Leightronix and old TelVue ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Changing%20such%20a%20critical%20system,including%20Castus%2C%20Leightronix%2C%20and%20TelVue)). Each of those migrating customers is effectively *looking for a new solution*. If not captured by Cablecast, they are potential Docket users."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Look at small-to-mid size PEG stations in areas where cable companies haven’t provided new gear recently. For example, **local channels in parts of the Midwest and New England** often still run on 2000s-era hardware and have limited streaming. They may be publicly complaining about limitations. (The Vermont PEG stations, for instance, have been very vocal about needing to modernize as cable funding wanes ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=The%20Federal%20Communications%20Commission%20,receive%20from%20cable%20companies)) – they formed a task force on it.)"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Any station that *temporarily went off-air or lost programming during the pandemic* due to remote work issues is a lead – they likely had a system that couldn’t be run remotely. Docket’s remote capabilities would be a game-changer for them."
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Early adopters will likely self-identify** at conferences (Alliance for Community Media conferences, etc.) by expressing frustration with their current software. Docket can capture interest by highlighting exactly those modernization needs (HD/4K capable, web control, integrated streaming) that these frustrated users have been dreaming of."
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Bottom line:** *Identifying a few flagship community media centers to adopt Docket will build credibility. Organizations like PhillyCAM, GRCMC, CMAC, etc., are ideal first partners given their innovation history. In parallel, forging partnerships with networks (state associations, civic tech platforms) can amplify distribution. The key is offering the features that address real-world pains – ease of use, remote access, multi-platform integration – which will make early adopters not just customers but enthusiastic evangelists.* ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Customers%20who%20switched%20to%20Cablecast,anywhere%3B%20and%20many%20more%20benefits)) ([Polar Design  Public Access TV Web Design; PEG Web Design; Community Media Center](https://www.polardesign.com/interactive-services/online-communications/service-area-web-design/public-access-tv-web-design/#:~:text=solution%20polarsite,the%20content%20management%20solution%20such))"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Business Model & Funding Strategy"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Pricing Models That Work** – Public access and civic media clients tend to prefer **predictable, modest pricing**. They operate on annual budgets (often grant or city-budget driven), so a **subscription model with annual or multi-year contracts** usually works better than usage-based or month-to-month volatility. Many PEG stations are accustomed to **one-time capital expenditures** (buying equipment) plus annual support fees – a mindset slowly shifting toward SaaS."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Annual SaaS Subscriptions** – Likely the sweet spot. For example, a station could pay a fixed **annual fee for Docket** based on number of channels or size of content library. This aligns with how they pay yearly support for current systems (e.g. $2k–$5k/yr typical as noted above). Offering a discount for multi-year commitments could entice those with capital funds in-hand (e.g., one city got its cloud service cost “deeply discounted for a 5-year commitment” ()). Multi-year options allow stations to plan ahead and secure board approval more easily."
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Tiered Pricing by Channel/Features** – A scalable tier model (e.g., *Basic* for one channel, *Pro* for multiple channels + OTT, etc.) could accommodate both tiny one-channel operations and larger media centers. Importantly, keep entry-level pricing accessible to the smallest stations, which might only have a ~$1K budget for software in a year."
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Avoid Pure Per-Usage Billing** – Charging by hours streamed or storage used (like purely usage-based cloud costs) can be tricky for these clients – they prefer knowing costs up front. It may be wise for Docket to bundle cloud costs into a flat rate. (For instance, Veset, a commercial cloud playout, rolls AWS costs into a monthly subscription for their Nimbus platform ([Resources and FAQ | Veset](https://www.veset.tv/how-to-create-linear-channel-faq#:~:text=Veset%20Nimbus%20is%20offered%20as,playout%20and%20the%20egress%20traffic)), because broadcasters want a consistent bill.) Docket can similarly offer a fixed package (with reasonable caps) so stations aren’t scared of overage charges."
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Hardware/On-Prem Options** – While SaaS is ideal, note that a few stations still budget via capital expenditures (due to how PEG grants are restricted). Docket could offer a private on-prem or appliance version at a higher one-time price for those who *must* spend capital instead of operating funds. But overall, showcasing the cost savings of cloud (no need to buy $10k servers regularly) will support the SaaS model."
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Pricing Benchmarks (Competitors)** – Understanding what stations pay for similar platforms:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Cablecast (Tightrope)** – Cablecast typically sells hardware servers plus software. A single HD channel server can cost on the order of **$8k–$15k+** upfront (for hardware and licenses) ([TV Channel equipment : r/VIDEOENGINEERING - Reddit](https://www.reddit.com/r/VIDEOENGINEERING/comments/bm4jd9/tv_channel_equipment/#:~:text=TV%20Channel%20equipment%20%3A%20r%2FVIDEOENGINEERING,product%20and%20costs%20around%20%248000)). In addition, annual support contracts might be ~$1k-$3k. They also offer add-ons (e.g., an OTT app package) for additional fees. Cablecast’s own marketing says their price point is “ideal” for community media ([Cablecast Community Media Platform Helps CCX Media Create Connected Community OTT Experiences | Cablecast](https://www.cablecast.tv/cablecast-blog/ccx-ott-mobile-streaming-with-cablecast-community-media#:~:text=%E2%80%8D)), but it’s still a significant investment. A fully outfitted multi-channel system can easily run tens of thousands of dollars."
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **TelVue** – TelVue offers both on-prem servers (e.g., the TelVue HyperCaster) and cloud services (TelVue CloudCast for streaming). A TelVue hardware server is similarly priced in the **$10k+ range** depending on channels. TelVue also charges annual **support fees (~$2k-$9k)** as seen in city budgets () ([[XLS] July 2020 - City of Rancho Palos Verdes](https://www.rpvca.gov/DocumentCenter/View/16383/2020-July-to-September-Check-List#:~:text=%5BXLS%5D%20July%202020%20,5201%2C%2082123%2C%208758.75)). Their OTT apps (mobile, Roku) are sold for one-time development fees (about **$2,360 per app** in a recent quote) (). So a station might spend $10k on a server, $3k/yr on support, and another $10k+ for custom OTT apps with TelVue. This high total cost opens an opportunity for a more affordable Docket solution."
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **OpenBroadcaster** – As an open-source alternative, it’s “free” software, but typically requires technical setup. OpenBroadcaster sells turnkey packages: e.g., a **“Digital TV Station in a Box” for about $23k CAD** (≈$17k USD) ([Broadcast Automation LPFM IPTV | OpenBroadcaster » Product categories » Bundles and Specials](https://openbroadcaster.com/store/specials/?srsltid=AfmBOorNxBUjNgZ21_-jbeU3ZKHAtSP-J4uLuc8Mu8k_xwAitWK-oc6M#:~:text=,00%20%20%2053)), or simpler dual-channel kits for ~$7k CAD (≈$5k USD). They also mention a ~$1,000 setup fee for DIY installs ([Frequently Asked Questions - OpenBroadcaster](https://openbroadcaster.com/knowledge/frequently-asked-questions/?srsltid=AfmBOoo5UWrV1WfIgCcKE92bFLC1zFXguS37_h8-701jBy03g83Y-6Re#:~:text=Frequently%20Asked%20Questions%20,2%20key%20features%20of)). This suggests that even open-source has costs in practice. Docket can position itself as a low-hassle, fully supported service at a competitive price to these packages."
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Veset** – Veset’s cloud playout (more geared to professional broadcasters) gives a sense of SaaS pricing. It’s a **monthly subscription on AWS**, likely on the order of **hundreds to a couple thousand dollars per month per channel** for full 24/7 operation (exact pricing is custom) ([Resources and FAQ | Veset](https://www.veset.tv/how-to-create-linear-channel-faq#:~:text=match%20at%20L1311%20provide%20you,schedule%20a%20demo%20call%20now)). That might be too steep for many PEG channels, but it shows that cloud playout can command ~$1k+/month in the industry. Docket, focused on community media, would presumably come in lower and be tailored to their use (e.g., not charging for 24/7 if a channel isn’t 24/7 active)."
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Other Niche Solutions** – There are smaller software like Castus (which sells a server + web UI, rumored to be a bit cheaper than TelVue/Cablecast) and some use cases of scheduling via tools like vMix or DVPlay. For instance, one Reddit user noted a European software (DV Play) was variable pricing depending on features, so not straightforward ([Anyone using DV Play for automated broadcasting for PEG channels?](https://www.reddit.com/r/VIDEOENGINEERING/comments/rza76k/anyone_using_dv_play_for_automated_broadcasting/#:~:text=channels%3F%20www,you%20want%2C%20but%20let%27s)). By and large, a fair estimate is that **similar solutions run in the four to five figures annually** in terms of cost. Docket can undercut the high five-figure capital purchases by spreading cost as an affordable subscription."
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-83",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Monthly vs. Annual Preference** – Most public access stations will lean toward **annual budgeting**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- They often receive funding in lump sums (e.g., an annual city allocation or a yearly grant), so paying **yearly or multi-year** is administratively easier than monthly credit card charges. Additionally, many municipalities require invoices and purchase orders – an annual invoice is simpler for their finance departments."
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Offering a **monthly payment plan** could help tiny organizations that lack upfront funds, but typically these orgs would still formally commit to a year and just pay monthly. Annual contracts (with the option to pay monthly) might satisfy both needs."
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- It’s worth noting that PEG grants (from cable companies) are sometimes restricted to capital expenses, not operations. In those cases, stations might prefer to pre-pay a multi-year subscription (treating it like a capital expenditure). Docket’s flexibility in billing can accommodate this by, say, allowing a 3-year prepayment from a capital fund."
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Evidence of the annual mindset: stations commonly sign **annual support agreements** for their equipment (). Larger rollouts (like a 5-year TelVue contract) show they think in long-term commitments (). Docket should match this mentality with annual plans, while keeping the door open for adjustments if funding fluctuates year to year."
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-89",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Primary Funding Sources for Stations** – It’s important to frame Docket’s cost in terms of how stations get their money:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Cable Franchise Fees** – Historically the bulk of funding for PEG channels comes from local franchise fees on cable TV (often around 3–5% of cable bills). These fees (sometimes specifically a PEG fee) are passed to the PEG station by the city. *“Local public, educational and government access stations rely on fees levied on cable subscriptions to fund their stations”* ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=traditional%20paid%20TV%20plans%20to,fund%20their%20stations%2C%20operators%20said)). However, as noted, this revenue is declining. Still, most stations *do* have some guaranteed yearly PEG fee income for now – budgets might range from tens of thousands in small towns to a few hundred thousand in larger cities."
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Municipal Budgets** – Some stations are city-run (especially government channels) and funded out of general city funds or departmental budgets. For example, a city’s communications department might pay for the city TV channel’s needs. In these cases, cost-effectiveness and clear civic value are key to get budget approval. Docket should be marketed as a way to *save staff time and increase transparency* (e.g., “for the cost of ~$X/year, your city channel can run more efficiently and publish schedules online for citizens automatically” – outcomes that justify the line item in a city budget)."
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Grants & Foundations** – A number of public access and indie media orgs supplement with grants. There are **foundation grants aimed at public media and local journalism** that PEG stations can tap for tech upgrades. For instance, the **Knight Foundation** has funded innovation in local news and public media (recently a $1.5M grant to Public Media Co. for local news capacity) ([Knight Foundation Awards $1.5 Million To Expand Local Public Media News | TV Tech](https://www.tvtechnology.com/news/knight-foundation-awards-usd1-5-million-to-expand-local-public-media-news#:~:text=BOULDER%2C%20Colo,meet%20their%20communities%E2%80%99%20information%20needs)). A station positioning Docket as part of a local news or community information upgrade could seek grants from Knight, Democracy Fund, etc., to cover initial costs."
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Underwriting/Sponsorships** – While PEG channels can’t air traditional commercials, they often have underwriting from local businesses or donors for specific programs. A station might get a sponsorship specifically for improving technology (e.g., a local bank “sponsors the upgrade of our channel scheduling software”). This isn’t a huge revenue source sector-wide, but for a few it helps."
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Member Fees & Services** – Some community media centers charge membership or class fees, or do production services for hire. Those revenues usually go to operating costs (staff, rent), but a well-run center might allocate some to tech improvements. If Docket can demonstrably reduce overhead (maybe allowing the station to serve more clients or classes), that case can be made."
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Grants for Public Media Tech Innovation** – There is funding out there specifically for technology and innovation in non-profit media:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **National Endowment for the Arts/Humanities** – They occasionally fund media preservation or access projects (though typically content-focused)."
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **NTIA (Federal)** – In the past, the Public Telecommunications Facilities Program (PTFP) gave grants for equipment to public broadcasters ([Public Telecommunications Facilities Program](https://www.ntia.gov/category/public-telecommunications-facilities-program#:~:text=Public%20Telecommunications%20Facilities%20Program%20The,state%20and%20local%20governments%2C)). While PTFP ended, new federal programs (like economic recovery or broadband initiatives) sometimes include digital inclusion and could be angled to support community media tech. For example, some COVID-relief funds went to “digital equity” which could include community media."
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Local/Regional Foundations** – The **Independence Public Media Foundation** (Philadelphia) is a great example of a regional funder granting millions to community media and “media for movement building” ([Independence Public Media Foundation Announces $6.1 Million in Grants for 2024 | Philanthropy Network Greater Philadelphia](https://philanthropynetwork.org/news/independence-public-media-foundation-announces-61-million-grants-2024#:~:text=The%20Independence%20Public%20Media%20Foundation,building%2C%20and%20internet%20for%20all)). They and others (like Chicago’s MacArthur Foundation, which has an “Innovation in Journalism” fund, etc.) might support a pilot of Docket in multiple cities if pitched as strengthening civic information infrastructure."
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Technology/Corporate Grants** – Companies like **Google** (via the Google News Initiative), **Facebook** (Community Action Grants), or even equipment vendors might support innovation. For instance, a proposal to Google’s media innovation funding to use Docket for improving local news dissemination could be viable. Additionally, big telecoms (Comcast, Verizon) sometimes give community grants, which PEG stations could use to underwrite Docket’s cost – ironically using cable company grants to improve the very channels on their systems."
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Prizes/Challenges** – Apart from “The Next Challenge” (the opportunity at hand), there are civic tech challenges, Knight News Challenges, etc., where Docket or the stations using it could apply. Winning such grants could subsidize Docket for early adopters, essentially demonstrating a partnership model."
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Potential Partnerships for Funding** – Aligning Docket with larger initiatives can unlock support:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Government Initiatives** – If a state or federal program is focusing on broadband or civic engagement, tie Docket into it. For example, a state digital equity plan could include community media centers – Docket could be presented as a tool to increase **community connectivity and information access** (making a case for funding as part of that plan)."
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Nonprofit Collaboratives** – Partner with organizations like **Public Media Company** or **America’s Public Television Stations (APTS)** if they’re exploring new models for local content. Public Media Co. (a nonprofit consultancy) might advise joint efforts where several small stations band together to adopt a common platform (Docket) – with funding from a place like Knight to cover initial costs. The Knight-backed initiative to strengthen local public media is explicitly to help local outlets with strategic resources ([Knight Foundation Awards $1.5 Million To Expand Local Public Media News | TV Tech](https://www.tvtechnology.com/news/knight-foundation-awards-usd1-5-million-to-expand-local-public-media-news#:~:text=The%20grant%20is%20aimed%20at,local%20news%20ecosystems%2C%20it%20said)) – exactly the kind of context to introduce Docket."
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Alliance for Community Media (ACM)** – The national PEG advocacy org could be a channel for funding or bulk purchasing. ACM occasionally runs grant programs or could endorse Docket as a recommended solution. An ACM partnership might involve seeking grant funding to roll out Docket to a cohort of pilot stations, demonstrating impact on community engagement."
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Legislative Support** – Although not *funding* per se, keeping an eye on legislation is smart. For instance, if a state like Connecticut succeeded in adding a fee on streaming for PEG support ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=,internet%20or%20video%20streaming%20services)), that could create a new revenue stream that stations might use for tech upgrades. Docket could position itself as an ideal shovel-ready project for stations to spend any new funds on, to meet mandates of enhancing community access."
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Business Model Summary** – Docket’s model should emphasize **value and sustainability**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A **SaaS subscription** that is **affordable, with predictable costs**, aligning with how stations budget."
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Offer **discounts or even temporary grants** for early adopters (perhaps via The Next Challenge funds) – this lowers barriers and builds case studies."
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Possibly create a **sponsorship model**: e.g., a local foundation pays for Docket for Station X for two years as a “community innovation” project. This could be a template in pitches."
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Ensure that as a business, Docket can also scale revenue by expanding to more channels or offering premium features (e.g., a paid add-on for OTT app generation, similar to how TelVue charges for apps). But keep the base functionality within reach of even the smallest org, because volume and word-of-mouth in this niche will be key."
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Actionable Insights for the Pitch:** Emphasize that **Docket unlocks cost-savings and new capabilities** for public access stations *precisely at a time when they must evolve or risk fading out*. The market may be somewhat niche, but it’s sizable in count and **hungry for modern solutions**. By citing the **1,600+ stations** in need, the **pain points** they face, and how Docket addresses those (with evidence from similar product successes) ([Moving On Up: Replacing Your End-of-Life Playout Automation System | Cablecast](https://www.cablecast.tv/cablecast-blog/replacing-end-of-life-playout-automation-system#:~:text=Customers%20who%20switched%20to%20Cablecast,anywhere%3B%20and%20many%20more%20benefits)) ([Polar Design  Public Access TV Web Design; PEG Web Design; Community Media Center](https://www.polardesign.com/interactive-services/online-communications/service-area-web-design/public-access-tv-web-design/#:~:text=solution%20polarsite,the%20content%20management%20solution%20such)), we demonstrate a validated demand. Mention early adopters like PhillyCAM or GRCMC as likely pilots to show we have specific targets in mind, not just abstract numbers. Finally, laying out a funding strategy – how we’ll price it reasonably and leverage grants/partnerships (Knight Foundation, ACM, etc.) to subsidize adoption – will assure the panel that we understand our customers’ financial constraints and have a plan to overcome them. All of this strengthens the case that Docket.tv can **empower community media in a sustainable, growth-oriented way** despite the headwinds in the public access sector. ([As Cable Fades in Popularity, Public Access TV Stations Suffer](https://www.govtech.com/products/as-cable-fades-in-popularity-public-access-tv-stations-suffer#:~:text=traditional%20paid%20TV%20plans%20to,fund%20their%20stations%2C%20operators%20said)) ([Public-access stations gird for massive fund... | Issue 518](https://www.commonsnews.org/issue/518/Public-access-stations-gird-for-massive-funding-loss#:~:text=The%20Federal%20Communications%20Commission%20,receive%20from%20cable%20companies))"
+        }
+      ]
+    }
+  ]
+}

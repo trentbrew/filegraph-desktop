@@ -1,0 +1,419 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-291",
+  "title": "Phases",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phases"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 1: Immediate Backend Optimization / Deliverables (June 23 - July 7)"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This phase focuses on providing immediate relief from current operational inefficiencies and improving the stability and security of the existing WordPress/WooCommerce site."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. INITIAL CONSULT** (By 06.10)"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Status:** Complete"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** A foundational meeting conducted prior to this phase's commencement to thoroughly understand Grist & Toll's current challenges, specific pain points with the WordPress/WooCommerce backend, critical business goals, and immediate needs for operational improvement. This consult also established the preliminary scope and objectives for Phase 1."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. BACKEND CLEANUP** (Pending - By 06.23)"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** This involves a meticulous review and optimization of the WordPress backend environment. Key activities include:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Plugin Audit & Deactivation:** Identify and deactivate any redundant, unnecessary, or poorly performing plugins that are contributing to site bloat or conflicts."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Theme Review:** Assess the current theme for inefficiencies or bloated code that can be quickly addressed for minor performance gains."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Code & File Cleanup:** Remove unused themes, plugins, and orphaned files from the WordPress installation."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Database Optimization:** Perform database cleanup to remove old revisions, transients, and unnecessary data, leading to a leaner and faster database."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. UX IMPROVEMENTS** (Pending - By 06.23)"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** Focus on implementing quick, high-impact user experience (UX) improvements within the existing WooCommerce framework that can alleviate immediate customer pain points. This may include:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Streamlined Checkout Flow:** Minor adjustments to the checkout page layout or fields to reduce friction points that lead to cart abandonment."
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Clarified Shipping Information:** Ensuring shipping costs and options are clearly displayed and calculated early in the purchasing process."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Call-to-Action (CTA) Optimization:** Adjusting the placement, wording, or styling of key buttons to improve user guidance."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Basic Mobile Responsiveness Checks:** Identify and fix critical display issues on mobile devices for core e-commerce pages."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. WOOCOMMERCE UPDATES** (Pending - By 06.30)"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** Ensure the core WooCommerce plugin and its essential add-ons are updated to their latest stable versions. This is crucial for security, performance, and access to bug fixes. This deliverable includes:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Core WooCommerce Update:** Updating the main WooCommerce plugin."
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Essential Add-on Updates:** Updating any critical WooCommerce extensions (e.g., payment gateways, shipping methods) to maintain compatibility and security."
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Conflict Resolution:** Addressing any immediate conflicts that arise from these updates with other plugins or the theme."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Basic Configuration Review:** Verify essential e-commerce settings remain correct after updates."
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**5. SECURITY AUDIT** (Pending - By 07.07)"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-30",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** A targeted review of the WordPress site's security posture to identify and address immediate vulnerabilities. This deliverable involves:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Security Plugin Configuration:** Ensuring a reputable security plugin is properly configured (e.g., firewall rules, malware scanning)."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Vulnerability Scanning:** Performing basic scans to detect common security weaknesses or malware."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **User Role Review:** Checking user accounts and permissions to ensure no unnecessary administrative access."
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Password Strength Enforcement:** Recommendations or implementation of stronger password policies."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Backup Verification:** Confirming that regular, reliable backups of the site database and files are in place."
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**6. REVIEW** (Pending - By 07.07)"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description:** A comprehensive review session with Grist & Toll to present the work completed during Phase 1, demonstrate the improvements, and gather feedback. This includes:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Deliverable Demonstration:** Showcase the completed backend cleanup, UX improvements, updated WooCommerce functionality, and security enhancements."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Performance Metrics Report:** Provide a summary of before-and-after performance metrics (where measurable) to demonstrate the impact of the optimizations."
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Feedback Collection:** Open discussion to gather client feedback and ensure satisfaction with the immediate value provided."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Phase 2 Readiness Confirmation:** Confirm readiness to transition to the Webflow migration phase based on the stability achieved in Phase 1."
+        }
+      ]
+    }
+  ]
+}

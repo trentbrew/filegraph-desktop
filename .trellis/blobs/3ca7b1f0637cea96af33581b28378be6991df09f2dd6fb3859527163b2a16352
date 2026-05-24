@@ -1,0 +1,4 @@
+{"id":"people_list","prompt":"List a few people in my vault (namespace: person)","expected":{"toolCalls":["list_entities"],"answerIncludes":["Sarah Chen"]}}
+{"id":"org_list","prompt":"What organizations are in my vault?","expected":{"toolCalls":["list_entities"],"answerIncludes":["TechStart Inc."]}}
+{"id":"income_march","prompt":"What is the total income in March 2024? (Hint: transactions are in the 'tx' namespace, income has positive amounts)","expected":{"toolCalls":["query_graph"],"answerRegex":"(income|total|\\$[0-9])"}}
+{"id":"vault_stats","prompt":"What's in my vault?","expected":{"toolCalls":["get_vault_stats"],"answerRegex":"Vault has"}}

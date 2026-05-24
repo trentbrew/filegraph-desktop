@@ -1,0 +1,4761 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-447",
+  "title": "TurtleHQ: Digital Headquarters",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "TurtleHQ: Digital Headquarters"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Company:** Acme Corp"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Vision:** A complete digital headquarters powered by specialized AI agent teams"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Status:** Strategic Planning Phase"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Executive Summary"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Transform filegraph from a developer project management tool into **TurtleHQ**—a comprehensive digital headquarters that orchestrates specialized AI agents across all business functions. Each agent operates within the same semantic knowledge graph, creating a unified command center for Acme Corp."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Core Philosophy"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**\"One Graph, Many Minds\"**"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Single source of truth: `.filegraph/graph.jsonld`"
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Specialized agents with domain expertise"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shared context across all business functions"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Human-in-the-loop oversight and decision-making"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Architecture Overview"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "TurtleHQ/"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── .filegraph/"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── graph.jsonld                 # Central knowledge graph"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── entities/                    # Entity type definitions"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── tasks.md"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── people.md"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── campaigns.md             # NEW: Marketing campaigns"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── content.md               # NEW: Content assets"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── investors.md             # NEW: Investor relations"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── financials.md            # NEW: Financial records"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   └── ..."
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── agents/                      # NEW: Agent persona definitions"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── dev.md"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── ux-designer.md"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── pm.md"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── marketing-strategist.md"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── growth-lead.md"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   ├── cfo.md"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   │   └── ..."
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── workflows/                   # Domain-specific workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       ├── dev/"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       ├── ux/"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       ├── marketing/               # NEW"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       ├── growth/                  # NEW"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       ├── finance/                 # NEW"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│       └── legal/                   # NEW"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Founding Team of Agents"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Current Agents (Implemented)"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Developer** - Code implementation, debugging, testing"
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**UX Designer** - Interface design, user research, prototyping"
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Project Manager** - Task coordination, sprint planning, standups"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Agent Roles"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Marketing & Creative Team"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. Marketing Strategist**"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-57",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Domain**: Brand strategy, positioning, messaging"
+            }
+          ]
+        },
+        {
+          "id": "b-58",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entities**: `campaign:`, `message:`, `brand:`"
+            }
+          ]
+        },
+        {
+          "id": "b-59",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Campaign planning & tracking"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Competitive analysis"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Brand consistency checks"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Content calendar management"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Content Creator**"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-66",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Domain**: Blog posts, social media, video scripts, copywriting"
+            }
+          ]
+        },
+        {
+          "id": "b-67",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entities**: `content:`, `post:`, `asset:`"
+            }
+          ]
+        },
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Blog post generation (w/ SEO optimization)"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Social media content calendar"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Platform-specific formatting (Twitter, LinkedIn, etc.)"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- A/B testing copy variations"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Growth Hacker**"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-75",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Domain**: User acquisition, distribution, viral loops"
+            }
+          ]
+        },
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entities**: `channel:`, `experiment:`, `metric:`"
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Distribution channel testing"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Launch sequence automation"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Community engagement tracking"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Referral program management"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Business Operations Team"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. Business Strategist**"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-85",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Domain**: Go-to-market, partnerships, business model"
+            }
+          ]
+        },
+        {
+          "id": "b-86",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entities**: `initiative:`, `partner:`, `strategy:`"
+            }
+          ]
+        },
+        {
+          "id": "b-87",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- GTM strategy development"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Partnership pipeline management"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Market opportunity analysis"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Competitive intelligence"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**5. Fundraising Lead**"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-94",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Domain**: Investor relations, pitch decks, valuations"
+            }
+          ]
+        },
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entities**: `investor:`, `round:`, `pitch:`, `meeting:`"
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Investor outreach sequences"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Pitch deck generation & updates"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Financial projections"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Due diligence document prep"
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**6. Operations Manager**"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Domain**: LLC management, contracts, communications"
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entities**: `document:`, `contract:`, `compliance:`"
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Contract drafting & review"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Compliance tracking"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Meeting minutes & documentation"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Stakeholder communications"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Finance & Legal Team"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**7. CFO / Accountant**"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-113",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Domain**: Bookkeeping, budgeting, financial planning"
+            }
+          ]
+        },
+        {
+          "id": "b-114",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entities**: `transaction:`, `budget:`, `forecast:`, `expense:`"
+            }
+          ]
+        },
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Expense categorization & tracking"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Budget vs actual monitoring"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Cash flow projections"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Financial report generation"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**8. Legal Advisor**"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-122",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Domain**: Light legal guidance, contract review, IP"
+            }
+          ]
+        },
+        {
+          "id": "b-123",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Entities**: `contract:`, `ip:`, `risk:`"
+            }
+          ]
+        },
+        {
+          "id": "b-124",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows**:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Contract template generation"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Terms & conditions review"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- IP filing tracking (trademarks, copyrights)"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Risk assessment & mitigation"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Entity Types"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Marketing Entities"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// campaign:"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@id\": \"campaign:product-launch-2025\","
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"Campaign\","
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"Product Launch 2025\","
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"status\": \"planning\", // planning, active, completed, paused"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"channels\": [\"twitter\", \"linkedin\", \"blog\", \"product-hunt\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"budget\": 5000,"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"startDate\": \"2025-11-01\","
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"endDate\": \"2025-12-15\","
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"metrics\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"impressions\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"clicks\": 0,"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"conversions\": 0"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assignee\": \"person:marketing-strategist\","
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"relatedTasks\": [\"task:landing-page\", \"task:demo-video\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// content:"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@id\": \"content:blog-introducing-turtlehq\","
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"Content\","
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"title\": \"Introducing TurtleHQ: Your Digital Command Center\","
+        }
+      ]
+    },
+    {
+      "id": "b-157",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"contentType\": \"blog-post\", // blog-post, social-post, video, pitch-deck"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"platform\": \"blog\","
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"status\": \"draft\", // draft, review, published, archived"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"publishDate\": \"2025-11-05\","
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"wordCount\": 1500,"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"seoKeywords\": [\"project management\", \"ai agents\", \"knowledge graph\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"relatedTo\": [\"campaign:product-launch-2025\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"assignee\": \"person:content-creator\""
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Business Entities"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// investor:"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@id\": \"investor:acme-ventures\","
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"Investor\","
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"Acme Ventures\","
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"stage\": \"seed\", // angel, seed, series-a, strategic"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"status\": \"warm-lead\", // researching, reached-out, warm-lead, pitch-scheduled, due-diligence, committed, passed"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"investmentRange\": \"$100K-$500K\","
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"thesis\": \"Dev tools, AI infrastructure\","
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"contacts\": [\"person:jane-partner\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"lastContact\": \"2025-10-20\","
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"nextFollowUp\": \"2025-11-10\","
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"relatedNotes\": [\"note:initial-call-acme\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// initiative:"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@id\": \"initiative:enterprise-gtm\","
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"Initiative\","
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"name\": \"Enterprise Go-to-Market Strategy\","
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"status\": \"in-progress\","
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"priority\": \"high\","
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"owner\": \"person:business-strategist\","
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"milestones\": [\"milestone:enterprise-pilot\", \"milestone:first-enterprise-customer\"],"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"budget\": 25000,"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"timeline\": \"Q4 2025 - Q1 2026\""
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-195",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Financial Entities"
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// transaction:"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@id\": \"transaction:stripe-payment-001\","
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"Transaction\","
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"date\": \"2025-10-24\","
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"amount\": 2500.00,"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"type\": \"revenue\", // revenue, expense, investment"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"category\": \"subscription-revenue\","
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"description\": \"Monthly SaaS subscription - Enterprise Plan\","
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"source\": \"Stripe\","
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"relatedTo\": [\"budget:q4-2025\"]"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// budget:"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@id\": \"budget:q4-2025\","
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"@type\": \"Budget\","
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"period\": \"Q4 2025\","
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"categories\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"marketing\": 10000,"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"engineering\": 5000,"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"operations\": 3000,"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"legal\": 2000"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"spent\": {"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"marketing\": 4200,"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"engineering\": 1800,"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"operations\": 1200,"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"legal\": 500"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"status\": \"on-track\""
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Workflow Examples"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Marketing Workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**1. Launch Sequence** (`.filegraph/workflows/marketing/launch-sequence.md`)"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Pre-Launch (4 weeks before)"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Create campaign: `filegraph create campaign \"Product Launch\"`"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Content audit: List all required assets"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Schedule content: Generate content calendar"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Setup tracking: Analytics, UTM parameters"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Launch Week"
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Execute daily posts across all channels"
+        }
+      ]
+    },
+    {
+      "id": "b-242",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Monitor metrics real-time"
+        }
+      ]
+    },
+    {
+      "id": "b-243",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Respond to comments/feedback"
+        }
+      ]
+    },
+    {
+      "id": "b-244",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. A/B test messaging"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Post-Launch"
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Compile results report"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Document learnings"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Update brand guidelines"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Plan next campaign"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**2. Content Pipeline** (`.filegraph/workflows/marketing/content-pipeline.md`)"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Ideation"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-254",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Query recent campaigns for themes"
+            }
+          ]
+        },
+        {
+          "id": "b-255",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Check SEO keyword opportunities"
+            }
+          ]
+        },
+        {
+          "id": "b-256",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Review competitor content"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Production"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-259",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draft blog post with tone/voice guidelines"
+            }
+          ]
+        },
+        {
+          "id": "b-260",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generate social snippets (Twitter, LinkedIn variants)"
+            }
+          ]
+        },
+        {
+          "id": "b-261",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Create graphics/visual assets"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Review & Optimize"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-264",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SEO check (keywords, meta, readability)"
+            }
+          ]
+        },
+        {
+          "id": "b-265",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Brand voice consistency"
+            }
+          ]
+        },
+        {
+          "id": "b-266",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Link to related content"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Publish & Distribute"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-269",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Schedule across platforms"
+            }
+          ]
+        },
+        {
+          "id": "b-270",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monitor engagement"
+            }
+          ]
+        },
+        {
+          "id": "b-271",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-promote in communities"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Business Workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**3. Fundraising Pipeline** (`.filegraph/workflows/business/fundraising.md`)"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Pipeline Management"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-278",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Track investors by stage"
+            }
+          ]
+        },
+        {
+          "id": "b-279",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Schedule follow-ups"
+            }
+          ]
+        },
+        {
+          "id": "b-280",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update pitch deck based on feedback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Pitch Deck Generation"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-283",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pull latest metrics from graph"
+            }
+          ]
+        },
+        {
+          "id": "b-284",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update financial projections"
+            }
+          ]
+        },
+        {
+          "id": "b-285",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tailor deck to investor thesis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Meeting Prep"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-288",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Research investor background"
+            }
+          ]
+        },
+        {
+          "id": "b-289",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prepare Q&A from past meetings"
+            }
+          ]
+        },
+        {
+          "id": "b-290",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generate custom talking points"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Post-Meeting"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-293",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Send follow-up email"
+            }
+          ]
+        },
+        {
+          "id": "b-294",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Log meeting notes"
+            }
+          ]
+        },
+        {
+          "id": "b-295",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update investor status"
+            }
+          ]
+        },
+        {
+          "id": "b-296",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Schedule next touchpoint"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Finance Workflows"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**4. Monthly Close** (`.filegraph/workflows/finance/monthly-close.md`)"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```markdown"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Data Collection"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-303",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Import bank transactions"
+            }
+          ]
+        },
+        {
+          "id": "b-304",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Categorize expenses"
+            }
+          ]
+        },
+        {
+          "id": "b-305",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Record revenue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Reconciliation"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-308",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Match transactions to invoices"
+            }
+          ]
+        },
+        {
+          "id": "b-309",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Identify discrepancies"
+            }
+          ]
+        },
+        {
+          "id": "b-310",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update budget actuals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Reporting"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-313",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generate P&L statement"
+            }
+          ]
+        },
+        {
+          "id": "b-314",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update cash flow forecast"
+            }
+          ]
+        },
+        {
+          "id": "b-315",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Create board report summary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Review"
+        }
+      ]
+    },
+    {
+      "id": "b-321",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-318",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Compare budget vs actual"
+            }
+          ]
+        },
+        {
+          "id": "b-319",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flag variances >10%"
+            }
+          ]
+        },
+        {
+          "id": "b-320",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update next month's budget"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-322",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Cross-Functional Integration"
+        }
+      ]
+    },
+    {
+      "id": "b-325",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Example: Product Launch"
+        }
+      ]
+    },
+    {
+      "id": "b-326",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Timeline:**"
+        }
+      ]
+    },
+    {
+      "id": "b-327",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Week -4: Marketing Strategist creates campaign"
+        }
+      ]
+    },
+    {
+      "id": "b-329",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Week -3: Content Creator drafts blog post + social content"
+        }
+      ]
+    },
+    {
+      "id": "b-330",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Week -2: Developer implements tracking pixels"
+        }
+      ]
+    },
+    {
+      "id": "b-331",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Week -1: CFO allocates ad spend budget"
+        }
+      ]
+    },
+    {
+      "id": "b-332",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Week 0:  Launch! All agents coordinate execution"
+        }
+      ]
+    },
+    {
+      "id": "b-333",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Week +1: Growth Hacker analyzes results"
+        }
+      ]
+    },
+    {
+      "id": "b-334",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Week +2: Business Strategist identifies partnership opps"
+        }
+      ]
+    },
+    {
+      "id": "b-335",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-336",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Knowledge Graph Connections:**"
+        }
+      ]
+    },
+    {
+      "id": "b-337",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-338",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "campaign:product-launch"
+        }
+      ]
+    },
+    {
+      "id": "b-339",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── relatedTasks"
+        }
+      ]
+    },
+    {
+      "id": "b-340",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── task:landing-page (Dev)"
+        }
+      ]
+    },
+    {
+      "id": "b-341",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── task:demo-video (UX/Content)"
+        }
+      ]
+    },
+    {
+      "id": "b-342",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── task:tracking-setup (Dev)"
+        }
+      ]
+    },
+    {
+      "id": "b-343",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── content"
+        }
+      ]
+    },
+    {
+      "id": "b-344",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── content:blog-launch-post"
+        }
+      ]
+    },
+    {
+      "id": "b-345",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── content:twitter-thread"
+        }
+      ]
+    },
+    {
+      "id": "b-346",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── content:linkedin-article"
+        }
+      ]
+    },
+    {
+      "id": "b-347",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── budget"
+        }
+      ]
+    },
+    {
+      "id": "b-348",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── budget:q4-marketing → transaction:facebook-ads"
+        }
+      ]
+    },
+    {
+      "id": "b-349",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── metrics"
+        }
+      ]
+    },
+    {
+      "id": "b-350",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── note:week-1-results"
+        }
+      ]
+    },
+    {
+      "id": "b-351",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-352",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-353",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Implementation Roadmap"
+        }
+      ]
+    },
+    {
+      "id": "b-354",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 1: Foundation (Current)"
+        }
+      ]
+    },
+    {
+      "id": "b-359",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-355",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Core entity types (tasks, notes, people, milestones)"
+            }
+          ]
+        },
+        {
+          "id": "b-356",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Dev workflows (PR review, standup, sprint planning)"
+            }
+          ]
+        },
+        {
+          "id": "b-357",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ Basic CLI commands"
+            }
+          ]
+        },
+        {
+          "id": "b-358",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "✅ VS Code extension"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-360",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 2: Marketing & Content (Next 4 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-366",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-361",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Add `campaign`, `content`, `channel` entity types"
+            }
+          ]
+        },
+        {
+          "id": "b-362",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Create marketing agent personas"
+            }
+          ]
+        },
+        {
+          "id": "b-363",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Build content generation workflows"
+            }
+          ]
+        },
+        {
+          "id": "b-364",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Social media calendar integration"
+            }
+          ]
+        },
+        {
+          "id": "b-365",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  SEO optimization tools"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-367",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 3: Business Operations (Weeks 5-8)"
+        }
+      ]
+    },
+    {
+      "id": "b-373",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-368",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Add `investor`, `initiative`, `partner` entity types"
+            }
+          ]
+        },
+        {
+          "id": "b-369",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Fundraising pipeline management"
+            }
+          ]
+        },
+        {
+          "id": "b-370",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Pitch deck generation from graph data"
+            }
+          ]
+        },
+        {
+          "id": "b-371",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Contract template library"
+            }
+          ]
+        },
+        {
+          "id": "b-372",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Meeting prep & follow-up automation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-374",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 4: Finance & Legal (Weeks 9-12)"
+        }
+      ]
+    },
+    {
+      "id": "b-380",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-375",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Add `transaction`, `budget`, `forecast` entity types"
+            }
+          ]
+        },
+        {
+          "id": "b-376",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Bookkeeping automation (bank integrations)"
+            }
+          ]
+        },
+        {
+          "id": "b-377",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Financial reporting dashboards"
+            }
+          ]
+        },
+        {
+          "id": "b-378",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Contract review workflows"
+            }
+          ]
+        },
+        {
+          "id": "b-379",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Compliance tracking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-381",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 5: Advanced Intelligence (Q1 2026)"
+        }
+      ]
+    },
+    {
+      "id": "b-386",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-382",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Cross-functional insights (marketing ROI → budget allocation)"
+            }
+          ]
+        },
+        {
+          "id": "b-383",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Predictive analytics (fundraising timing, content performance)"
+            }
+          ]
+        },
+        {
+          "id": "b-384",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Auto-resource allocation (agent task assignment)"
+            }
+          ]
+        },
+        {
+          "id": "b-385",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "[ ]  Strategic recommendations (agent collaboration on initiatives)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-387",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-388",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "UI Vision"
+        }
+      ]
+    },
+    {
+      "id": "b-389",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Dashboard Views"
+        }
+      ]
+    },
+    {
+      "id": "b-390",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Executive Dashboard**"
+        }
+      ]
+    },
+    {
+      "id": "b-396",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-391",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Company health score"
+            }
+          ]
+        },
+        {
+          "id": "b-392",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Active initiatives status"
+            }
+          ]
+        },
+        {
+          "id": "b-393",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Budget burn rate"
+            }
+          ]
+        },
+        {
+          "id": "b-394",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fundraising pipeline"
+            }
+          ]
+        },
+        {
+          "id": "b-395",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Marketing campaign performance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-397",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Department Views**"
+        }
+      ]
+    },
+    {
+      "id": "b-402",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-398",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Marketing: Content calendar + campaign tracker"
+            }
+          ]
+        },
+        {
+          "id": "b-399",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Development: Task board + sprint view"
+            }
+          ]
+        },
+        {
+          "id": "b-400",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Finance: P&L + cash flow chart"
+            }
+          ]
+        },
+        {
+          "id": "b-401",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Business: Investor pipeline + partnership tracker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-403",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Agent Views**"
+        }
+      ]
+    },
+    {
+      "id": "b-407",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-404",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Each agent has personalized task list"
+            }
+          ]
+        },
+        {
+          "id": "b-405",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Context-aware recommendations"
+            }
+          ]
+        },
+        {
+          "id": "b-406",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-functional collaboration alerts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-408",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-409",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Unique Value Propositions"
+        }
+      ]
+    },
+    {
+      "id": "b-410",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For Founders"
+        }
+      ]
+    },
+    {
+      "id": "b-415",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-411",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Single Command Center**: All business functions in one graph"
+            }
+          ]
+        },
+        {
+          "id": "b-412",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**AI-Native**: Agents handle execution, you handle strategy"
+            }
+          ]
+        },
+        {
+          "id": "b-413",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Always Up-to-Date**: Real-time sync across all functions"
+            }
+          ]
+        },
+        {
+          "id": "b-414",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Context-Aware**: Every decision informed by complete business context"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-416",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For Investors"
+        }
+      ]
+    },
+    {
+      "id": "b-421",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-417",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Radical Transparency**: Complete business visibility"
+            }
+          ]
+        },
+        {
+          "id": "b-418",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Data-Driven**: Every claim backed by graph data"
+            }
+          ]
+        },
+        {
+          "id": "b-419",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Efficient Operations**: Small team, high leverage via agents"
+            }
+          ]
+        },
+        {
+          "id": "b-420",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Scalable**: Add agents, not employees"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-422",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "For Team"
+        }
+      ]
+    },
+    {
+      "id": "b-427",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-423",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Clear Ownership**: Each agent has defined domain"
+            }
+          ]
+        },
+        {
+          "id": "b-424",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Reduced Context Switching**: Agents maintain continuity"
+            }
+          ]
+        },
+        {
+          "id": "b-425",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Smart Delegation**: Agents handle tactical, humans handle strategic"
+            }
+          ]
+        },
+        {
+          "id": "b-426",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Learning Organization**: Knowledge captured in graph"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-428",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-429",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Security & Privacy Considerations"
+        }
+      ]
+    },
+    {
+      "id": "b-435",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-430",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Local-First**: Sensitive data stays in `.filegraph/` (not in cloud by default)"
+            }
+          ]
+        },
+        {
+          "id": "b-431",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Granular Permissions**: Control what each agent can read/write"
+            }
+          ]
+        },
+        {
+          "id": "b-432",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Audit Trail**: All agent actions logged in graph"
+            }
+          ]
+        },
+        {
+          "id": "b-433",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Encryption**: Financial and investor data encrypted at rest"
+            }
+          ]
+        },
+        {
+          "id": "b-434",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Compliance**: SOC2/GDPR readiness for enterprise customers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-436",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-437",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Success Metrics"
+        }
+      ]
+    },
+    {
+      "id": "b-438",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Adoption Metrics"
+        }
+      ]
+    },
+    {
+      "id": "b-442",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-439",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Number of active agents"
+            }
+          ]
+        },
+        {
+          "id": "b-440",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Daily agent interactions"
+            }
+          ]
+        },
+        {
+          "id": "b-441",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-functional queries (marketing agent reading dev tasks)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-443",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Efficiency Metrics"
+        }
+      ]
+    },
+    {
+      "id": "b-447",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-444",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Time saved per function (vs manual processes)"
+            }
+          ]
+        },
+        {
+          "id": "b-445",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Decision speed (time from question to answer)"
+            }
+          ]
+        },
+        {
+          "id": "b-446",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error reduction (via validation workflows)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-448",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Business Impact"
+        }
+      ]
+    },
+    {
+      "id": "b-452",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-449",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Revenue growth correlated with TurtleHQ usage"
+            }
+          ]
+        },
+        {
+          "id": "b-450",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fundraising efficiency (time to close)"
+            }
+          ]
+        },
+        {
+          "id": "b-451",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Team satisfaction scores"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-453",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-454",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Next Steps"
+        }
+      ]
+    },
+    {
+      "id": "b-455",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Immediate (This Week)"
+        }
+      ]
+    },
+    {
+      "id": "b-456",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Define Acme Corp entities**"
+        }
+      ]
+    },
+    {
+      "id": "b-457",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Replace placeholder data (Alice/Ben) with real people/projects"
+        }
+      ]
+    },
+    {
+      "id": "b-458",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Add initial Acme Corp campaigns, initiatives"
+        }
+      ]
+    },
+    {
+      "id": "b-459",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Create first marketing workflow**"
+        }
+      ]
+    },
+    {
+      "id": "b-460",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Start with blog post generation"
+        }
+      ]
+    },
+    {
+      "id": "b-461",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Test content pipeline end-to-end"
+        }
+      ]
+    },
+    {
+      "id": "b-462",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Document agent personas**"
+        }
+      ]
+    },
+    {
+      "id": "b-463",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Write agent prompt templates"
+        }
+      ]
+    },
+    {
+      "id": "b-464",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Define each agent's capabilities & constraints"
+        }
+      ]
+    },
+    {
+      "id": "b-465",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Short-term (Next Month)"
+        }
+      ]
+    },
+    {
+      "id": "b-466",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Build out marketing agent suite"
+        }
+      ]
+    },
+    {
+      "id": "b-467",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Create investor database in graph"
+        }
+      ]
+    },
+    {
+      "id": "b-468",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Implement financial tracking basics"
+        }
+      ]
+    },
+    {
+      "id": "b-469",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Design TurtleHQ dashboard mockups"
+        }
+      ]
+    },
+    {
+      "id": "b-470",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Long-term (Next Quarter)"
+        }
+      ]
+    },
+    {
+      "id": "b-471",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Launch TurtleHQ as product (dogfood our own tool)"
+        }
+      ]
+    },
+    {
+      "id": "b-472",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Create case study: \"How We Run Acme Corp with AI Agents\""
+        }
+      ]
+    },
+    {
+      "id": "b-473",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Open source framework for others to build their HQ"
+        }
+      ]
+    },
+    {
+      "id": "b-474",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Build community of \"Digital HQ\" companies"
+        }
+      ]
+    },
+    {
+      "id": "b-475",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-476",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Vision"
+        }
+      ]
+    },
+    {
+      "id": "b-477",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**TurtleHQ is not just a tool—it's the operating system for Acme Corp.**"
+        }
+      ]
+    },
+    {
+      "id": "b-478",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every decision, every campaign, every dollar spent, every line of code written... all connected in a living knowledge graph. Specialized agents work 24/7 across every function, while you focus on what matters: vision, strategy, and growth."
+        }
+      ]
+    },
+    {
+      "id": "b-479",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "*\"We're not building a company. We're building a company-building machine.\"*"
+        }
+      ]
+    },
+    {
+      "id": "b-480",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-481",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Document Status**: Living document"
+        }
+      ]
+    },
+    {
+      "id": "b-482",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Last Updated**: 2025-10-24"
+        }
+      ]
+    },
+    {
+      "id": "b-483",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Next Review**: Weekly during implementation"
+        }
+      ]
+    },
+    {
+      "id": "b-484",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Owner**: Sample User (Founder, Acme Corp)"
+        }
+      ]
+    }
+  ]
+}

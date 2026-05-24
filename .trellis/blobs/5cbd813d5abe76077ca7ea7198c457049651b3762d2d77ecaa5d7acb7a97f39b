@@ -1,0 +1,125 @@
+{
+  "@context": {
+    "fin": "https://finance.local/"
+  },
+  "@id": "fin:insurance",
+  "@type": "InsuranceCollection",
+  "policies": [
+    {
+      "id": "ins:health:001",
+      "slug": "health",
+      "name": "Health Insurance",
+      "type": "health",
+      "provider": "Blue Cross",
+      "premium": 150,
+      "frequency": "monthly",
+      "deductible": 1500,
+      "outOfPocketMax": 6000,
+      "coverage": "individual",
+      "employerContribution": 450,
+      "renewalDate": "2025-01-01"
+    },
+    {
+      "id": "ins:dental:001",
+      "slug": "dental",
+      "name": "Dental Insurance",
+      "type": "dental",
+      "provider": "Delta Dental",
+      "premium": 35,
+      "frequency": "monthly",
+      "deductible": 50,
+      "coverage": "individual",
+      "employerContribution": 35,
+      "renewalDate": "2025-01-01"
+    },
+    {
+      "id": "ins:vision:001",
+      "slug": "vision",
+      "name": "Vision Insurance",
+      "type": "vision",
+      "provider": "VSP",
+      "premium": 15,
+      "frequency": "monthly",
+      "deductible": 0,
+      "coverage": "individual",
+      "employerContribution": 15,
+      "renewalDate": "2025-01-01"
+    },
+    {
+      "id": "ins:auto:001",
+      "slug": "auto",
+      "name": "Auto Insurance",
+      "type": "auto",
+      "provider": "Geico",
+      "premium": 125,
+      "frequency": "monthly",
+      "deductible": 500,
+      "coverage": "full",
+      "liabilityLimit": 100000,
+      "renewalDate": "2024-09-15"
+    },
+    {
+      "id": "ins:renters:001",
+      "slug": "renters",
+      "name": "Renters Insurance",
+      "type": "renters",
+      "provider": "Lemonade",
+      "premium": 25,
+      "frequency": "monthly",
+      "deductible": 250,
+      "coverage": 30000,
+      "liabilityLimit": 100000,
+      "renewalDate": "2024-06-01"
+    },
+    {
+      "id": "ins:life:001",
+      "slug": "life",
+      "name": "Term Life Insurance",
+      "type": "life",
+      "provider": "Northwestern Mutual",
+      "premium": 45,
+      "frequency": "monthly",
+      "coverage": 500000,
+      "term": 20,
+      "renewalDate": "2043-03-01"
+    },
+    {
+      "id": "ins:umbrella:001",
+      "slug": "umbrella",
+      "name": "Umbrella Policy",
+      "type": "umbrella",
+      "provider": "Geico",
+      "premium": 200,
+      "frequency": "yearly",
+      "coverage": 1000000,
+      "renewalDate": "2024-09-15"
+    }
+  ],
+  "monthlyPremiums": {
+    "@expr": "policies.map(p => p.frequency == 'yearly' ? p.premium / 12 : p.premium).reduce((a, b) => a + b, 0)"
+  },
+  "monthlyPremiumsFormatted": {
+    "@expr": "$currency(monthlyPremiums)"
+  },
+  "annualPremiums": {
+    "@expr": "monthlyPremiums * 12"
+  },
+  "annualPremiumsFormatted": {
+    "@expr": "$currency(annualPremiums)"
+  },
+  "totalDeductibles": {
+    "@expr": "policies.filter(p => p.deductible).map(p => p.deductible).reduce((a, b) => a + b, 0)"
+  },
+  "totalDeductiblesFormatted": {
+    "@expr": "$currency(totalDeductibles)"
+  },
+  "employerContributions": {
+    "@expr": "policies.filter(p => p.employerContribution).map(p => p.employerContribution).reduce((a, b) => a + b, 0)"
+  },
+  "employerContributionsFormatted": {
+    "@expr": "$currency(employerContributions)"
+  },
+  "policyCount": {
+    "@expr": "policies.length"
+  }
+}

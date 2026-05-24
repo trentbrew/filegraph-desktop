@@ -1,0 +1,87 @@
+[
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:goal:emergency:001",
+    "@type": [
+      "Entity",
+      "Goal"
+    ],
+    "id": "goal:emergency:001",
+    "slug": "emergency",
+    "name": "Emergency Fund",
+    "type": "savings",
+    "targetAmount": 20000,
+    "currentAmount": 15000,
+    "targetDate": "2024-12-31",
+    "priority": "high",
+    "account": "acc:savings:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:goal:vacation:001",
+    "@type": [
+      "Entity",
+      "Goal"
+    ],
+    "id": "goal:vacation:001",
+    "slug": "vacation",
+    "name": "Europe Trip",
+    "type": "savings",
+    "targetAmount": 5000,
+    "currentAmount": 1200,
+    "targetDate": "2025-06-01",
+    "priority": "medium",
+    "account": "acc:savings:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:goal:car:001",
+    "@type": [
+      "Entity",
+      "Goal"
+    ],
+    "id": "goal:car:001",
+    "slug": "car",
+    "name": "New Car Down Payment",
+    "type": "savings",
+    "targetAmount": 8000,
+    "currentAmount": 2500,
+    "targetDate": "2025-12-31",
+    "priority": "medium",
+    "account": "acc:savings:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:goal:debt:001",
+    "@type": [
+      "Entity",
+      "Goal"
+    ],
+    "id": "goal:debt:001",
+    "slug": "debt",
+    "name": "Pay Off Credit Card",
+    "type": "debt",
+    "targetAmount": 0,
+    "currentAmount": 1850,
+    "targetDate": "2024-06-30",
+    "priority": "high",
+    "account": "acc:credit:001"
+  },
+  {
+    "@context": "https://filegraph.app/context.jsonld",
+    "@id": "fg:goal:retirement:001",
+    "@type": [
+      "Entity",
+      "Goal"
+    ],
+    "id": "goal:retirement:001",
+    "slug": "retirement",
+    "name": "Retirement (1M)",
+    "type": "investment",
+    "targetAmount": 1000000,
+    "currentAmount": 85000,
+    "targetDate": "2050-01-01",
+    "priority": "high",
+    "account": "acc:retirement:001"
+  }
+]

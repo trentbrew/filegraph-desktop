@@ -1,0 +1,119 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-91",
+  "title": "Layout Braindump",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Layout Braindump"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I like the idea of all the slug pages being inspired by vercel. Its kinda perfect. I wanna use the exact same grid layout, grid item sizing, main image in the upper left, details to the right of the image, etc. For members the image would be their avatar, for shows it would be the show trhumbnail, for channels it would be the live stream iframe, etc. a consistent solid layout with tabs for additional views. The tabs will be different for each entity. We'll start with these for example:"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "channel_tabs: [analytics, programming, health, branding, settings]"
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "channel_page: 'live stream iframe, current show title + desc, producer of current show, schedule/upcoming'"
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "show_tabs: [analytics, vods, schedule, episodes, seasons, cast, crew, sponsors, livechat, settings]"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "show_page: [show thumbnail, show name+desc+numseasons, producer, cast & crew, schedule view, avg viewership]"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "member_tabs: [shows, followers, following, settings]"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "member_page: [avatar, name, joined date, shows, socialmedia, ]"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "integration_tabs: [services, plugins, api key]"
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "integration_page: [logo, name, date added, status, apikeys, urls, docs, etc]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

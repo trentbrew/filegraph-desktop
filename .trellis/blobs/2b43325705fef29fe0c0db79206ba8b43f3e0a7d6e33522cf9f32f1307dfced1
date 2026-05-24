@@ -1,0 +1,158 @@
+{
+  "@context": {
+    "fin": "https://finance.local/"
+  },
+  "@id": "fin:taxes",
+  "@type": "TaxCollection",
+  "year": 2024,
+  "withholdings": {
+    "federal": {
+      "perPaycheck": 615,
+      "frequency": "biweekly",
+      "ytd": 4920
+    },
+    "state": {
+      "perPaycheck": 185,
+      "frequency": "biweekly",
+      "ytd": 1480
+    },
+    "socialSecurity": {
+      "perPaycheck": 286,
+      "frequency": "biweekly",
+      "ytd": 2288,
+      "maxWage": 168600
+    },
+    "medicare": {
+      "perPaycheck": 67,
+      "frequency": "biweekly",
+      "ytd": 536
+    }
+  },
+  "estimatedPayments": [
+    {
+      "quarter": "Q1",
+      "dueDate": "2024-04-15",
+      "amount": 500,
+      "paid": true
+    },
+    {
+      "quarter": "Q2",
+      "dueDate": "2024-06-17",
+      "amount": 500,
+      "paid": true
+    },
+    {
+      "quarter": "Q3",
+      "dueDate": "2024-09-16",
+      "amount": 500,
+      "paid": false
+    },
+    {
+      "quarter": "Q4",
+      "dueDate": "2025-01-15",
+      "amount": 500,
+      "paid": false
+    }
+  ],
+  "deductions": [
+    {
+      "name": "401k Contributions",
+      "type": "pretax",
+      "amount": 19500,
+      "category": "retirement"
+    },
+    {
+      "name": "HSA Contributions",
+      "type": "pretax",
+      "amount": 3850,
+      "category": "health"
+    },
+    {
+      "name": "Student Loan Interest",
+      "type": "above-line",
+      "amount": 2500,
+      "category": "education"
+    },
+    {
+      "name": "Home Office",
+      "type": "itemized",
+      "amount": 1500,
+      "category": "business"
+    },
+    {
+      "name": "Charitable Donations",
+      "type": "itemized",
+      "amount": 2000,
+      "category": "charity"
+    },
+    {
+      "name": "State Taxes Paid",
+      "type": "itemized",
+      "amount": 5000,
+      "category": "taxes",
+      "saltCapped": true
+    }
+  ],
+  "credits": [
+    {
+      "name": "Saver's Credit",
+      "amount": 200,
+      "refundable": false
+    },
+    {
+      "name": "Lifetime Learning",
+      "amount": 0,
+      "refundable": false,
+      "note": "income phase-out"
+    }
+  ],
+  "annualWithholdings": {
+    "@expr": "(withholdings.federal.perPaycheck + withholdings.state.perPaycheck + withholdings.socialSecurity.perPaycheck + withholdings.medicare.perPaycheck) * 26"
+  },
+  "annualWithholdingsFormatted": {
+    "@expr": "$currency(annualWithholdings)"
+  },
+  "monthlyWithholdings": {
+    "@expr": "annualWithholdings / 12"
+  },
+  "monthlyWithholdingsFormatted": {
+    "@expr": "$currency(monthlyWithholdings)"
+  },
+  "totalEstimatedPayments": {
+    "@expr": "estimatedPayments.map(p => p.amount).reduce((a, b) => a + b, 0)"
+  },
+  "paidEstimates": {
+    "@expr": "estimatedPayments.filter(p => p.paid).map(p => p.amount).reduce((a, b) => a + b, 0)"
+  },
+  "unpaidEstimates": {
+    "@expr": "estimatedPayments.filter(p => !p.paid).map(p => p.amount).reduce((a, b) => a + b, 0)"
+  },
+  "totalDeductions": {
+    "@expr": "deductions.map(d => d.amount).reduce((a, b) => a + b, 0)"
+  },
+  "totalDeductionsFormatted": {
+    "@expr": "$currency(totalDeductions)"
+  },
+  "pretaxDeductions": {
+    "@expr": "deductions.filter(d => d.type == 'pretax').map(d => d.amount).reduce((a, b) => a + b, 0)"
+  },
+  "itemizedDeductions": {
+    "@expr": "deductions.filter(d => d.type == 'itemized').map(d => d.amount).reduce((a, b) => a + b, 0)"
+  },
+  "standardDeduction": 14600,
+  "shouldItemize": {
+    "@expr": "itemizedDeductions > standardDeduction"
+  },
+  "effectiveDeduction": {
+    "@expr": "itemizedDeductions > standardDeduction ? itemizedDeductions : standardDeduction"
+  },
+  "totalCredits": {
+    "@expr": "credits.map(c => c.amount).reduce((a, b) => a + b, 0)"
+  },
+  "effectiveTaxRate": {
+    "@expr": "0.22"
+  },
+  "marginalTaxRate": {
+    "@expr": "0.24"
+  }
+}

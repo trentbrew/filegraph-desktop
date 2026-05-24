@@ -1,0 +1,1252 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-368",
+  "title": "Scrollytelling",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Scrollytelling"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This page uses a \"scrollytelling\" approach, where scrolling triggers specific visual changes and animations, creating a dynamic narrative experience. Here's a detailed breakdown of the scroll animations, section by section:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "General Animation Principles Observed:"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Scroll-Triggered:** All animations are directly controlled by vertical scroll position."
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Pinning:** Certain sections of content (text or containers) become \"pinned\" to the viewport for a duration, allowing other elements to animate within or around them."
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Opacity & Transform:** The primary CSS properties animated are opacity for fades and transform (specifically translateY, translateX, and scale) for movement and size changes."
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Staggering:** Multiple elements often animate in a staggered sequence rather than all at once, creating a more dynamic and engaging flow."
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Easing:** Animations appear to use a smooth easing function (e.g., ease-in-out or a cubic-bezier equivalent) for natural transitions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Section 1: The Introduction (0:00 - 0:17)"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This section features a full-screen image of Barack Obama with text overlaid, transitioning into a bold red title card."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Initial Text Fade-Out/In (0:00 - 0:04)**"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** Starts immediately upon initial scroll."
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:** Two distinct text blocks positioned identically over the image."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Text 1: \"It seemed that the multiracial coalition that elected Barack Obama would secure a Democratic future for this country for decades.\""
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Text 2: \"But instead, as America grows more diverse, it has become more conservative. Why?\""
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- As the user scrolls down, Text 1 (opacity: 1) smoothly fades out to opacity: 0."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Simultaneously, Text 2 (opacity: 0) smoothly fades in to opacity: 1."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:** The container holding these texts would likely be position: fixed or position: sticky and \"pinned\" to the viewport for this duration. Animate the opacity of two sibling text elements over the same scroll range."
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Red Dots Eruption & Image Obscuration (0:04 - 0:15)**"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** Begins shortly after Text 2 is fully visible."
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:**"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Numerous small red circular \"dots.\""
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The existing text (\"But instead...\") and the background image."
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The new title text: \"OPINION INSIDE THE RISE OF THE MULTIRACIAL RIGHT.\""
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Dots:** Red dots begin to appear, primarily from the bottom left of the screen, and spread upwards and outwards. Each dot seems to:"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Start with opacity: 0 and transform: scale(0), then animate to opacity: 1 and transform: scale(1) (or slightly larger)."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Have a slightly random initial position and velocity, contributing to a \"bursting\" effect."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- As more dots appear and grow, they begin to obscure the background image and the \"But instead...\" text."
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Background/Text:** The screen gradually becomes completely red as the dots multiply and fill the space. The \"But instead...\" text is fully obscured."
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **New Title Reveal:** During the dot eruption (around 0:13), the new title \"OPINION INSIDE THE RISE OF THE MULTIRACIAL RIGHT\" appears, initially somewhat obscured or transparent within the red field of dots. As the screen becomes fully red, the dots disappear (or are covered by a solid red background overlay), and the new title becomes perfectly clear, centered, and fully opaque (opacity: 1)."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:**"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Dots:** This is complex. Could be many individual div elements, absolutely positioned with randomized starting transform (scale, translate) and opacity, animated using GSAP's timeline and stagger to create the spreading effect. The final state of the background turning solid red implies a background-color transition on the main container or an overlay div that grows to fill the screen and then gets a higher z-index."
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **New Title:** Starts with opacity: 0, maybe a slight transform: scale() for emphasis, appearing once the red background is dominant. Its parent container should be pinned."
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Title Card Dismissal & Article Content Reveal (0:15 - 0:17)**"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** Begins after the red title card is fully displayed."
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:** The red title card (with the \"OPINION INSIDE THE RISE...\" text) and the main article content below it."
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:** The entire red title card slides upwards smoothly (transform: translateY() from 0 to -100% of its height), revealing the standard article content scrolling up from underneath."
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:** The pinned red container (or an overlay div covering the viewport) would unpin and animate transform: translateY to move off-screen, allowing the natural document flow to take over."
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Section 2: Standard Article Content (0:17 - 0:21)"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-46",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section is standard scrollable text. No special animations are applied here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Section 3: Milwaukee Introduction & Collage (0:21 - 0:34)"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This section introduces a new location, pins a quote, and reveals a dynamic image collage."
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **\"In Milwaukee...\" Text Reveal (0:21 - 0:25)**"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** When the \"In Milwaukee...\" text scrolls into view (at the center of the viewport)."
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:** The text block: \"In Milwaukee, the unity of the Black Democratic Party is splintering — along with the institutions that held it together for so long.\""
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:** The text appears, likely fading in (opacity: 0 to opacity: 1) and potentially scaling slightly (transform: scale()) or having a subtle translateY entrance. It then becomes \"pinned\" to the viewport."
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:** A position: sticky or GSAP-pinned container for this text block. opacity and transform animations triggered when it enters the viewport."
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Image Collage Entrance (0:25 - 0:30)**"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** Begins immediately after the \"In Milwaukee...\" text is pinned."
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:** Four distinct image elements, placed around the pinned text."
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:** The images slide in, one after another, from different directions, forming a collage. They appear to be position: absolute within a position: fixed or pinned container."
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Image 1 (bottom right, red building/white church):** Slides in from the right (transform: translateX())."
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Image 2 (top left, \"RIDE OR DIE\" jacket):** Slides in from the top (transform: translateY())."
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Image 3 (bottom center, playground/brick building):** Slides in from the bottom (transform: translateY())."
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Image 4 (center right, people walking):** Slides in from the right (transform: translateX())."
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:** A pinned container for all images. Each image is absolutely positioned off-screen. Animate transform: translateX/Y to bring them into their collage positions. Use stagger for a sequential entry."
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Collage Dismissal & New Text Reveal (0:30 - 0:34)**"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** Scrolling past the collage."
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:** The four collage images, the \"In Milwaukee...\" text, and the new text block: \"Orlando Owens cast his ballot for Barack Obama in 2008. But even then he had doubts about what the Democratic Party could do for his community.\""
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The collage images slide out, essentially reversing their entrance animations (transform: translateX/Y to off-screen positions)."
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The \"In Milwaukee...\" text fades out (opacity: 1 to opacity: 0)."
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Simultaneously, the \"Orlando Owens...\" text fades in (opacity: 0 to opacity: 1), becoming the next pinned element."
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:** Reverse transform animations for the images. Animate opacity for both text blocks, one out, one in. All within the same pinned container before it unpins."
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Section 4: Milwaukee Testimonials / Quote Carousel (0:34 - 0:54)"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This section features a series of images and quotes, presented one after another in a \"stacked card\" or carousel-like fashion."
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **First Testimonial (Orlando Owens) (0:34 - 0:41)**"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** After the \"Orlando Owens...\" introductory text (from 0:30-0:34) is fully visible and pinned."
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:**"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Image of Orlando Owens (against a red wall)."
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Quote text: \"“I joined the Democratic Party because I’m Black.”\" and supporting paragraphs."
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The image slides up from the bottom (transform: translateY(100%) to 0), and simultaneously fades in (opacity: 0 to 1). It settles on the left side of the screen."
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The quote text appears on the right, fading in (opacity: 0 to 1)."
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Both the image and text then remain visible as the user scrolls."
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Upon further scrolling, the entire block (image + text) slides upwards (transform: translateY(0) to -100%) off-screen, revealing the next content."
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:** A pinned container for the image/quote pairs. Each pair is a div that animates transform: translateY for its entry and exit. Image and text within the div can have individual opacity animations."
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Interstitial Text & Second Testimonial (Tory Lowe) (0:41 - 0:46)**"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** After the previous testimonial slides off-screen."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:**"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Interstitial text: \"Owens isn’t the only voter in Milwaukee who believes the Democratic Party is indifferent to his needs.\""
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Image of Tory Lowe."
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Quote text: \"“A lot of Black people are not MAGA. They’re rejecting the Democrat leadership because of how they’re running our communities.”\""
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:**"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The interstitial text fades in (opacity: 0 to 1)."
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Then, as the user scrolls, it fades out (opacity: 1 to 0)."
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The Tory Lowe image and quote block slides up and fades in, similar to Orlando Owens."
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:** Similar pinning and transform: translateY techniques as the first testimonial, with an additional opacity animation for the interstitial text."
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Subsequent Testimonials (0:46 - 0:54)**"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Scroll Trigger:** Each new testimonial triggers after the previous one slides off-screen."
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Elements:**"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Shana Gray image + quote."
+        }
+      ]
+    },
+    {
+      "id": "b-102",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Andre Owens image + quote."
+        }
+      ]
+    },
+    {
+      "id": "b-103",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Dominique Owens image + quote."
+        }
+      ]
+    },
+    {
+      "id": "b-104",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Animation:** Each testimonial block (image + quote) slides up from the bottom (transform: translateY(100%) to 0) and fades in (opacity: 0 to 1), pushing the previous content off the top."
+        }
+      ]
+    },
+    {
+      "id": "b-105",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Replication Notes:** This is a repeating pattern of transform: translateY and opacity animations for each distinct image-quote content block within the pinned section."
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Section 5: Conclusion (0:54 - End)"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-108",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Scroll Trigger:** After the final testimonial (Dominique Owens) slides off-screen."
+            }
+          ]
+        },
+        {
+          "id": "b-109",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Elements:** The remainder of the main article content."
+            }
+          ]
+        },
+        {
+          "id": "b-110",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Animation:** The pinned section unpins, and the standard article text scrolls into view from the bottom, continuing the natural document flow. No further special animations are observed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "To implement this with CSS/GSAP:"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-114",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**HTML Structure:** You'd likely have <section> or div elements for each major animated segment."
+            }
+          ]
+        },
+        {
+          "id": "b-115",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**CSS:** Use position: sticky or position: fixed for pinning. Set initial opacity and transform values."
+            }
+          ]
+        },
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**JavaScript (GSAP ScrollTrigger recommended):**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **ScrollTrigger.create({}):** This is your primary tool."
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **pin: true:** For pinning elements to the viewport."
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **start: \"top center\", end: \"+=500\":** Define the scroll range for animations."
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **scrub: true:** Links animation progress directly to scroll progress."
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **toggleActions: \"play none none reverse\":** Control behavior when entering/exiting scroll region."
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **gsap.timeline():** For orchestrating multiple, sequenced animations within a single ScrollTrigger."
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Dynamic elements (like red dots):** You might dynamically create and add divs for the dots in JavaScript, then animate them with GSAP."
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Consider clip-path for more complex reveal effects if needed, though opacity and transform seem sufficient here."
+        }
+      ]
+    }
+  ]
+}

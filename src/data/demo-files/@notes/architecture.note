@@ -1,0 +1,6859 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-356",
+  "title": "Architecture",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Architecture"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "What Makes a Spatial Workspace Different"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "An agentic IDE is **linear**: code flows through agents sequentially, producing artifacts."
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A spatial workspace is **non-linear**: everything exists in a 2D/3D space simultaneously, with overlapping contexts."
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Agentic IDE:"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "User → Agent → Code → Tests → Deploy"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(Sequential, deterministic)"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Spatial Workspace:"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌─── Canvas Node (Figma) ───┐"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│                           │"
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Notion Page ─ Database ─ Mini Spreadsheet"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│                           │"
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└─── Code Block ────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "(interdependent, concurrent)"
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your graph architecture is **designed for this**. Here's why:"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Part 1: Why This Architecture is Perfect"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Nodes are the Unit of Embedding**"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your architecture already treats everything uniformly:"
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const workspace = {"
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': 'urn:app:node:workspace:product-design-2025',"
+        }
+      ]
+    },
+    {
+      "id": "b-25",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Workspace'],"
+        }
+      ]
+    },
+    {
+      "id": "b-26",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-27",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Product Design Sprint',"
+        }
+      ]
+    },
+    {
+      "id": "b-28",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "viewport: { zoom: 1.2, pan: { x: 240, y: -180 } }"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const notionBlock = {"
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': 'urn:app:node:block:strategy',"
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Block', 'NotionPage'],"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Product Strategy',"
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pos: { x: 0, y: 0 },"
+        }
+      ]
+    },
+    {
+      "id": "b-37",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "size: { w: 400, h: 600 },"
+        }
+      ]
+    },
+    {
+      "id": "b-38",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "content: 'urn:app:data:notion-page-xyz', // Ref to actual data"
+        }
+      ]
+    },
+    {
+      "id": "b-39",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "collapsed: false"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-42",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const figmaFrame = {"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': 'urn:app:node:block:wireframes',"
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Block', 'FigmaEmbed'],"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Mobile Wireframes',"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pos: { x: 450, y: 0 },"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "size: { w: 600, h: 600 },"
+        }
+      ]
+    },
+    {
+      "id": "b-49",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "figmaUrl: 'https://figma.com/...',"
+        }
+      ]
+    },
+    {
+      "id": "b-50",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "embeds: ['button', 'header', 'card']"
+        }
+      ]
+    },
+    {
+      "id": "b-51",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const spreadsheet = {"
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': 'urn:app:node:block:metrics',"
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Block', 'Spreadsheet'],"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Launch Metrics',"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pos: { x: 0, y: 650 },"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "size: { w: 400, h: 300 },"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "rows: ["
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ metric: 'DAU', target: 50000, current: 12000 },"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ metric: 'Retention', target: 0.45, current: 0.32 }"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Why this matters:**"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-68",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Notion, Figma, spreadsheet, video player—all same shape"
+            }
+          ]
+        },
+        {
+          "id": "b-69",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One query: `db.useQuery({ nodes: { where: { context: workspaceId } } })`"
+            }
+          ]
+        },
+        {
+          "id": "b-70",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All blocks render in one canvas"
+            }
+          ]
+        },
+        {
+          "id": "b-71",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Position/size is just props, not special"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Edges Enable Relationships Between Blocks**"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Blocks don't exist in isolation:"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-76",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Strategy informs Wireframes"
+        }
+      ]
+    },
+    {
+      "id": "b-77",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge({"
+        }
+      ]
+    },
+    {
+      "id": "b-78",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('edge', 'informs'),"
+        }
+      ]
+    },
+    {
+      "id": "b-79",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: 'urn:app:node:block:strategy',"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: 'urn:app:node:block:wireframes',"
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: 'informs',"
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "meta: { section: 'target_audience' }"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Wireframes map to Metrics"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge({"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('edge', 'measures'),"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: 'urn:app:node:block:wireframes',"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: 'urn:app:node:block:metrics',"
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: 'measures',"
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "meta: { component: 'onboarding_flow' }"
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Spreadsheet feeds back to Strategy"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge({"
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('edge', 'constrains'),"
+        }
+      ]
+    },
+    {
+      "id": "b-95",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: 'urn:app:node:block:metrics',"
+        }
+      ]
+    },
+    {
+      "id": "b-96",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: 'urn:app:node:block:strategy',"
+        }
+      ]
+    },
+    {
+      "id": "b-97",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: 'constrains',"
+        }
+      ]
+    },
+    {
+      "id": "b-98",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "meta: { reason: 'Low retention impacts timeline' }"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What you get:**"
+        }
+      ]
+    },
+    {
+      "id": "b-106",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Visual relationship map in canvas"
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Click a block, see what it influences"
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent queries: \"What blocks depend on this strategy?\""
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reverse causality: \"If we change this metric, what breaks?\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-107",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Events Track Block Edits and Interactions**"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "When someone edits a block, it's just an event:"
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// User edits strategy doc"
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEvent({"
+        }
+      ]
+    },
+    {
+      "id": "b-112",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'block_edit'),"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'BlockEdit'],"
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:user:alice',"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "context: 'urn:app:node:block:strategy',"
+        }
+      ]
+    },
+    {
+      "id": "b-116",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'edit',"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: {"
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "field: 'content',"
+        }
+      ]
+    },
+    {
+      "id": "b-119",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "delta: { ops: [{ insert: 'Mobile-first' }] },"
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "reason: 'Updated target platform'"
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ts: Date.now()"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Figma embed updates metrics"
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEvent({"
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'embed_update'),"
+        }
+      ]
+    },
+    {
+      "id": "b-127",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'EmbedUpdate'],"
+        }
+      ]
+    },
+    {
+      "id": "b-128",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:agent:design-sync',"
+        }
+      ]
+    },
+    {
+      "id": "b-129",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "context: 'urn:app:node:block:wireframes',"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'figma_sync',"
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: {"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "components: ['button', 'header'],"
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "changeCount: 7,"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "reason: 'Style system updated'"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ts: Date.now()"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Agent notices contradiction"
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEvent({"
+        }
+      ]
+    },
+    {
+      "id": "b-140",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'contradiction_detected'),"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'AgentObservation'],"
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:agent:workspace-monitor',"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'inconsistency',"
+        }
+      ]
+    },
+    {
+      "id": "b-144",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: {"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "type: 'timeline_conflict',"
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "blocks: ['strategy', 'wireframes', 'metrics'],"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "issue: 'Strategy says Q2 launch, but metrics show 8-week delay',"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "severity: 'high'"
+        }
+      ]
+    },
+    {
+      "id": "b-149",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ts: Date.now()"
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-153",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Why this matters:**"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-154",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Every workspace change is auditable"
+            }
+          ]
+        },
+        {
+          "id": "b-155",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent can detect contradictions automatically"
+            }
+          ]
+        },
+        {
+          "id": "b-156",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can replay history: \"Show me the last 10 edits to this workspace\""
+            }
+          ]
+        },
+        {
+          "id": "b-157",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Collaboration: See who changed what when"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Spatial Queries Become Graph Queries**"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "\"What blocks are near this one?\" becomes:"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function findNearbyBlocks(workspaceId, blockId, radius = 300) {"
+        }
+      ]
+    },
+    {
+      "id": "b-163",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = db.useQuery({"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "nodes: {"
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "where: {"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': { $contains: 'Block' },"
+        }
+      ]
+    },
+    {
+      "id": "b-167",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'props.context': workspaceId"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-171",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const block = data.nodes.find(n => n['@id'] === blockId);"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { x, y } = block.props.pos;"
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return data.nodes.filter(n => {"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { x: nx, y: ny } = n.props.pos;"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const dist = Math.sqrt((x - nx) ** 2 + (y - ny) ** 2);"
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return dist < radius && n['@id'] !== blockId;"
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Or query by relationship"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function findRelatedBlocks(blockId) {"
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = db.useQuery({"
+        }
+      ]
+    },
+    {
+      "id": "b-182",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: {"
+        }
+      ]
+    },
+    {
+      "id": "b-183",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "where: {"
+        }
+      ]
+    },
+    {
+      "id": "b-184",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "$or: ["
+        }
+      ]
+    },
+    {
+      "id": "b-185",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ from: blockId },"
+        }
+      ]
+    },
+    {
+      "id": "b-186",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ to: blockId }"
+        }
+      ]
+    },
+    {
+      "id": "b-187",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-188",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return data.edges.map(e => e.from === blockId ? e.to : e.from);"
+        }
+      ]
+    },
+    {
+      "id": "b-192",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-193",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-194",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**What you get:**"
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-195",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"Show me all blocks this strategy influences\" (graph query)"
+            }
+          ]
+        },
+        {
+          "id": "b-196",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"Highlight blocks near my cursor\" (spatial query)"
+            }
+          ]
+        },
+        {
+          "id": "b-197",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\"Suggest related blocks\" (combined query)"
+            }
+          ]
+        },
+        {
+          "id": "b-198",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent: \"Which blocks conflict?\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Mini-Apps are Just Nodes with Behavior**"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A mini-app (spreadsheet, kanban, form) is a node that knows how to render itself:"
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const miniApp = {"
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': 'urn:app:node:block:sprint-board',"
+        }
+      ]
+    },
+    {
+      "id": "b-205",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Block', 'KanbanBoard'],"
+        }
+      ]
+    },
+    {
+      "id": "b-206",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-207",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'Sprint 47',"
+        }
+      ]
+    },
+    {
+      "id": "b-208",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pos: { x: 800, y: 400 },"
+        }
+      ]
+    },
+    {
+      "id": "b-209",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "size: { w: 500, h: 600 },"
+        }
+      ]
+    },
+    {
+      "id": "b-210",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "appConfig: {"
+        }
+      ]
+    },
+    {
+      "id": "b-211",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dataSource: 'urn:app:node:database:tasks', // Points to another node!"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "columns: ['todo', 'inProgress', 'done'],"
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "cardTemplate: 'urn:app:node:template:task-card'"
+        }
+      ]
+    },
+    {
+      "id": "b-214",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-215",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-216",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-217",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const taskDatabase = {"
+        }
+      ]
+    },
+    {
+      "id": "b-218",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': 'urn:app:node:database:tasks',"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Database'],"
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "schema: {"
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: 'string',"
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "assignee: 'user_ref',"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "dueDate: 'date',"
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "priority: 'enum'"
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Kanban is just a view of the database"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// If database updates, kanban updates"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// All via the graph"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge({"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('edge', 'renders'),"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: 'urn:app:node:block:sprint-board',"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: 'urn:app:node:database:tasks',"
+        }
+      ]
+    },
+    {
+      "id": "b-236",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: 'renders',"
+        }
+      ]
+    },
+    {
+      "id": "b-237",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "meta: { filter: 'assignee === currentUser' }"
+        }
+      ]
+    },
+    {
+      "id": "b-238",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-239",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Why this matters:**"
+        }
+      ]
+    },
+    {
+      "id": "b-245",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-241",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kanban doesn't store its own data"
+            }
+          ]
+        },
+        {
+          "id": "b-242",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Multiple kanban blocks can view same database"
+            }
+          ]
+        },
+        {
+          "id": "b-243",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Change one row → all kanban blocks update"
+            }
+          ]
+        },
+        {
+          "id": "b-244",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "New mini-app type? Just add `@type: ['Block', 'NewAppType']`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-246",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "6. **Agent-Driven Workspace Refinement**"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Agents can populate, organize, refine the workspace:"
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Agent 1: Analyzes strategy, creates wireframes"
+        }
+      ]
+    },
+    {
+      "id": "b-250",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "async function analyzeAndDesign(strategyBlockId) {"
+        }
+      ]
+    },
+    {
+      "id": "b-251",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = await db.queryOnce({"
+        }
+      ]
+    },
+    {
+      "id": "b-252",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "nodes: { where: { '@id': strategyBlockId } }"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const strategy = data.nodes[0];"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const analysis = await aiAgent.analyze(strategy.props.content);"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Create wireframe block"
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const figmaBlock = {"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('node', 'block'),"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Block', 'FigmaEmbed'],"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: `Wireframes: ${analysis.mainFlow}`,"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pos: { x: 500, y: 0 }, // Auto-position"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "figmaUrl: analysis.figmaLink"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createNode(figmaBlock);"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Connect via edge"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge({"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('edge', 'designs'),"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: strategyBlockId,"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: figmaBlock['@id'],"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: 'designs'"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Agent 2: Monitors for conflicts"
+        }
+      ]
+    },
+    {
+      "id": "b-276",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "async function monitorConsistency(workspaceId) {"
+        }
+      ]
+    },
+    {
+      "id": "b-277",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = await db.queryOnce({"
+        }
+      ]
+    },
+    {
+      "id": "b-278",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "nodes: {"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "where: { '@type': { $contains: 'Block' }, 'props.context': workspaceId }"
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: {}"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const blocks = data.nodes;"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const edges = data.edges;"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for (const block of blocks) {"
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Check connected blocks for conflicts"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const related = edges"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".filter(e => e.from === block['@id'] || e.to === block['@id'])"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ".map(e => e.from === block['@id'] ? e.to : e.from);"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const conflicts = await aiAgent.detectConflicts(block, related);"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (conflicts.length > 0) {"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEvent({"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'conflict'),"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'ConflictDetected'],"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:agent:monitor',"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "context: workspaceId,"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'conflict',"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: { conflicts }"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Agent 3: Suggests connections"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "async function suggestRelationships(workspaceId) {"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = await db.queryOnce({"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "nodes: { where: { '@type': { $contains: 'Block' }, 'props.context': workspaceId } }"
+        }
+      ]
+    },
+    {
+      "id": "b-307",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-308",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const suggestions = await aiAgent.suggestEdges(data.nodes);"
+        }
+      ]
+    },
+    {
+      "id": "b-309",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return suggestions.map(s => ({"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: s.blockA,"
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: s.blockB,"
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: s.relationship,"
+        }
+      ]
+    },
+    {
+      "id": "b-313",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "confidence: s.score"
+        }
+      ]
+    },
+    {
+      "id": "b-314",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}));"
+        }
+      ]
+    },
+    {
+      "id": "b-315",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-316",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Part 2: What Makes This Special vs. Notion/Figma"
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Notion"
+        }
+      ]
+    },
+    {
+      "id": "b-323",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-320",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blocks can reference each other (database relations)"
+            }
+          ]
+        },
+        {
+          "id": "b-321",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But the graph is implicit, not queryable"
+            }
+          ]
+        },
+        {
+          "id": "b-322",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can't ask \"What blocks influence this one?\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-324",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Figma"
+        }
+      ]
+    },
+    {
+      "id": "b-328",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-325",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Objects on canvas have spatial relationships"
+            }
+          ]
+        },
+        {
+          "id": "b-326",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But no semantic relationships between artboards"
+            }
+          ]
+        },
+        {
+          "id": "b-327",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No way to track \"why\" we designed it this way"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-329",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Your System"
+        }
+      ]
+    },
+    {
+      "id": "b-334",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-330",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Explicit graph**: Relationships are first-class"
+            }
+          ]
+        },
+        {
+          "id": "b-331",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Queryable**: Ask questions about the workspace structure"
+            }
+          ]
+        },
+        {
+          "id": "b-332",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Auditable**: Every change is an event"
+            }
+          ]
+        },
+        {
+          "id": "b-333",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agent-native**: Agents understand the whole workspace, not isolated blocks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-335",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-336",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Notion vs Your System:"
+        }
+      ]
+    },
+    {
+      "id": "b-337",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌──────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-338",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  Notion Database │ (Relational)"
+        }
+      ]
+    },
+    {
+      "id": "b-339",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ Tasks        │"
+        }
+      ]
+    },
+    {
+      "id": "b-340",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ Status       │"
+        }
+      ]
+    },
+    {
+      "id": "b-341",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └─ Assignee     │"
+        }
+      ]
+    },
+    {
+      "id": "b-342",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└──────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-343",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Can query, but relationships are *data*."
+        }
+      ]
+    },
+    {
+      "id": "b-344",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Can't ask: \"What docs reference this database?\""
+        }
+      ]
+    },
+    {
+      "id": "b-345",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your System:"
+        }
+      ]
+    },
+    {
+      "id": "b-346",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "┌──────────────────┐"
+        }
+      ]
+    },
+    {
+      "id": "b-347",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  Workspace       │ (Graph)"
+        }
+      ]
+    },
+    {
+      "id": "b-348",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ Database     │"
+        }
+      ]
+    },
+    {
+      "id": "b-349",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ Doc          │"
+        }
+      ]
+    },
+    {
+      "id": "b-350",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  ├─ Wireframes   │"
+        }
+      ]
+    },
+    {
+      "id": "b-351",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│  └─ Metrics      │"
+        }
+      ]
+    },
+    {
+      "id": "b-352",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│     (connected   │"
+        }
+      ]
+    },
+    {
+      "id": "b-353",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│      by edges)   │"
+        }
+      ]
+    },
+    {
+      "id": "b-354",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└──────────────────┘"
+        }
+      ]
+    },
+    {
+      "id": "b-355",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Can query relationships themselves."
+        }
+      ]
+    },
+    {
+      "id": "b-356",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Can ask: \"What blocks use this database?\""
+        }
+      ]
+    },
+    {
+      "id": "b-357",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-358",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-359",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Part 3: Specific Capabilities You Get"
+        }
+      ]
+    },
+    {
+      "id": "b-360",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Dependency Queries**"
+        }
+      ]
+    },
+    {
+      "id": "b-361",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-362",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// What would break if I delete this database?"
+        }
+      ]
+    },
+    {
+      "id": "b-363",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function findDependents(nodeId) {"
+        }
+      ]
+    },
+    {
+      "id": "b-364",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = db.useQuery({"
+        }
+      ]
+    },
+    {
+      "id": "b-365",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: { where: { to: nodeId, pred: 'uses' } }"
+        }
+      ]
+    },
+    {
+      "id": "b-366",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-367",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return data.edges.map(e => e.from);"
+        }
+      ]
+    },
+    {
+      "id": "b-368",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-369",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// What does this canvas depend on?"
+        }
+      ]
+    },
+    {
+      "id": "b-370",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function findDependencies(nodeId) {"
+        }
+      ]
+    },
+    {
+      "id": "b-371",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = db.useQuery({"
+        }
+      ]
+    },
+    {
+      "id": "b-372",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: { where: { from: nodeId } }"
+        }
+      ]
+    },
+    {
+      "id": "b-373",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-374",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return data.edges.map(e => e.to);"
+        }
+      ]
+    },
+    {
+      "id": "b-375",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-376",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Transitive: If I break this data source, what breaks?"
+        }
+      ]
+    },
+    {
+      "id": "b-377",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function findTransitiveDependents(nodeId, depth = 5) {"
+        }
+      ]
+    },
+    {
+      "id": "b-378",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "let current = [nodeId];"
+        }
+      ]
+    },
+    {
+      "id": "b-379",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const visited = new Set();"
+        }
+      ]
+    },
+    {
+      "id": "b-380",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for (let i = 0; i < depth; i++) {"
+        }
+      ]
+    },
+    {
+      "id": "b-381",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const next = [];"
+        }
+      ]
+    },
+    {
+      "id": "b-382",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "for (const id of current) {"
+        }
+      ]
+    },
+    {
+      "id": "b-383",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = db.useQuery({"
+        }
+      ]
+    },
+    {
+      "id": "b-384",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: { where: { to: id, pred: 'uses' } }"
+        }
+      ]
+    },
+    {
+      "id": "b-385",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-386",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data.edges.forEach(e => {"
+        }
+      ]
+    },
+    {
+      "id": "b-387",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (!visited.has(e.from)) {"
+        }
+      ]
+    },
+    {
+      "id": "b-388",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "next.push(e.from);"
+        }
+      ]
+    },
+    {
+      "id": "b-389",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "visited.add(e.from);"
+        }
+      ]
+    },
+    {
+      "id": "b-390",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-391",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-392",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-393",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "current = next;"
+        }
+      ]
+    },
+    {
+      "id": "b-394",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-395",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return visited;"
+        }
+      ]
+    },
+    {
+      "id": "b-396",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-397",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-398",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Proposal and Acceptance Flows**"
+        }
+      ]
+    },
+    {
+      "id": "b-399",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "User wants to reorganize blocks:"
+        }
+      ]
+    },
+    {
+      "id": "b-400",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-401",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// User proposes: \"Move metrics block next to strategy\""
+        }
+      ]
+    },
+    {
+      "id": "b-402",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const proposal = {"
+        }
+      ]
+    },
+    {
+      "id": "b-403",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'proposal'),"
+        }
+      ]
+    },
+    {
+      "id": "b-404",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'LayoutProposal'],"
+        }
+      ]
+    },
+    {
+      "id": "b-405",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:user:alice',"
+        }
+      ]
+    },
+    {
+      "id": "b-406",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'layout_change',"
+        }
+      ]
+    },
+    {
+      "id": "b-407",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: {"
+        }
+      ]
+    },
+    {
+      "id": "b-408",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "changes: ["
+        }
+      ]
+    },
+    {
+      "id": "b-409",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{"
+        }
+      ]
+    },
+    {
+      "id": "b-410",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "blockId: 'urn:app:node:block:metrics',"
+        }
+      ]
+    },
+    {
+      "id": "b-411",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "oldPos: { x: 0, y: 650 },"
+        }
+      ]
+    },
+    {
+      "id": "b-412",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "newPos: { x: 400, y: 0 }"
+        }
+      ]
+    },
+    {
+      "id": "b-413",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-414",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-415",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "reason: 'Bring related blocks closer'"
+        }
+      ]
+    },
+    {
+      "id": "b-416",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-417",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ts: Date.now()"
+        }
+      ]
+    },
+    {
+      "id": "b-418",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-419",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Agent analyzes: \"This breaks the visual flow\""
+        }
+      ]
+    },
+    {
+      "id": "b-420",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEvent({"
+        }
+      ]
+    },
+    {
+      "id": "b-421",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'agent_feedback'),"
+        }
+      ]
+    },
+    {
+      "id": "b-422",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'AgentFeedback'],"
+        }
+      ]
+    },
+    {
+      "id": "b-423",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:agent:layout-analyzer',"
+        }
+      ]
+    },
+    {
+      "id": "b-424",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "context: proposal['@id'],"
+        }
+      ]
+    },
+    {
+      "id": "b-425",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'proposal_feedback',"
+        }
+      ]
+    },
+    {
+      "id": "b-426",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: {"
+        }
+      ]
+    },
+    {
+      "id": "b-427",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "issue: 'Metrics and wireframes are no longer visually aligned',"
+        }
+      ]
+    },
+    {
+      "id": "b-428",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "suggestion: 'Keep vertical separation for narrative flow',"
+        }
+      ]
+    },
+    {
+      "id": "b-429",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "confidence: 0.78"
+        }
+      ]
+    },
+    {
+      "id": "b-430",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-431",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-432",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// User accepts or rejects"
+        }
+      ]
+    },
+    {
+      "id": "b-433",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge({"
+        }
+      ]
+    },
+    {
+      "id": "b-434",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('edge', 'decision'),"
+        }
+      ]
+    },
+    {
+      "id": "b-435",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: 'urn:app:node:user:alice',"
+        }
+      ]
+    },
+    {
+      "id": "b-436",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: proposal['@id'],"
+        }
+      ]
+    },
+    {
+      "id": "b-437",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: 'accepts', // or 'rejects'"
+        }
+      ]
+    },
+    {
+      "id": "b-438",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ts: Date.now()"
+        }
+      ]
+    },
+    {
+      "id": "b-439",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-440",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// If accepted, apply changes"
+        }
+      ]
+    },
+    {
+      "id": "b-441",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "if (decision.pred === 'accepts') {"
+        }
+      ]
+    },
+    {
+      "id": "b-442",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.updateNode({"
+        }
+      ]
+    },
+    {
+      "id": "b-443",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': 'urn:app:node:block:metrics',"
+        }
+      ]
+    },
+    {
+      "id": "b-444",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-445",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pos: { x: 400, y: 0 }"
+        }
+      ]
+    },
+    {
+      "id": "b-446",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-447",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-448",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEvent({"
+        }
+      ]
+    },
+    {
+      "id": "b-449",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'layout_applied'),"
+        }
+      ]
+    },
+    {
+      "id": "b-450",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'LayoutApplied'],"
+        }
+      ]
+    },
+    {
+      "id": "b-451",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:user:alice',"
+        }
+      ]
+    },
+    {
+      "id": "b-452",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'layout_change_applied',"
+        }
+      ]
+    },
+    {
+      "id": "b-453",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: { proposalId: proposal['@id'] },"
+        }
+      ]
+    },
+    {
+      "id": "b-454",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ts: Date.now()"
+        }
+      ]
+    },
+    {
+      "id": "b-455",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-456",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-457",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-458",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Cross-Block Formulas**"
+        }
+      ]
+    },
+    {
+      "id": "b-459",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "A spreadsheet cell can reference data from other blocks:"
+        }
+      ]
+    },
+    {
+      "id": "b-460",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-461",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const cellFormula = {"
+        }
+      ]
+    },
+    {
+      "id": "b-462",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('node', 'cell'),"
+        }
+      ]
+    },
+    {
+      "id": "b-463",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Cell', 'Formula'],"
+        }
+      ]
+    },
+    {
+      "id": "b-464",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-465",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "expression: 'SUM(database:tasks.estimation) / count(kanban:inProgress)',"
+        }
+      ]
+    },
+    {
+      "id": "b-466",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "references: ["
+        }
+      ]
+    },
+    {
+      "id": "b-467",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'urn:app:node:database:tasks',"
+        }
+      ]
+    },
+    {
+      "id": "b-468",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'urn:app:node:block:sprint-board'"
+        }
+      ]
+    },
+    {
+      "id": "b-469",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-470",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-471",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-472",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// When formula evaluates, create edge"
+        }
+      ]
+    },
+    {
+      "id": "b-473",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge({"
+        }
+      ]
+    },
+    {
+      "id": "b-474",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('edge', 'references'),"
+        }
+      ]
+    },
+    {
+      "id": "b-475",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: cellFormula['@id'],"
+        }
+      ]
+    },
+    {
+      "id": "b-476",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: 'urn:app:node:database:tasks',"
+        }
+      ]
+    },
+    {
+      "id": "b-477",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: 'references',"
+        }
+      ]
+    },
+    {
+      "id": "b-478",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "meta: { field: 'estimation' }"
+        }
+      ]
+    },
+    {
+      "id": "b-479",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-480",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// If database changes, formula invalidates"
+        }
+      ]
+    },
+    {
+      "id": "b-481",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// You can query: \"What formulas depend on this field?\""
+        }
+      ]
+    },
+    {
+      "id": "b-482",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function findFormulasUsingField(databaseId, fieldName) {"
+        }
+      ]
+    },
+    {
+      "id": "b-483",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = db.useQuery({"
+        }
+      ]
+    },
+    {
+      "id": "b-484",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: {"
+        }
+      ]
+    },
+    {
+      "id": "b-485",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "where: {"
+        }
+      ]
+    },
+    {
+      "id": "b-486",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: databaseId,"
+        }
+      ]
+    },
+    {
+      "id": "b-487",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: 'references',"
+        }
+      ]
+    },
+    {
+      "id": "b-488",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'meta.field': fieldName"
+        }
+      ]
+    },
+    {
+      "id": "b-489",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-490",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-491",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-492",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return data.edges.map(e => e.from);"
+        }
+      ]
+    },
+    {
+      "id": "b-493",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-494",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-495",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Workspace Snapshots**"
+        }
+      ]
+    },
+    {
+      "id": "b-496",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Save the whole workspace state (not code, but structure):"
+        }
+      ]
+    },
+    {
+      "id": "b-497",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-498",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Snapshot: \"Before redesign\""
+        }
+      ]
+    },
+    {
+      "id": "b-499",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEvent({"
+        }
+      ]
+    },
+    {
+      "id": "b-500",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'snapshot'),"
+        }
+      ]
+    },
+    {
+      "id": "b-501",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'WorkspaceSnapshot'],"
+        }
+      ]
+    },
+    {
+      "id": "b-502",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:user:alice',"
+        }
+      ]
+    },
+    {
+      "id": "b-503",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'snapshot',"
+        }
+      ]
+    },
+    {
+      "id": "b-504",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: {"
+        }
+      ]
+    },
+    {
+      "id": "b-505",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: 'Before redesign',"
+        }
+      ]
+    },
+    {
+      "id": "b-506",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "blocks: blocks.map(b => ({"
+        }
+      ]
+    },
+    {
+      "id": "b-507",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "id: b['@id'],"
+        }
+      ]
+    },
+    {
+      "id": "b-508",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pos: b.props.pos,"
+        }
+      ]
+    },
+    {
+      "id": "b-509",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "size: b.props.size"
+        }
+      ]
+    },
+    {
+      "id": "b-510",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "})),"
+        }
+      ]
+    },
+    {
+      "id": "b-511",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: edges.map(e => ({"
+        }
+      ]
+    },
+    {
+      "id": "b-512",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: e.from,"
+        }
+      ]
+    },
+    {
+      "id": "b-513",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: e.to,"
+        }
+      ]
+    },
+    {
+      "id": "b-514",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: e.pred"
+        }
+      ]
+    },
+    {
+      "id": "b-515",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}))"
+        }
+      ]
+    },
+    {
+      "id": "b-516",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-517",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ts: Date.now()"
+        }
+      ]
+    },
+    {
+      "id": "b-518",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-519",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Restore"
+        }
+      ]
+    },
+    {
+      "id": "b-520",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function restoreSnapshot(snapshotEventId) {"
+        }
+      ]
+    },
+    {
+      "id": "b-521",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = db.useQuery({"
+        }
+      ]
+    },
+    {
+      "id": "b-522",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "events: { where: { '@id': snapshotEventId } }"
+        }
+      ]
+    },
+    {
+      "id": "b-523",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-524",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const snapshot = data.events[0];"
+        }
+      ]
+    },
+    {
+      "id": "b-525",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const blocks = snapshot.data.blocks;"
+        }
+      ]
+    },
+    {
+      "id": "b-526",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const edges = snapshot.data.edges;"
+        }
+      ]
+    },
+    {
+      "id": "b-527",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Update all blocks to old positions"
+        }
+      ]
+    },
+    {
+      "id": "b-528",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "blocks.forEach(b => {"
+        }
+      ]
+    },
+    {
+      "id": "b-529",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.updateNode({"
+        }
+      ]
+    },
+    {
+      "id": "b-530",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': b.id,"
+        }
+      ]
+    },
+    {
+      "id": "b-531",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: { pos: b.pos, size: b.size }"
+        }
+      ]
+    },
+    {
+      "id": "b-532",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-533",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-534",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Re-create edges if they're gone"
+        }
+      ]
+    },
+    {
+      "id": "b-535",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges.forEach(e => {"
+        }
+      ]
+    },
+    {
+      "id": "b-536",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge(e);"
+        }
+      ]
+    },
+    {
+      "id": "b-537",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-538",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEvent({"
+        }
+      ]
+    },
+    {
+      "id": "b-539",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('event', 'restore'),"
+        }
+      ]
+    },
+    {
+      "id": "b-540",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Event', 'RestoreSnapshot'],"
+        }
+      ]
+    },
+    {
+      "id": "b-541",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "subject: 'urn:app:node:user:alice',"
+        }
+      ]
+    },
+    {
+      "id": "b-542",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "kind: 'restore',"
+        }
+      ]
+    },
+    {
+      "id": "b-543",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "data: { snapshotId: snapshotEventId },"
+        }
+      ]
+    },
+    {
+      "id": "b-544",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "ts: Date.now()"
+        }
+      ]
+    },
+    {
+      "id": "b-545",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-546",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-547",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-548",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "5. **Workspace Templates**"
+        }
+      ]
+    },
+    {
+      "id": "b-549",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Save and reuse workspace structures:"
+        }
+      ]
+    },
+    {
+      "id": "b-550",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-551",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Template: \"Product Launch Workspace\""
+        }
+      ]
+    },
+    {
+      "id": "b-552",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const template = {"
+        }
+      ]
+    },
+    {
+      "id": "b-553",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('node', 'template'),"
+        }
+      ]
+    },
+    {
+      "id": "b-554",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Template', 'WorkspaceTemplate'],"
+        }
+      ]
+    },
+    {
+      "id": "b-555",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-556",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: 'Product Launch',"
+        }
+      ]
+    },
+    {
+      "id": "b-557",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "description: 'Strategy → Design → Metrics workflow',"
+        }
+      ]
+    },
+    {
+      "id": "b-558",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "structure: {"
+        }
+      ]
+    },
+    {
+      "id": "b-559",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "blocks: ["
+        }
+      ]
+    },
+    {
+      "id": "b-560",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ type: 'NotionPage', title: 'Strategy', relPos: { x: 0, y: 0 } },"
+        }
+      ]
+    },
+    {
+      "id": "b-561",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ type: 'FigmaEmbed', title: 'Wireframes', relPos: { x: 450, y: 0 } },"
+        }
+      ]
+    },
+    {
+      "id": "b-562",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ type: 'Spreadsheet', title: 'Metrics', relPos: { x: 0, y: 650 } }"
+        }
+      ]
+    },
+    {
+      "id": "b-563",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "],"
+        }
+      ]
+    },
+    {
+      "id": "b-564",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: ["
+        }
+      ]
+    },
+    {
+      "id": "b-565",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ from: 0, to: 1, pred: 'informs' },"
+        }
+      ]
+    },
+    {
+      "id": "b-566",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "{ from: 1, to: 2, pred: 'measures' }"
+        }
+      ]
+    },
+    {
+      "id": "b-567",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "]"
+        }
+      ]
+    },
+    {
+      "id": "b-568",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-569",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-570",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-571",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Use template"
+        }
+      ]
+    },
+    {
+      "id": "b-572",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "async function createWorkspaceFromTemplate(templateId, workspaceName) {"
+        }
+      ]
+    },
+    {
+      "id": "b-573",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = await db.queryOnce({"
+        }
+      ]
+    },
+    {
+      "id": "b-574",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "nodes: { where: { '@id': templateId } }"
+        }
+      ]
+    },
+    {
+      "id": "b-575",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-576",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const template = data.nodes[0];"
+        }
+      ]
+    },
+    {
+      "id": "b-577",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const workspace = {"
+        }
+      ]
+    },
+    {
+      "id": "b-578",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('node', 'workspace'),"
+        }
+      ]
+    },
+    {
+      "id": "b-579",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Workspace'],"
+        }
+      ]
+    },
+    {
+      "id": "b-580",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: { title: workspaceName }"
+        }
+      ]
+    },
+    {
+      "id": "b-581",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-582",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createNode(workspace);"
+        }
+      ]
+    },
+    {
+      "id": "b-583",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Instantiate blocks"
+        }
+      ]
+    },
+    {
+      "id": "b-584",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const blockMap = {};"
+        }
+      ]
+    },
+    {
+      "id": "b-585",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "template.props.structure.blocks.forEach((blockTemplate, i) => {"
+        }
+      ]
+    },
+    {
+      "id": "b-586",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const block = {"
+        }
+      ]
+    },
+    {
+      "id": "b-587",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('node', 'block'),"
+        }
+      ]
+    },
+    {
+      "id": "b-588",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@type': ['Block', blockTemplate.type],"
+        }
+      ]
+    },
+    {
+      "id": "b-589",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "props: {"
+        }
+      ]
+    },
+    {
+      "id": "b-590",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "title: blockTemplate.title,"
+        }
+      ]
+    },
+    {
+      "id": "b-591",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "context: workspace['@id'],"
+        }
+      ]
+    },
+    {
+      "id": "b-592",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pos: blockTemplate.relPos"
+        }
+      ]
+    },
+    {
+      "id": "b-593",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-594",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "};"
+        }
+      ]
+    },
+    {
+      "id": "b-595",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createNode(block);"
+        }
+      ]
+    },
+    {
+      "id": "b-596",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "blockMap[i] = block['@id'];"
+        }
+      ]
+    },
+    {
+      "id": "b-597",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-598",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Instantiate edges"
+        }
+      ]
+    },
+    {
+      "id": "b-599",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "template.props.structure.edges.forEach(edgeTemplate => {"
+        }
+      ]
+    },
+    {
+      "id": "b-600",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "graphTransactions.createEdge({"
+        }
+      ]
+    },
+    {
+      "id": "b-601",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "'@id': generateId('edge'),"
+        }
+      ]
+    },
+    {
+      "id": "b-602",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "from: blockMap[edgeTemplate.from],"
+        }
+      ]
+    },
+    {
+      "id": "b-603",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "to: blockMap[edgeTemplate.to],"
+        }
+      ]
+    },
+    {
+      "id": "b-604",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "pred: edgeTemplate.pred"
+        }
+      ]
+    },
+    {
+      "id": "b-605",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-606",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-607",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "return workspace;"
+        }
+      ]
+    },
+    {
+      "id": "b-608",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-609",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-610",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-611",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Part 4: The Architecture Becomes the Product"
+        }
+      ]
+    },
+    {
+      "id": "b-612",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here's the key insight: **You're not building a spatial workspace. You're building an explicit workspace graph.**"
+        }
+      ]
+    },
+    {
+      "id": "b-613",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Notion + Figma give you:"
+        }
+      ]
+    },
+    {
+      "id": "b-617",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-614",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Places to put content"
+            }
+          ]
+        },
+        {
+          "id": "b-615",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pretty UI"
+            }
+          ]
+        },
+        {
+          "id": "b-616",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Relationships are implicit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-618",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Your system gives you:"
+        }
+      ]
+    },
+    {
+      "id": "b-624",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-619",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Queryable relationships"
+            }
+          ]
+        },
+        {
+          "id": "b-620",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Auditable history"
+            }
+          ]
+        },
+        {
+          "id": "b-621",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent-understandable structure"
+            }
+          ]
+        },
+        {
+          "id": "b-622",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proposal/acceptance flows"
+            }
+          ]
+        },
+        {
+          "id": "b-623",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dependency tracking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-625",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**The spatial UI is just how you render it.**"
+        }
+      ]
+    },
+    {
+      "id": "b-626",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-627",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// The actual product is this:"
+        }
+      ]
+    },
+    {
+      "id": "b-628",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "function WorkspaceCanvas({ workspaceId }) {"
+        }
+      ]
+    },
+    {
+      "id": "b-629",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const { data } = db.useQuery({"
+        }
+      ]
+    },
+    {
+      "id": "b-630",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "nodes: {"
+        }
+      ]
+    },
+    {
+      "id": "b-631",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "where: { '@type': { $contains: 'Block' }, 'props.context': workspaceId }"
+        }
+      ]
+    },
+    {
+      "id": "b-632",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "},"
+        }
+      ]
+    },
+    {
+      "id": "b-633",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "edges: {}"
+        }
+      ]
+    },
+    {
+      "id": "b-634",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "});"
+        }
+      ]
+    },
+    {
+      "id": "b-635",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const blocks = data.nodes;"
+        }
+      ]
+    },
+    {
+      "id": "b-636",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "const edges = data.edges;"
+        }
+      ]
+    },
+    {
+      "id": "b-637",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Render blocks spatially"
+        }
+      ]
+    },
+    {
+      "id": "b-638",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Draw edges as connections"
+        }
+      ]
+    },
+    {
+      "id": "b-639",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Handle drag-and-drop (updates pos in node)"
+        }
+      ]
+    },
+    {
+      "id": "b-640",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// Track all changes as events"
+        }
+      ]
+    },
+    {
+      "id": "b-641",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// That's it. Everything else flows from the graph."
+        }
+      ]
+    },
+    {
+      "id": "b-642",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-643",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-644",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-645",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Part 5: Immediate Implementation Path"
+        }
+      ]
+    },
+    {
+      "id": "b-646",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 1: Basic Spatial (2 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-650",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-647",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Render nodes on canvas by pos/size"
+            }
+          ]
+        },
+        {
+          "id": "b-648",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drag to update pos"
+            }
+          ]
+        },
+        {
+          "id": "b-649",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draw lines between edges"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-651",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 2: Mini-Apps (2 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-655",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-652",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Notion block renderer"
+            }
+          ]
+        },
+        {
+          "id": "b-653",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spreadsheet block renderer"
+            }
+          ]
+        },
+        {
+          "id": "b-654",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Database block renderer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-656",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 3: Agent Coordination (2 weeks)"
+        }
+      ]
+    },
+    {
+      "id": "b-660",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-657",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent suggests layouts"
+            }
+          ]
+        },
+        {
+          "id": "b-658",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent detects conflicts"
+            }
+          ]
+        },
+        {
+          "id": "b-659",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proposal/accept flow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-661",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Phase 4: Advanced (ongoing)"
+        }
+      ]
+    },
+    {
+      "id": "b-666",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-662",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cross-block formulas"
+            }
+          ]
+        },
+        {
+          "id": "b-663",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Workspace templates"
+            }
+          ]
+        },
+        {
+          "id": "b-664",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Snapshots/restore"
+            }
+          ]
+        },
+        {
+          "id": "b-665",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Advanced queries"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-667",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-668",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "Why This Beats Notion + Figma"
+        }
+      ]
+    },
+    {
+      "id": "b-669",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Feature | Notion | Figma | Your System |"
+        }
+      ]
+    },
+    {
+      "id": "b-670",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| --- | --- | --- | --- |"
+        }
+      ]
+    },
+    {
+      "id": "b-671",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Blocks on canvas | ✗ | ✓ | ✓ |"
+        }
+      ]
+    },
+    {
+      "id": "b-672",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Queryable relationships | Partial | ✗ | ✓ |"
+        }
+      ]
+    },
+    {
+      "id": "b-673",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Auditable decisions | ✗ | ✗ | ✓ |"
+        }
+      ]
+    },
+    {
+      "id": "b-674",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Agent-native | ✗ | ✗ | ✓ |"
+        }
+      ]
+    },
+    {
+      "id": "b-675",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Multi-app integration | ✗ | ✗ | ✓ |"
+        }
+      ]
+    },
+    {
+      "id": "b-676",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Dependency tracking | ✗ | ✗ | ✓ |"
+        }
+      ]
+    },
+    {
+      "id": "b-677",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "| Conflict detection | ✗ | ✗ | ✓ |"
+        }
+      ]
+    },
+    {
+      "id": "b-678",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "---"
+        }
+      ]
+    },
+    {
+      "id": "b-679",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "The Real Value Proposition"
+        }
+      ]
+    },
+    {
+      "id": "b-680",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You're not building \"Notion + Figma\". You're building:"
+        }
+      ]
+    },
+    {
+      "id": "b-681",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**A workspace where everything is connected, queryable, and agent-understandable.**"
+        }
+      ]
+    },
+    {
+      "id": "b-687",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-682",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Product designer changes wireframe → metrics auto-flag impact"
+            }
+          ]
+        },
+        {
+          "id": "b-683",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent suggests related blocks → you see why they're related"
+            }
+          ]
+        },
+        {
+          "id": "b-684",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You delete a block → system warns you what breaks"
+            }
+          ]
+        },
+        {
+          "id": "b-685",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Agent proposes new structure → you see the reasoning"
+            }
+          ]
+        },
+        {
+          "id": "b-686",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You undo a decision → full history is there"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-688",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**That's worth building.**"
+        }
+      ]
+    }
+  ]
+}

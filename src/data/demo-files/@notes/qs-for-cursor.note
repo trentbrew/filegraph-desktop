@@ -1,0 +1,233 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-227",
+  "title": "Qs for Cursor",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Qs for Cursor"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That's an excellent question and touches on a more sophisticated way to handle agent routing! You're absolutely right – relying purely on regex/keywords is brittle and doesn't scale well as complexity grows."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Using an LLM or embeddings for routing are indeed common and often better approaches:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **\"Router\" LLM (Function Calling/Tool Use):**"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **How it works:** Instead of simple keyword checks, you'd make a preliminary, quick call to an LLM (could be a smaller, faster model or the main one). You'd provide it with the user's query, maybe conversation history, and crucially, a list of available \"tools\" or \"agents\" along with descriptions of what they do and what parameters they expect (like our Zod schemas!)."
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Output:** The LLM would respond by indicating *which* agent/tool should be called and *extracting the necessary arguments* directly from the user's natural language input. For \"add a note titled 'Shopping List' saying buy milk\", it would ideally output `{ agent: 'notes', args: { action: 'create', title: 'Shopping List', content: 'buy milk' } }`."
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Pros:** Much more flexible, understands intent and nuance beyond keywords, handles complex argument extraction gracefully. Adapts better as you add more agents. This is the core idea behind features like OpenAI's Function Calling / Tool Use."
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Cons:** Adds latency (one extra LLM call per turn), increases cost, and requires careful prompt engineering or fine-tuning of the \"router\" LLM to be reliable."
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Embeddings-Based Routing:**"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **How it works:**"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- You create embedding vectors for the *descriptions* of each agent (e.g., the `description` field in our `Agent` interface)."
+        }
+      ]
+    },
+    {
+      "id": "b-12",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- When a user query comes in, you create an embedding for the query text itself."
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- You calculate the cosine similarity between the query embedding and each agent's description embedding."
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The agent with the highest similarity score is chosen."
+        }
+      ]
+    },
+    {
+      "id": "b-15",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Pros:** Very fast (after initial embedding generation), computationally cheap, good at capturing *semantic* similarity even if keywords don't match exactly. If a user says \"log my thoughts about the meeting,\" it might correctly match the 'notes' agent even without the word \"note.\""
+        }
+      ]
+    },
+    {
+      "id": "b-16",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Cons:** Primarily good for *selecting* the agent, less effective at *extracting arguments*. You often still need a secondary step (regex or another LLM call) to get parameters like title/content. It's also sensitive to the quality of the agent descriptions."
+        }
+      ]
+    },
+    {
+      "id": "b-17",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- **Note:** We actually *already have* a basic version of this implemented in `orchestration.ts` (`selectAgentByEmbedding`) as a *fallback* if keyword matching fails!"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Why the Current Approach?**"
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The current regex/keyword approach was likely chosen for initial simplicity, speed, and predictability. It's easier to debug direct matches, and it avoids the extra latency/cost of another LLM call for simple cases."
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "**Moving Forward:**"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Using a dedicated \"Router LLM\" (like Function Calling) is generally the most robust and scalable path for complex interactions and argument extraction. Embeddings are great for semantic agent *selection*. Often, a hybrid approach works well (e.g., try keywords/embeddings first for speed, fall back to a router LLM if needed)."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Given the complexity and potential benefits, would you like to explore refactoring the `routeUserInput` function now to use the main LLM for routing and argument extraction instead of the current keyword/regex checks? Or stick with the current approach for now and refine it?"
+        }
+      ]
+    }
+  ]
+}

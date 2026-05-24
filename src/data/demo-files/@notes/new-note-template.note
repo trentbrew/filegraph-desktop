@@ -1,0 +1,3105 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:new-note-template:001",
+  "title": "New Note [TEMPLATE]",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "New Note [TEMPLATE]"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You’re building something that stops being “a tool” and starts being “your second brain with an API.” Good. Let’s treat it like that."
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I’ll answer in four parts:"
+        }
+      ]
+    },
+    {
+      "id": "b-4",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. What you’re actually building now (it’s bigger than “LifeOS” already)"
+        }
+      ]
+    },
+    {
+      "id": "b-5",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Whether the Next.js monorepo + TQL under /packages is the right move"
+        }
+      ]
+    },
+    {
+      "id": "b-6",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. How to structure the system so it won’t collapse under its own weight"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. The critical pieces you need to design next (in order)"
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "–––"
+        }
+      ]
+    },
+    {
+      "id": "b-9",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "1. What you’re actually building"
+        }
+      ]
+    },
+    {
+      "id": "b-10",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You’re no longer just tracking “goals” and “memories.”"
+        }
+      ]
+    },
+    {
+      "id": "b-11",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You’re tracking:"
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "communications (email, text, calls)"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "logistics (calendar, schedule)"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "creative pipeline (content ideas → drafts → scheduled → published)"
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "relationships (contacts, collaborators, inspirations, public figures)"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "finances (transactions, invoices, budget)"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "personal state (journal, habits, health, sleep)"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "opportunities (leads, gigs, jobs, collabs)"
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "knowledge (notes, saved links, research)"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "work/projects/tasks (filegraph graphs, work output)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That’s not a notes app. That’s a unified life graph."
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The product isn’t “an app.” The product is:"
+        }
+      ]
+    },
+    {
+      "id": "b-29",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-24",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "a local graph of your life"
+            }
+          ]
+        },
+        {
+          "id": "b-25",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "with indexed memory"
+            }
+          ]
+        },
+        {
+          "id": "b-26",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "with temporal awareness"
+            }
+          ]
+        },
+        {
+          "id": "b-27",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "with relationship awareness"
+            }
+          ]
+        },
+        {
+          "id": "b-28",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "with an agent sitting on top of it"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-30",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You are designing a personal operating system."
+        }
+      ]
+    },
+    {
+      "id": "b-31",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That’s good. That’s also dangerous. You’ll drown if you don’t put some boundaries in place now."
+        }
+      ]
+    },
+    {
+      "id": "b-32",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Which leads to architecture."
+        }
+      ]
+    },
+    {
+      "id": "b-33",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "–––"
+        }
+      ]
+    },
+    {
+      "id": "b-34",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Is the Next.js monorepo (apps/web + packages/tql) the right move?"
+        }
+      ]
+    },
+    {
+      "id": "b-35",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Short answer: yes, directionally correct. Long answer: tighten it before you go too far."
+        }
+      ]
+    },
+    {
+      "id": "b-36",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Why Next.js dashboard?"
+        }
+      ]
+    },
+    {
+      "id": "b-40",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-37",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’re going to want a dashboard UI. You already know that."
+            }
+          ]
+        },
+        {
+          "id": "b-38",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You will 100% want to do reflection / review / timeline on your phone or iPad. That’s web."
+            }
+          ]
+        },
+        {
+          "id": "b-39",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You will want to query your life from anywhere (“who did I promise I’d send the deck to?”). That’s web."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-41",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Why monorepo?"
+        }
+      ]
+    },
+    {
+      "id": "b-43",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-42",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You need to share types, schemas, graph logic, and query logic between:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-44",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- the CLI"
+        }
+      ]
+    },
+    {
+      "id": "b-45",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- the dashboard"
+        }
+      ]
+    },
+    {
+      "id": "b-46",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- the sync daemons"
+        }
+      ]
+    },
+    {
+      "id": "b-47",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- (later) the mobile client and VSCode panel widgets"
+        }
+      ]
+    },
+    {
+      "id": "b-48",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Why TQL in /packages?"
+        }
+      ]
+    },
+    {
+      "id": "b-52",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-49",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "TQL is the query engine. Everything else is just data around it."
+            }
+          ]
+        },
+        {
+          "id": "b-50",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You want LifeOS to be powered by knowledge-graph semantics, not bolted-on SQL."
+            }
+          ]
+        },
+        {
+          "id": "b-51",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Making TQL a package gives you one source of truth for queries across CLI, web, VSCode, etc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-53",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "So yeah: a turborepo-style monorepo with Next.js at `apps/web` and core libraries in `packages/` is exactly what you should be doing."
+        }
+      ]
+    },
+    {
+      "id": "b-54",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "But. You need a few more packages right now before this explodes."
+        }
+      ]
+    },
+    {
+      "id": "b-55",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Ideal layout:"
+        }
+      ]
+    },
+    {
+      "id": "b-56",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-57",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "monorepo/"
+        }
+      ]
+    },
+    {
+      "id": "b-58",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── apps/"
+        }
+      ]
+    },
+    {
+      "id": "b-59",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── web/                # Next.js dashboard (life dashboard)"
+        }
+      ]
+    },
+    {
+      "id": "b-60",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── desktop/            # (future) Electron shell using web app"
+        }
+      ]
+    },
+    {
+      "id": "b-61",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-62",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── packages/"
+        }
+      ]
+    },
+    {
+      "id": "b-63",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── tql/                # query engine (your current TQL)"
+        }
+      ]
+    },
+    {
+      "id": "b-64",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── core/               # LifeOS domain layer (schemas, graph ops, queries)"
+        }
+      ]
+    },
+    {
+      "id": "b-65",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── cli/                # lifeos CLI (talks to core)"
+        }
+      ]
+    },
+    {
+      "id": "b-66",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── adapters/           # Gmail, Calendar, iMessage, Bank, etc"
+        }
+      ]
+    },
+    {
+      "id": "b-67",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── storage/            # local graph store (jsonld/sqlite/etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-68",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   ├── ui/                 # shared React components (timeline, graph view, kanban, etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-69",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│   └── utils/              # crypto, embeddings, markdown, etc"
+        }
+      ]
+    },
+    {
+      "id": "b-70",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "│"
+        }
+      ]
+    },
+    {
+      "id": "b-71",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── services/"
+        }
+      ]
+    },
+    {
+      "id": "b-72",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "├── sync-worker/        # long-running sync loop (pull email, calendar, etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-73",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "└── api/                # (later) local HTTP API or remote cloud service"
+        }
+      ]
+    },
+    {
+      "id": "b-74",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-75",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Why this matters:"
+        }
+      ]
+    },
+    {
+      "id": "b-80",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-76",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`packages/core` becomes the heart. Everything else is a client."
+            }
+          ]
+        },
+        {
+          "id": "b-77",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You avoid stuffing all logic into the Next.js app."
+            }
+          ]
+        },
+        {
+          "id": "b-78",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can ship CLI, sync worker, and dashboard off the same graph logic."
+            }
+          ]
+        },
+        {
+          "id": "b-79",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You leave space for “run local only” vs “sync to hosted cloud” later."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-81",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "In other words: keep Next.js, keep monorepo, modularize it now before it’s too late."
+        }
+      ]
+    },
+    {
+      "id": "b-82",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "–––"
+        }
+      ]
+    },
+    {
+      "id": "b-83",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "3. The real architectural choice you have to make now"
+        }
+      ]
+    },
+    {
+      "id": "b-84",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The biggest question is NOT “React vs something else.”"
+        }
+      ]
+    },
+    {
+      "id": "b-85",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "It’s: where does truth live?"
+        }
+      ]
+    },
+    {
+      "id": "b-86",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You now have 3 kinds of data:"
+        }
+      ]
+    },
+    {
+      "id": "b-87",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "A. High-frequency, structured, machine data"
+        }
+      ]
+    },
+    {
+      "id": "b-88",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Email, SMS, calendar events, bank transactions, commits, messages, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-89",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This stuff updates constantly and might have thousands of rows."
+        }
+      ]
+    },
+    {
+      "id": "b-90",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You cannot realistically store all of that as raw JSON-LD objects in one giant `graph.jsonld` and diff it in git. That will melt."
+        }
+      ]
+    },
+    {
+      "id": "b-91",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This needs a proper store (SQLite locally, Postgres if/when you host)."
+        }
+      ]
+    },
+    {
+      "id": "b-92",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "B. Low-frequency, high-value graph nodes"
+        }
+      ]
+    },
+    {
+      "id": "b-93",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Goals, habits, people, relationships, opportunities, long-term projects, “what matters this quarter,” etc."
+        }
+      ]
+    },
+    {
+      "id": "b-94",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "These actually *should* live in a JSON-LD graph file (or layered graph files) because:"
+        }
+      ]
+    },
+    {
+      "id": "b-99",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-95",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "you want semantic relationships"
+            }
+          ]
+        },
+        {
+          "id": "b-96",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "you want diff history in git"
+            }
+          ]
+        },
+        {
+          "id": "b-97",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "you want to inspect/edit by hand"
+            }
+          ]
+        },
+        {
+          "id": "b-98",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "you want linkability between concepts, not just rows in a table"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-100",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is basically the “soul layer.”"
+        }
+      ]
+    },
+    {
+      "id": "b-101",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "C. Rendered / projected views for you (and for the AI)"
+        }
+      ]
+    },
+    {
+      "id": "b-108",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-102",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Human-readable markdown dashboards"
+            }
+          ]
+        },
+        {
+          "id": "b-103",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weekly reviews auto-generated"
+            }
+          ]
+        },
+        {
+          "id": "b-104",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“People I owe a reply” rollup"
+            }
+          ]
+        },
+        {
+          "id": "b-105",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“This quarter’s goals with current progress”"
+            }
+          ]
+        },
+        {
+          "id": "b-106",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“Money view” with income/spend deltas"
+            }
+          ]
+        },
+        {
+          "id": "b-107",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“Content pipeline” board (idea → draft → edited → scheduled → shipped)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-109",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "These are not source of truth."
+        }
+      ]
+    },
+    {
+      "id": "b-110",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "These are cached / generated projections."
+        }
+      ]
+    },
+    {
+      "id": "b-111",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "So:"
+        }
+      ]
+    },
+    {
+      "id": "b-113",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-112",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Source of truth should be split.**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-114",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `~/.lifeos/graph.jsonld` for semantic/relational stuff (people, projects, goals, habits, etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-115",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `~/.lifeos/data.db` (SQLite) for stream data (email, messages, transactions, etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-117",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-116",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**TQL sits on top and unifies them.**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-118",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "TQL doesn’t care *where* a fact came from. It just wants to emit facts."
+        }
+      ]
+    },
+    {
+      "id": "b-120",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-119",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Your dashboard and CLI query through one API:**"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-121",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "“give me everything relevant to ‘sprint planning this week’”"
+        }
+      ]
+    },
+    {
+      "id": "b-122",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "→ joins goals, commitments, meetings, money, tasks, people"
+        }
+      ]
+    },
+    {
+      "id": "b-123",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "→ surfaces it as a card, timeline, kanban, whatever"
+        }
+      ]
+    },
+    {
+      "id": "b-124",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This split (graph.jsonld + sqlite) is extremely important."
+        }
+      ]
+    },
+    {
+      "id": "b-125",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If you try to jam everything into pure JSON-LD you will regret it within a week of pulling email."
+        }
+      ]
+    },
+    {
+      "id": "b-126",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This becomes your storage layer in `packages/storage`:"
+        }
+      ]
+    },
+    {
+      "id": "b-130",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-127",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "JSON-LD disk adapter"
+            }
+          ]
+        },
+        {
+          "id": "b-128",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "SQLite adapter"
+            }
+          ]
+        },
+        {
+          "id": "b-129",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "(later) Postgres/S3 adapters for sync’d/cloud mode"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-131",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You already sort of started designing this with FileGraph + metadata + edges. Just extend that thinking:"
+        }
+      ]
+    },
+    {
+      "id": "b-132",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "facts are facts, storage is interchangeable."
+        }
+      ]
+    },
+    {
+      "id": "b-133",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "–––"
+        }
+      ]
+    },
+    {
+      "id": "b-134",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Immediate next design problems to solve (in order)"
+        }
+      ]
+    },
+    {
+      "id": "b-135",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "I’ll be candid: most of the features you listed are cute but not urgent."
+        }
+      ]
+    },
+    {
+      "id": "b-136",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Here’s what *is* urgent if you want LifeOS to not rot:"
+        }
+      ]
+    },
+    {
+      "id": "b-137",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "(1) Canonical Entity Schemas"
+        }
+      ]
+    },
+    {
+      "id": "b-138",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You need clean, minimal, opinionated JSON-LD shapes for a few first-class entities."
+        }
+      ]
+    },
+    {
+      "id": "b-139",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Not 30. Start with 8:"
+        }
+      ]
+    },
+    {
+      "id": "b-141",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-140",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`person`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-142",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- can be a friend, collaborator, lead, public figure, etc"
+        }
+      ]
+    },
+    {
+      "id": "b-143",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- fields: name, how you know them, last_contact, tags, importance, domain (work / personal / inspiration)"
+        }
+      ]
+    },
+    {
+      "id": "b-145",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-144",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`goal`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-146",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- what you’re moving toward"
+        }
+      ]
+    },
+    {
+      "id": "b-147",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- timeframe, domain (health / money / craft / relationships / etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-148",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- progress, target, why it matters"
+        }
+      ]
+    },
+    {
+      "id": "b-150",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-149",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`habit`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-151",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- repeated practice you want to maintain"
+        }
+      ]
+    },
+    {
+      "id": "b-152",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- recurrence, streak, last_done, domain"
+        }
+      ]
+    },
+    {
+      "id": "b-154",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-153",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`memory` / `journal_entry`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-155",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- a logged moment (day summary, conversation, realization)"
+        }
+      ]
+    },
+    {
+      "id": "b-156",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- timestamp, who was involved, mood, tags"
+        }
+      ]
+    },
+    {
+      "id": "b-158",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-157",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`opportunity`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-159",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- potential clients/gigs/jobs/collabs"
+        }
+      ]
+    },
+    {
+      "id": "b-160",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- status (new / in-progress / waiting / closed)"
+        }
+      ]
+    },
+    {
+      "id": "b-161",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- value/urgency"
+        }
+      ]
+    },
+    {
+      "id": "b-162",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- next_action"
+        }
+      ]
+    },
+    {
+      "id": "b-164",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-163",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`project`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-165",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- like filegraph “project,” but includes life projects too (album, portfolio, moving, etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-166",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- links to tasks (from filegraph) and goals"
+        }
+      ]
+    },
+    {
+      "id": "b-168",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-167",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`financial_transaction`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-169",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- timestamp, amount, category, counterparty"
+        }
+      ]
+    },
+    {
+      "id": "b-170",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- (keep this minimal; categorize later)"
+        }
+      ]
+    },
+    {
+      "id": "b-172",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-171",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`content_asset`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-173",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- idea/blog post/video/social piece"
+        }
+      ]
+    },
+    {
+      "id": "b-174",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- status in pipeline, channel, audience, scheduled_at"
+        }
+      ]
+    },
+    {
+      "id": "b-175",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Those 8 cover: health, relationships, money, career, creative work, reflection."
+        }
+      ]
+    },
+    {
+      "id": "b-176",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Everything else can come later."
+        }
+      ]
+    },
+    {
+      "id": "b-177",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If you don’t lock shapes early, the rest of the system becomes mush."
+        }
+      ]
+    },
+    {
+      "id": "b-178",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This belongs in `packages/core/entities/*.ts` and is shared by CLI, sync-worker, and dashboard."
+        }
+      ]
+    },
+    {
+      "id": "b-179",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "(2) Temporal context"
+        }
+      ]
+    },
+    {
+      "id": "b-180",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "LifeOS without time awareness is useless."
+        }
+      ]
+    },
+    {
+      "id": "b-181",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every entity in that list needs temporal hooks:"
+        }
+      ]
+    },
+    {
+      "id": "b-189",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-182",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`occurred_at` (memories, events)"
+            }
+          ]
+        },
+        {
+          "id": "b-183",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`last_contact_at` (person)"
+            }
+          ]
+        },
+        {
+          "id": "b-184",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`scheduled_at` (content)"
+            }
+          ]
+        },
+        {
+          "id": "b-185",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`due_at` (goal milestone/opportunity next action)"
+            }
+          ]
+        },
+        {
+          "id": "b-186",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`last_done_at` / `streak_count` (habit)"
+            }
+          ]
+        },
+        {
+          "id": "b-187",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`amount_at` (finances)"
+            }
+          ]
+        },
+        {
+          "id": "b-188",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`next_check_in_at` (person/opportunity)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-190",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Why?"
+        }
+      ]
+    },
+    {
+      "id": "b-191",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Because nearly every useful query you’ll ask your AI will be temporal:"
+        }
+      ]
+    },
+    {
+      "id": "b-196",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-192",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“Who did I fall off with?” → stale relationships"
+            }
+          ]
+        },
+        {
+          "id": "b-193",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“What did I actually do this week?” → journal + calendar + filegraph tasks"
+            }
+          ]
+        },
+        {
+          "id": "b-194",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“Am I still aligned with what I said I cared about this quarter?” → goals vs current activity"
+            }
+          ]
+        },
+        {
+          "id": "b-195",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“What needs attention before money breaks?” → recurring spend spikes + unpaid invoices"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-197",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If you include timestamps, you can answer those."
+        }
+      ]
+    },
+    {
+      "id": "b-198",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If you don’t, LifeOS becomes a pretty scrapbook."
+        }
+      ]
+    },
+    {
+      "id": "b-199",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "So: bake time into schemas now."
+        }
+      ]
+    },
+    {
+      "id": "b-200",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "(3) Scoping / multi-space"
+        }
+      ]
+    },
+    {
+      "id": "b-201",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "filegraph handled project scopes."
+        }
+      ]
+    },
+    {
+      "id": "b-202",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "LifeOS needs “domains” instead of “scopes.”"
+        }
+      ]
+    },
+    {
+      "id": "b-203",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is how you keep sanity."
+        }
+      ]
+    },
+    {
+      "id": "b-204",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Every entity should be tagged with a life domain:"
+        }
+      ]
+    },
+    {
+      "id": "b-212",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-205",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`health`"
+            }
+          ]
+        },
+        {
+          "id": "b-206",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`money`"
+            }
+          ]
+        },
+        {
+          "id": "b-207",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`relationships`"
+            }
+          ]
+        },
+        {
+          "id": "b-208",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`craft` (creative output, skill)"
+            }
+          ]
+        },
+        {
+          "id": "b-209",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`work`"
+            }
+          ]
+        },
+        {
+          "id": "b-210",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`home / logistics`"
+            }
+          ]
+        },
+        {
+          "id": "b-211",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`self` (mental state, reflection)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-213",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That’s how you drive dashboards:"
+        }
+      ]
+    },
+    {
+      "id": "b-219",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-214",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“show me health this week”"
+            }
+          ]
+        },
+        {
+          "id": "b-215",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“show me relationships I’ve neglected”"
+            }
+          ]
+        },
+        {
+          "id": "b-216",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“show me content-in-progress in craft”"
+            }
+          ]
+        },
+        {
+          "id": "b-217",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“show me cashflow in money”"
+            }
+          ]
+        },
+        {
+          "id": "b-218",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“show me unclosed opportunities in work”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-220",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "So: in schemas, require `domains: string[]`."
+        }
+      ]
+    },
+    {
+      "id": "b-221",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That maps directly to UI sections in the dashboard."
+        }
+      ]
+    },
+    {
+      "id": "b-222",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Without this, the dashboard becomes “everything everywhere” chaos."
+        }
+      ]
+    },
+    {
+      "id": "b-223",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "(4) Synchronization layer"
+        }
+      ]
+    },
+    {
+      "id": "b-224",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "You said: email, calendar, text messages, finances, files/docs, etc."
+        }
+      ]
+    },
+    {
+      "id": "b-225",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Good instinct to isolate it."
+        }
+      ]
+    },
+    {
+      "id": "b-226",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Do not bake Gmail/iMessage/Calendar into the core. Put them in `packages/adapters`."
+        }
+      ]
+    },
+    {
+      "id": "b-227",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Shape:"
+        }
+      ]
+    },
+    {
+      "id": "b-228",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```tsx"
+        }
+      ]
+    },
+    {
+      "id": "b-229",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "// packages/adapters/base.ts"
+        }
+      ]
+    },
+    {
+      "id": "b-230",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "export interface Adapter {"
+        }
+      ]
+    },
+    {
+      "id": "b-231",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "name: string;"
+        }
+      ]
+    },
+    {
+      "id": "b-232",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "sync(opts: { since?: Date }): Promise<LifeOSEntity[]>;"
+        }
+      ]
+    },
+    {
+      "id": "b-233",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "}"
+        }
+      ]
+    },
+    {
+      "id": "b-234",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "```"
+        }
+      ]
+    },
+    {
+      "id": "b-235",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Then implement:"
+        }
+      ]
+    },
+    {
+      "id": "b-240",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-236",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`gmailAdapter.sync()` → returns normalized `Email` entities"
+            }
+          ]
+        },
+        {
+          "id": "b-237",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`calendarAdapter.sync()` → returns normalized `Event`"
+            }
+          ]
+        },
+        {
+          "id": "b-238",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`bankAdapter.sync()` → returns normalized `FinancialTransaction`"
+            }
+          ]
+        },
+        {
+          "id": "b-239",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "`imessageAdapter.sync()` → returns normalized `TextMessage`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-241",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Each sync just upserts into storage through core, which:"
+        }
+      ]
+    },
+    {
+      "id": "b-247",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-242",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "assigns IDs"
+            }
+          ]
+        },
+        {
+          "id": "b-243",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "dedupes"
+            }
+          ]
+        },
+        {
+          "id": "b-244",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "links people by email/phone"
+            }
+          ]
+        },
+        {
+          "id": "b-245",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "updates “last_contact_at”"
+            }
+          ]
+        },
+        {
+          "id": "b-246",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "updates “spend_this_week” rollups, etc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-248",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Make sync a background service in `services/sync-worker` that runs on an interval (cron or manual trigger)."
+        }
+      ]
+    },
+    {
+      "id": "b-249",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This gives you:"
+        }
+      ]
+    },
+    {
+      "id": "b-253",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-250",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ingestion"
+            }
+          ]
+        },
+        {
+          "id": "b-251",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "normalization"
+            }
+          ]
+        },
+        {
+          "id": "b-252",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "relationship linking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-254",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "And that is literally the backbone of your “life graph.”"
+        }
+      ]
+    },
+    {
+      "id": "b-255",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "(5) The dashboard"
+        }
+      ]
+    },
+    {
+      "id": "b-256",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The Next.js app in `apps/web` should not try to edit everything. Not first."
+        }
+      ]
+    },
+    {
+      "id": "b-257",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "It should do 4 things extremely well:"
+        }
+      ]
+    },
+    {
+      "id": "b-258",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. “How am I doing right now?”"
+        }
+      ]
+    },
+    {
+      "id": "b-259",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- health / money / relationships / work / craft / self"
+        }
+      ]
+    },
+    {
+      "id": "b-260",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- pulled from domain tags + temporal recency"
+        }
+      ]
+    },
+    {
+      "id": "b-261",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. “Who/what needs attention?”"
+        }
+      ]
+    },
+    {
+      "id": "b-262",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- people I haven’t replied to"
+        }
+      ]
+    },
+    {
+      "id": "b-263",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- opportunities going stale"
+        }
+      ]
+    },
+    {
+      "id": "b-264",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- unpaid invoices"
+        }
+      ]
+    },
+    {
+      "id": "b-265",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- habits slipping"
+        }
+      ]
+    },
+    {
+      "id": "b-266",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- drafts I haven’t touched"
+        }
+      ]
+    },
+    {
+      "id": "b-267",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. “What actually happened this week?”"
+        }
+      ]
+    },
+    {
+      "id": "b-268",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- timeline: events, memories, work shipped, social activity, spend spikes"
+        }
+      ]
+    },
+    {
+      "id": "b-269",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. “What am I moving toward?”"
+        }
+      ]
+    },
+    {
+      "id": "b-270",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- active goals with current progress"
+        }
+      ]
+    },
+    {
+      "id": "b-271",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- upcoming commitments / deadlines / drops"
+        }
+      ]
+    },
+    {
+      "id": "b-272",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- publishing schedule, if you’re in content mode"
+        }
+      ]
+    },
+    {
+      "id": "b-273",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That’s it."
+        }
+      ]
+    },
+    {
+      "id": "b-274",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Timeline, attention, goals, state."
+        }
+      ]
+    },
+    {
+      "id": "b-275",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "If you try to make it full-editable Notion on v1, you’ll stall for months and hate the thing. Make it mostly read-mode first with a couple high-value capture flows:"
+        }
+      ]
+    },
+    {
+      "id": "b-279",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-276",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "quick journal (“log this moment”)"
+            }
+          ]
+        },
+        {
+          "id": "b-277",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "quick goal capture (“I want to move toward ___”)"
+            }
+          ]
+        },
+        {
+          "id": "b-278",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "quick person log (“met ___, context is ___”)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-280",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Everything else can be CLI or agent-mediated for now."
+        }
+      ]
+    },
+    {
+      "id": "b-281",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "–––"
+        }
+      ]
+    },
+    {
+      "id": "b-282",
+      "type": "heading",
+      "level": 2,
+      "content": [
+        {
+          "type": "text",
+          "text": "So, to answer you directly:"
+        }
+      ]
+    },
+    {
+      "id": "b-283",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "> I'm considering making this into a web-based dashboard so I scaffolded as Next.js monorepo with TQL under packages. I'm open to a different way. thoughts?"
+        }
+      ]
+    },
+    {
+      "id": "b-284",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": ">"
+        }
+      ]
+    },
+    {
+      "id": "b-285",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Keep the monorepo. Keep Next.js. Keep TQL as a package."
+        }
+      ]
+    },
+    {
+      "id": "b-286",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "But introduce structure now so it doesn’t rot:"
+        }
+      ]
+    },
+    {
+      "id": "b-287",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. Add `packages/core`"
+        }
+      ]
+    },
+    {
+      "id": "b-288",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Schemas for your core entities (start with 8, not 40)"
+        }
+      ]
+    },
+    {
+      "id": "b-289",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Temporal model (occurred_at, last_contact_at, streak_count, etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-290",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Domain tagging (health / money / work / relationships / craft / self / home)"
+        }
+      ]
+    },
+    {
+      "id": "b-291",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Graph ops: create/update/link/merge"
+        }
+      ]
+    },
+    {
+      "id": "b-292",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. Add `packages/storage`"
+        }
+      ]
+    },
+    {
+      "id": "b-293",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Hybrid storage: JSON-LD graph for slow-changing “who am I / what matters,” plus SQLite for “all emails this month”"
+        }
+      ]
+    },
+    {
+      "id": "b-294",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Shared API to query both and expose clean facts to TQL"
+        }
+      ]
+    },
+    {
+      "id": "b-295",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. Add `packages/adapters`"
+        }
+      ]
+    },
+    {
+      "id": "b-296",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- All the syncers (email, calendar, messages, money, etc)"
+        }
+      ]
+    },
+    {
+      "id": "b-297",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Each one normalizes *into* your schemas, not their native mess"
+        }
+      ]
+    },
+    {
+      "id": "b-298",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. Add `packages/cli`"
+        }
+      ]
+    },
+    {
+      "id": "b-299",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- `lifeos goals`, `lifeos people`, `lifeos reflect`, `lifeos timeline --since last-week`, etc"
+        }
+      ]
+    },
+    {
+      "id": "b-300",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- This is your capture + triage interface"
+        }
+      ]
+    },
+    {
+      "id": "b-301",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- The agent learns from these commands the same way filegraph agents learned to CRUD"
+        }
+      ]
+    },
+    {
+      "id": "b-302",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "5. Keep `apps/web` for now as a dashboard, not a full editor"
+        }
+      ]
+    },
+    {
+      "id": "b-303",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Dashboard is a view over you (state now, trend, attention)"
+        }
+      ]
+    },
+    {
+      "id": "b-304",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- Don’t overbuild editing in the browser yet"
+        }
+      ]
+    },
+    {
+      "id": "b-305",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "- You can add editing once schemas/flows stabilize"
+        }
+      ]
+    },
+    {
+      "id": "b-306",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Later:"
+        }
+      ]
+    },
+    {
+      "id": "b-310",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-307",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can add Electron (desktop app wrapping the dashboard)"
+            }
+          ]
+        },
+        {
+          "id": "b-308",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can add mobile"
+            }
+          ]
+        },
+        {
+          "id": "b-309",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can add sync to a hosted Postgres if you ever go multi-device"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-311",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "But do not jump there yet."
+        }
+      ]
+    },
+    {
+      "id": "b-312",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "The only truly urgent design questions now are:"
+        }
+      ]
+    },
+    {
+      "id": "b-317",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-313",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lock the 8 schemas"
+            }
+          ]
+        },
+        {
+          "id": "b-314",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lock the temporal model"
+            }
+          ]
+        },
+        {
+          "id": "b-315",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lock the domain taxonomy"
+            }
+          ]
+        },
+        {
+          "id": "b-316",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lock ID strategy across adapters (so “Sarah” from iMessage and “Sarah Chen” from email become the same `person:...`)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-318",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "We can do those next, and after that you’re basically holding a private, semantic, AI-readable, lifelong autobiography that also knows who you owe an email."
+        }
+      ]
+    },
+    {
+      "id": "b-319",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "That’s the product."
+        }
+      ]
+    },
+    {
+      "id": "b-320",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Next move I’d take: we define the 8 base entity schemas in `packages/core/entities/*.ts` with required fields, temporal hooks, domain hooks, and IDs. Then we define how adapters upsert into those. That’s the spine."
+        }
+      ]
+    }
+  ]
+}

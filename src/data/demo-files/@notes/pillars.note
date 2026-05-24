@@ -1,0 +1,239 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-1",
+  "title": "Pillars",
+  "author": "person:jane-brew:001",
+  "status": "final",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Pillars"
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**People** (users, clients, customers, partners, team, stakeholders, contacts, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Organizations** (companies, teams, organizations, groups, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Agents** (customizable AI agents, chatbots, etc; agents are part of the team along with people, and can be assigned to projects, tasks, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Projects** (projects the organization is working on <model based on linear.app>)"
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Goals** (long-term ideals, with tools for thought, planning, and breaking down into actionable steps)"
+            }
+          ]
+        },
+        {
+          "id": "b-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Milestones** (deadline markers for projects and/or goals)"
+            }
+          ]
+        },
+        {
+          "id": "b-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Cycles** (a collection of tasks which are part of either a goal or a project)"
+            }
+          ]
+        },
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Tasks** (actionable ticket which can belong to a sprint)"
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Services** (services provided by the organization + their details & pricing)"
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Events** (calendar events, scheduled payments, deadlines, meetings, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Assets** (finances, assets, liabilities, budgets, predictions, etc; this is connected to everything, and automatically updates as things change)"
+            }
+          ]
+        },
+        {
+          "id": "b-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Documents** (invoices, documentation, slide decks, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Notes** (tagged notes written by humans)"
+            }
+          ]
+        },
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Sketchbook** (interface for illustrating ideas and concepts)"
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Workflows** (automated workflows for tasks, events, etc; similar to zapier | n8n | [make.com](http://make.com/))"
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Insights** (analytics, metrics, KPIs, etc; these are often generated by AI or other tools)"
+            }
+          ]
+        },
+        {
+          "id": "b-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Tools** (tech stack, devtools, design tools, project mgmt tools, 3rd party tools & APIs, products & platforms, etc) >>> Keep track of tools, login credentials, subscription status, pricing, etc. This is one of several tables that will inform the asset table."
+            }
+          ]
+        },
+        {
+          "id": "b-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Integrations** (integrations with 3rd party tools, services, platforms, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Conversations** (threads from slack, email, AI agent chats, meetings transcripts, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Files** (documents, images, videos, etc)"
+            }
+          ]
+        },
+        {
+          "id": "b-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Archive** (archived items, deleted items, etc; any item from any table can be archived. archived items are hidden from the UI, but can be restored; admins can permanently delete items with some confirmation)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

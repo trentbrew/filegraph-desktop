@@ -1,0 +1,245 @@
+{
+  "@context": {
+    "schema": "https://schema.org/"
+  },
+  "@type": "Note",
+  "@id": "note:notion-48",
+  "title": "Pricing",
+  "author": "person:jane-brew:001",
+  "status": "draft",
+  "blocks": [
+    {
+      "id": "b-1",
+      "type": "heading",
+      "level": 1,
+      "content": [
+        {
+          "type": "text",
+          "text": "Pricing"
+        }
+      ]
+    },
+    {
+      "id": "b-2",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Justifying the pricing for [Docket.tv](http://docket.tv/) can be approached by highlighting the value provided at each tier and comparing it to the competitive landscape. Here’s a breakdown:"
+        }
+      ]
+    },
+    {
+      "id": "b-3",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Basic Tier ($0/month)"
+        }
+      ]
+    },
+    {
+      "id": "b-7",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Target Audience**: Small broadcasters or individuals just starting out."
+            }
+          ]
+        },
+        {
+          "id": "b-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Value Proposition**: Provides essential features to get started with a basic TV guide, limited customization, and community support. This tier allows users to experience the platform without any financial commitment, encouraging adoption and potential upgrades. This tier is for small broadcasters or individuals just starting out who want to get a taste of what [Docket.tv](http://docket.tv/) has to offer."
+            }
+          ]
+        },
+        {
+          "id": "b-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Competitive Edge**: Many competitors do not offer a free tier, making [Docket.tv](http://docket.tv/) more accessible to a broader audience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-8",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Starter Tier ($49/month)"
+        }
+      ]
+    },
+    {
+      "id": "b-13",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Target Audience**: Small to medium-sized broadcasters who need more customization and support."
+            }
+          ]
+        },
+        {
+          "id": "b-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Value Proposition**: Offers a configurable TV guide, standard customization, email support, advanced analytics, Cablecast API integration, and embeddable widgets. This tier provides significant value for a relatively low cost, enabling broadcasters to enhance their viewer engagement and streamline operations. This tier is for small to medium-sized broadcasters who need more customization and support."
+            }
+          ]
+        },
+        {
+          "id": "b-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Competitive Edge**: Competitors like Plex TV and Pluto TV may offer similar features but often at higher prices or with less customization. The inclusion of advanced analytics and API integration at this price point is particularly attractive."
+            }
+          ]
+        },
+        {
+          "id": "b-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Description for Stripe (Appears at checkout, on the customer portal, and in quotes.)**: Provides cablecast integration, producer management, show management, and scheduling."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-14",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Pro Tier ($199/month)"
+        }
+      ]
+    },
+    {
+      "id": "b-18",
+      "type": "bulletList",
+      "children": [
+        {
+          "id": "b-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Target Audience**: Larger broadcasters or those with more complex needs."
+            }
+          ]
+        },
+        {
+          "id": "b-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Value Proposition**: Includes full TV guide customization, priority support, a comprehensive analytics dashboard, enhanced Cablecast API integration, interactive features (live chat, polls), multiple embeddable widgets, and white-label options. This tier is designed for broadcasters who need advanced features and high levels of customization and support."
+            }
+          ]
+        },
+        {
+          "id": "b-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "**Competitive Edge**: The Pro tier offers a comprehensive suite of features that are often only available in much more expensive enterprise solutions. The inclusion of interactive features and white-label options provides significant added value, making it a cost-effective choice for larger broadcasters."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-19",
+      "type": "heading",
+      "level": 3,
+      "content": [
+        {
+          "type": "text",
+          "text": "Rationale Behind Our Pricing"
+        }
+      ]
+    },
+    {
+      "id": "b-20",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "1. **Feature Set**: Each tier is carefully designed to offer a set of features that align with the needs and budgets of different segments of broadcasters. The progression from basic to advanced features justifies the incremental pricing."
+        }
+      ]
+    },
+    {
+      "id": "b-21",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "2. **Market Comparison**: When compared to competitors, [Docket.tv](http://docket.tv/) offers a competitive pricing structure with a robust set of features. Many competitors either do not offer a free tier or charge significantly more for similar features."
+        }
+      ]
+    },
+    {
+      "id": "b-22",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "3. **Value for Money**: The pricing reflects the value provided at each tier. The Free tier allows users to get started without any cost, the Basic tier offers essential features at an affordable price, and the Pro tier provides advanced features and customization options that justify the higher price point."
+        }
+      ]
+    },
+    {
+      "id": "b-23",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "4. **Scalability**: The tiered pricing model allows broadcasters to start with a lower-cost plan and scale up as their needs grow, ensuring long-term customer retention and satisfaction."
+        }
+      ]
+    },
+    {
+      "id": "b-24",
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "By emphasizing these points, you can effectively justify the pricing model for [Docket.tv](http://docket.tv/)."
+        }
+      ]
+    }
+  ]
+}
