@@ -45,6 +45,9 @@ interface UIStore {
   globalSidebarOpen: boolean
   globalSidebarWidth: number
 
+  // Bottom app icon rail
+  appRailOpen: boolean
+
   // Home canvas
   homeCanvasNamespaceTileClickBehavior: 'add_to_canvas' | 'open_file'
   fileBrowserPath: string
@@ -77,6 +80,9 @@ interface UIStore {
   setGlobalSidebarOpen: (open: boolean) => void
   toggleGlobalSidebar: () => void
   setGlobalSidebarWidth: (width: number) => void
+
+  setAppRailOpen: (open: boolean) => void
+  toggleAppRail: () => void
 
   setHomeCanvasNamespaceTileClickBehavior: (behavior: UIStore['homeCanvasNamespaceTileClickBehavior']) => void
   setFileBrowserPath: (path: string) => void
@@ -116,6 +122,8 @@ export const useUIStore = create<UIStore>()((set) => ({
   globalSidebarOpen: true,
   globalSidebarWidth: 400,
 
+  appRailOpen: true,
+
   homeCanvasNamespaceTileClickBehavior: 'add_to_canvas',
   fileBrowserPath: '',
 
@@ -143,6 +151,9 @@ export const useUIStore = create<UIStore>()((set) => ({
   setGlobalSidebarOpen: (open) => set({ globalSidebarOpen: open }),
   toggleGlobalSidebar: () => set((state) => ({ globalSidebarOpen: !state.globalSidebarOpen })),
   setGlobalSidebarWidth: (width) => set({ globalSidebarWidth: Math.max(200, Math.min(500, width)) }),
+
+  setAppRailOpen: (open) => set({ appRailOpen: open }),
+  toggleAppRail: () => set((state) => ({ appRailOpen: !state.appRailOpen })),
 
   setHomeCanvasNamespaceTileClickBehavior: (behavior) => set({ homeCanvasNamespaceTileClickBehavior: behavior }),
   setFileBrowserPath: (path) => set({ fileBrowserPath: path }),

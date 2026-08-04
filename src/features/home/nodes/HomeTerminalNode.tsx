@@ -1,5 +1,6 @@
 import * as React from 'react'
 import type { NodeProps } from 'reactflow'
+import { useStore } from 'reactflow'
 import { Terminal as TerminalIcon } from 'lucide-react'
 import { Terminal as XTerm } from '@xterm/xterm'
 import { FitAddon } from '@xterm/addon-fit'
@@ -31,6 +32,10 @@ export interface HomeTerminalNodeData {
   cwd?: string
   sessionId?: string
   isMaximized?: boolean
+  /** PTY program: login shell (default for agent/dev) or OpenCode TUI */
+  runtime?: 'shell' | 'opencode'
+  /** When runtime is opencode, hide the left session icon rail via --mini */
+  opencodeMini?: boolean
 }
 
 export function HomeTerminalNode({
@@ -42,6 +47,7 @@ export function HomeTerminalNode({
   const { resolvedTheme } = useTheme()
 
   const viewId = React.useMemo(() => `home-terminal:${id}`, [id])
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
   const containerRef = React.useRef<HTMLDivElement>(null)
   const terminalRef = React.useRef<XTerm | null>(null)
   const fitAddonRef = React.useRef<FitAddon | null>(null)
@@ -49,16 +55,33 @@ export function HomeTerminalNode({
   const lastDimsRef = React.useRef<{ cols: number; rows: number } | null>(null)
 
   const [sessionId, setSessionId] = React.useState<string | null>(data?.sessionId ?? null)
+  const [xtermReadyTick, setXtermReadyTick] = React.useState(0)
   const sessionIdRef = React.useRef<string | null>(sessionId)
 
   React.useEffect(() => {
     sessionIdRef.current = sessionId
   }, [sessionId])
 
-  const label = data?.label || 'Terminal'
+  const label = data?.label || (runtime === 'opencode' ? 'Opencode Agent' : 'Terminal')
   const isMaximized = data?.isMaximized || false
+  const runtime = data?.runtime ?? 'shell'
+  const opencodeMini = data?.opencodeMini !== false
   const [isEditing, setIsEditing] = React.useState(false)
   const canInteract = isMaximized || isEditing
+
+  const nodeDimensions = useStore(
+    React.useCallback(
+      (store) => {
+        const node = store.nodeInternals.get(id)
+        const measured = (node as { measured?: { width?: number; height?: number } } | undefined)?.measured
+        return {
+          width: node?.width ?? measured?.width ?? 0,
+          height: node?.height ?? measured?.height ?? 0,
+        }
+      },
+      [id],
+    ),
+  )
 
   React.useEffect(() => {
     if (!selected) setIsEditing(false)
@@ -77,53 +100,53 @@ export function HomeTerminalNode({
 
     const terminalTheme = isDark
       ? {
-          background: '#0a0a0a',
-          foreground: '#d4d4d4',
-          cursor: '#d4d4d4',
-          cursorAccent: '#0a0a0a',
-          selectionBackground: '#264f78',
-          selectionForeground: '#ffffff',
-          black: '#000000',
-          red: '#cd3131',
-          green: '#0dbc79',
-          yellow: '#e5e510',
-          blue: '#2472c8',
-          magenta: '#bc3fbc',
-          cyan: '#11a8cd',
-          white: '#e5e5e5',
-          brightBlack: '#666666',
-          brightRed: '#f14c4c',
-          brightGreen: '#23d18b',
-          brightYellow: '#f5f543',
-          brightBlue: '#3b8eea',
-          brightMagenta: '#d670d6',
-          brightCyan: '#29b8db',
-          brightWhite: '#ffffff',
-        }
+        background: '#0a0a0a',
+        foreground: '#d4d4d4',
+        cursor: '#d4d4d4',
+        cursorAccent: '#0a0a0a',
+        selectionBackground: '#264f78',
+        selectionForeground: '#ffffff',
+        black: '#000000',
+        red: '#cd3131',
+        green: '#0dbc79',
+        yellow: '#e5e510',
+        blue: '#2472c8',
+        magenta: '#bc3fbc',
+        cyan: '#11a8cd',
+        white: '#e5e5e5',
+        brightBlack: '#666666',
+        brightRed: '#f14c4c',
+        brightGreen: '#23d18b',
+        brightYellow: '#f5f543',
+        brightBlue: '#3b8eea',
+        brightMagenta: '#d670d6',
+        brightCyan: '#29b8db',
+        brightWhite: '#ffffff',
+      }
       : {
-          background: '#fafafa',
-          foreground: '#383a42',
-          cursor: '#383a42',
-          cursorAccent: '#fafafa',
-          selectionBackground: '#bfceff',
-          selectionForeground: '#383a42',
-          black: '#383a42',
-          red: '#e45649',
-          green: '#50a14f',
-          yellow: '#c18401',
-          blue: '#4078f2',
-          magenta: '#a626a4',
-          cyan: '#0184bc',
-          white: '#fafafa',
-          brightBlack: '#4f525e',
-          brightRed: '#e06c75',
-          brightGreen: '#98c379',
-          brightYellow: '#e5c07b',
-          brightBlue: '#61afef',
-          brightMagenta: '#c678dd',
-          brightCyan: '#56b6c2',
-          brightWhite: '#ffffff',
-        }
+        background: '#fafafa',
+        foreground: '#383a42',
+        cursor: '#383a42',
+        cursorAccent: '#fafafa',
+        selectionBackground: '#bfceff',
+        selectionForeground: '#383a42',
+        black: '#383a42',
+        red: '#e45649',
+        green: '#50a14f',
+        yellow: '#c18401',
+        blue: '#4078f2',
+        magenta: '#a626a4',
+        cyan: '#0184bc',
+        white: '#fafafa',
+        brightBlack: '#4f525e',
+        brightRed: '#e06c75',
+        brightGreen: '#98c379',
+        brightYellow: '#e5c07b',
+        brightBlue: '#61afef',
+        brightMagenta: '#c678dd',
+        brightCyan: '#56b6c2',
+        brightWhite: '#ffffff',
+      }
 
     const terminal = new XTerm({
       cursorBlink: true,
@@ -164,6 +187,7 @@ export function HomeTerminalNode({
 
     terminalRef.current = terminal
     fitAddonRef.current = fitAddon
+    setXtermReadyTick((tick) => tick + 1)
 
     terminal.onData((input) => {
       const activeSessionId = sessionIdRef.current
@@ -215,22 +239,35 @@ export function HomeTerminalNode({
   }, [])
 
   React.useEffect(() => {
-    const terminal = initXterm()
-    if (!terminal) return
+    initXterm()
 
     registerTerminalView(viewId, {
       write: (chunk) => terminalRef.current?.write(chunk),
       onClosed: () => terminalRef.current?.writeln('\r\n\x1b[33mTerminal session ended\x1b[0m'),
     })
 
-    const resizeObserver = new ResizeObserver(() => {
-      handleResize()
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect.width <= 0 || entry.contentRect.height <= 0) continue
+        if (!terminalRef.current) {
+          initXterm()
+        } else {
+          handleResize()
+        }
+      }
     })
 
+    if (wrapperRef.current) resizeObserver.observe(wrapperRef.current)
     if (containerRef.current) resizeObserver.observe(containerRef.current)
 
-    const t1 = setTimeout(() => handleResize(), 50)
-    const t2 = setTimeout(() => handleResize(), 150)
+    const t1 = setTimeout(() => {
+      if (!terminalRef.current) initXterm()
+      handleResize()
+    }, 50)
+    const t2 = setTimeout(() => {
+      if (!terminalRef.current) initXterm()
+      handleResize()
+    }, 150)
 
     return () => {
       clearTimeout(t1)
@@ -246,8 +283,17 @@ export function HomeTerminalNode({
         terminalRef.current.dispose()
         terminalRef.current = null
       }
+      fitAddonRef.current = null
     }
   }, [initXterm, viewId, handleResize])
+
+  React.useEffect(() => {
+    handleResize()
+  }, [nodeDimensions.width, nodeDimensions.height, handleResize])
+
+  React.useEffect(() => {
+    handleResize()
+  }, [isMaximized, handleResize])
 
   React.useEffect(() => {
     let cancelled = false
@@ -262,11 +308,22 @@ export function HomeTerminalNode({
       }
 
       const cwd = data?.cwd || (await invoke<string>('get_project_root').catch(() => ''))
-      const next = await spawnTerminalSession({
-        cwd: cwd || undefined,
-        cols: terminalRef.current.cols,
-        rows: terminalRef.current.rows,
-      })
+      const spawnOpts =
+        runtime === 'opencode'
+          ? {
+            cwd: cwd || undefined,
+            cols: terminalRef.current.cols,
+            rows: terminalRef.current.rows,
+            shell: 'opencode',
+            args: opencodeMini ? ['--mini'] : [],
+          }
+          : {
+            cwd: cwd || undefined,
+            cols: terminalRef.current.cols,
+            rows: terminalRef.current.rows,
+          }
+
+      const next = await spawnTerminalSession(spawnOpts)
       if (cancelled) return
 
       setSessionId(next)
@@ -278,7 +335,7 @@ export function HomeTerminalNode({
     return () => {
       cancelled = true
     }
-  }, [data?.cwd, data?.sessionId, id])
+  }, [data?.cwd, data?.sessionId, data?.runtime, id, opencodeMini, runtime, xtermReadyTick])
 
   React.useEffect(() => {
     if (!sessionId) return
@@ -314,19 +371,19 @@ export function HomeTerminalNode({
 
     const newTheme = isDark
       ? {
-          background: '#0a0a0a',
-          foreground: '#d4d4d4',
-          cursor: '#d4d4d4',
-          cursorAccent: '#0a0a0a',
-          selectionBackground: '#264f78',
-        }
+        background: '#0a0a0a',
+        foreground: '#d4d4d4',
+        cursor: '#d4d4d4',
+        cursorAccent: '#0a0a0a',
+        selectionBackground: '#264f78',
+      }
       : {
-          background: '#fafafa',
-          foreground: '#383a42',
-          cursor: '#383a42',
-          cursorAccent: '#fafafa',
-          selectionBackground: '#bfceff',
-        }
+        background: '#fafafa',
+        foreground: '#383a42',
+        cursor: '#383a42',
+        cursorAccent: '#fafafa',
+        selectionBackground: '#bfceff',
+      }
 
     terminalRef.current.options.theme = newTheme
   }, [resolvedTheme])
@@ -354,10 +411,13 @@ export function HomeTerminalNode({
       label={label}
       minWidth={500}
       minHeight={300}>
-      <div className={cn('flex-1 min-h-0', canInteract ? 'nodrag nowheel' : 'pointer-events-none')}>
-        <div className="h-full w-full min-h-0 min-w-0 p-2 overflow-hidden">
-          <div ref={containerRef} className="h-full w-full min-h-0 min-w-0 overflow-hidden" />
-        </div>
+      <div
+        ref={wrapperRef}
+        className={cn(
+          'home-terminal-node flex-1 min-h-0 min-w-0',
+          canInteract ? 'nodrag nowheel' : 'pointer-events-none',
+        )}>
+        <div ref={containerRef} className="h-full w-full min-h-0 min-w-0 overflow-hidden" />
       </div>
     </CanvasNodeWrapper>
   )

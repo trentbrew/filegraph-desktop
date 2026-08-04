@@ -1,4 +1,4 @@
-use portable_pty::{native_pty_system, CommandBuilder, PtySize};
+use portable_pty::{native_pty_system, CommandBuilder, MasterPty, PtySize};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::io::{Read, Write};
@@ -27,6 +27,7 @@ impl TerminalWriter {
 /// State to hold all terminal sessions
 pub struct TerminalState {
     pub writers: Mutex<HashMap<String, Arc<TerminalWriter>>>,
+    pub masters: Mutex<HashMap<String, Box<dyn MasterPty + Send>>>,
     pub next_id: Mutex<u32>,
     pub running: Mutex<HashMap<String, bool>>,
 }
@@ -35,6 +36,7 @@ impl Default for TerminalState {
     fn default() -> Self {
         Self {
             writers: Mutex::new(HashMap::new()),
+            masters: Mutex::new(HashMap::new()),
             next_id: Mutex::new(1),
             running: Mutex::new(HashMap::new()),
         }
@@ -60,6 +62,7 @@ pub fn terminal_spawn(
     state: State<'_, TerminalState>,
     cwd: Option<String>,
     shell: Option<String>,
+    args: Option<Vec<String>>,
     cols: Option<u16>,
     rows: Option<u16>,
 ) -> Result<TerminalSpawnResult, String> {
@@ -82,7 +85,16 @@ pub fn terminal_spawn(
     });
 
     let mut cmd = CommandBuilder::new(&shell_path);
-    cmd.arg("-l"); // Login shell
+    match args {
+        Some(extra_args) if !extra_args.is_empty() => {
+            for arg in extra_args {
+                cmd.arg(arg);
+            }
+        }
+        _ => {
+            cmd.arg("-l"); // Login shell
+        }
+    }
 
     // Set working directory
     if let Some(dir) = cwd {
@@ -101,15 +113,14 @@ pub fn terminal_spawn(
         .spawn_command(cmd)
         .map_err(|e| format!("Failed to spawn shell: {}", e))?;
 
-    // Get writer
-    let writer = pty_pair
-        .master
+    // Extract master handle, writer, and reader
+    let master = pty_pair.master;
+
+    let writer = master
         .take_writer()
         .map_err(|e| format!("Failed to get PTY writer: {}", e))?;
 
-    // Get reader
-    let mut reader = pty_pair
-        .master
+    let mut reader = master
         .try_clone_reader()
         .map_err(|e| format!("Failed to get PTY reader: {}", e))?;
 
@@ -119,11 +130,12 @@ pub fn terminal_spawn(
     *next_id += 1;
     drop(next_id);
 
-    // Store writer
+    // Store writer and master handle
     let terminal_writer = Arc::new(TerminalWriter {
         writer: Mutex::new(writer),
     });
     state.writers.lock().unwrap().insert(id.clone(), terminal_writer);
+    state.masters.lock().unwrap().insert(id.clone(), master);
     state.running.lock().unwrap().insert(id.clone(), true);
 
     // Spawn reader thread to emit events
@@ -175,15 +187,25 @@ pub fn terminal_write(
     writer.write(data.as_bytes())
 }
 
-/// Resize a terminal session (no-op for now, would need master reference)
+/// Resize a terminal session
 #[tauri::command]
 pub fn terminal_resize(
-    _state: State<'_, TerminalState>,
-    _id: String,
-    _cols: u16,
-    _rows: u16,
+    state: State<'_, TerminalState>,
+    id: String,
+    cols: u16,
+    rows: u16,
 ) -> Result<(), String> {
-    // TODO: Store master reference for resize support
+    let masters = state.masters.lock().unwrap();
+    if let Some(master) = masters.get(&id) {
+        master
+            .resize(PtySize {
+                rows,
+                cols,
+                pixel_width: 0,
+                pixel_height: 0,
+            })
+            .map_err(|e| format!("Failed to resize PTY session {}: {}", id, e))?;
+    }
     Ok(())
 }
 
@@ -192,6 +214,7 @@ pub fn terminal_resize(
 pub fn terminal_close(state: State<'_, TerminalState>, id: String) -> Result<(), String> {
     state.running.lock().unwrap().insert(id.clone(), false);
     state.writers.lock().unwrap().remove(&id);
+    state.masters.lock().unwrap().remove(&id);
     Ok(())
 }
 

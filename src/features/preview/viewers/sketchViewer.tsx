@@ -1403,9 +1403,6 @@ Each item needs: id, type, position: {x, y}, and type-specific fields like conte
                   Shape
                 </ContextMenuSubTrigger>
                 <ContextMenuSubContent className="w-48">
-                  <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'rectangle' })}>
-                    Rectangle
-                  </ContextMenuItem>
                   <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'circle' })}>Circle</ContextMenuItem>
                   <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'diamond' })}>
                     Diamond

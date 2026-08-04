@@ -72,7 +72,7 @@ richText, stickyNote, embed, filePreview, image, shape, table, youtube, pdf, loc
 - "youtube": YouTube video - data: {url: "https://youtube.com/..."}
 - "filePreview": Vault file - data: {filePath: "/path/to/file"}
 - "image": Image - data: {src: "https://..." or "/path/to/image"}
-- "shape": Shape - data: {shape: "rectangle"|"circle"|"diamond", color: "any color"}
+- "shape": Shape - data: {shape: "circle"|"diamond", color: "any color"}
 - "table": Data table - data: {headers: ["Col1", "Col2"], rows: [["a", "b"]]}
 - "codeBlock": Code editor - data: {code: "...", language?: "javascript", filePath?: "/path"}
 - "terminal": Terminal - data: {cwd?: "/path"}

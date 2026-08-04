@@ -554,7 +554,7 @@ export function CalendarApp() {
                                     key={item.id}
                                     onClick={(e) => handleItemClick(item, e)}
                                     className={cn(
-                                      'rounded-md p-2.5 text-sm cursor-pointer transition-all hover:translate-x-0.5 hover:shadow-sm min-w-0',
+                                      'rounded-md p-0 text-sm cursor-pointer transition-all hover:translate-x-0.5 hover:shadow-sm min-w-0',
                                       isPulsing && 'animate-pulse',
                                     )}
                                     style={{

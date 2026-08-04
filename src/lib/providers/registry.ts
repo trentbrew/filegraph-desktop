@@ -16,6 +16,14 @@ export const PROVIDERS: Record<ProviderId, ProviderDefinition> = {
     icon: 'cpu',
     models: [
       {
+        id: 'gemma4',
+        name: 'Gemma 4',
+        contextWindow: 128000,
+        supportsTools: true,
+        supportsVision: false,
+        description: 'Google Gemma 4 local model',
+      },
+      {
         id: 'llama3-groq-tool-use',
         name: 'Llama 3 Groq Tool Use',
         contextWindow: 8192,
@@ -209,8 +217,8 @@ export function getDefaultModel(providerId: ProviderId): ModelPreset | undefined
   return PROVIDERS[providerId]?.models[0]
 }
 
-const DEFAULT_PROVIDER: ProviderId = 'gemini'
-const DEFAULT_MODEL = 'gemini-2.5-flash'
+const DEFAULT_PROVIDER: ProviderId = 'ollama'
+const DEFAULT_MODEL = 'gemma4'
 
 export function getDefaultConfig(): ProviderConfig {
   // Check localStorage for user's preferred default

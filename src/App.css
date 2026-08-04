@@ -13,6 +13,7 @@
 .drag {
   -webkit-app-region: drag;
 }
+
 .no-drag {
   -webkit-app-region: no-drag;
 }
@@ -194,6 +195,7 @@
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
@@ -203,22 +205,27 @@
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }
   }
+
   @keyframes accordion-down {
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
   }
+
   @keyframes accordion-up {
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }
@@ -251,23 +258,28 @@
   #root {
     @apply h-full w-full m-0 p-0 overflow-hidden;
   }
+
   body {
     @apply bg-transparent text-foreground antialiased;
     font-family: 'Berkley Mono', 'SF Mono', 'Monaco', 'Courier New', monospace;
   }
+
   #root {
     border-radius: 12px;
     overflow: hidden;
     background-color: var(--background);
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   /* Hide scrollbar utility */
   .scrollbar-none {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
@@ -277,24 +289,29 @@
     width: 6px;
     height: 6px;
   }
+
   ::-webkit-scrollbar-track {
     background: transparent;
   }
+
   ::-webkit-scrollbar-thumb {
     background: oklch(0.5 0.01 250 / 0.3);
     border-radius: 10px;
     border: 2px solid transparent;
     background-clip: padding-box;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: oklch(0.45 0.01 250 / 0.5);
     border-radius: 10px;
     border: 2px solid transparent;
     background-clip: padding-box;
   }
+
   .dark ::-webkit-scrollbar-thumb {
     background: oklch(0.6 0.01 250 / 0.3);
   }
+
   .dark ::-webkit-scrollbar-thumb:hover {
     background: oklch(0.65 0.01 250 / 0.5);
   }
@@ -411,7 +428,7 @@
     @apply my-1.5;
   }
 
-  .markdown-content li > p {
+  .markdown-content li>p {
     @apply my-1;
   }
 
@@ -610,6 +627,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-transparent text-foreground;
   }
@@ -630,7 +648,7 @@
 }
 
 .react-flow__mini-map {
-  border-radius:;
+  border-radius: ;
 }
 
 .terminal,
@@ -648,9 +666,10 @@
   height: 100% !important;
 }
 
-/* Ensure canvas fills available space */
-.xterm .xterm-screen canvas {
-  width: 100% !important;
+/* Let FitAddon control canvas pixel dimensions — stretching breaks resize/reflow. */
+.home-terminal-node .xterm .xterm-screen canvas {
+  width: auto !important;
+  height: auto !important;
 }
 
 #dock {
@@ -659,10 +678,12 @@
 
 /* Subtle pulse animation for urgent calendar items */
 @keyframes pulse-subtle {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.85;
   }
@@ -733,7 +754,7 @@
   pointer-events: none;
 }
 
-[cmdk-list-sizer] > * {
+[cmdk-list-sizer]>* {
   pointer-events: auto;
 }
 
@@ -742,11 +763,11 @@
 }
 
 /* Target classless wrapper divs inside cmdk that block clicks */
-[cmdk-group] > div:not([class]) {
+[cmdk-group]>div:not([class]) {
   pointer-events: none;
 }
 
-[cmdk-group] > div:not([class]) > * {
+[cmdk-group]>div:not([class])>* {
   pointer-events: auto;
 }
 
@@ -761,9 +782,17 @@
 
 /* Monaco editor: flash highlight for agent-edited lines */
 @keyframes agent-code-changed-fade {
-  0%   { background-color: rgba(34, 197, 94, 0.22); }
-  60%  { background-color: rgba(34, 197, 94, 0.22); }
-  100% { background-color: transparent; }
+  0% {
+    background-color: rgba(34, 197, 94, 0.22);
+  }
+
+  60% {
+    background-color: rgba(34, 197, 94, 0.22);
+  }
+
+  100% {
+    background-color: transparent;
+  }
 }
 
 .monaco-editor .agent-code-changed-line {

@@ -37,7 +37,16 @@ function AppContent() {
   const keybindingManagerRef = useRef<KeybindingManager | null>(null)
   const { needsOnboarding, isLoading, completeOnboarding } = useVault()
   const activeApp = useAppStore((state) => state.activeApp)
-  const { agentOpen, agentFullscreen, agentPanelWidth, setAgentPanelWidth, globalSidebarOpen, globalSidebarWidth, setGlobalSidebarWidth } = useUIStore()
+  const {
+    agentOpen,
+    agentFullscreen,
+    agentPanelWidth,
+    setAgentPanelWidth,
+    globalSidebarOpen,
+    globalSidebarWidth,
+    setGlobalSidebarWidth,
+    appRailOpen,
+  } = useUIStore()
   const { vaultPath } = useVault()
   const currentSpacePath = useHomeCanvasStore((s) => s.currentSpacePath)
   const [isResizing, setIsResizing] = useState(false)
@@ -186,14 +195,11 @@ function AppContent() {
 
   return (
     <div className="h-screen w-screen m-0 overflow-hidden rounded-xl app-zoom-container">
-      <div className="h-full flex flex-col overflow-hidden rounded-[12px]">
+      <div className="h-full flex flex-col overflow-hidden rounded-[12px] bg-[#111]">
         {/* Global header - spans full width, all apps */}
         <HomeCanvasHeader />
 
-        <div className="flex-1 flex overflow-hidden pt-3">
-          {/* App Rail - vertical icon-only app switcher */}
-          <AppRail className="border-r border-border/50" />
-
+        <div className="flex-1 flex overflow-hidden py-0 min-h-0">
           {/* Global Sidebar - File Explorer */}
           <AnimatePresence mode="wait">
             {globalSidebarOpen && (
@@ -295,6 +301,9 @@ function AppContent() {
             )}
           </AnimatePresence>
         </div>
+
+        {/* App Rail - horizontal icon dock at bottom */}
+        {appRailOpen && <AppRail />}
 
         {/* Dialogs & Overlays */}
         <VaultSelector

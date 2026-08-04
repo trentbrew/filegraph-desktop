@@ -430,7 +430,10 @@ export async function setupDevWorkspace(args: {
   const NOTES_POS = { x: BASE_NOTES.x + offset.x, y: BASE_NOTES.y + offset.y }
 
   try {
-    const termId = await latestStore.addNode('terminal', TERMINAL_POS, `${args.name} Terminal`, { cwd: projectPath })
+    const termId = await latestStore.addNode('terminal', TERMINAL_POS, `${args.name} Terminal`, {
+      cwd: projectPath,
+      runtime: 'shell',
+    })
     nodeIds.terminal = termId
     allNodeIds.push(termId)
   } catch (err) {
@@ -497,27 +500,27 @@ export async function setupDevWorkspace(args: {
 
     const finalPort = allocatedPort
     const terminalNodeId = nodeIds.terminal
-    ;(async () => {
-      const MAX_POLLS = 15
-      const POLL_INTERVAL = 500
-      for (let i = 0; i < MAX_POLLS; i++) {
-        await new Promise((r) => setTimeout(r, POLL_INTERVAL))
-        try {
-          const termStore = useHomeCanvasStore.getState()
-          const termNode = termStore.nodes.find((n) => n.id === terminalNodeId)
-          const sessionId = termNode?.data?.sessionId
-          if (sessionId) {
-            await writeTerminalSession(sessionId, `${devCmd}\n`)
-            if (finalPort) {
-              const { useProcessRegistry } = await import('@/features/agent/context/processRegistry')
-              useProcessRegistry.getState().registerProcess({ projectName: args.name, projectPath, port: finalPort, command: devCmd, terminalNodeId, startedAt: Date.now() })
+      ; (async () => {
+        const MAX_POLLS = 15
+        const POLL_INTERVAL = 500
+        for (let i = 0; i < MAX_POLLS; i++) {
+          await new Promise((r) => setTimeout(r, POLL_INTERVAL))
+          try {
+            const termStore = useHomeCanvasStore.getState()
+            const termNode = termStore.nodes.find((n) => n.id === terminalNodeId)
+            const sessionId = termNode?.data?.sessionId
+            if (sessionId) {
+              await writeTerminalSession(sessionId, `${devCmd}\n`)
+              if (finalPort) {
+                const { useProcessRegistry } = await import('@/features/agent/context/processRegistry')
+                useProcessRegistry.getState().registerProcess({ projectName: args.name, projectPath, port: finalPort, command: devCmd, terminalNodeId, startedAt: Date.now() })
+              }
+              return
             }
-            return
-          }
-        } catch { /* Session not ready yet, keep polling */ }
-      }
-      console.warn('[setupDevWorkspace] Terminal session not ready after polling — dev server not started')
-    })()
+          } catch { /* Session not ready yet, keep polling */ }
+        }
+        console.warn('[setupDevWorkspace] Terminal session not ready after polling — dev server not started')
+      })()
   }
 
   if (errors.length > 0) console.warn('[setupDevWorkspace] Errors during setup:', errors)

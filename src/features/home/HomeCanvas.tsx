@@ -95,7 +95,6 @@ import { useCanvasClipboard } from './useCanvasClipboard'
 import { NodeDetailsSheet } from './NodeDetailsSheet'
 import { FreehandOverlay, type FreehandPoint } from './FreehandOverlay'
 import { HelperLines } from './HelperLines'
-import { CanvasToolbar } from './CanvasToolbar'
 import { FullscreenTabs } from './FullscreenTabs'
 import { getEffectiveExtension } from '@/lib/utils/fileExtensions'
 import { getFileTypeFromExtension } from '@/features/preview/components/UnifiedPreviewCanvas/types'
@@ -137,7 +136,7 @@ import {
   EMBED_NODE_TYPES,
 } from './nodes'
 import { CursorProvider, CursorZone, CursorTrigger, useCursor } from '@/components/Cursor'
-import { Bot, Settings2, Undo2, Redo2, Folder, X, PanelLeftOpen, PanelLeftClose } from 'lucide-react'
+import { Bot, Settings2, Undo2, Redo2, Folder, X, PanelBottom } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
@@ -489,7 +488,7 @@ function HomeCanvasInner({ className, onOpenBackgroundSettings }: HomeCanvasProp
   const PERF_HISTORY_SIZE = 60
 
   const { vaultPath } = useVault()
-  const { globalSidebarOpen, toggleGlobalSidebar } = useUIStore()
+  const { globalSidebarOpen, toggleGlobalSidebar, appRailOpen, setAppRailOpen } = useUIStore()
   const {
     spaces,
     activeSpaceId,
@@ -1028,7 +1027,7 @@ function HomeCanvasInner({ className, onOpenBackgroundSettings }: HomeCanvasProp
     >
   >(new Map())
   const hasRestoredFullscreen = React.useRef(false)
-  const maximizeNodeRef = React.useRef<(nodeId: string) => void>(() => {})
+  const maximizeNodeRef = React.useRef<(nodeId: string) => void>(() => { })
 
   React.useEffect(() => {
     hasRestoredFullscreen.current = false
@@ -1090,7 +1089,7 @@ function HomeCanvasInner({ className, onOpenBackgroundSettings }: HomeCanvasProp
       })
 
       try {
-        await addNode('shape', position, 'Rectangle', { shape: 'rectangle' })
+        await addNode('shape', position, 'Circle', { shape: 'circle' })
       } catch {
         // ignore
       } finally {
@@ -1266,9 +1265,9 @@ function HomeCanvasInner({ className, onOpenBackgroundSettings }: HomeCanvasProp
       const position = instanceRef.current
         ? instanceRef.current.screenToFlowPosition({ x: centerX + jitterX, y: centerY + jitterY })
         : {
-            x: (centerX + jitterX - viewport.x) / viewport.zoom,
-            y: (centerY + jitterY - viewport.y) / viewport.zoom,
-          }
+          x: (centerX + jitterX - viewport.x) / viewport.zoom,
+          y: (centerY + jitterY - viewport.y) / viewport.zoom,
+        }
 
       const [, slug] = entityId.split(':')
       const label = (slug || 'Person').replace(/-/g, ' ')
@@ -1599,10 +1598,10 @@ function HomeCanvasInner({ className, onOpenBackgroundSettings }: HomeCanvasProp
           style:
             n.id === nodeId
               ? {
-                  ...n.style,
-                  width: containerWidth,
-                  height: containerHeight,
-                }
+                ...n.style,
+                width: containerWidth,
+                height: containerHeight,
+              }
               : n.style,
         })),
       )
@@ -1965,9 +1964,9 @@ function HomeCanvasInner({ className, onOpenBackgroundSettings }: HomeCanvasProp
       const plainText = event.dataTransfer.getData('text/plain')
       const plainLines = plainText
         ? plainText
-            .split(/\r?\n/)
-            .map((l) => l.trim())
-            .filter(Boolean)
+          .split(/\r?\n/)
+          .map((l) => l.trim())
+          .filter(Boolean)
         : []
       const plainTextUrls = plainLines.filter((l) => /^https?:\/\//i.test(l))
       const plainTextPaths = plainLines
@@ -2281,14 +2280,14 @@ function HomeCanvasInner({ className, onOpenBackgroundSettings }: HomeCanvasProp
           currentNodes.map((n) =>
             n.id === nodeId
               ? {
-                  ...n,
-                  style: {
-                    ...n.style,
-                    // For auto-sizing nodes, we set exact dimensions
-                    width,
-                    height,
-                  },
-                }
+                ...n,
+                style: {
+                  ...n.style,
+                  // For auto-sizing nodes, we set exact dimensions
+                  width,
+                  height,
+                },
+              }
               : n,
           ),
         )
@@ -3020,690 +3019,666 @@ function HomeCanvasInner({ className, onOpenBackgroundSettings }: HomeCanvasProp
               size="icon"
               onClick={toggleGlobalSidebar}
               className="h-7 w-7 rounded-lg bg-background/80 backdrop-blur-sm border-border/50 text-muted-foreground hover:text-foreground shadow-sm"
-              aria-label={globalSidebarOpen ? 'Hide sidebar' : 'Show sidebar'}>
-              {globalSidebarOpen
-                ? <PanelLeftClose className="h-3.5 w-3.5" />
-                : <PanelLeftOpen className="h-3.5 w-3.5" />}
+              aria-label={globalSidebarOpen ? 'Hide file explorer' : 'Show file explorer'}>
+              <Folder className={cn('h-3.5 w-3.5', globalSidebarOpen && 'text-foreground')} />
             </Button>
           </div>
         )}
 
         {/* Fullscreen Tabs - show when in fullscreen mode */}
         {maximizedNodeId && fullscreenTabs.length > 0 && (
-        <FullscreenTabs
-          tabs={fullscreenTabs}
-          activeTabId={maximizedNodeId}
-          onTabClick={handleTabClick}
-          onTabClose={handleTabClose}
-          onReorderTabs={handleReorderFullscreenTabs}
-          onExit={exitMaximizedMode}
-        />
-      )}
+          <FullscreenTabs
+            tabs={fullscreenTabs}
+            activeTabId={maximizedNodeId}
+            onTabClick={handleTabClick}
+            onTabClose={handleTabClose}
+            onReorderTabs={handleReorderFullscreenTabs}
+            onExit={exitMaximizedMode}
+          />
+        )}
 
-      <ContextMenu>
-        <ContextMenuTrigger asChild disabled={!!maximizedNodeId}>
-          <div
-            className="absolute inset-0"
-            onContextMenu={handleCanvasContextMenu}
-            onMouseDown={handleSelectionStart}
-            onMouseUp={handleSelectionEnd}>
-            <ReactFlow
-              nodes={nodesForRender}
-              edges={edges}
-              nodeTypes={nodeTypes}
-              onInit={handleInit}
-              onKeyDownCapture={(e) => { if (e.key.startsWith('Arrow')) e.stopPropagation() }}
-              nodesDraggable={!maximizedNodeId && isCustomLayout && !isDrawingMode && !isShapesTool}
-              nodesConnectable={!maximizedNodeId && !isDrawingMode && !isShapesTool}
-              elementsSelectable={!maximizedNodeId && !isDrawingMode && !isShapesTool}
-              onNodesChange={handleNodesChange}
-              onEdgesChange={handleEdgesChange}
-              onConnect={handleConnect}
-              onMove={handleMove}
-              onMoveEnd={handleMoveEnd}
-              onNodeDragStart={handleNodeDragStart}
-              onNodeDragStop={handleNodeDragStop}
-              onPaneClick={handlePaneClick}
-              onNodeClick={handleNodeClick}
-              onNodeMouseEnter={handleNodeMouseEnter}
-              onNodeMouseLeave={handleNodeMouseLeave}
-              // Figma-like gestures: scroll to pan, pinch to zoom, drag to select
-              // Disable all canvas navigation when a node is maximized (fullscreen)
-              // Disable pan when hovering selected embed nodes at zoom >= 50% to allow iframe scrolling
-              panOnDrag={false}
-              panOnScroll={!maximizedNodeId && !shouldDisablePanForEmbed}
-              zoomOnPinch={!maximizedNodeId}
-              zoomOnScroll={!maximizedNodeId}
-              zoomOnDoubleClick={!maximizedNodeId}
-              selectNodesOnDrag={true}
-              selectionOnDrag={!isDrawingMode && !isShapesTool}
-              multiSelectionKeyCode="Shift"
-              fitView
-              fitViewOptions={fitViewOptions}
-              minZoom={0.05}
-              maxZoom={4}
-              defaultViewport={viewport}
-              deleteKeyCode={maximizedNodeId ? [] : ['Backspace', 'Delete']}
-              className={`home-canvas-flow border rounded-xl ${maximizedNodeId ? 'canvas-maximized-mode' : ''} ${hasSelectedNode ? 'has-selection' : ''}`}
-              proOptions={proOptions}>
-              <Background
-                variant={BackgroundVariant.Dots}
-                gap={16}
-                size={2}
-                color="var(--border)"
-                className="bg-background"
-              />
+        <ContextMenu>
+          <ContextMenuTrigger asChild disabled={!!maximizedNodeId}>
+            <div
+              className="absolute inset-0"
+              onContextMenu={handleCanvasContextMenu}
+              onMouseDown={handleSelectionStart}
+              onMouseUp={handleSelectionEnd}>
+              <ReactFlow
+                nodes={nodesForRender}
+                edges={edges}
+                nodeTypes={nodeTypes}
+                onInit={handleInit}
+                onKeyDownCapture={(e) => { if (e.key.startsWith('Arrow')) e.stopPropagation() }}
+                nodesDraggable={!maximizedNodeId && isCustomLayout && !isDrawingMode && !isShapesTool}
+                nodesConnectable={!maximizedNodeId && !isDrawingMode && !isShapesTool}
+                elementsSelectable={!maximizedNodeId && !isDrawingMode && !isShapesTool}
+                onNodesChange={handleNodesChange}
+                onEdgesChange={handleEdgesChange}
+                onConnect={handleConnect}
+                onMove={handleMove}
+                onMoveEnd={handleMoveEnd}
+                onNodeDragStart={handleNodeDragStart}
+                onNodeDragStop={handleNodeDragStop}
+                onPaneClick={handlePaneClick}
+                onNodeClick={handleNodeClick}
+                onNodeMouseEnter={handleNodeMouseEnter}
+                onNodeMouseLeave={handleNodeMouseLeave}
+                // Figma-like gestures: scroll to pan, pinch to zoom, drag to select
+                // Disable all canvas navigation when a node is maximized (fullscreen)
+                // Disable pan when hovering selected embed nodes at zoom >= 50% to allow iframe scrolling
+                panOnDrag={false}
+                panOnScroll={!maximizedNodeId && !shouldDisablePanForEmbed}
+                zoomOnPinch={!maximizedNodeId}
+                zoomOnScroll={!maximizedNodeId}
+                zoomOnDoubleClick={!maximizedNodeId}
+                selectNodesOnDrag={true}
+                selectionOnDrag={!isDrawingMode && !isShapesTool}
+                multiSelectionKeyCode="Shift"
+                fitView
+                fitViewOptions={fitViewOptions}
+                minZoom={0.05}
+                maxZoom={4}
+                defaultViewport={viewport}
+                deleteKeyCode={maximizedNodeId ? [] : ['Backspace', 'Delete']}
+                className={`home-canvas-flow border rounded-xl ${maximizedNodeId ? 'canvas-maximized-mode' : ''} ${hasSelectedNode ? 'has-selection' : ''}`}
+                proOptions={proOptions}>
+                <Background
+                  variant={BackgroundVariant.Dots}
+                  gap={16}
+                  size={2}
+                  color="var(--border)"
+                  className="bg-background"
+                />
 
+                <AnimatePresence>
+                  {hasNodesOutsideViewport && !maximizedNodeId && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ duration: 0.2, ease: 'easeInOut' }}>
+                      <MiniMap
+                        className={cn('backdrop-blur-sm border bg-transparent! scale-75 translate-x-6.5 translate-y-5.5 rounded transition-all duration-200 ease-in-out')}
+                        nodeColor={cn('var(--muted-foreground)')}
+                        maskColor={cn('rgba(0, 0, 0, 0.75)')}
+                        nodeStrokeColor={cn('var(--border)')}
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <HelperLines horizontal={helperLines.horizontal} vertical={helperLines.vertical} />
+
+                {isDrawingMode && !maximizedNodeId && (
+                  <FreehandOverlay
+                    containerRef={containerRef}
+                    getFreehandPath={getFreehandPath}
+                    getZoom={() => instanceRef.current?.getViewport().zoom ?? 1}
+                    onComplete={handleFreehandComplete}
+                  />
+                )}
+              </ReactFlow>
+
+              {/* Zoom Indicator */}
               <AnimatePresence>
-                {hasNodesOutsideViewport && !maximizedNodeId && (
+                {showZoomIndicator && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.2, ease: 'easeInOut' }}>
-                    <MiniMap
-                      className={cn('backdrop-blur-sm border bg-transparent! scale-75 translate-x-6.5 translate-y-5.5 rounded transition-all duration-200 ease-in-out')}
-                      nodeColor={cn('var(--muted-foreground)')}
-                      maskColor={cn('rgba(0, 0, 0, 0.75)')}
-                      nodeStrokeColor={cn('var(--border)')}
-                    />
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    className="absolute bottom-4 left-4 flex gap-0 pointer-events-none bg-card/90 backdrop-blur-sm border rounded-md px-2.5 py-1.5 shadow-lg">
+                    <ZoomIn className="mr-2 h-4 w-4 opacity-50" />
+                    <div className="text-xs font-mono text-muted-foreground">{Math.round(currentZoom * 100)}%</div>
                   </motion.div>
                 )}
               </AnimatePresence>
-              <HelperLines horizontal={helperLines.horizontal} vertical={helperLines.vertical} />
 
-              {isDrawingMode && !maximizedNodeId && (
-                <FreehandOverlay
-                  containerRef={containerRef}
-                  getFreehandPath={getFreehandPath}
-                  getZoom={() => instanceRef.current?.getViewport().zoom ?? 1}
-                  onComplete={handleFreehandComplete}
-                />
-              )}
-            </ReactFlow>
-
-            {/* Zoom Indicator */}
-            <AnimatePresence>
-              {showZoomIndicator && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.15, ease: 'easeOut' }}
-                  className="absolute bottom-4 left-4 flex gap-0 pointer-events-none bg-card/90 backdrop-blur-sm border rounded-md px-2.5 py-1.5 shadow-lg">
-                  <ZoomIn className="mr-2 h-4 w-4 opacity-50" />
-                  <div className="text-xs font-mono text-muted-foreground">{Math.round(currentZoom * 100)}%</div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <AnimatePresence>
-              {invalidSelectionBox && (
-                <motion.div
-                  key={invalidSelectionBox.id}
-                  initial={{ opacity: 0, scale: 1 }}
-                  animate={{
-                    opacity: 1,
-                    x: [0, -6, 6, -5, 5, -3, 3, 0],
-                  }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.45, ease: 'easeInOut' }}
-                  className="absolute pointer-events-none border-2 border-destructive/70 bg-destructive/10 rounded-sm"
-                  style={{
-                    left: invalidSelectionBox.x,
-                    top: invalidSelectionBox.y,
-                    width: invalidSelectionBox.width,
-                    height: invalidSelectionBox.height,
-                  }}
-                />
-              )}
-            </AnimatePresence>
-
-            {/* Drop zone indicator */}
-            {isDraggingOver && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-                className="absolute inset-0 bg-primary/5 border-2 border-dashed border-primary/30 rounded-xl pointer-events-none flex items-center justify-center">
-                <div className="bg-background/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
-                  <p className="text-sm font-medium text-primary">Drop files here to add to canvas</p>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Saving indicator - hidden in fullscreen */}
-            <AnimatePresence>
-              {!maximizedNodeId && isSaving && (
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 12 }}
-                  transition={{ duration: 0.25 }}
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 px-2 py-1 bg-warning/20 text-warning text-xs rounded pointer-events-none flex items-center gap-1">
-                  <Save className="w-3 h-3 opacity-50" />
-                  <span className="opacity-50">Saving...</span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* Bottom-center dock - Canvas Tools - hidden in fullscreen */}
-            {!maximizedNodeId && (
-              <div
-                className="absolute bottom-3 z-40 flex items-end justify-center pointer-events-none"
-                style={{
-                  left: '0.75rem',
-                  right: detailsSheetOpen ? `calc(${detailsPanelWidth}px + 1.5rem)` : '0.75rem',
-                }}>
-                <CanvasToolbar
-                  selectedCount={selectedCount}
-                  clipboardCount={clipboardCount}
-                  isCustomLayout={isCustomLayout}
-                  activeLayoutLabel={activeLayoutLabel}
-                  activeTool={activeTool}
-                  onToolChange={handleToolChange}
-                  onAutoLayout={handleAutoLayout}
-                  onCustomLayout={handleCustomLayout}
-                  onGridLayout={handleGridLayout}
-                  onAlign={handleAlign}
-                  onDistribute={handleDistribute}
-                  onCopy={handleCopy}
-                  onPaste={handlePaste}
-                  onCut={handleCut}
-                  onDelete={handleDeleteSelected}
-                  onGroup={handleGroup}
-                  onUngroup={handleUngroup}
-                  className="bg-card border rounded-xl shadow-sm pointer-events-auto"
-                />
-              </div>
-            )}
-
-            {PERF_HUD_ENABLED && !maximizedNodeId && (
-              <div
-                className="absolute bottom-4 z-40 flex flex-col items-end gap-2 transition-[right] duration-300 ease-out"
-                style={{
-                  right: detailsSheetOpen ? `calc(${detailsPanelWidth}px + 2rem)` : '1rem',
-                  bottom: '4.5rem',
-                }}>
-                {showPerfHud && (
-                  <div className="bg-card/95 backdrop-blur-sm border rounded-lg shadow-sm px-3 py-2 text-[11px] leading-tight min-w-64">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">FPS</span>
-                      <span className={cn('font-mono tabular-nums', getFpsTone(fpsStats.fps))}>
-                        {Math.round(fpsStats.fps)}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Avg frame</span>
-                      <span className={cn('font-mono tabular-nums', getMsTone(fpsStats.avgFrameMs, 20, 33))}>
-                        {formatMs(fpsStats.avgFrameMs)}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Worst</span>
-                      <span className={cn('font-mono tabular-nums', getMsTone(fpsStats.worstFrameMs, 33, 50))}>
-                        {formatMs(fpsStats.worstFrameMs)}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Jank</span>
-                      <span
-                        className={cn(
-                          'font-mono tabular-nums',
-                          fpsStats.jankWindow === 0 ? 'text-emerald-500' : 'text-amber-500',
-                        )}>
-                        {fpsStats.jankWindow} / {fpsStats.jankTotal}
-                      </span>
-                    </div>
-
-                    {fpsHistory.length > 1 && (
-                      <svg className="mt-1" width="240" height="26" viewBox="0 0 240 26">
-                        <path
-                          d={sparklinePath(fpsHistory, 240, 26, 0, Math.max(60, ...fpsHistory))}
-                          fill="none"
-                          className={cn('stroke-2', getFpsTone(fpsStats.fps).replace('text-', 'stroke-'))}
-                        />
-                      </svg>
-                    )}
-
-                    <div className="h-px bg-border my-2" />
-
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Nodes</span>
-                      <span className="font-mono tabular-nums">{nodes.length}</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Edges</span>
-                      <span className="font-mono tabular-nums">{edges.length}</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Zoom</span>
-                      <span className="font-mono tabular-nums">{viewport.zoom.toFixed(2)}</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Save</span>
-                      <span
-                        className={cn(
-                          'font-mono tabular-nums',
-                          isSaving ? 'text-amber-500' : hasUnsavedChanges ? 'text-rose-500' : 'text-emerald-500',
-                        )}>
-                        {isSaving ? 'saving…' : hasUnsavedChanges ? 'dirty' : 'clean'}
-                      </span>
-                    </div>
-
-                    <div className="h-px bg-border my-2" />
-
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Last</span>
-                      <span className="font-mono tabular-nums">{formatTime(savePerf.lastSaveAt)}</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Total</span>
-                      <span className={cn('font-mono tabular-nums', getMsTone(savePerf.lastTotalMs, 60, 200))}>
-                        {formatMs(savePerf.lastTotalMs)}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Build</span>
-                      <span className={cn('font-mono tabular-nums', getMsTone(savePerf.lastLayoutBuildMs, 20, 80))}>
-                        {formatMs(savePerf.lastLayoutBuildMs)}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Write</span>
-                      <span className={cn('font-mono tabular-nums', getMsTone(savePerf.lastWriteMs, 30, 120))}>
-                        {formatMs(savePerf.lastWriteMs)}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-muted-foreground">Meta</span>
-                      <span className={cn('font-mono tabular-nums', getMsTone(savePerf.lastMetadataMs, 10, 40))}>
-                        {formatMs(savePerf.lastMetadataMs)}
-                      </span>
-                    </div>
-
-                    {saveTotalHistory.length > 1 && (
-                      <svg className="mt-1" width="240" height="26" viewBox="0 0 240 26">
-                        <path
-                          d={sparklinePath(saveTotalHistory, 240, 26, 0, Math.max(200, ...saveTotalHistory))}
-                          fill="none"
-                          className={cn(
-                            'stroke-2',
-                            getMsTone(savePerf.lastTotalMs, 60, 200).replace('text-', 'stroke-'),
-                          )}
-                        />
-                      </svg>
-                    )}
-                  </div>
-                )}
-
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => setShowPerfHud((v) => !v)}
-                  className={cn(
-                    'h-9 w-9 bg-muted backdrop-blur-sm border shadow-sm hover:bg-card',
-                    showPerfHud ? 'ring-1 ring-primary/40' : undefined,
-                  )}>
-                  <Activity className="h-4 w-4" />
-                </Button>
-              </div>
-            )}
-
-            {/* Agent activity indicator - hidden in fullscreen */}
-            <AnimatePresence>
-              {agentIsActive && !maximizedNodeId && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-14 left-3 flex items-center gap-2 px-3 py-1.5 bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-full pointer-events-none">
+              <AnimatePresence>
+                {invalidSelectionBox && (
                   <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                    className="relative">
-                    <Bot className="w-4 h-4 text-primary" />
-                    <motion.div
-                      className="absolute inset-0 rounded-full border-2 border-primary/50 border-t-transparent"
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                    />
-                  </motion.div>
-                  <span className="text-xs font-medium text-primary">{currentAction || 'Agent working...'}</span>
+                    key={invalidSelectionBox.id}
+                    initial={{ opacity: 0, scale: 1 }}
+                    animate={{
+                      opacity: 1,
+                      x: [0, -6, 6, -5, 5, -3, 3, 0],
+                    }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.45, ease: 'easeInOut' }}
+                    className="absolute pointer-events-none border-2 border-destructive/70 bg-destructive/10 rounded-sm"
+                    style={{
+                      left: invalidSelectionBox.x,
+                      top: invalidSelectionBox.y,
+                      width: invalidSelectionBox.width,
+                      height: invalidSelectionBox.height,
+                    }}
+                  />
+                )}
+              </AnimatePresence>
+
+              {/* Drop zone indicator */}
+              {isDraggingOver && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute inset-0 bg-primary/5 border-2 border-dashed border-primary/30 rounded-xl pointer-events-none flex items-center justify-center">
+                  <div className="bg-background/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg">
+                    <p className="text-sm font-medium text-primary">Drop files here to add to canvas</p>
+                  </div>
                 </motion.div>
               )}
-            </AnimatePresence>
-          </div>
-        </ContextMenuTrigger>
 
-        <ContextMenuContent className="w-56">
-          {recentContextMenuItems.length > 2 && (
-            <>
-              <ContextMenuLabel className="text-xs text-muted-foreground">Recently used</ContextMenuLabel>
-              <div className="flex flex-row gap-1 py-1 px-1">
-                {recentContextMenuItems.map((item) => {
-                  const extra = item.extraData
-                  const stickyColorName =
-                    item.nodeType === 'stickyNote' && typeof extra?.color === 'string' ? extra.color : undefined
-                  const stickyColor = stickyColorName
-                    ? STICKY_COLORS.find((c) => c.name === stickyColorName)
-                    : undefined
+              {/* Saving indicator - hidden in fullscreen */}
+              <AnimatePresence>
+                {!maximizedNodeId && isSaving && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 12 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute bottom-4 left-1/2 -translate-x-1/2 px-2 py-1 bg-warning/20 text-warning text-xs rounded pointer-events-none flex items-center gap-1">
+                    <Save className="w-3 h-3 opacity-50" />
+                    <span className="opacity-50">Saving...</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-                  const shapeColorName =
-                    item.nodeType === 'shape' && typeof extra?.color === 'string' ? extra.color : undefined
-                  const shapeColor = shapeColorName ? SHAPE_COLORS.find((c) => c.name === shapeColorName) : undefined
-
-                  const shapeType =
-                    item.nodeType === 'shape' && typeof extra?.shape === 'string' ? extra.shape : undefined
-                  const ShapeIcon =
-                    shapeType === 'circle'
-                      ? Circle
-                      : shapeType === 'diamond'
-                        ? Diamond
-                        : shapeType === 'triangle'
-                          ? Triangle
-                          : shapeType === 'hexagon'
-                            ? Hexagon
-                            : Square
-
-                  // Always use lucide icons for consistency - no colored squares
-                  const IconComponent =
-                    item.nodeType === 'richText'
-                      ? Type
-                      : item.nodeType === 'stickyNote'
-                        ? StickyNote
-                        : item.nodeType === 'image'
-                          ? Image
-                          : item.nodeType === 'youtube'
-                            ? Video
-                            : item.nodeType === 'embed'
-                              ? Globe
-                              : item.nodeType === 'spotify'
-                                ? Music
-                                : item.nodeType === 'pdf'
-                                  ? FileText
-                                  : item.nodeType === 'table'
-                                    ? Table
-                                    : item.nodeType === 'codeBlock'
-                                      ? Code
-                                      : item.nodeType === 'terminal'
-                                        ? Terminal
-                                        : item.nodeType === 'location'
-                                          ? MapPin
-                                          : item.nodeType === 'calendar'
-                                            ? Calendar
-                                            : item.nodeType === 'shape'
-                                              ? ShapeIcon
-                                              : Plus
-
-                  return (
-                    <Tooltip key={item.key}>
-                      <TooltipTrigger asChild>
-                        <button
-                          type="button"
-                          onClick={() => handleCreateNode(item.nodeType, item.label, item.extraData)}
+              {PERF_HUD_ENABLED && !maximizedNodeId && (
+                <div
+                  className="absolute bottom-4 z-40 flex flex-col items-end gap-2 transition-[right] duration-300 ease-out"
+                  style={{
+                    right: detailsSheetOpen ? `calc(${detailsPanelWidth}px + 2rem)` : '1rem',
+                    bottom: '1rem',
+                  }}>
+                  {showPerfHud && (
+                    <div className="bg-card/95 backdrop-blur-sm border rounded-lg shadow-sm px-3 py-2 text-[11px] leading-tight min-w-64">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">FPS</span>
+                        <span className={cn('font-mono tabular-nums', getFpsTone(fpsStats.fps))}>
+                          {Math.round(fpsStats.fps)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Avg frame</span>
+                        <span className={cn('font-mono tabular-nums', getMsTone(fpsStats.avgFrameMs, 20, 33))}>
+                          {formatMs(fpsStats.avgFrameMs)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Worst</span>
+                        <span className={cn('font-mono tabular-nums', getMsTone(fpsStats.worstFrameMs, 33, 50))}>
+                          {formatMs(fpsStats.worstFrameMs)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Jank</span>
+                        <span
                           className={cn(
-                            'flex h-6 w-6 items-center justify-center rounded-md bg-muted border hover:bg-accent hover:text-accent-foreground transition-colors',
+                            'font-mono tabular-nums',
+                            fpsStats.jankWindow === 0 ? 'text-emerald-500' : 'text-amber-500',
                           )}>
-                          <IconComponent className="h-4 w-4 opacity-80" />
-                        </button>
-                      </TooltipTrigger>
-                      <TooltipContent side="top">
-                        <p>{item.menuText}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  )
-                })}
-              </div>
-              <ContextMenuSeparator />
-            </>
-          )}
-          <ContextMenuItem onClick={() => handleCreateNode('richText', 'Note')}>
-            <Type className="mr-2 h-4 w-4" />
-            Rich Text Note
-          </ContextMenuItem>
-          <ContextMenuSub>
-            <ContextMenuSubTrigger>
-              <StickyNote className="mr-2 h-4 w-4" />
-              Sticky Note
-            </ContextMenuSubTrigger>
-            <ContextMenuSubContent className="w-40">
-              {STICKY_COLORS.map((color) => (
-                <ContextMenuItem
-                  key={color.name}
-                  onClick={() => handleCreateNode('stickyNote', color.name, { color: color.name })}>
-                  <div
-                    className="mr-2 h-4 w-4 rounded-sm border"
-                    style={{ backgroundColor: color.bg, borderColor: color.border }}
-                  />
-                  {color.name}
-                </ContextMenuItem>
-              ))}
-            </ContextMenuSubContent>
-          </ContextMenuSub>
+                          {fpsStats.jankWindow} / {fpsStats.jankTotal}
+                        </span>
+                      </div>
 
-          <ContextMenuSeparator />
+                      {fpsHistory.length > 1 && (
+                        <svg className="mt-1" width="240" height="26" viewBox="0 0 240 26">
+                          <path
+                            d={sparklinePath(fpsHistory, 240, 26, 0, Math.max(60, ...fpsHistory))}
+                            fill="none"
+                            className={cn('stroke-2', getFpsTone(fpsStats.fps).replace('text-', 'stroke-'))}
+                          />
+                        </svg>
+                      )}
 
-          {/* Media - grouped */}
-          <ContextMenuSub>
-            <ContextMenuSubTrigger>
-              <Image className="mr-2 h-4 w-4" />
-              Media
-            </ContextMenuSubTrigger>
-            <ContextMenuSubContent className="w-40">
-              <ContextMenuItem onClick={() => handleCreateNode('image', 'Image')}>
-                <Image className="mr-2 h-4 w-4" />
-                Image
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('youtube', 'YouTube')}>
-                <Video className="mr-2 h-4 w-4" />
-                YouTube
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('embed', 'Web Embed')}>
-                <Globe className="mr-2 h-4 w-4" />
-                Web Embed
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('spotify', 'Spotify')}>
-                <Music className="mr-2 h-4 w-4" />
-                Spotify
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('pdf', 'PDF')}>
-                <FileText className="mr-2 h-4 w-4" />
-                PDF
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('audio', 'Audio')}>
-                <Mic className="mr-2 h-4 w-4" />
-                Audio
-              </ContextMenuItem>
-            </ContextMenuSubContent>
-          </ContextMenuSub>
+                      <div className="h-px bg-border my-2" />
 
-          {/* Data & Code - grouped */}
-          <ContextMenuSub>
-            <ContextMenuSubTrigger>
-              <Table className="mr-2 h-4 w-4" />
-              Data & Code
-            </ContextMenuSubTrigger>
-            <ContextMenuSubContent className="w-40">
-              <ContextMenuItem onClick={() => handleCreateNode('table', 'Table')}>
-                <Table className="mr-2 h-4 w-4" />
-                Table
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('codeBlock', 'Code Block')}>
-                <Code className="mr-2 h-4 w-4" />
-                Code Block
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('terminal', 'Terminal')}>
-                <Terminal className="mr-2 h-4 w-4" />
-                Terminal
-              </ContextMenuItem>
-            </ContextMenuSubContent>
-          </ContextMenuSub>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Nodes</span>
+                        <span className="font-mono tabular-nums">{nodes.length}</span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Edges</span>
+                        <span className="font-mono tabular-nums">{edges.length}</span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Zoom</span>
+                        <span className="font-mono tabular-nums">{viewport.zoom.toFixed(2)}</span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Save</span>
+                        <span
+                          className={cn(
+                            'font-mono tabular-nums',
+                            isSaving ? 'text-amber-500' : hasUnsavedChanges ? 'text-rose-500' : 'text-emerald-500',
+                          )}>
+                          {isSaving ? 'saving…' : hasUnsavedChanges ? 'dirty' : 'clean'}
+                        </span>
+                      </div>
 
-          {/* Shapes */}
-          <ContextMenuSub>
-            <ContextMenuSubTrigger>
-              <Shapes className="mr-2 h-4 w-4" />
-              Shapes
-            </ContextMenuSubTrigger>
-            <ContextMenuSubContent className="w-40">
-              <ContextMenuItem onClick={() => handleCreateNode('shape', 'Rectangle', { shape: 'rectangle' })}>
-                <Square className="mr-2 h-4 w-4" />
-                Rectangle
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('shape', 'Circle', { shape: 'circle' })}>
-                <Circle className="mr-2 h-4 w-4" />
-                Circle
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('shape', 'Diamond', { shape: 'diamond' })}>
-                <Diamond className="mr-2 h-4 w-4" />
-                Diamond
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('shape', 'Triangle', { shape: 'triangle' })}>
-                <Triangle className="mr-2 h-4 w-4" />
-                Triangle
-              </ContextMenuItem>
-              <ContextMenuItem onClick={() => handleCreateNode('shape', 'Hexagon', { shape: 'hexagon' })}>
-                <Hexagon className="mr-2 h-4 w-4" />
-                Hexagon
-              </ContextMenuItem>
-              <ContextMenuSeparator />
-              <ContextMenuSub>
-                <ContextMenuSubTrigger>Colored</ContextMenuSubTrigger>
-                <ContextMenuSubContent className="w-36">
-                  {SHAPE_COLORS.map((color) => (
-                    <ContextMenuItem
-                      key={color.name}
-                      onClick={() => handleCreateNode('shape', color.name, { shape: 'rectangle', color: color.name })}>
-                      <div
-                        className="mr-2 h-4 w-4 rounded-sm border"
-                        style={{ backgroundColor: color.fill, borderColor: color.stroke }}
+                      <div className="h-px bg-border my-2" />
+
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Last</span>
+                        <span className="font-mono tabular-nums">{formatTime(savePerf.lastSaveAt)}</span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Total</span>
+                        <span className={cn('font-mono tabular-nums', getMsTone(savePerf.lastTotalMs, 60, 200))}>
+                          {formatMs(savePerf.lastTotalMs)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Build</span>
+                        <span className={cn('font-mono tabular-nums', getMsTone(savePerf.lastLayoutBuildMs, 20, 80))}>
+                          {formatMs(savePerf.lastLayoutBuildMs)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Write</span>
+                        <span className={cn('font-mono tabular-nums', getMsTone(savePerf.lastWriteMs, 30, 120))}>
+                          {formatMs(savePerf.lastWriteMs)}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-muted-foreground">Meta</span>
+                        <span className={cn('font-mono tabular-nums', getMsTone(savePerf.lastMetadataMs, 10, 40))}>
+                          {formatMs(savePerf.lastMetadataMs)}
+                        </span>
+                      </div>
+
+                      {saveTotalHistory.length > 1 && (
+                        <svg className="mt-1" width="240" height="26" viewBox="0 0 240 26">
+                          <path
+                            d={sparklinePath(saveTotalHistory, 240, 26, 0, Math.max(200, ...saveTotalHistory))}
+                            fill="none"
+                            className={cn(
+                              'stroke-2',
+                              getMsTone(savePerf.lastTotalMs, 60, 200).replace('text-', 'stroke-'),
+                            )}
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  )}
+
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setShowPerfHud((v) => !v)}
+                    className={cn(
+                      'h-9 w-9 bg-muted backdrop-blur-sm border shadow-sm hover:bg-card',
+                      showPerfHud ? 'ring-1 ring-primary/40' : undefined,
+                    )}>
+                    <Activity className="h-4 w-4" />
+                  </Button>
+                </div>
+              )}
+
+              {/* Agent activity indicator - hidden in fullscreen */}
+              <AnimatePresence>
+                {agentIsActive && !maximizedNodeId && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-14 left-3 flex items-center gap-2 px-3 py-1.5 bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-full pointer-events-none">
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                      className="relative">
+                      <Bot className="w-4 h-4 text-primary" />
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-primary/50 border-t-transparent"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                       />
-                      {color.name}
-                    </ContextMenuItem>
-                  ))}
-                </ContextMenuSubContent>
-              </ContextMenuSub>
-            </ContextMenuSubContent>
-          </ContextMenuSub>
+                    </motion.div>
+                    <span className="text-xs font-medium text-primary">{currentAction || 'Agent working...'}</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </ContextMenuTrigger>
 
-          <ContextMenuSeparator />
+          <ContextMenuContent className="w-56">
+            {recentContextMenuItems.length > 2 && (
+              <>
+                <ContextMenuLabel className="text-xs text-muted-foreground">Recently used</ContextMenuLabel>
+                <div className="flex flex-row gap-1 py-1 px-1">
+                  {recentContextMenuItems.map((item) => {
+                    const extra = item.extraData
+                    const stickyColorName =
+                      item.nodeType === 'stickyNote' && typeof extra?.color === 'string' ? extra.color : undefined
+                    const stickyColor = stickyColorName
+                      ? STICKY_COLORS.find((c) => c.name === stickyColorName)
+                      : undefined
 
-          {/* AI & Tools */}
-          <ContextMenuItem onClick={() => handleCreateNode('agent', 'Agent')}>
-            <Bot className="mr-2 h-4 w-4" />
-            Agent
-          </ContextMenuItem>
+                    const shapeColorName =
+                      item.nodeType === 'shape' && typeof extra?.color === 'string' ? extra.color : undefined
+                    const shapeColor = shapeColorName ? SHAPE_COLORS.find((c) => c.name === shapeColorName) : undefined
 
-          <ContextMenuSeparator />
+                    const shapeType =
+                      item.nodeType === 'shape' && typeof extra?.shape === 'string' ? extra.shape : undefined
+                    const ShapeIcon =
+                      shapeType === 'circle'
+                        ? Circle
+                        : shapeType === 'diamond'
+                          ? Diamond
+                          : shapeType === 'triangle'
+                            ? Triangle
+                            : shapeType === 'hexagon'
+                              ? Hexagon
+                              : Square
 
-          {/* Specialty items */}
-          <ContextMenuItem onClick={() => handleCreateNode('calendar', 'Calendar')}>
-            <Calendar className="mr-2 h-4 w-4" />
-            Calendar
-          </ContextMenuItem>
-          <ContextMenuItem onClick={() => handleCreateNode('event', 'Event')}>
-            <CalendarDays className="mr-2 h-4 w-4" />
-            Event
-          </ContextMenuItem>
-          <ContextMenuItem onClick={() => handleCreateNode('location', 'Location')}>
-            <MapPin className="mr-2 h-4 w-4" />
-            Location
-          </ContextMenuItem>
-          <ContextMenuItem onClick={() => handleCreateNode('person', 'Person')}>
-            <User className="mr-2 h-4 w-4" />
-            Person
-          </ContextMenuItem>
-          <ContextMenuItem onClick={() => handleCreateNode('folder', 'Folder')}>
-            <Folder className="mr-2 h-4 w-4" />
-            Folder
-          </ContextMenuItem>
-          <ContextMenuItem onClick={() => handleCreateNode('freehand', 'Freehand')}>
-            <PenTool className="mr-2 h-4 w-4" />
-            Freehand
-          </ContextMenuItem>
+                    // Always use lucide icons for consistency - no colored squares
+                    const IconComponent =
+                      item.nodeType === 'richText'
+                        ? Type
+                        : item.nodeType === 'stickyNote'
+                          ? StickyNote
+                          : item.nodeType === 'image'
+                            ? Image
+                            : item.nodeType === 'youtube'
+                              ? Video
+                              : item.nodeType === 'embed'
+                                ? Globe
+                                : item.nodeType === 'spotify'
+                                  ? Music
+                                  : item.nodeType === 'pdf'
+                                    ? FileText
+                                    : item.nodeType === 'table'
+                                      ? Table
+                                      : item.nodeType === 'codeBlock'
+                                        ? Code
+                                        : item.nodeType === 'terminal'
+                                          ? Terminal
+                                          : item.nodeType === 'location'
+                                            ? MapPin
+                                            : item.nodeType === 'calendar'
+                                              ? Calendar
+                                              : item.nodeType === 'shape'
+                                                ? ShapeIcon
+                                                : Plus
 
-          {/* Canvas settings */}
-          {onOpenBackgroundSettings && (
-            <>
-              <ContextMenuSeparator />
-              <ContextMenuItem onClick={onOpenBackgroundSettings}>
-                <Palette className="mr-2 h-4 w-4" />
-                Background...
-              </ContextMenuItem>
-            </>
-          )}
-
-          {/* Archived nodes - collapsed into submenu */}
-          {archivedNodes.length > 0 && (
-            <>
-              <ContextMenuSeparator />
-              <ContextMenuSub>
-                <ContextMenuSubTrigger className="text-muted-foreground">
-                  <Trash2 className="mr-2 h-4 w-4" />
-                  Archived ({archivedNodes.length})
-                </ContextMenuSubTrigger>
-                <ContextMenuSubContent className="w-52 max-h-64 overflow-y-auto">
-                  {archivedNodes.map((node) => {
-                    const fileName = node.originalPath.split('/').pop() || 'Unknown'
-                    // Truncate long filenames
-                    const displayName = fileName.length > 28 ? fileName.slice(0, 25) + '...' : fileName
                     return (
-                      <ContextMenuItem
-                        key={node.id}
-                        onClick={() => restoreArchivedNode(node.id)}
-                        className="text-xs"
-                        title={fileName}>
-                        <RotateCcw className="mr-2 h-3 w-3 shrink-0" />
-                        <span className="truncate">{displayName}</span>
-                      </ContextMenuItem>
+                      <Tooltip key={item.key}>
+                        <TooltipTrigger asChild>
+                          <button
+                            type="button"
+                            onClick={() => handleCreateNode(item.nodeType, item.label, item.extraData)}
+                            className={cn(
+                              'flex h-6 w-6 items-center justify-center rounded-md bg-muted border hover:bg-accent hover:text-accent-foreground transition-colors',
+                            )}>
+                            <IconComponent className="h-4 w-4 opacity-80" />
+                          </button>
+                        </TooltipTrigger>
+                        <TooltipContent side="top">
+                          <p>{item.menuText}</p>
+                        </TooltipContent>
+                      </Tooltip>
                     )
                   })}
-                </ContextMenuSubContent>
-              </ContextMenuSub>
-            </>
-          )}
-        </ContextMenuContent>
-      </ContextMenu>
+                </div>
+                <ContextMenuSeparator />
+              </>
+            )}
+            <ContextMenuItem onClick={() => handleCreateNode('richText', 'Note')}>
+              <Type className="mr-2 h-4 w-4" />
+              Rich Text Note
+            </ContextMenuItem>
+            <ContextMenuSub>
+              <ContextMenuSubTrigger>
+                <StickyNote className="mr-2 h-4 w-4" />
+                Sticky Note
+              </ContextMenuSubTrigger>
+              <ContextMenuSubContent className="w-40">
+                {STICKY_COLORS.map((color) => (
+                  <ContextMenuItem
+                    key={color.name}
+                    onClick={() => handleCreateNode('stickyNote', color.name, { color: color.name })}>
+                    <div
+                      className="mr-2 h-4 w-4 rounded-sm border"
+                      style={{ backgroundColor: color.bg, borderColor: color.border }}
+                    />
+                    {color.name}
+                  </ContextMenuItem>
+                ))}
+              </ContextMenuSubContent>
+            </ContextMenuSub>
 
-      {/* Node Details Sheet - hidden in fullscreen */}
-      {!maximizedNodeId && (
-        <NodeDetailsSheet
-          node={detailsSheetNode}
-          open={detailsSheetOpen}
-          onOpenChange={setDetailsSheetOpen}
-          onWidthChange={setDetailsPanelWidth}
-        />
-      )}
+            <ContextMenuSeparator />
 
-      {/* Create Space Dialog */}
-      <Dialog open={createSpaceOpen} onOpenChange={setCreateSpaceOpen}>
-        <DialogContent className="sm:max-w-sm">
-          <DialogHeader>
-            <DialogTitle>Create New Space</DialogTitle>
-            <DialogDescription>Give your new canvas space a name.</DialogDescription>
-          </DialogHeader>
-          <Input
-            autoFocus
-            placeholder="Space name"
-            value={createSpaceName}
-            onChange={(e) => setCreateSpaceName(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') handleConfirmCreateSpace()
-            }}
+            {/* Media - grouped */}
+            <ContextMenuSub>
+              <ContextMenuSubTrigger>
+                <Image className="mr-2 h-4 w-4" />
+                Media
+              </ContextMenuSubTrigger>
+              <ContextMenuSubContent className="w-40">
+                <ContextMenuItem onClick={() => handleCreateNode('image', 'Image')}>
+                  <Image className="mr-2 h-4 w-4" />
+                  Image
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => handleCreateNode('youtube', 'YouTube')}>
+                  <Video className="mr-2 h-4 w-4" />
+                  YouTube
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => handleCreateNode('embed', 'Web Embed')}>
+                  <Globe className="mr-2 h-4 w-4" />
+                  Web Embed
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => handleCreateNode('spotify', 'Spotify')}>
+                  <Music className="mr-2 h-4 w-4" />
+                  Spotify
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => handleCreateNode('pdf', 'PDF')}>
+                  <FileText className="mr-2 h-4 w-4" />
+                  PDF
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => handleCreateNode('audio', 'Audio')}>
+                  <Mic className="mr-2 h-4 w-4" />
+                  Audio
+                </ContextMenuItem>
+              </ContextMenuSubContent>
+            </ContextMenuSub>
+
+            {/* Data & Code - grouped */}
+            <ContextMenuSub>
+              <ContextMenuSubTrigger>
+                <Table className="mr-2 h-4 w-4" />
+                Data & Code
+              </ContextMenuSubTrigger>
+              <ContextMenuSubContent className="w-40">
+                <ContextMenuItem onClick={() => handleCreateNode('table', 'Table')}>
+                  <Table className="mr-2 h-4 w-4" />
+                  Table
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => handleCreateNode('codeBlock', 'Code Block')}>
+                  <Code className="mr-2 h-4 w-4" />
+                  Code Block
+                </ContextMenuItem>
+                <ContextMenuItem onClick={() => handleCreateNode('terminal', 'Terminal')}>
+                  <Terminal className="mr-2 h-4 w-4" />
+                  Terminal
+                </ContextMenuItem>
+              </ContextMenuSubContent>
+            </ContextMenuSub>
+
+            {/* Shapes */}
+              <ContextMenuSub>
+                <ContextMenuSubTrigger>
+                  <Shapes className="mr-2 h-4 w-4" />
+                  Shape
+                </ContextMenuSubTrigger>
+                <ContextMenuSubContent className="w-40">
+                  <ContextMenuItem onClick={() => handleCreateNode('shape', 'Circle', { shape: 'circle' })}>
+                    <Circle className="mr-2 h-4 w-4" />
+                    Circle
+                  </ContextMenuItem>
+                  <ContextMenuItem onClick={() => handleCreateNode('shape', 'Diamond', { shape: 'diamond' })}>
+                    <Diamond className="mr-2 h-4 w-4" />
+                    Diamond
+                  </ContextMenuItem>
+                  <ContextMenuItem onClick={() => handleCreateNode('shape', 'Triangle', { shape: 'triangle' })}>
+                    <Triangle className="mr-2 h-4 w-4" />
+                    Triangle
+                  </ContextMenuItem>
+                  <ContextMenuItem onClick={() => handleCreateNode('shape', 'Hexagon', { shape: 'hexagon' })}> 
+                  <Hexagon className="mr-2 h-4 w-4" />
+                  Hexagon
+                </ContextMenuItem>
+                <ContextMenuSeparator />
+                <ContextMenuSub>
+                  <ContextMenuSubTrigger>Colored</ContextMenuSubTrigger>
+                  <ContextMenuSubContent className="w-36">
+                    {SHAPE_COLORS.map((color) => (
+                      <ContextMenuItem
+                        key={color.name}
+                        onClick={() => handleCreateNode('shape', color.name, { shape: 'circle', color: color.name })}>
+                        <div
+                          className="mr-2 h-4 w-4 rounded-sm border"
+                          style={{ backgroundColor: color.fill, borderColor: color.stroke }}
+                        />
+                        {color.name}
+                      </ContextMenuItem>
+                    ))}
+                  </ContextMenuSubContent>
+                </ContextMenuSub>
+              </ContextMenuSubContent>
+            </ContextMenuSub>
+
+            <ContextMenuSeparator />
+
+            {/* AI & Tools */}
+            <ContextMenuItem onClick={() => handleCreateNode('agent', 'Agent')}>
+              <Bot className="mr-2 h-4 w-4" />
+              Agent
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleCreateNode('terminal', 'Opencode Agent', { runtime: 'opencode' })}>
+              <Terminal className="mr-2 h-4 w-4" />
+              Opencode Agent
+            </ContextMenuItem>
+
+            <ContextMenuSeparator />
+
+            {/* Specialty items */}
+            <ContextMenuItem onClick={() => handleCreateNode('calendar', 'Calendar')}>
+              <Calendar className="mr-2 h-4 w-4" />
+              Calendar
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleCreateNode('event', 'Event')}>
+              <CalendarDays className="mr-2 h-4 w-4" />
+              Event
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleCreateNode('location', 'Location')}>
+              <MapPin className="mr-2 h-4 w-4" />
+              Location
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleCreateNode('person', 'Person')}>
+              <User className="mr-2 h-4 w-4" />
+              Person
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleCreateNode('folder', 'Folder')}>
+              <Folder className="mr-2 h-4 w-4" />
+              Folder
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleCreateNode('freehand', 'Freehand')}>
+              <PenTool className="mr-2 h-4 w-4" />
+              Freehand
+            </ContextMenuItem>
+
+            {/* Canvas settings */}
+            {!appRailOpen && (
+              <>
+                <ContextMenuSeparator />
+                <ContextMenuItem onClick={() => setAppRailOpen(true)}>
+                  <PanelBottom className="mr-2 h-4 w-4" />
+                  Show App Rail
+                </ContextMenuItem>
+              </>
+            )}
+            {onOpenBackgroundSettings && (
+              <>
+                <ContextMenuSeparator />
+                <ContextMenuItem onClick={onOpenBackgroundSettings}>
+                  <Palette className="mr-2 h-4 w-4" />
+                  Background...
+                </ContextMenuItem>
+              </>
+            )}
+
+            {/* Archived nodes - collapsed into submenu */}
+            {archivedNodes.length > 0 && (
+              <>
+                <ContextMenuSeparator />
+                <ContextMenuSub>
+                  <ContextMenuSubTrigger className="text-muted-foreground">
+                    <Trash2 className="mr-2 h-4 w-4" />
+                    Archived ({archivedNodes.length})
+                  </ContextMenuSubTrigger>
+                  <ContextMenuSubContent className="w-52 max-h-64 overflow-y-auto">
+                    {archivedNodes.map((node) => {
+                      const fileName = node.originalPath.split('/').pop() || 'Unknown'
+                      // Truncate long filenames
+                      const displayName = fileName.length > 28 ? fileName.slice(0, 25) + '...' : fileName
+                      return (
+                        <ContextMenuItem
+                          key={node.id}
+                          onClick={() => restoreArchivedNode(node.id)}
+                          className="text-xs"
+                          title={fileName}>
+                          <RotateCcw className="mr-2 h-3 w-3 shrink-0" />
+                          <span className="truncate">{displayName}</span>
+                        </ContextMenuItem>
+                      )
+                    })}
+                  </ContextMenuSubContent>
+                </ContextMenuSub>
+              </>
+            )}
+          </ContextMenuContent>
+        </ContextMenu>
+
+        {/* Node Details Sheet - hidden in fullscreen */}
+        {!maximizedNodeId && (
+          <NodeDetailsSheet
+            node={detailsSheetNode}
+            open={detailsSheetOpen}
+            onOpenChange={setDetailsSheetOpen}
+            onWidthChange={setDetailsPanelWidth}
           />
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setCreateSpaceOpen(false)}>
-              Cancel
-            </Button>
-            <Button onClick={handleConfirmCreateSpace} disabled={!createSpaceName.trim()}>
-              Create
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+        )}
+
+        {/* Create Space Dialog */}
+        <Dialog open={createSpaceOpen} onOpenChange={setCreateSpaceOpen}>
+          <DialogContent className="sm:max-w-sm">
+            <DialogHeader>
+              <DialogTitle>Create New Space</DialogTitle>
+              <DialogDescription>Give your new canvas space a name.</DialogDescription>
+            </DialogHeader>
+            <Input
+              autoFocus
+              placeholder="Space name"
+              value={createSpaceName}
+              onChange={(e) => setCreateSpaceName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleConfirmCreateSpace()
+              }}
+            />
+            <DialogFooter>
+              <Button variant="outline" onClick={() => setCreateSpaceOpen(false)}>
+                Cancel
+              </Button>
+              <Button onClick={handleConfirmCreateSpace} disabled={!createSpaceName.trim()}>
+                Create
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   )

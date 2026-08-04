@@ -17,6 +17,7 @@ export function useUIPersistence() {
       dockShowSeconds: state.dockShowSeconds,
       dockUse24Hour: state.dockUse24Hour,
       homeCanvasNamespaceTileClickBehavior: state.homeCanvasNamespaceTileClickBehavior,
+      appRailOpen: state.appRailOpen,
       // showFileExplorer intentionally not persisted - always open on startup
       zoomLevel: state.zoomLevel,
       webPreviewZoom: state.webPreviewZoom,

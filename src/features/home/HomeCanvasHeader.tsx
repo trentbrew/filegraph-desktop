@@ -270,7 +270,7 @@ export function HomeCanvasHeader({ className }: HomeCanvasHeaderProps) {
     <div
       data-tauri-drag-region
       className={cn(
-        'relative flex items-center justify-between px-2 py-2 gap-2 h-12 border bg-card rounded-xl mx-3 mt-3 shrink-0',
+        'relative flex items-center justify-between px-3 py-2 gap-2 h-12 border-none bg-card/0 rounded-xl mx-3 mt-0 shrink-0',
         className,
       )}>
       {/* Left: Window controls + Sidebar toggle + Space selector */}

@@ -1789,32 +1789,28 @@ function CanvasViewerInner({ filePath, fileName, onOpenBackgroundSettings }: Can
             <ContextMenuSeparator />
 
             {/* Shapes */}
-            <ContextMenuSub>
-              <ContextMenuSubTrigger>
-                <Shapes className="mr-2 h-4 w-4" />
-                Shape
-              </ContextMenuSubTrigger>
-              <ContextMenuSubContent className="w-48">
-                <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'rectangle' })}>
-                  <Square className="mr-2 h-4 w-4" />
-                  Rectangle
-                </ContextMenuItem>
-                <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'circle' })}>
-                  <Circle className="mr-2 h-4 w-4" />
-                  Circle
-                </ContextMenuItem>
-                <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'diamond' })}>
-                  <Diamond className="mr-2 h-4 w-4" />
-                  Diamond
-                </ContextMenuItem>
-                <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'triangle' })}>
-                  <Triangle className="mr-2 h-4 w-4" />
-                  Triangle
-                </ContextMenuItem>
-                <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'hexagon' })}>
-                  <Hexagon className="mr-2 h-4 w-4" />
-                  Hexagon
-                </ContextMenuItem>
+              <ContextMenuSub>
+                <ContextMenuSubTrigger>
+                  <Shapes className="mr-2 h-4 w-4" />
+                  Shape
+                </ContextMenuSubTrigger>
+                <ContextMenuSubContent className="w-48">
+                  <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'circle' })}>
+                    <Circle className="mr-2 h-4 w-4" />
+                    Circle
+                  </ContextMenuItem>
+                  <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'diamond' })}>
+                    <Diamond className="mr-2 h-4 w-4" />
+                    Diamond
+                  </ContextMenuItem>
+                  <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'triangle' })}>
+                    <Triangle className="mr-2 h-4 w-4" />
+                    Triangle
+                  </ContextMenuItem>
+                  <ContextMenuItem onClick={() => createNode('shape', '', { shape: 'hexagon' })}>
+                    <Hexagon className="mr-2 h-4 w-4" />
+                    Hexagon
+                  </ContextMenuItem>
                 <ContextMenuSeparator />
                 <ContextMenuSub>
                   <ContextMenuSubTrigger>Colors</ContextMenuSubTrigger>
@@ -1822,7 +1818,7 @@ function CanvasViewerInner({ filePath, fileName, onOpenBackgroundSettings }: Can
                     {SHAPE_COLORS.map((color) => (
                       <ContextMenuItem
                         key={color.name}
-                        onClick={() => createNode('shape', '', { shape: 'rectangle', color: color.name })}>
+                        onClick={() => createNode('shape', '', { shape: 'circle', color: color.name })}>
                         <div
                           className="mr-2 h-4 w-4 rounded-sm border"
                           style={{ backgroundColor: color.fill, borderColor: color.stroke }}

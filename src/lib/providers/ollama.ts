@@ -65,7 +65,11 @@ export const ollamaAdapter: ProviderAdapter = {
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({}))
-      throw new Error(error.error || `API error: ${response.status}`)
+      const errMsg = error.error || `API error: ${response.status}`
+      if (response.status === 404 || errMsg.includes('not found')) {
+        throw new Error(`${errMsg}. Please ensure Ollama is running and run "ollama pull ${config.model}" in your terminal.`)
+      }
+      throw new Error(errMsg)
     }
 
     const data = await response.json()
@@ -102,7 +106,11 @@ export const ollamaAdapter: ProviderAdapter = {
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({}))
-      throw new Error(error.error || `API error: ${response.status}`)
+      const errMsg = error.error || `API error: ${response.status}`
+      if (response.status === 404 || errMsg.includes('not found')) {
+        throw new Error(`${errMsg}. Please ensure Ollama is running and run "ollama pull ${config.model}" in your terminal.`)
+      }
+      throw new Error(errMsg)
     }
 
     const reader = response.body?.getReader()

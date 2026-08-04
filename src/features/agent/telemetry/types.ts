@@ -135,6 +135,7 @@ export const MODEL_PRICING: Record<string, ModelPricing> = {
   'llama-3.3-70b-versatile': { inputPer1M: 0.59, outputPer1M: 0.79 },
   'llama-3.1-8b-instant': { inputPer1M: 0.05, outputPer1M: 0.08 },
   // Ollama (local, free)
+  gemma4: { inputPer1M: 0, outputPer1M: 0 },
   'llama3-groq-tool-use': { inputPer1M: 0, outputPer1M: 0 },
   'llama3.2': { inputPer1M: 0, outputPer1M: 0 },
   'qwen2.5-coder': { inputPer1M: 0, outputPer1M: 0 },

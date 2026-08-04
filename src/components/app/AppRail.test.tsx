@@ -24,6 +24,15 @@ vi.mock('@/stores/useAppStore', () => ({
   },
 }))
 
+const mockSetAppRailOpen = vi.fn()
+
+vi.mock('@/stores/useUIStore', () => ({
+  useUIStore: (selector: any) => {
+    const state = { setAppRailOpen: mockSetAppRailOpen }
+    return selector ? selector(state) : state
+  },
+}))
+
 // Mock Tauri API (not available in jsdom)
 vi.mock('@tauri-apps/api/core', () => ({
   invoke: vi.fn(),
@@ -35,6 +44,17 @@ vi.mock('@/components/ui/tooltip', () => ({
   Tooltip: ({ children }: any) => <div>{children}</div>,
   TooltipTrigger: ({ children, asChild }: any) => (asChild ? children : <div>{children}</div>),
   TooltipContent: ({ children }: any) => <div data-testid="tooltip-content">{children}</div>,
+}))
+
+vi.mock('@/components/ui/context-menu', () => ({
+  ContextMenu: ({ children }: any) => <div>{children}</div>,
+  ContextMenuTrigger: ({ children, asChild }: any) => (asChild ? children : <div>{children}</div>),
+  ContextMenuContent: ({ children }: any) => <div data-testid="context-menu-content">{children}</div>,
+  ContextMenuItem: ({ children, onClick }: any) => (
+    <button type="button" onClick={onClick}>
+      {children}
+    </button>
+  ),
 }))
 
 vi.mock('./AppMarketplace', () => ({
@@ -52,6 +72,7 @@ describe('AppRail', () => {
   beforeEach(() => {
     mockActiveApp = 'home'
     mockSetActiveApp.mockClear()
+    mockSetAppRailOpen.mockClear()
     localStorage.clear()
   })
 
@@ -71,11 +92,11 @@ describe('AppRail', () => {
     expect(settingsBtn).toBeDefined()
   })
 
-  it('renders AppMarketplace with popoverSide="right"', () => {
+  it('renders AppMarketplace with popoverSide="top"', () => {
     render(<AppRail />)
     const marketplace = screen.getByTestId('app-marketplace')
     expect(marketplace).toBeDefined()
-    expect(marketplace.getAttribute('data-popover-side')).toBe('right')
+    expect(marketplace.getAttribute('data-popover-side')).toBe('top')
   })
 
   it('calls setActiveApp when a home app button is clicked', () => {
@@ -116,5 +137,11 @@ describe('AppRail', () => {
       const app = getApp(id)
       expect(screen.getByRole('button', { name: app.name })).toBeDefined()
     }
+  })
+
+  it('hides app rail from context menu', () => {
+    render(<AppRail />)
+    fireEvent.click(screen.getByRole('button', { name: /Hide App Rail/i }))
+    expect(mockSetAppRailOpen).toHaveBeenCalledWith(false)
   })
 })

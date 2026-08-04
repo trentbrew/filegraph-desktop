@@ -89,9 +89,17 @@ export function hasTerminalSession(sessionId: string): boolean {
   return sessions.has(sessionId)
 }
 
-export async function spawnTerminalSession(opts: { cwd?: string; cols: number; rows: number }): Promise<string> {
+export async function spawnTerminalSession(opts: {
+  cwd?: string
+  cols: number
+  rows: number
+  shell?: string
+  args?: string[]
+}): Promise<string> {
   const result = await invoke<{ id: string; success: boolean }>('terminal_spawn', {
     cwd: opts.cwd,
+    shell: opts.shell,
+    args: opts.args,
     cols: opts.cols,
     rows: opts.rows,
   })
