@@ -87,7 +87,7 @@ function AppContent() {
 
   // Debug: Track global drag events
   useEffect(() => {
-    return () => {}
+    return () => { }
   }, [])
 
   useEffect(() => {
@@ -174,7 +174,7 @@ function AppContent() {
   // Show loading state while checking first-run
   if (isLoading) {
     return (
-      <div className="h-screen w-screen m-0 overflow-hidden bg-background rounded-xl flex items-center justify-center">
+      <div className="h-full w-full m-0 overflow-hidden bg-background rounded-xl flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
           <span className="text-sm text-muted-foreground">Loading...</span>
@@ -186,7 +186,7 @@ function AppContent() {
   // Show onboarding for first-run users
   if (needsOnboarding) {
     return (
-      <div className="h-screen w-screen m-0 overflow-hidden bg-background rounded-xl">
+      <div className="h-full w-full m-0 overflow-hidden bg-background rounded-xl">
         <OnboardingDialog isOpen={true} onComplete={completeOnboarding} />
         <Toaster />
       </div>
@@ -194,7 +194,7 @@ function AppContent() {
   }
 
   return (
-    <div className="h-screen w-screen m-0 overflow-hidden rounded-xl app-zoom-container">
+    <div className="h-full w-full m-0 overflow-hidden rounded-xl app-zoom-container">
       <div className="h-full flex flex-col overflow-hidden rounded-[12px] bg-[#111]">
         {/* Global header - spans full width, all apps */}
         <HomeCanvasHeader />
@@ -210,7 +210,7 @@ function AppContent() {
                 exit={{ width: 0, opacity: 0 }}
                 transition={isSidebarResizing ? { duration: 0 } : { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                 className="h-full shrink-0 overflow-hidden relative">
-                <div className="h-full p-3 pr-1 pt-0!" style={{ width: globalSidebarWidth }}>
+                <div className="h-full w-full min-w-0 box-border p-3 pr-1 pt-0!">
                   <div className="h-full w-full overflow-hidden rounded-xl bg-card border flex flex-col">
                     <MemoHomeCanvasFileBrowser initialRootPath={currentSpacePath || vaultPath} />
                   </div>
@@ -292,7 +292,7 @@ function AppContent() {
                     <GripVertical className="h-4 w-4 text-muted-foreground" />
                   </div>
                 </div>
-                <div className="h-full p-3 pl-1 pt-0!" style={{ width: agentPanelWidth }}>
+                <div className="h-full w-full min-w-0 box-border p-3 pl-1 pt-0!">
                   <div className="h-full w-full overflow-hidden rounded-xl bg-card border">
                     <AgentSidebar />
                   </div>
@@ -309,7 +309,7 @@ function AppContent() {
         <VaultSelector
           isOpen={showVaultSelector}
           onClose={() => setShowVaultSelector(false)}
-          onVaultSelected={() => {}}
+          onVaultSelected={() => { }}
         />
         <GlobalCommandPalette />
         <KeybindingsDialog isOpen={showKeybindings} onClose={() => setShowKeybindings(false)} />

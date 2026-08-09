@@ -201,8 +201,7 @@ export function CustomCursor() {
 
   const isLight = contrast === 'light'
 
-  // Portal to document.body to avoid being affected by parent transforms
-  // (e.g., app-zoom-container which uses transform: scale())
+  // Portal to document.body to avoid being affected by parent zoom transforms
   return createPortal(
     <div
       className={cn(

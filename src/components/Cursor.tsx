@@ -355,8 +355,7 @@ function CustomCursor({ zoneRef }: CustomCursorProps) {
   const centerX = config.size / 2
   const centerY = config.size / 2
 
-  // Portal to document.body to avoid being affected by parent transforms
-  // (e.g., app-zoom-container which uses transform: scale())
+  // Portal to document.body to avoid being affected by parent zoom transforms
   return createPortal(
     <div
       className="custom-cursor pointer-events-none fixed left-0 top-0 z-[9999] flex items-start gap-2"

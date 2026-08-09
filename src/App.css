@@ -76,12 +76,10 @@
   --app-zoom: 1;
 }
 
-/* App zoom container */
+/* App zoom — use `zoom` instead of transform:scale() so layout stays aligned
+   in the Tauri frameless window (transform + w-screen caused right gutter / left clip). */
 .app-zoom-container {
-  transform: scale(var(--app-zoom));
-  transform-origin: top left;
-  width: calc(100% / var(--app-zoom));
-  height: calc(100% / var(--app-zoom));
+  zoom: var(--app-zoom);
 }
 
 .dark {
